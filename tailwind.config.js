@@ -1,10 +1,11 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{jsx,tsx,mdx}'],
   theme: {
     fontFamily: {
-      inter: ['Inter', 'sans-serif'],
-      roboto: ['Roboto', 'sans-serif'],
+      body: ['"SF Pro"', 'sans-serif'],
     },
     screens: {
       xs: '480px',
@@ -13,27 +14,53 @@ module.exports = {
       lg: '1024px',
       xl: '1440px',
     },
-    opacity: {
-      0: '0',
-      15: '0.15',
-      25: '0.25',
-      50: '0.5',
-      80: '0.8',
-      100: '1',
-    },
     extend: {
       colors: {
-        primary: '#1a202c',
-        secondary: '#2d3748',
+        highlight: '#AB05F2',
+        primary: '#7C05F2',
+        secondary: '#4703A6',
+        tertiary: '#1B0140',
+        darken: '#100126',
 
         // aliases
-        text: '#f3f3f3',
-        background: '#222222',
+        text: '#ffffff',
+        background: '#000000',
+
+        // actions
+        success: '#00C853',
+        warning: '#FFD600',
+        error: '#D50000',
       },
       borderRadius: {
-        round: '50%',
+        50: '50%',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase, addUtilities, theme, matchVariant }) {
+      addBase({
+        html: {
+          fontSize: theme('fontSize.base'),
+        },
+      }),
+        addUtilities({
+          '.scrollbar': {
+            scrollbarWidth: 'thin',
+          },
+        }),
+        matchVariant(
+          'nth',
+          (value) => {
+            return `&:nth-child(${value})`
+          },
+          {
+            values: {
+              1: '1',
+              2: '2',
+              3: '3',
+            },
+          }
+        )
+    }),
+  ],
 }

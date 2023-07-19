@@ -2,62 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply overflow-x-hidden scroll-smooth bg-background font-inter text-text;
-}
+@layer base {
+  html {
+    @font-face {
+      font-family: 'SF Pro';
+      src: url('../../public/fonts/SFPRO_REGULAR.OTF');
+    }
 
-html {
-  @apply h-full text-base;
-  -webkit-text-size-adjust: 100%;
-}
+    @font-face {
+      font-family: 'SF Pro Medium';
+      src: url('../../public/fonts/SFPRO_MEDIUM.OTF');
+    }
+  }
 
-body {
-  @apply min-h-full antialiased;
-  text-rendering: optimizeLegibility;
-}
+  html,
+  body {
+    @apply overflow-x-hidden scroll-smooth bg-background font-body text-text;
+  }
 
-* {
-  @apply m-0 box-border p-0;
-}
+  html {
+    @apply h-full text-base;
+    -webkit-text-size-adjust: 100%;
+  }
 
-img {
-  @apply select-none;
-  -webkit-user-drag: none;
-}
+  body {
+    @apply min-h-full antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-button {
-  @apply cursor-pointer select-none font-inter;
-}
+  * {
+    @apply m-0 box-border p-0;
+  }
 
-a {
-  @apply select-none text-inherit no-underline;
-}
+  img {
+    @apply select-none;
+    -webkit-user-drag: none;
+  }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  @apply appearance-none;
-  -webkit-appearance: none;
-}
+  button {
+    @apply cursor-pointer select-none font-body;
+  }
 
-/* ::selection {
-  background: ${({ theme }) => theme.default.selection};
-  -webkit-text-fill-color: #fff;
-}
+  a {
+    @apply select-none text-inherit no-underline;
+  }
 
-::-webkit-scrollbar {
-  height: 4px;
-  width: 6px;
-  background: ${({ theme }) => theme.default.scroll};
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-}
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    @apply appearance-none;
+    -webkit-appearance: none;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: ${({ theme }) => theme.default.thumb};
-  border-radius: 8px;
-}
+  ::selection {
+    @apply bg-primary;
+    -webkit-text-fill-color: #fff;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: ${({ theme }) => theme.default.thumbHover};
-} */
+  ::-webkit-scrollbar {
+    @apply h-1 w-2 bg-background;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-lg bg-primary;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-secondary;
+  }
+}
