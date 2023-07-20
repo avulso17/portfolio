@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import '@/styles/global.css'
+import '@/UI/styles/global.css'
 
 export const metadata: Metadata = {
   title: 'Flow.ai',

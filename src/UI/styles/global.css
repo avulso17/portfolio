@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply custom-scrollbar;
+
+    @font-face {
+      font-family: 'SF Pro';
+      src: url('../../../public/fonts/SFPRO_REGULAR.OTF');
+    }
+
+    @font-face {
+      font-family: 'SF Pro Medium';
+      src: url('../../../public/fonts/SFPRO_MEDIUM.OTF');
+    }
+  }
+
+  p,
+  b,
+  a {
+    @apply text-body;
+  }
+
+  h1 {
+    @apply title-lg;
+  }
+
+  h2 {
+    @apply title-1;
+  }
+
+  h3 {
+    @apply title-2;
+  }
+
+  h4 {
+    @apply title-3;
+  }
+}
