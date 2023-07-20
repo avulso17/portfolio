@@ -15,36 +15,26 @@
     }
   }
 
-  html,
-  body {
-    @apply overflow-x-hidden scroll-smooth bg-background font-body text-text;
+  h1 {
+    @apply title-lg;
   }
 
-  html {
-    @apply h-full text-base;
-    -webkit-text-size-adjust: 100%;
+  h2 {
+    @apply title-1;
   }
 
-  body {
-    @apply min-h-full antialiased;
-    text-rendering: optimizeLegibility;
+  h3 {
+    @apply title-2;
   }
 
-  * {
-    @apply m-0 box-border p-0;
+  h4 {
+    @apply title-3;
   }
 
-  img {
-    @apply select-none;
-    -webkit-user-drag: none;
-  }
-
-  button {
-    @apply cursor-pointer select-none font-body;
-  }
-
+  p,
+  b,
   a {
-    @apply select-none text-inherit no-underline;
+    @apply text-body;
   }
 
   input[type='number']::-webkit-inner-spin-button,
@@ -59,7 +49,7 @@
   }
 
   ::-webkit-scrollbar {
-    @apply h-1 w-2 bg-background;
+    @apply h-1 w-2 bg-background-200;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
   }
