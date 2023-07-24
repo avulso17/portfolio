@@ -17,7 +17,19 @@ module.exports = {
         600: '#1C1C1E',
       },
       black: '#000000',
+      blue: '#0A84FF ',
+      brown: '#AC8E68',
+      cyan: '#40CBE0',
+      green: '#30D158 ',
+      indigo: '#5E5CE6',
+      mint: '#63E6E2',
+      orange: '#FF9F0A',
+      pink: '#FF375F',
+      purple: '#BF5AF2 ',
+      red: '#FF453A',
+      teal: '#40CBE0 ',
       white: '#ffffff',
+      yellow: '#FFD60A ',
 
       // theme colors
       highlight: '#AB05F2',
@@ -25,14 +37,6 @@ module.exports = {
       secondary: '#4703A6',
       tertiary: '#1B0140',
       darken: '#100126',
-
-      // fills
-      fill: {
-        100: 'rgba(120, 120, 128, 0.36)',
-        200: 'rgba(120, 120, 128, 0.32)',
-        300: 'rgba(118, 118, 128, 0.24)',
-        400: 'rgba(116, 116, 128, 0.18)',
-      },
 
       // aliases
       background: {
@@ -42,7 +46,9 @@ module.exports = {
       },
       label: {
         100: '#FFFFFF',
-        200: '#EBEBF5',
+        200: 'rgba(127, 127, 127, 0.50)',
+        300: 'rgba(127, 127, 127, 0.40)',
+        400: 'rgba(127, 127, 127, 0.20)',
       },
       separator: {
         DEFAULT: '#38383A',
@@ -50,8 +56,8 @@ module.exports = {
       },
 
       // actions
-      success: '#30D158 ',
-      warning: '#FFD60A ',
+      success: '#30D158',
+      warning: '#FFD60A',
       error: '#FF453A',
       info: '#0A84FF ',
     },
@@ -181,8 +187,98 @@ module.exports = {
         },
       }),
         addUtilities({
-          // modal
-          '.modal': {},
+          // tile backgrounds
+          '.bg-tile-1': {
+            background:
+              'url(/tiles/purple_background_wave.png), lightgray 50% / cover no-repeat',
+          },
+
+          '.bg-tile-2': {
+            background:
+              'url(/tiles/purple_background_wave2.png), lightgray 50% / cover no-repeat',
+          },
+
+          '.bg-tile-3': {
+            background:
+              'url(/tiles/purple_background_wave3.png), lightgray 50% / cover no-repeat',
+          },
+
+          '.bg-tile-4': {
+            background:
+              'url(/tiles/purple_background_wave4.png), lightgray 50% / cover no-repeat',
+          },
+
+          // materials
+          '.bg-material-100': {
+            backgroundImage:
+              'linear-gradient(0deg, rgba(156, 156, 156, 0.1) 0%, rgba(156, 156, 156, 0.1) 100%)',
+            backgroundColor: 'rgba(37, 37, 37, 0.55)',
+            backgroundBlendMode: 'overlay, normal',
+          },
+
+          '.bg-material-200': {
+            backgroundImage:
+              'linear-gradient(0deg, rgba(156, 156, 156, 0.1) 0%, rgba(156, 156, 156, 0.1) 100%)',
+            backgroundColor: 'rgba(37, 37, 37, 0.70)',
+            backgroundBlendMode: 'overlay, normal',
+          },
+
+          '.bg-material-300': {
+            backgroundImage:
+              'linear-gradient(0deg, rgba(140, 140, 140, 0.1) 0%, rgba(140, 140, 140, 0.1) 100%)',
+            backgroundColor: 'rgba(37, 37, 37, 0.82)',
+            backgroundBlendMode: 'overlay, normal',
+          },
+
+          '.bg-material-400': {
+            backgroundImage:
+              'linear-gradient(0deg, rgba(124, 124, 124, 0.1) 0%, rgba(124, 124, 124, 0.1) 100%)',
+            backgroundColor: 'rgba(37, 37, 37, 0.90)',
+            backgroundBlendMode: 'overlay, normal',
+          },
+
+          // fills
+          '.bg-fill-100': {
+            backgroundImage:
+              'linear-gradient(0deg, rgba(194, 194, 194, 1) 0%, rgba(194, 194, 194, 1) 100%)',
+            backgroundColor: 'rgba(127, 127, 127, 0.50)',
+            backgroundBlendMode: 'overlay, luminosity',
+          },
+
+          '.bg-fill-200': {
+            backgroundImage:
+              'linear-gradient(0deg, rgba(194, 194, 194, 0.50) 0%, rgba(194, 194, 194, 0.50) 100%)',
+            backgroundColor: 'rgba(127, 127, 127, 0.40)',
+            backgroundBlendMode: 'overlay, luminosity',
+          },
+
+          '.bg-fill-300': {
+            backgroundImage:
+              'linear-gradient(0deg, rgba(194, 194, 194, 0.50) 0%, rgba(194, 194, 194, 0.50) 100%)',
+            backgroundColor: 'rgba(127, 127, 127, 0.20)',
+            backgroundBlendMode: 'overlay, luminosity',
+            backdropFilter: 'blur(0px)',
+          },
+
+          // base dialog
+          '.dialog': {
+            borderRadius: '20px',
+            position: 'fixed',
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
+            backdropFilter: 'blur(25px)',
+            maxHeight: '85vh',
+            maxWidth: '500px',
+            width: '90vw',
+            zIndex: 1000,
+          },
+
+          // separator
+          '.separator': {
+            '&[data-orientation=horizontal]': { height: 1, width: '100%' },
+            '&[data-orientation=vertical]': { height: '100%', width: 1 },
+          },
 
           // scrollbar
           '.custom-scrollbar': {
