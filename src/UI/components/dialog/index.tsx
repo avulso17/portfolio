@@ -19,6 +19,7 @@ interface IDialogProps {
   close?: boolean
   content?: React.ReactNode | string
   description?: string
+  footer?: React.ReactNode
   title?: string
 }
 
@@ -28,6 +29,7 @@ const Dialog = ({
   content,
   description,
   title,
+  footer,
 }: IDialogProps): JSX.Element => {
   return (
     <Root>
@@ -36,7 +38,7 @@ const Dialog = ({
       <Portal>
         {/* <Overlay className='fixed inset-0 bg-black bg-opacity-50 data-[state=open]:animate-overlayShow' /> */}
 
-        <Content className='text-white bg-material-100 dialog focus:outline-none data-[state=open]:animate-contentShow'>
+        <Content className='text-white bg-material-200 dialog focus:outline-none data-[state=open]:animate-contentShow'>
           {title !== undefined && (
             <Title className='px-5 pt-5 title-lg'>{title}</Title>
           )}
@@ -60,6 +62,14 @@ const Dialog = ({
           )}
 
           <div className='p-5'>{content}</div>
+
+          {footer !== undefined && (
+            <>
+              <Separator alpha className='mb-5' />
+
+              <div className='w-full'>{footer}</div>
+            </>
+          )}
         </Content>
       </Portal>
     </Root>

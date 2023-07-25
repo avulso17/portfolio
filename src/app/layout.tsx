@@ -14,7 +14,9 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body className='bg-tile-4'>
+        <div className='h-screen rounded-3xl p-16'>{children}</div>
+      </body>
     </html>
   )
 }
