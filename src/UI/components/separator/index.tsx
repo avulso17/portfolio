@@ -1,29 +1,25 @@
 'use client'
 
-import { Root } from '@radix-ui/react-separator'
+import { twMerge } from 'tailwind-merge'
 
-interface IDialogProps {
+import { Root, SeparatorProps } from '@radix-ui/react-separator'
+
+type SeparatorTypes = SeparatorProps & {
   alpha?: boolean
-  asChild?: boolean
-  children?: React.ReactNode
-  className?: string
-  decorative?: boolean
-  orientation?: 'horizontal' | 'vertical'
 }
 
 const Separator = ({
   alpha = false,
   asChild = false,
-  className = '',
+  className,
   children,
-  orientation = 'horizontal',
+  orientation,
   decorative,
-}: IDialogProps): JSX.Element => {
+}: SeparatorTypes): JSX.Element => {
   return (
     <Root
-      className={`separator ${
-        alpha ? 'bg-separator-alpha' : 'bg-separator'
-      } ${className}`}
+      data-alpha={alpha}
+      className={twMerge('data-[alpha=true]:bg-alpha separator', className)}
       asChild={asChild}
       decorative={decorative}
       orientation={orientation}

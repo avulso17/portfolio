@@ -1,10 +1,11 @@
 'use client'
 
+import { tv } from 'tailwind-variants'
+
 import {
   Root,
   Trigger,
   Portal,
-  Overlay,
   Content,
   Title,
   Description,
@@ -23,6 +24,15 @@ interface IDialogProps {
   title?: string
 }
 
+const dialog = tv({
+  slots: {
+    contentStyles:
+      'text-white bg-material-400 dialog focus:outline-none data-[state=open]:animate-contentShow',
+  },
+})
+
+const { contentStyles } = dialog()
+
 const Dialog = ({
   children,
   close,
@@ -38,7 +48,7 @@ const Dialog = ({
       <Portal>
         {/* <Overlay className='fixed inset-0 bg-black bg-opacity-50 data-[state=open]:animate-overlayShow' /> */}
 
-        <Content className='text-white bg-material-400 dialog focus:outline-none data-[state=open]:animate-contentShow'>
+        <Content className={contentStyles()}>
           {title !== undefined && (
             <Title className='px-5 pt-5 title-lg'>{title}</Title>
           )}

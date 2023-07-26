@@ -1,3 +1,4 @@
+import { Button } from '@/UI/components/button'
 import Dialog from '@/UI/components/dialog'
 import Separator from '@/UI/components/separator'
 
@@ -49,9 +50,7 @@ export default function Home(): JSX.Element {
         content={<ModalContent />}
         // footer={<FooterContent />}
       >
-        <button className='rounded bg-primary p-2 hover:bg-highlight'>
-          Edit profile
-        </button>
+        <Button>Open Dialog</Button>
       </Dialog>
     </main>
   )
