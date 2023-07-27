@@ -54,6 +54,12 @@ module.exports = {
         DEFAULT: '#38383A',
         alpha: 'rgba(84, 84, 88, 0.65) ',
       },
+      fill: {
+        100: 'rgba(120, 120, 128, 0.36)',
+        200: 'rgba(120, 120, 128, 0.32)',
+        300: 'rgba(118, 118, 128, 0.24)',
+        400: 'rgba(116, 116, 128, 0.18)',
+      },
 
       // actions
       success: '#30D158',
@@ -238,21 +244,21 @@ module.exports = {
           },
 
           // fills
-          '.bg-fill-100': {
+          '.material-fill-100': {
             backgroundImage:
               'linear-gradient(0deg, rgba(194, 194, 194, 1) 0%, rgba(194, 194, 194, 1) 100%)',
             backgroundColor: 'rgba(127, 127, 127, 0.50)',
             backgroundBlendMode: 'overlay, luminosity',
           },
 
-          '.bg-fill-200': {
+          '.material-fill-200': {
             backgroundImage:
               'linear-gradient(0deg, rgba(194, 194, 194, 0.50) 0%, rgba(194, 194, 194, 0.50) 100%)',
             backgroundColor: 'rgba(127, 127, 127, 0.40)',
             backgroundBlendMode: 'overlay, luminosity',
           },
 
-          '.bg-fill-300': {
+          '.material-fill-300': {
             backgroundImage:
               'linear-gradient(0deg, rgba(194, 194, 194, 0.50) 0%, rgba(194, 194, 194, 0.50) 100%)',
             backgroundColor: 'rgba(127, 127, 127, 0.20)',

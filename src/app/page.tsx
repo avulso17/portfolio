@@ -12,7 +12,7 @@ const ModalContent = (): JSX.Element => {
         cupiditate facere! Odio, consequatur?
       </p>
 
-      <div className='rounded-lg p-2 bg-fill-300'>
+      <div className='rounded-lg p-2 material-fill-300'>
         <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
       </div>
 
@@ -29,13 +29,9 @@ const ModalContent = (): JSX.Element => {
 const FooterContent = (): JSX.Element => {
   return (
     <div className='flex justify-end gap-2 px-5 pb-5'>
-      <button className='rounded-md bg-primary p-2 hover:bg-highlight'>
-        Save
-      </button>
+      <Button>Save</Button>
 
-      <button className='rounded-md bg-primary p-2 hover:bg-highlight'>
-        Cancel
-      </button>
+      <Button>Cancel</Button>
     </div>
   )
 }

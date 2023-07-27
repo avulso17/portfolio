@@ -27,12 +27,10 @@ const dialog = tv({
 
 const { contentStyles, titleStyles } = dialog()
 
-type PrimitiveDivTypes = Omit<PrimitiveDivProps, 'title'>
 type DialogVariants = VariantProps<typeof dialog>
 
 type IDialogProps = DialogVariants &
-  DialogProps &
-  PrimitiveDivTypes & {
+  DialogProps & {
     close?: boolean
     content?: React.ReactNode | string
     description?: string
@@ -60,7 +58,6 @@ const Dialog = ({
       modal={modal}
     >
       <Trigger asChild>{children}</Trigger>
-      <div title=''></div>
 
       <Portal>
         {/* <Overlay className='fixed inset-0 bg-black bg-opacity-50 data-[state=open]:animate-overlayShow' /> */}
