@@ -1,6 +1,6 @@
 'use client'
 
-import { tv } from 'tailwind-variants'
+import { tv, VariantProps } from 'tailwind-variants'
 
 import {
   Root,
@@ -10,47 +10,64 @@ import {
   Title,
   Description,
   Close,
+  PrimitiveDivProps,
+  DialogProps,
 } from '@radix-ui/react-dialog'
 import { Cross2Icon } from '@radix-ui/react-icons'
 
 import Separator from '../separator'
 
-interface IDialogProps {
-  children: React.ReactNode
-  close?: boolean
-  content?: React.ReactNode | string
-  description?: string
-  footer?: React.ReactNode
-  title?: string
-}
-
 const dialog = tv({
   slots: {
     contentStyles:
       'text-white bg-material-400 dialog focus:outline-none data-[state=open]:animate-contentShow',
+    titleStyles: 'px-5 pt-5 title-lg',
   },
 })
 
-const { contentStyles } = dialog()
+const { contentStyles, titleStyles } = dialog()
+
+type PrimitiveDivTypes = Omit<PrimitiveDivProps, 'title'>
+type DialogVariants = VariantProps<typeof dialog>
+
+type IDialogProps = DialogVariants &
+  DialogProps &
+  PrimitiveDivTypes & {
+    close?: boolean
+    content?: React.ReactNode | string
+    description?: string
+    footer?: React.ReactNode
+    title?: string
+  }
 
 const Dialog = ({
   children,
   close,
   content,
+  defaultOpen,
   description,
-  title,
   footer,
+  modal,
+  onOpenChange,
+  open,
+  title,
 }: IDialogProps): JSX.Element => {
   return (
-    <Root>
+    <Root
+      open={open}
+      onOpenChange={onOpenChange}
+      defaultOpen={defaultOpen}
+      modal={modal}
+    >
       <Trigger asChild>{children}</Trigger>
+      <div title=''></div>
 
       <Portal>
         {/* <Overlay className='fixed inset-0 bg-black bg-opacity-50 data-[state=open]:animate-overlayShow' /> */}
 
         <Content className={contentStyles()}>
           {title !== undefined && (
-            <Title className='px-5 pt-5 title-lg'>{title}</Title>
+            <Title className={titleStyles()}>{title}</Title>
           )}
 
           {description !== undefined && (
