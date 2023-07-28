@@ -1,6 +1,5 @@
 import { Button } from '@/UI/components/button'
 import Dialog from '@/UI/components/dialog'
-import Separator from '@/UI/components/separator'
 
 const ModalContent = (): JSX.Element => {
   return (
@@ -26,15 +25,15 @@ const ModalContent = (): JSX.Element => {
   )
 }
 
-const FooterContent = (): JSX.Element => {
-  return (
-    <div className='flex justify-end gap-2 px-5 pb-5'>
-      <Button>Save</Button>
+// const FooterContent = (): JSX.Element => {
+//   return (
+//     <div className='flex justify-end gap-2 px-5 pb-5'>
+//       <Button>Save</Button>
 
-      <Button>Cancel</Button>
-    </div>
-  )
-}
+//       <Button>Cancel</Button>
+//     </div>
+//   )
+// }
 
 export default function Home(): JSX.Element {
   return (

@@ -3,7 +3,7 @@ import React, { ComponentProps } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const buttonStyles = tv({
-  base: 'inline-flex justify-center items-center px-5 py-3.5 disabled:bg-fill-300 disabled:text-label-300 disabled:cursor-default leading-5',
+  base: 'inline-flex items-center justify-center px-5 py-3.5 leading-5 disabled:cursor-default disabled:bg-fill-300 disabled:text-label-300',
   variants: {
     variant: {
       primary:
