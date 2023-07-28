@@ -22,7 +22,7 @@ const buttonStyles = tv({
       true: 'bg-warning text-black',
     },
     emphasis: {
-      true: 'font-display-medium font-semibold',
+      true: 'font-display-medium',
       false: 'font-display font-normal',
     },
     radii: {
@@ -35,7 +35,7 @@ const buttonStyles = tv({
     },
   },
   defaultVariants: {
-    emphasis: false,
+    emphasis: true,
     error: false,
     radii: 'rounded',
     success: false,
@@ -47,13 +47,17 @@ const buttonStyles = tv({
 
 type ButtonVariants = VariantProps<typeof buttonStyles>
 
-type ButtonProps = ComponentProps<'button'> & ButtonVariants
+type ButtonProps = ComponentProps<'button'> &
+  ButtonVariants & {
+    iconPath?: string
+  }
 
 export const Button = ({
   children,
   className,
   emphasis,
   error,
+  iconPath,
   radii,
   success,
   variant,
@@ -75,6 +79,7 @@ export const Button = ({
       })}
       {...props}
     >
+      {iconPath !== undefined && <span className='mr-1 h-5 w-4' />}
       {children}
     </button>
   )

@@ -37,8 +37,8 @@ const ModalContent = (): JSX.Element => {
 
 export default function Home(): JSX.Element {
   return (
-    <main className='flex h-full flex-col items-start justify-normal gap-4 rounded-3xl backdrop-blur-xl bg-material-100'>
-      <Dialog
+    <main className=''>
+      {/* <Dialog
         close
         title='Informaçoes de segurança'
         // description='As informaçoes de segurança vao te ajudar a manter sua conta segura.'
@@ -46,7 +46,7 @@ export default function Home(): JSX.Element {
         // footer={<FooterContent />}
       >
         <Button>Open Dialog</Button>
-      </Dialog>
+      </Dialog> */}
     </main>
   )
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import '@/UI/styles/global.css'
+import { Navbar } from '@/UI/components/navbar'
 
 export const metadata: Metadata = {
   title: 'Flow.ai',
@@ -14,8 +15,11 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang='en'>
-      <body className='bg-tile-4'>
-        <div className='h-screen rounded-3xl p-16'>{children}</div>
+      <body className='px-4 bg-tile-4'>
+        <div className='mx-auto max-w-screen-wide-xl py-9'>
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   )

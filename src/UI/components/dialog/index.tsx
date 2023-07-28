@@ -10,7 +10,6 @@ import {
   Title,
   Description,
   Close,
-  PrimitiveDivProps,
   DialogProps,
 } from '@radix-ui/react-dialog'
 import { Cross2Icon } from '@radix-ui/react-icons'
@@ -60,8 +59,6 @@ const Dialog = ({
       <Trigger asChild>{children}</Trigger>
 
       <Portal>
-        {/* <Overlay className='fixed inset-0 bg-black bg-opacity-50 data-[state=open]:animate-overlayShow' /> */}
-
         <Content className={contentStyles()}>
           {title !== undefined && (
             <Title className={titleStyles()}>{title}</Title>

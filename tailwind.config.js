@@ -1,5 +1,7 @@
 const plugin = require('tailwindcss/plugin')
 
+const { keyframes } = require('./src/UI/styles/keyframes')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{jsx,tsx,mdx}'],
@@ -17,19 +19,19 @@ module.exports = {
         600: '#1C1C1E',
       },
       black: '#000000',
-      blue: '#0A84FF ',
+      blue: '#0A84FF',
       brown: '#AC8E68',
       cyan: '#40CBE0',
-      green: '#30D158 ',
+      green: '#30D158',
       indigo: '#5E5CE6',
       mint: '#63E6E2',
       orange: '#FF9F0A',
       pink: '#FF375F',
-      purple: '#BF5AF2 ',
+      purple: '#BF5AF2',
       red: '#FF453A',
-      teal: '#40CBE0 ',
+      teal: '#40CBE0',
       white: '#ffffff',
-      yellow: '#FFD60A ',
+      yellow: '#FFD60A',
 
       // theme colors
       highlight: '#AB05F2',
@@ -52,7 +54,7 @@ module.exports = {
       },
       separator: {
         DEFAULT: '#38383A',
-        alpha: 'rgba(84, 84, 88, 0.65) ',
+        alpha: 'rgba(84, 84, 88, 0.65)',
       },
       fill: {
         100: 'rgba(120, 120, 128, 0.36)',
@@ -65,7 +67,7 @@ module.exports = {
       success: '#30D158',
       warning: '#FFD60A',
       error: '#FF453A',
-      info: '#0A84FF ',
+      info: '#0A84FF',
     },
     fontFamily: {
       display: ['"SF Pro"', 'sans-serif'],
@@ -80,70 +82,30 @@ module.exports = {
     },
     extend: {
       borderRadius: {
+        '4xl': '2.5rem',
         50: '50%',
       },
       keyframes: {
-        'slide-up-and-fade': {
-          from: {
-            opacity: 0,
-            transform: 'translateY(2px)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'translateY(0)',
-          },
-        },
-        'slide-right-and-fade': {
-          from: {
-            opacity: 0,
-            transform: 'translateY(-2px)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'translateY(0)',
-          },
-        },
-        'slide-down-and-fade': {
-          from: {
-            opacity: 0,
-            transform: 'translateY(-2px)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'translateY(0)',
-          },
-        },
-        'slide-left-and-fade': {
-          from: {
-            opacity: 0,
-            transform: 'translateY(2px)',
-          },
-          to: {
-            opacity: 1,
-            transform: 'translateY(0)',
-          },
-        },
-        overlayShow: {
-          from: { opacity: 0 },
-          to: { opacity: 1 },
-        },
-        contentShow: {
-          from: { opacity: 0, transform: 'translate(-50%, -48%) scale(0.96)' },
-          to: { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
-        },
+        ...keyframes,
       },
       animation: {
-        'slide-up-and-fade': 'slide-up-and-fade 0.3s ease-out',
-        'slide-right-and-fade': 'slide-right-and-fade 0.3s ease-out',
-        'slide-down-and-fade': 'slide-down-and-fade 0.3s ease-out',
-        'slide-left-and-fade': 'slide-left-and-fade 0.3s ease-out',
+        slideUpAndFade: 'slideUpAndFade 0.3s ease-out',
+        slideRightAndFade: 'slideRightAndFade 0.3s ease-out',
+        slideDownAndFade: 'slideDownAndFade 0.3s ease-out',
+        slideLeftAndFade: 'slideLeftAndFade 0.3s ease-out',
         overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },
   plugins: [
-    plugin(function ({ addBase, addUtilities, theme, matchVariant }) {
+    plugin(function ({
+      addBase,
+      addUtilities,
+      theme,
+      matchVariant,
+      matchUtilities,
+    }) {
       addBase({
         'html, body': {
           backgroundColor: theme('colors.background.200'),
@@ -196,22 +158,22 @@ module.exports = {
           // tile backgrounds
           '.bg-tile-1': {
             background:
-              'url(/tiles/purple_background_wave.png), lightgray 50% / cover no-repeat',
+              'url(/tiles/purple/purple_background_1.png), lightgray 50% / cover no-repeat',
           },
 
           '.bg-tile-2': {
             background:
-              'url(/tiles/purple_background_wave2.png), lightgray 50% / cover no-repeat',
+              'url(/tiles/purple/purple_background_2.png), lightgray 50% / cover no-repeat',
           },
 
           '.bg-tile-3': {
             background:
-              'url(/tiles/purple_background_wave3.png), lightgray 50% / cover no-repeat',
+              'url(/tiles/purple/purple_background_3.png), lightgray 50% / cover no-repeat',
           },
 
           '.bg-tile-4': {
             background:
-              'url(/tiles/purple_background_wave4.png), lightgray 50% / cover no-repeat',
+              'url(/tiles/purple/purple_background_4.png), lightgray 50% / cover no-repeat',
           },
 
           // materials
@@ -363,7 +325,8 @@ module.exports = {
               3: '3',
             },
           }
-        )
+        ),
+        matchUtilities({})
     }),
   ],
 }
