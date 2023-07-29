@@ -30,12 +30,20 @@ module.exports = {
         ...keyframes,
       },
       animation: {
-        slideUpAndFade: 'slideUpAndFade 0.3s ease-out',
-        slideRightAndFade: 'slideRightAndFade 0.3s ease-out',
+        contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        enterFromLeft: 'enterFromLeft 250ms ease',
+        enterFromRight: 'enterFromRight 250ms ease',
+        exitToLeft: 'exitToLeft 250ms ease',
+        exitToRight: 'exitToRight 250ms ease',
+        fadeIn: 'fadeIn 200ms ease',
+        fadeOut: 'fadeOut 200ms ease',
+        overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        scaleIn: 'scaleIn 200ms ease',
+        scaleOut: 'scaleOut 200ms ease',
         slideDownAndFade: 'slideDownAndFade 0.3s ease-out',
         slideLeftAndFade: 'slideLeftAndFade 0.3s ease-out',
-        overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideRightAndFade: 'slideRightAndFade 0.3s ease-out',
+        slideUpAndFade: 'slideUpAndFade 0.3s ease-out',
       },
     },
   },
@@ -96,30 +104,6 @@ module.exports = {
         },
       }),
         addUtilities({
-          // icon
-          '.icon-wrapper': {
-            display: 'block',
-            position: 'relative',
-            width: '1.5rem',
-
-            svg: {
-              display: 'block',
-              maxHeight: '100%',
-              maxWidth: '100%',
-              use: {
-                fill: 'currentColor',
-              },
-            },
-          },
-
-          '.inline-svg': {
-            svg: {
-              'path, circle:not([fill="none"]), rect:not([fill="none"]), g': {
-                fill: 'currentColor',
-              },
-            },
-          },
-
           // tile backgrounds
           '.bg-tile-1': {
             background:
@@ -291,26 +275,11 @@ module.exports = {
             },
           }
         ),
-        matchUtilities(
-          {
-            'svg-wrapper': (value) => ({
-              svg: {
-                fill: value,
-              },
-            }),
-            'svg-wrapper-use': (value) => ({
-              'svg use': {
-                fill: value,
-              },
-            }),
-            'svg-wrapper-g': (value) => ({
-              'svg g': {
-                stroke: value,
-              },
-            }),
-          },
-          { values: theme('colors') }
-        )
+        matchUtilities({
+          perspective: (value) => ({
+            perspective: value,
+          }),
+        })
     }),
   ],
 }
