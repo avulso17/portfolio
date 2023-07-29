@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 /**
  * @module Icon
  */
-import { FC } from 'react'
 
 /**
  * Helpers
@@ -11,8 +11,6 @@ import { twMerge } from 'tailwind-merge'
 
 import { IColors } from '@/types/colors'
 
-import { createBodyMarkup, getAria, IAriaProps } from './helper'
-
 type ColorsOptions = Omit<
   IColors,
   'transparent' | 'grey' | 'background' | 'label' | 'separator' | 'fill'
@@ -20,19 +18,13 @@ type ColorsOptions = Omit<
 
 interface IIconProps {
   className?: string
+  iconComponent?: any
   label?: string
   options?: {
-    default?: {
-      fill?: keyof ColorsOptions
-      stroke?: keyof ColorsOptions
-    }
-    hover?: {
-      fill?: keyof ColorsOptions
-      stroke?: keyof ColorsOptions
-    }
-    inlineSvg?: boolean
+    colors?: keyof ColorsOptions
+    size?: 'sm' | 'DEFAULT' | 'lg'
   }
-  src: string
+  src?: string
 }
 
 /**
@@ -49,35 +41,31 @@ interface IIconProps {
  *
  * @param {string} className - Optional class name.
  * @param {string} src - Source path. Used with external files.
- * @param {string} label - Optional aria-label for the icon.
+ * @param {string} label - Optional aria-label for the icon. (src only)
  * Only use if text (visually hidden or visible) can't be added outside the icon component.
- * @param {object} options
+ * @param {object} options - Optional options object.
  */
-const Icon: FC<IIconProps> = ({
+const Icon = ({
   className,
-  src,
+  iconComponent,
   label,
   options = {},
-}: IIconProps) => {
-  const ariaProps: IAriaProps = getAria({ label })
-  const { default: defaultOptions, inlineSvg } = options
+  src,
+}: IIconProps): JSX.Element => {
+  const { colors, size } = options
 
   return (
-    <span className={twMerge('icon-wrapper', className)} {...ariaProps}>
-      {inlineSvg !== undefined ? (
-        <div
-          className={`inline-svg svg-wrapper-${
-            defaultOptions?.fill ?? '[none]'
-          } svg-wrapper-use-${defaultOptions?.fill ?? '[none]'} svg-wrapper-g-${
-            defaultOptions?.stroke ?? '[none]'
-          }`}
-          aria-hidden='true'
-          dangerouslySetInnerHTML={createBodyMarkup(src)}
-        />
+    <>
+      {iconComponent !== undefined ? (
+        <div className={twMerge('h-auto w-4', className)}>{iconComponent}</div>
       ) : (
-        <img src={src} alt={label} />
+        <img
+          src={src}
+          alt={label}
+          className={twMerge('h-auto w-4', className)}
+        />
       )}
-    </span>
+    </>
   )
 }
 

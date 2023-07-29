@@ -2,7 +2,6 @@ import React, { ComponentProps } from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
 
-import HomeIcon from '../../../../public/icons_min/home/home.svg'
 import Icon from '../icon'
 
 const buttonStyles = tv({
@@ -52,7 +51,8 @@ type ButtonVariants = VariantProps<typeof buttonStyles>
 
 type ButtonProps = ComponentProps<'button'> &
   ButtonVariants & {
-    iconPath?: string
+    icon?: unknown
+    iconSrc?: string
   }
 
 export const Button = ({
@@ -60,12 +60,13 @@ export const Button = ({
   className,
   emphasis,
   error,
-  iconPath,
+  iconSrc,
   radii,
   success,
   variant,
   warning,
   width,
+  icon,
   ...props
 }: ButtonProps): JSX.Element => {
   return (
@@ -82,22 +83,8 @@ export const Button = ({
       })}
       {...props}
     >
-      {iconPath !== undefined && (
-        <>
-          {/* <i
-            className={`mr-1 h-5 w-4 bg-[url(/icons/home/home.svg)] bg-[length:auto_1rem] bg-no-repeat text-primary`}
-          /> */}
-          <Icon
-            className='mr-1'
-            src={HomeIcon}
-            options={{
-              default: {
-                fill: 'error',
-              },
-              inlineSvg: true,
-            }}
-          />
-        </>
+      {icon !== undefined && (
+        <Icon className='mr-1' iconComponent={icon} src={iconSrc} />
       )}
       {children}
     </button>
