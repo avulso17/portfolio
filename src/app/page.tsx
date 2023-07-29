@@ -1,29 +1,29 @@
-import { Button } from '@/UI/components/button'
-import Dialog from '@/UI/components/dialog'
+// import { Button } from '@/UI/components/button'
+// import Dialog from '@/UI/components/dialog'
 
-const ModalContent = (): JSX.Element => {
-  return (
-    <div className='flex flex-col gap-2 text-white'>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam libero
-        ipsa, laboriosam doloremque error quam culpa quibusdam cum facilis
-        repudiandae, perspiciatis necessitatibus iusto vitae veritatis qui
-        cupiditate facere! Odio, consequatur?
-      </p>
+// const ModalContent = (): JSX.Element => {
+//   return (
+//     <div className='flex flex-col gap-2 text-white'>
+//       <p>
+//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam libero
+//         ipsa, laboriosam doloremque error quam culpa quibusdam cum facilis
+//         repudiandae, perspiciatis necessitatibus iusto vitae veritatis qui
+//         cupiditate facere! Odio, consequatur?
+//       </p>
 
-      <div className='rounded-lg p-2 material-fill-300'>
-        <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
-      </div>
+//       <div className='rounded-lg p-2 material-fill-300'>
+//         <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+//       </div>
 
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam libero
-        ipsa, laboriosam doloremque error quam culpa quibusdam cum facilis
-        repudiandae, perspiciatis necessitatibus iusto vitae veritatis qui
-        cupiditate facere! Odio, consequatur?
-      </p>
-    </div>
-  )
-}
+//       <p>
+//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam libero
+//         ipsa, laboriosam doloremque error quam culpa quibusdam cum facilis
+//         repudiandae, perspiciatis necessitatibus iusto vitae veritatis qui
+//         cupiditate facere! Odio, consequatur?
+//       </p>
+//     </div>
+//   )
+// }
 
 // const FooterContent = (): JSX.Element => {
 //   return (

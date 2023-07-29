@@ -2,8 +2,10 @@ import React, { ComponentProps } from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
 
+import Icon from '../icon'
+
 const buttonStyles = tv({
-  base: 'inline-flex items-center justify-center px-5 py-3.5 leading-5 disabled:cursor-default disabled:bg-fill-300 disabled:text-label-300',
+  base: 'inline-flex items-center justify-center whitespace-nowrap px-5 py-3.5 leading-5 disabled:cursor-default disabled:bg-fill-300 disabled:text-label-300',
   variants: {
     variant: {
       primary:
@@ -79,7 +81,23 @@ export const Button = ({
       })}
       {...props}
     >
-      {iconPath !== undefined && <span className='mr-1 h-5 w-4' />}
+      {iconPath !== undefined && (
+        <>
+          {/* <i
+            className={`mr-1 h-5 w-4 bg-[url(/icons/home/home.svg)] bg-[length:auto_1rem] bg-no-repeat text-primary`}
+          /> */}
+          <Icon
+            className='mr-1'
+            src='/icons/home/logo.svg'
+            options={{
+              default: {
+                fill: 'error',
+              },
+              inlineSvg: true,
+            }}
+          />
+        </>
+      )}
       {children}
     </button>
   )
