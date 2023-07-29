@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "commit": "cz",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "svgo": "svgo ./public/icons/home/logo.svg -o ./public/icons_min/home/logo.svg --recursive"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.4",

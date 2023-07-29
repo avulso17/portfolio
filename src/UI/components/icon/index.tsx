@@ -1,3 +1,4 @@
+'use client'
 /**
  * @module Icon
  */
@@ -52,15 +53,20 @@ interface IIconProps {
  * Only use if text (visually hidden or visible) can't be added outside the icon component.
  * @param {object} options
  */
-const Icon: FC<IIconProps> = ({ className, src, label, options = {} }) => {
+const Icon: FC<IIconProps> = ({
+  className,
+  src,
+  label,
+  options = {},
+}: IIconProps) => {
   const ariaProps: IAriaProps = getAria({ label })
-  const { default: defaultOptions, hover, inlineSvg } = options
+  const { default: defaultOptions, inlineSvg } = options
 
   return (
-    <span className={twMerge('icon-wrapper ', className)} {...ariaProps}>
+    <span className={twMerge('icon-wrapper', className)} {...ariaProps}>
       {inlineSvg !== undefined ? (
         <div
-          className={`inlineSvg svg-wrapper-${
+          className={`inline-svg svg-wrapper-${
             defaultOptions?.fill ?? '[none]'
           } svg-wrapper-use-${defaultOptions?.fill ?? '[none]'} svg-wrapper-g-${
             defaultOptions?.stroke ?? '[none]'

@@ -110,8 +110,10 @@ module.exports = {
                 fill: 'currentColor',
               },
             },
+          },
 
-            '.inlineSvg svg': {
+          '.inline-svg': {
+            svg: {
               'path, circle:not([fill="none"]), rect:not([fill="none"]), g': {
                 fill: 'currentColor',
               },

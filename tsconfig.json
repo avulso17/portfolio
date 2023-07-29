@@ -32,7 +32,8 @@
     "next.config.js",
     "postcss.config.js",
     "prettier.config.js",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "svgo.config.js"
   ],
   "exclude": ["node_modules"]
 }

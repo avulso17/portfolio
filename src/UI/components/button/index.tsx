@@ -88,7 +88,7 @@ export const Button = ({
           /> */}
           <Icon
             className='mr-1'
-            src='/icons/home/logo.svg'
+            src='/icons_min/home/logo.svg'
             options={{
               default: {
                 fill: 'error',
