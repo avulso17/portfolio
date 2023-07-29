@@ -2,6 +2,7 @@ import React, { ComponentProps } from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
 
+import HomeIcon from '../../../../public/icons_min/home/home.svg'
 import Icon from '../icon'
 
 const buttonStyles = tv({
@@ -88,7 +89,7 @@ export const Button = ({
           /> */}
           <Icon
             className='mr-1'
-            src='/icons_min/home/logo.svg'
+            src={HomeIcon}
             options={{
               default: {
                 fill: 'error',
