@@ -25,7 +25,13 @@ export const Navbar = (): JSX.Element => {
         </Button>
       </div>
 
-      <Image src='/icons/home/home.svg' alt='Logo' height={40} width={110} />
+      <Image
+        className='w-28'
+        src='/logos/circular_logo.png'
+        alt='Logo'
+        height={40}
+        width={110}
+      />
 
       <div className='flex items-center gap-16'>
         <Button variant='text' icon={<SettingsIcon />}>
