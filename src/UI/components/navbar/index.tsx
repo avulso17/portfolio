@@ -1,7 +1,5 @@
 'use client'
 
-import Image from 'next/image'
-
 import AboutIcon from '../../../../public/icons/github.svg'
 import HomeIcon from '../../../../public/icons/home/home.svg'
 import GaleryIcon from '../../../../public/icons/photo/photo.svg'
