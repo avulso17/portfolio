@@ -6,6 +6,9 @@ import { Navbar } from '@/UI/components/navbar'
 export const metadata: Metadata = {
   title: 'Flow.ai',
   description: 'Create blended photos with Flow.ai',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

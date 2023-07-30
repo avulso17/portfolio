@@ -25,13 +25,15 @@ export const Navbar = (): JSX.Element => {
         </Button>
       </div>
 
-      <Image
-        className='w-28'
-        src='/logos/circular_logo.png'
-        alt='Logo'
-        height={40}
-        width={110}
-      />
+      <div className='flex h-fit w-fit select-none items-center gap-2 drop-shadow-[-1px_1px_4px_rgba(124,5,242,0.34)]'>
+        <img
+          className='h-auto w-12 object-contain'
+          src='/logos/circular_logo.png'
+          alt='Logo'
+        />
+
+        <h1 className=' font-cadency tracking-normal text-white/95'>flow.ai</h1>
+      </div>
 
       <div className='flex items-center gap-16'>
         <Button variant='text' icon={<SettingsIcon />}>

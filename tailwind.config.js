@@ -13,6 +13,8 @@ module.exports = {
     fontFamily: {
       display: ['"SF Pro"', 'sans-serif'],
       'display-medium': ['"SF Pro Medium"', 'sans-serif'],
+      cadency: ['"Cadency"', 'sans-serif'],
+      florista: ['"Florista"', 'sans-serif'],
     },
     screens: {
       'm-xs': '480px',

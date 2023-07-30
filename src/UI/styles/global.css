@@ -15,6 +15,16 @@
       font-family: 'SF Pro Medium';
       src: url('../../../public/fonts/SFPRO_MEDIUM.OTF');
     }
+
+    @font-face {
+      font-family: 'Cadency';
+      src: url('../../../public/fonts/Cadency.ttf');
+    }
+
+    @font-face {
+      font-family: 'Florista';
+      src: url('../../../public/fonts/Florista.otf');
+    }
   }
 
   p,
