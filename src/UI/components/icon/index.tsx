@@ -3,27 +3,28 @@
 /**
  * @module Icon
  */
+import { tv, VariantProps } from 'tailwind-variants'
 
-/**
- * Helpers
- */
-import { twMerge } from 'tailwind-merge'
+const iconStyles = tv({
+  base: 'h-auto w-4',
+  variants: {
+    size: {
+      DEFAULT: 'h-auto w-4',
+      lg: 'h-auto w-5',
+      xl: 'h-auto w-6',
+    },
+  },
+  defaultVariants: {
+    size: 'DEFAULT',
+  },
+})
 
-import { IColors } from '@/types/colors'
+type IconVariants = VariantProps<typeof iconStyles>
 
-type ColorsOptions = Omit<
-  IColors,
-  'transparent' | 'grey' | 'background' | 'label' | 'separator' | 'fill'
->
-
-interface IIconProps {
+type IconProps = IconVariants & {
   className?: string
   iconComponent?: any
   label?: string
-  options?: {
-    colors?: keyof ColorsOptions
-    size?: 'sm' | 'DEFAULT' | 'lg'
-  }
   src?: string
 }
 
@@ -49,20 +50,18 @@ const Icon = ({
   className,
   iconComponent,
   label,
-  options = {},
+  size,
   src,
-}: IIconProps): JSX.Element => {
-  const { colors, size } = options
-
+}: IconProps): JSX.Element => {
   return (
     <>
       {iconComponent !== undefined ? (
-        <div className={twMerge('h-auto w-4', className)}>{iconComponent}</div>
+        <div className={iconStyles({ size, className })}>{iconComponent}</div>
       ) : (
         <img
           src={src}
           alt={label}
-          className={twMerge('h-auto w-4', className)}
+          className={iconStyles({ size, className })}
         />
       )}
     </>

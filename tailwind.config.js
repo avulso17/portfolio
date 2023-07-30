@@ -275,11 +275,18 @@ module.exports = {
             },
           }
         ),
-        matchUtilities({
-          perspective: (value) => ({
-            perspective: value,
-          }),
-        })
+        matchUtilities(
+          {
+            perspective: (value) => ({
+              perspective: value,
+            }),
+            'svg-wrapper': (value) => ({
+              color: value,
+              fill: value,
+            }),
+          },
+          { values: theme('colors') }
+        )
     }),
   ],
 }
