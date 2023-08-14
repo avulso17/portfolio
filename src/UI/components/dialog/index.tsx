@@ -48,7 +48,7 @@ const Dialog = ({
   onOpenChange,
   open,
   title,
-}: IDialogProps): JSX.Element => {
+}: IDialogProps): React.ReactElement => {
   return (
     <Root
       open={open}

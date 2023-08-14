@@ -69,7 +69,7 @@ export const Button = ({
   width,
   icon,
   ...props
-}: ButtonProps): JSX.Element => {
+}: ButtonProps): React.ReactElement => {
   return (
     <button
       className={buttonStyles({

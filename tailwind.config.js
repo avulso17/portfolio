@@ -11,9 +11,8 @@ module.exports = {
       ...systemColors,
     },
     fontFamily: {
-      display: ['"SF Pro"', 'sans-serif'],
-      'display-medium': ['"SF Pro Medium"', 'sans-serif'],
-      cadency: ['"Cadency"', 'sans-serif'],
+      inter: ['Inter', 'sans-serif'],
+      nanum: ['"Nanum Pen Script"', 'sans-serif'],
     },
     screens: {
       'm-xs': '480px',
@@ -58,9 +57,9 @@ module.exports = {
     }) {
       addBase({
         'html, body': {
-          backgroundColor: theme('colors.background.200'),
-          color: theme('colors.label.100'),
-          fontFamily: theme('fontFamily.display'),
+          backgroundColor: theme('colors.black'),
+          color: theme('colors.white'),
+          fontFamily: theme('fontFamily.inter'),
           fontSize: theme('fontSize.base'),
           overflowX: 'hidden',
           scrollBehavior: 'smooth',
@@ -92,7 +91,7 @@ module.exports = {
         },
         'h1, h2, h3, h4, h5, h6, p, b, a, small, span': {
           fontWeight: theme('fontWeight.normal'),
-          letterSpacing: '-0.4px',
+          letterSpacing: '-1.2px',
         },
         'input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button':
           {
@@ -105,79 +104,10 @@ module.exports = {
         },
       }),
         addUtilities({
-          // tile backgrounds
-          '.bg-tile-1': {
-            background:
-              'url(/tiles/purple/purple_background_1.png), lightgray 50% / cover no-repeat',
-          },
-
-          '.bg-tile-2': {
-            background:
-              'url(/tiles/purple/purple_background_2.png), lightgray 50% / cover no-repeat',
-          },
-
-          '.bg-tile-3': {
-            background:
-              'url(/tiles/purple/purple_background_3.png), lightgray 50% / cover no-repeat',
-          },
-
-          '.bg-tile-4': {
-            background:
-              'url(/tiles/purple/purple_background_4.png), lightgray 50% / cover no-repeat',
-          },
-
-          // materials
-          '.bg-material-100': {
+          '.main-gradient': {
             backgroundImage:
-              'linear-gradient(0deg, rgba(156, 156, 156, 0.1) 0%, rgba(156, 156, 156, 0.1) 100%)',
-            backgroundColor: 'rgba(37, 37, 37, 0.55)',
-            backgroundBlendMode: 'overlay, normal',
+              'linear-gradient(180deg, #1A1A1A 0%, #131313 100%)',
           },
-
-          '.bg-material-200': {
-            backgroundImage:
-              'linear-gradient(0deg, rgba(156, 156, 156, 0.1) 0%, rgba(156, 156, 156, 0.1) 100%)',
-            backgroundColor: 'rgba(37, 37, 37, 0.70)',
-            backgroundBlendMode: 'overlay, normal',
-          },
-
-          '.bg-material-300': {
-            backgroundImage:
-              'linear-gradient(0deg, rgba(140, 140, 140, 0.1) 0%, rgba(140, 140, 140, 0.1) 100%)',
-            backgroundColor: 'rgba(37, 37, 37, 0.82)',
-            backgroundBlendMode: 'overlay, normal',
-          },
-
-          '.bg-material-400': {
-            backgroundImage:
-              'linear-gradient(0deg, rgba(124, 124, 124, 0.1) 0%, rgba(124, 124, 124, 0.1) 100%)',
-            backgroundColor: 'rgba(37, 37, 37, 0.90)',
-            backgroundBlendMode: 'overlay, normal',
-          },
-
-          // fills
-          '.material-fill-100': {
-            backgroundImage:
-              'linear-gradient(0deg, rgba(194, 194, 194, 1) 0%, rgba(194, 194, 194, 1) 100%)',
-            backgroundColor: 'rgba(127, 127, 127, 0.50)',
-            backgroundBlendMode: 'overlay, luminosity',
-          },
-
-          '.material-fill-200': {
-            backgroundImage:
-              'linear-gradient(0deg, rgba(194, 194, 194, 0.50) 0%, rgba(194, 194, 194, 0.50) 100%)',
-            backgroundColor: 'rgba(127, 127, 127, 0.40)',
-            backgroundBlendMode: 'overlay, luminosity',
-          },
-
-          '.material-fill-300': {
-            backgroundImage:
-              'linear-gradient(0deg, rgba(194, 194, 194, 0.50) 0%, rgba(194, 194, 194, 0.50) 100%)',
-            backgroundColor: 'rgba(127, 127, 127, 0.20)',
-            backgroundBlendMode: 'overlay, luminosity',
-            backdropFilter: 'blur(0px)',
-          },
-
           // base dialog
           '.dialog': {
             borderRadius: '20px',
@@ -280,10 +210,6 @@ module.exports = {
           {
             perspective: (value) => ({
               perspective: value,
-            }),
-            'svg-wrapper': (value) => ({
-              color: value,
-              fill: value,
             }),
           },
           { values: theme('colors') }

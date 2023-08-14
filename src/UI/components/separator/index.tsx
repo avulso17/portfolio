@@ -15,7 +15,7 @@ const Separator = ({
   children,
   orientation,
   decorative,
-}: SeparatorTypes): JSX.Element => {
+}: SeparatorTypes): React.ReactElement => {
   return (
     <Root
       data-alpha={alpha}

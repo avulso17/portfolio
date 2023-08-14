@@ -52,7 +52,7 @@ const Icon = ({
   label,
   size,
   src,
-}: IconProps): JSX.Element => {
+}: IconProps): React.ReactElement => {
   return (
     <>
       {iconComponent !== undefined ? (

@@ -5,21 +5,6 @@
 @layer base {
   html {
     @apply custom-scrollbar;
-
-    @font-face {
-      font-family: 'SF Pro';
-      src: url('../../../public/fonts/SFPRO_REGULAR.OTF');
-    }
-
-    @font-face {
-      font-family: 'SF Pro Medium';
-      src: url('../../../public/fonts/SFPRO_MEDIUM.OTF');
-    }
-
-    @font-face {
-      font-family: 'Cadency';
-      src: url('../../../public/fonts/Cadency.ttf');
-    }
   }
 
   p,
