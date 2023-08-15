@@ -37,7 +37,7 @@ export default function RootLayout({
           <Navbar className='mb-44' />
           {children}
         </div>
-        {/* <Gradient position='bottom' /> */}
+        <Gradient position='bottom' />
       </body>
     </html>
   )

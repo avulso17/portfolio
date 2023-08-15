@@ -18,14 +18,16 @@ const buttonStyles = tv({
   slots: {
     navigator:
       'flex h-[1.125rem] w-fit items-center text-base font-medium leading-normal text-gray-light outline-none transition-all ease-in-out hover:brightness-125 focus:outline-none',
-    icon: 'h-6 w-6 cursor-pointer font-medium leading-normal text-gray-light transition-all ease-in-out hover:brightness-125',
+    social:
+      'h-fit w-fit cursor-pointer rounded-md p-[0.625rem] font-medium leading-normal text-gray-light transition-all ease-in-out hover:bg-white/10',
+    icon: 'min-h-[1.5rem] min-w-[1.5rem]',
   },
 })
 
 type NavbarProps = React.ComponentProps<'nav'>
 
 export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
-  const { navigator, icon } = buttonStyles()
+  const { navigator, social, icon } = buttonStyles()
 
   return (
     <nav
@@ -68,27 +70,27 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
         </DropdownMenu>
       </div>
 
-      <div className='flex items-center gap-6'>
+      <div className='flex items-center gap-3'>
         <a
           href='www.linkedin.com/in/felipe-mateus-270246160'
           rel='noreferrer noopener'
-          className={icon()}
+          className={social()}
         >
-          <LinkedinIcon />
+          <LinkedinIcon className={icon()} />
         </a>
 
-        <a href='' className={icon()}>
-          <TwitterIcon />
+        <a href='' className={social()}>
+          <TwitterIcon className={icon()} />
         </a>
 
-        <a href='' className={icon()}>
-          <GithubIcon />
+        <a href='' className={social()}>
+          <GithubIcon className={icon()} />
         </a>
 
         <Separator alpha orientation='vertical' />
 
-        <button className={icon()}>
-          <SunIcon />
+        <button className={social()}>
+          <SunIcon className={icon()} />
         </button>
       </div>
     </nav>

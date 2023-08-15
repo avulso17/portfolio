@@ -6,14 +6,12 @@ import { tv, type VariantProps } from 'tailwind-variants'
 import Icon from '../icon'
 
 const buttonStyles = tv({
-  base: 'inline-flex items-center justify-center whitespace-nowrap px-5 py-4 leading-5 disabled:cursor-default disabled:bg-fill-300 disabled:text-label-300',
+  base: 'inline-flex items-center justify-center whitespace-nowrap px-5 py-4 font-inter font-medium leading-normal transition-all duration-200 ease-in-out disabled:cursor-default disabled:opacity-50 disabled:grayscale',
   variants: {
     variant: {
-      primary:
-        'text-white bg-primary transition-colors duration-200 ease-in-out hover:bg-highlight',
-      secondary: 'text-primary bg-primary/10 hover:bg-primary/20',
-      tertiary: 'text-primary bg-fill-300 hover:bg-fill-200',
-      text: 'text-primary bg-transparent hover:bg-primary/10',
+      primary: 'text-white base-gradient button-shadow hover:brightness-125',
+      secondary: 'bg-onyx text-gray-dark hover:brightness-125',
+      text: 'text-gray-light hover:bg-onyx/50',
     },
     success: {
       true: 'bg-success text-white',
@@ -30,7 +28,7 @@ const buttonStyles = tv({
     },
     radii: {
       pill: 'rounded-[2.5rem]',
-      rounded: 'rounded-xl',
+      rounded: 'rounded-lg',
     },
     width: {
       fit: 'w-fit',

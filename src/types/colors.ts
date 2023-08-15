@@ -1,6 +1,7 @@
 export interface IColors {
   black: string
   blue: string
+  'card-bg': string
   'card-border': string
   current: string
   error: string

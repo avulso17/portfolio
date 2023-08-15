@@ -22,6 +22,12 @@ module.exports = {
       'wide-xl': '1440px',
     },
     extend: {
+      height: {
+        widget: '31.5rem',
+      },
+      width: {
+        widget: '31.5rem',
+      },
       borderRadius: {
         '4xl': '2.5rem',
         50: '50%',
@@ -82,7 +88,7 @@ module.exports = {
           userSelect: 'none',
         },
         button: {
-          fontSize: theme('fontSize.base'),
+          fontSize: theme('fontSize.lg'),
           userSelect: 'none',
         },
         img: {
@@ -91,7 +97,6 @@ module.exports = {
         },
         'h1, h2, h3, h4, h5, h6, p, b, a, small, span': {
           fontWeight: theme('fontWeight.normal'),
-          letterSpacing: '-1.2px',
         },
         'input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button':
           {
@@ -114,6 +119,12 @@ module.exports = {
           '.dropdown-shadow': {
             boxShadow:
               '0px 5px 7px 0px rgba(0, 0, 0, 0.11), 0px 8px 5px 0px rgba(0, 0, 0, 0.07) inset',
+          },
+
+          // button shadow
+          '.button-shadow': {
+            boxShadow:
+              'box-shadow: 0px 7px 4px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 2px 0px rgba(255, 255, 255, 0.02) inset',
           },
 
           // base dialog
@@ -157,14 +168,12 @@ module.exports = {
           // typography
           '.hero-title': {
             color: theme('colors.white'),
-            fontFamily: theme('fontFamily.inter'),
             fontSize: '5rem',
             fontWeight: theme('fontWeight.bold'),
             lineHeight: 'normal',
 
             b: {
               color: theme('colors.gray.dark'),
-              fontFamily: 'inherit',
               fontSize: 'inherit',
               fontWeight: 'inherit',
               lineHeight: 'inherit',
@@ -172,10 +181,15 @@ module.exports = {
           },
           '.hero-text': {
             color: theme('colors.gray.dark'),
-            fontFamily: theme('fontFamily.inter'),
             fontSize: theme('fontSize.2xl'),
             fontWeight: theme('fontWeight.medium'),
             lineHeight: '2rem',
+          },
+          '.header': {
+            color: theme('colors.white'),
+            fontSize: theme('fontSize.5xl'),
+            fontWeight: theme('fontWeight.bold'),
+            lineHeight: 'normal',
           },
           '.text-body': {
             fontSize: '1.063rem',
