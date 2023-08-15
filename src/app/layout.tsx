@@ -34,7 +34,7 @@ export default function RootLayout({
       <body className='relative z-0 px-4'>
         <Gradient />
         <div className='mx-auto max-w-screen-wide py-8'>
-          <Navbar />
+          <Navbar className='mb-44' />
           {children}
         </div>
         {/* <Gradient position='bottom' /> */}
