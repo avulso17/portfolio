@@ -19,7 +19,10 @@ const Separator = ({
   return (
     <Root
       data-alpha={alpha}
-      className={twMerge('data-[alpha=true]:bg-alpha separator', className)}
+      className={twMerge(
+        'separator data-[alpha=false]:bg-white data-[alpha=true]:bg-white/25',
+        className
+      )}
       asChild={asChild}
       decorative={decorative}
       orientation={orientation}

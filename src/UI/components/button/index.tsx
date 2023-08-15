@@ -6,7 +6,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 import Icon from '../icon'
 
 const buttonStyles = tv({
-  base: 'inline-flex items-center justify-center whitespace-nowrap px-5 py-3.5 leading-5 disabled:cursor-default disabled:bg-fill-300 disabled:text-label-300',
+  base: 'inline-flex items-center justify-center whitespace-nowrap px-5 py-4 leading-5 disabled:cursor-default disabled:bg-fill-300 disabled:text-label-300',
   variants: {
     variant: {
       primary:

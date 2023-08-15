@@ -1,31 +1,95 @@
 'use client'
-import { twMerge } from 'tailwind-merge'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
+import { twMerge } from 'tailwind-merge'
+import { tv } from 'tailwind-variants'
+
+import ChevronDownIcon from '../../../../public/icons/chevron/down.svg'
+import GithubIcon from '../../../../public/icons/github.svg'
+import LinkedinIcon from '../../../../public/icons/linkedin.svg'
+import TwitterIcon from '../../../../public/icons/social/twitter.svg'
+import SunIcon from '../../../../public/icons/sun.svg'
 import Separator from '../separator'
+import { DropdownMenu } from './dropdown'
+const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
+
+const buttonStyles = tv({
+  slots: {
+    navigator:
+      'flex h-[1.125rem] w-fit items-center text-base font-medium leading-normal text-gray-light outline-none transition-all ease-in-out hover:brightness-125 focus:outline-none',
+    icon: 'h-6 w-6 cursor-pointer font-medium leading-normal text-gray-light transition-all ease-in-out hover:brightness-125',
+  },
+})
 
 type NavbarProps = React.ComponentProps<'nav'>
 
 export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
+  const { navigator, icon } = buttonStyles()
+
   return (
     <nav
       className={twMerge(
-        'h-fit max-h-[3.75rem] w-full rounded-xl bg-onyx/30 p-4 backdrop-blur-[2px]',
+        'navbar flex h-fit max-h-[3.75rem] w-full justify-between rounded-xl bg-onyx/30 p-4 backdrop-blur-[2px]',
         className
       )}
     >
-      <div className='flex items-baseline gap-10'>
-        <button>About</button>
-        <button>Work</button>
-        <button>Notebook</button>
-        <button>Contact</button>
-        <button>More</button>
+      <div className='flex items-center gap-10'>
+        <Link href='/' className='min-h-[1.625rem] min-w-[1.625rem]'>
+          <DynamicLordIcon
+            src='/lord/heart-icon.json'
+            trigger='hover'
+            target='.navbar'
+            className='current-color'
+            size={26}
+          />
+        </Link>
+
+        <Link href='/about'>
+          <button className={navigator()}>About</button>
+        </Link>
+
+        <Link href='/work'>
+          <button className={navigator()}>Work</button>
+        </Link>
+
+        <Link href='/notebook'>
+          <button className={navigator()}>Notebook</button>
+        </Link>
+
+        <Link href='/contact'>
+          <button className={navigator()}>Contact</button>
+        </Link>
+        <DropdownMenu navigator={navigator}>
+          <button className={navigator()}>
+            More
+            <ChevronDownIcon className='h-5 w-5 transition-all ease-in-out' />
+          </button>
+        </DropdownMenu>
       </div>
 
       <div className='flex items-center gap-6'>
-        <button></button>
-        <button></button>
-        <button></button>
+        <a
+          href='www.linkedin.com/in/felipe-mateus-270246160'
+          rel='noreferrer noopener'
+          className={icon()}
+        >
+          <LinkedinIcon />
+        </a>
+
+        <a href='' className={icon()}>
+          <TwitterIcon />
+        </a>
+
+        <a href='' className={icon()}>
+          <GithubIcon />
+        </a>
+
         <Separator alpha orientation='vertical' />
+
+        <button className={icon()}>
+          <SunIcon />
+        </button>
       </div>
     </nav>
   )

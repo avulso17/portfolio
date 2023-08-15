@@ -9,13 +9,13 @@ const iconStyles = tv({
   base: 'h-auto w-4',
   variants: {
     size: {
-      DEFAULT: 'h-auto w-4',
+      base: 'h-auto w-4',
       lg: 'h-auto w-5',
       xl: 'h-auto w-6',
     },
   },
   defaultVariants: {
-    size: 'DEFAULT',
+    size: 'base',
   },
 })
 

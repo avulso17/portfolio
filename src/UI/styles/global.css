@@ -14,18 +14,6 @@
   }
 
   h1 {
-    @apply title-lg;
-  }
-
-  h2 {
-    @apply title-1;
-  }
-
-  h3 {
-    @apply title-2;
-  }
-
-  h4 {
-    @apply title-3;
+    @apply hero-title;
   }
 }

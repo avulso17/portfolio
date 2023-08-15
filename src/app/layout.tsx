@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const inter = Inter({
   subsets: ['latin'],
-  display: 'swap',
+  display: 'auto',
 })
 
 const nanumPen = Nanum_Pen_Script({

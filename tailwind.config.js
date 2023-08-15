@@ -99,15 +99,23 @@ module.exports = {
             '-webkit-appearance': 'none',
           },
         '::selection': {
-          backgroundColor: theme('colors.primary'),
+          backgroundColor: theme('colors.red'),
           '-webkit-text-fill-color': theme('colors.white'),
         },
       }),
         addUtilities({
-          '.main-gradient': {
+          // base gradient
+          '.base-gradient': {
             backgroundImage:
               'linear-gradient(180deg, #1A1A1A 0%, #131313 100%)',
           },
+
+          // navbar content
+          '.dropdown-shadow': {
+            boxShadow:
+              '0px 5px 7px 0px rgba(0, 0, 0, 0.11), 0px 8px 5px 0px rgba(0, 0, 0, 0.07) inset',
+          },
+
           // base dialog
           '.dialog': {
             borderRadius: '20px',
@@ -138,59 +146,40 @@ module.exports = {
               '-webkit-transform': 'translate3d(0, 0, 0)',
             },
             '::-webkit-scrollbar-thumb': {
-              backgroundColor: theme('colors.primary'),
+              backgroundColor: theme('colors.gray.dark'),
               borderRadius: theme('borderRadius.lg'),
             },
             '::-webkit-scrollbar-thumb:hover': {
-              backgroundColor: theme('colors.secondary'),
+              backgroundColor: theme('colors.gray.light'),
             },
           },
 
           // typography
-          '.title-lg': {
-            fontSize: '2.125rem',
-            lineHeight: '2.625rem',
+          '.hero-title': {
+            color: theme('colors.white'),
+            fontFamily: theme('fontFamily.inter'),
+            fontSize: '5rem',
+            fontWeight: theme('fontWeight.bold'),
+            lineHeight: 'normal',
+
+            b: {
+              color: theme('colors.gray.dark'),
+              fontFamily: 'inherit',
+              fontSize: 'inherit',
+              fontWeight: 'inherit',
+              lineHeight: 'inherit',
+            },
           },
-          '.title-1': {
-            fontSize: '1.75rem',
-            lineHeight: '2.125rem',
-          },
-          '.title-2': {
-            fontSize: '1.375rem',
-            lineHeight: '1.75rem',
-          },
-          '.title-3': {
-            fontSize: '1.25rem',
-            lineHeight: '1.5rem',
-          },
-          '.headline': {
-            fontFamily: theme('fontFamily.display-medium'),
-            fontSize: '1.063rem',
-            lineHeight: '1.375rem',
+          '.hero-text': {
+            color: theme('colors.gray.dark'),
+            fontFamily: theme('fontFamily.inter'),
+            fontSize: theme('fontSize.2xl'),
+            fontWeight: theme('fontWeight.medium'),
+            lineHeight: '2rem',
           },
           '.text-body': {
             fontSize: '1.063rem',
             lineHeight: '1.375rem',
-          },
-          '.callout': {
-            fontSize: '1rem',
-            lineHeight: '1.375rem',
-          },
-          '.subhead': {
-            fontSize: '0.938rem',
-            lineHeight: '1.25rem',
-          },
-          '.footnote': {
-            fontSize: '0.813rem',
-            lineHeight: '1.125rem',
-          },
-          '.caption1': {
-            fontSize: '0.75rem',
-            lineHeight: '1rem',
-          },
-          '.caption2': {
-            fontSize: '0.688rem',
-            lineHeight: '0.813rem',
           },
         }),
         matchVariant(
