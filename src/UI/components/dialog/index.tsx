@@ -19,8 +19,8 @@ import Separator from '../separator'
 const dialog = tv({
   slots: {
     contentStyles:
-      'text-white bg-material-400 dialog focus:outline-none data-[state=open]:animate-contentShow',
-    titleStyles: 'px-5 pt-5 title-lg',
+      'text-white bg-gray dialog focus:outline-none data-[state=open]:animate-contentShow',
+    titleStyles: 'px-5 pt-5 text-2xl font-bold',
   },
 })
 
@@ -66,7 +66,7 @@ const Dialog = ({
 
           {description !== undefined && (
             <>
-              <Description className='px-5 subhead'>{description}</Description>
+              <Description className='px-5'>{description}</Description>
               <Separator alpha className='mt-3' />
             </>
           )}

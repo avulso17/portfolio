@@ -11,7 +11,7 @@ module.exports = {
       ...systemColors,
     },
     fontFamily: {
-      inter: ['Inter', 'sans-serif'],
+      inter: ['Inter Variable', 'sans-serif'],
       nanum: ['"Nanum Pen Script"', 'sans-serif'],
     },
     screens: {
@@ -29,7 +29,7 @@ module.exports = {
         widget: '31.5rem',
       },
       borderRadius: {
-        '4xl': '2.5rem',
+        '4xl': '2rem',
         50: '50%',
       },
       keyframes: {
@@ -191,8 +191,8 @@ module.exports = {
             lineHeight: 'normal',
           },
           '.text-body': {
-            fontSize: '1.063rem',
-            lineHeight: '1.375rem',
+            fontSize: theme('fontSize.base'),
+            lineHeight: 'normal',
           },
 
           // utils

@@ -9,7 +9,7 @@ export default function Home(): React.ReactElement {
   return (
     <main className='w-full'>
       <div className='relative mb-[23.375rem] flex w-full flex-col gap-10'>
-        <h1 className='w-fit'>
+        <h1 className='w-fit font-extrabold'>
           <b>I&rsquo;m</b> Felipe Mateus
         </h1>
 
@@ -27,9 +27,21 @@ export default function Home(): React.ReactElement {
 
       <h2 className='mb-8 header'>Selected Work</h2>
       <div className='mb-24 flex flex-col gap-8'>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        <ProjectCard
+          iconSrc='/logos/logo.svg'
+          title='Flow.ai'
+          description='Create blended photos with Flow.ai'
+        />
+        <ProjectCard
+          iconSrc=''
+          title='React Documentation'
+          description='With the release of the new React website on March 16, there was a need for localization to make the documentation accessible to Arabic-speaking developers. I contributed to translating several documentation, worked with great developers, Improved my ability to write better PR requests, and as a side effect, I now know more about the Arabic grammar.'
+        />
+        <ProjectCard
+          iconSrc=''
+          title='Storybook Documentation'
+          description='This was my very first OSS contribution, I contributed to translating the documentation of Storybook into Arabic, enabling a wider audience to access and understand the resources available. I gained valuable experience in working effectively with teams and navigating the pull request process.'
+        />
       </div>
 
       <h2 className='mb-8 header'>Get to know me</h2>
