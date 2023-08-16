@@ -1099,6 +1099,11 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.1.1.tgz#1a5b1959a528e374e8037c4396c3e825d6cf4a83"
   integrity sha512-m0G6wlnhm/AX0H12IOWtK8gASEMffnX08RtKkCgTdHb9JpHKGloI7icFfLg9ZmQeavcvR0PKmzxClyuFPSjKWw==
 
+"@fontsource/nanum-pen-script@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/nanum-pen-script/-/nanum-pen-script-5.0.7.tgz#a418f211cbcee21de91d60607f57fa837c8cfcf4"
+  integrity sha512-6LUCTWnBIhuVx9j3Nc3Wo6rC6IODpYb+EvgBcOTrHqyQby/cZWnTV1ZBa8OAKPkemtR15VxkitmvqXohK6rzJw==
+
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.10.tgz#5a3ffe32cc9306365fb3fd572596cd602d5e12d2"
