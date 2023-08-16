@@ -6,7 +6,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 import Icon from '../icon'
 
 const buttonStyles = tv({
-  base: 'inline-flex items-center justify-center whitespace-nowrap px-5 py-4 font-inter font-medium leading-normal transition-all duration-200 ease-in-out disabled:cursor-default disabled:opacity-50 disabled:grayscale',
+  base: 'inline-flex items-center justify-center h-fit whitespace-nowrap px-5 py-4 font-inter font-medium leading-normal transition-all duration-200 ease-in-out disabled:cursor-default disabled:opacity-50 disabled:grayscale',
   variants: {
     variant: {
       primary: 'text-white base-gradient button-shadow hover:brightness-125',
@@ -83,7 +83,11 @@ export const Button = ({
       {...props}
     >
       {icon !== undefined && (
-        <Icon className='mr-1' iconComponent={icon} src={iconSrc} />
+        <Icon
+          className='mr-2 min-w-[1.5rem]'
+          iconComponent={icon}
+          src={iconSrc}
+        />
       )}
       {children}
     </button>

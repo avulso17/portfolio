@@ -124,7 +124,7 @@ module.exports = {
           // button shadow
           '.button-shadow': {
             boxShadow:
-              'box-shadow: 0px 7px 4px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 2px 0px rgba(255, 255, 255, 0.02) inset',
+              '0px 7px 4px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 2px 0px rgba(255, 255, 255, 0.02) inset',
           },
 
           // base dialog
@@ -141,18 +141,12 @@ module.exports = {
             zIndex: 1000,
           },
 
-          // separator
-          '.separator': {
-            '&[data-orientation=horizontal]': { height: 1, width: '100%' },
-            '&[data-orientation=vertical]': { height: '100%', width: 1 },
-          },
-
           // scrollbar
           '.custom-scrollbar': {
             '::-webkit-scrollbar': {
               backgroundColor: theme('colors.transparent'),
               height: theme('spacing.1'),
-              width: theme('spacing.2'),
+              width: theme('spacing.1'),
               transform: 'translate3d(0, 0, 0)',
               '-webkit-transform': 'translate3d(0, 0, 0)',
             },
@@ -191,9 +185,25 @@ module.exports = {
             fontWeight: theme('fontWeight.bold'),
             lineHeight: 'normal',
           },
+          '.header-text': {
+            color: 'rgba(128, 128, 128, 0.5)',
+            fontSize: theme('fontSize.xl'),
+            lineHeight: 'normal',
+          },
           '.text-body': {
             fontSize: '1.063rem',
             lineHeight: '1.375rem',
+          },
+
+          // utils
+          '.absolute-center-x': {
+            left: '50%',
+            transform: 'translateX(-50%)',
+          },
+
+          '.absolute-center-y': {
+            top: '50%',
+            transform: 'translateY(-50%)',
           },
         }),
         matchVariant(

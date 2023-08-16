@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Nanum_Pen_Script } from 'next/font/google'
 
 import '@/UI/styles/global.css'
+import { Footer } from '@/UI/components/footer'
 import Gradient from '@/UI/components/gradient'
 import { Navbar } from '@/UI/components/navbar'
 
@@ -33,9 +34,10 @@ export default function RootLayout({
     <html lang='en' className={`${inter.className} ${nanumPen.className}`}>
       <body className='relative z-0 px-4'>
         <Gradient />
-        <div className='mx-auto max-w-screen-wide py-8'>
+        <div className='mx-auto max-w-screen-wide pt-8'>
           <Navbar className='mb-44' />
           {children}
+          <Footer />
         </div>
         <Gradient position='bottom' />
       </body>

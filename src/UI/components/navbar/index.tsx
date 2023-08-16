@@ -9,7 +9,6 @@ import ChevronDownIcon from '../../../../public/icons/chevron/down.svg'
 import GithubIcon from '../../../../public/icons/github.svg'
 import LinkedinIcon from '../../../../public/icons/linkedin.svg'
 import TwitterIcon from '../../../../public/icons/social/twitter.svg'
-import SunIcon from '../../../../public/icons/sun.svg'
 import Separator from '../separator'
 import { DropdownMenu } from './dropdown'
 const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
@@ -19,7 +18,7 @@ const buttonStyles = tv({
     navigator:
       'flex h-[1.125rem] w-fit items-center text-base font-medium leading-normal text-gray-light outline-none transition-all ease-in-out hover:brightness-125 focus:outline-none',
     social:
-      'h-fit w-fit cursor-pointer rounded-md p-[0.625rem] font-medium leading-normal text-gray-light transition-all ease-in-out hover:bg-white/10',
+      'h-11 w-11 cursor-pointer rounded-md p-[0.625rem] font-medium leading-normal text-gray-light transition-all ease-in-out hover:bg-white/10',
     icon: 'min-h-[1.5rem] min-w-[1.5rem]',
   },
 })
@@ -39,11 +38,11 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
       <div className='flex items-center gap-10'>
         <Link href='/' className='min-h-[1.625rem] min-w-[1.625rem]'>
           <DynamicLordIcon
-            src='/lord/heart-icon.json'
+            src='/lord/wired/wired-planet.json'
             trigger='hover'
             target='.navbar'
             className='current-color'
-            size={26}
+            size={44}
           />
         </Link>
 
@@ -89,8 +88,17 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
 
         <Separator alpha orientation='vertical' />
 
-        <button className={social()}>
-          <SunIcon className={icon()} />
+        <button
+          id='theme-button'
+          className={twMerge(social(), 'grid place-items-center p-0')}
+        >
+          <DynamicLordIcon
+            src='/lord/wired/wired-night-sky-moon-stars.json'
+            trigger='hover'
+            target='#theme-button'
+            className='current-color'
+            size={32}
+          />
         </button>
       </div>
     </nav>

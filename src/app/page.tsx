@@ -1,5 +1,10 @@
+'use client'
 import { Button } from '@/UI/components/button'
+import { ProjectCard } from '@/UI/components/projectCards'
+import Separator from '@/UI/components/separator'
 import { Widget } from '@/UI/components/widgets'
+
+import SendIcon from '../../public/icons/send.svg'
 
 export default function Home(): React.ReactElement {
   return (
@@ -21,12 +26,26 @@ export default function Home(): React.ReactElement {
         </div>
       </div>
 
+      <h2 className='mb-8 header'>Selected Work</h2>
+      <div className='mb-24 flex flex-col gap-8'>
+        <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
+      </div>
+
       <h2 className='mb-8 header'>Get to know me</h2>
       <div className='mb-[6.75rem] flex flex-wrap gap-4'>
-        <Widget title='About me' subtitle='Who I am and what I do' />
+        <Widget
+          title='About me'
+          subtitle='Who I am and what I do'
+          image='/assets/memoji_1.webp'
+          className='top-14 h-auto w-44 absolute-center-x'
+        />
         <Widget
           title='Notebook'
           subtitle='My thoughts, insights, and reflections'
+          image='/assets/desknotes.svg'
+          className='top-8 h-[29rem] w-[19rem] absolute-center-x'
         />
         <Widget
           title='Bookshelf'
@@ -38,14 +57,18 @@ export default function Home(): React.ReactElement {
         />
       </div>
 
-      <div className='flex justify-between'>
+      <div className='mb-28 flex items-center justify-between'>
         <div className='flex flex-col gap-2'>
           <h2 className='header'>Let&rsquo;s work together</h2>
-          <p className='w-full max-w-[31rem] hero-text'>
+          <p className='w-full max-w-[31rem] header-text'>
             Want to discuss an opportunity to create something great? I&rsquo;m
             ready when you are.
           </p>
         </div>
+
+        <Button id='get-in-touch-button' icon={<SendIcon />}>
+          Get in touch
+        </Button>
       </div>
     </main>
   )

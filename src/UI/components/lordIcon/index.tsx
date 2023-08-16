@@ -1,6 +1,7 @@
 'use client'
 import { defineElement } from 'lord-icon-element'
 import lottie from 'lottie-web'
+import { twMerge } from 'tailwind-merge'
 
 import { LordIconTrigger } from '@/types/lord'
 
@@ -39,7 +40,7 @@ const LordIcon = ({
   return (
     <lord-icon
       src={src}
-      class={className}
+      class={twMerge('inline-block', className)}
       colors={`primary:${primary},secondary:${secondary}`}
       delay={delay}
       trigger={trigger}

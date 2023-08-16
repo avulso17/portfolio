@@ -20,7 +20,9 @@ const Separator = ({
     <Root
       data-alpha={alpha}
       className={twMerge(
-        'separator data-[alpha=false]:bg-white data-[alpha=true]:bg-white/25',
+        'bg-white data-[alpha=true]:bg-white/25',
+        'data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full',
+        'data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px',
         className
       )}
       asChild={asChild}
