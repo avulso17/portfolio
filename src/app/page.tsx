@@ -1,7 +1,6 @@
 'use client'
 import { Button } from '@/UI/components/button'
 import { ProjectCard } from '@/UI/components/projectCards'
-import Separator from '@/UI/components/separator'
 import { Widget } from '@/UI/components/widgets'
 
 import SendIcon from '../../public/icons/send.svg'
