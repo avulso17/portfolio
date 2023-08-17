@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   },
 }
 
-// Supports weights 100-900
 import '@fontsource-variable/inter'
 import '@fontsource/nanum-pen-script'
 

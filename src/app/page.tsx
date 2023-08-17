@@ -13,7 +13,7 @@ export default function Home(): React.ReactElement {
           <b>I&rsquo;m</b> Felipe Mateus
         </h1>
 
-        <p className='w-full max-w-[45.625rem] hero-text'>
+        <p className='w-full max-w-[45.625rem] font-medium !leading-[2rem] !text-gray-dark hero-text'>
           A front-end engineer and UI/UX designer helping startups turn their
           visions into a digital reality. I specialize in designing and building
           modern mobile and web-based apps.

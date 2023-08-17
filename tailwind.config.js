@@ -174,10 +174,9 @@ module.exports = {
             },
           },
           '.hero-text': {
-            color: theme('colors.gray.dark'),
+            color: theme('colors.gray.DEFAULT'),
             fontSize: theme('fontSize.2xl'),
-            fontWeight: theme('fontWeight.medium'),
-            lineHeight: '2rem',
+            lineHeight: 'normal',
           },
           '.header': {
             color: theme('colors.white'),
@@ -204,6 +203,12 @@ module.exports = {
           '.absolute-center-y': {
             top: '50%',
             transform: 'translateY(-50%)',
+          },
+
+          '.absolute-center': {
+            left: '50%',
+            top: '50%',
+            transform: 'translate(-50%, -50%)',
           },
         }),
         matchVariant(
