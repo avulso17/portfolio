@@ -1,0 +1,75 @@
+import { ComponentProps, forwardRef } from 'react'
+
+import { twMerge } from 'tailwind-merge'
+import { tv, type VariantProps } from 'tailwind-variants'
+
+import * as Label from '@radix-ui/react-label'
+
+const textFieldStyles = tv({
+  slots: {
+    wrapper: 'flex items-baseline gap-2',
+    input:
+      'selection:bg-grey-600 h-fit w-full appearance-none border-none bg-transparent text-gray-light transition-colors placeholder:text-gray focus:outline-none',
+    label: 'inline-block text-base font-medium',
+  },
+  variants: {
+    error: {
+      true: {
+        input:
+          'border-red text-red/80 bg-red/10 focus:border-red focus:ring-red',
+        label: 'text-red/80',
+      },
+    },
+    success: {
+      true: {
+        input:
+          'border-green text-green/80 bg-green/10 focus:border-green focus:ring-green',
+        label: 'text-green/80',
+      },
+    },
+  },
+})
+
+type TextFieldVariants = VariantProps<typeof textFieldStyles>
+
+type ITextField = Omit<ComponentProps<'input'>, 'width'> &
+  TextFieldVariants & {
+    icon?: string
+    label?: string
+  }
+
+const TextField = forwardRef<HTMLInputElement, ITextField>(
+  (
+    { id, label, type, error, success, className, placeholder, ...props },
+    forwardRef
+  ) => {
+    const {
+      wrapper,
+      input,
+      label: labelStyles,
+    } = textFieldStyles({ error, success })
+
+    return (
+      <div className={wrapper()}>
+        {label !== undefined && (
+          <Label.Root className={labelStyles()} htmlFor={id}>
+            {label}
+          </Label.Root>
+        )}
+
+        <input
+          ref={forwardRef}
+          id={id}
+          type={type}
+          className={twMerge(input(), className)}
+          placeholder={placeholder}
+          {...props}
+        />
+      </div>
+    )
+  }
+)
+
+TextField.displayName = 'TextField'
+
+export default TextField

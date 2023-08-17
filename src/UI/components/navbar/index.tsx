@@ -86,7 +86,7 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
           <GithubIcon className={icon()} />
         </a>
 
-        <Separator alpha orientation='vertical' />
+        <Separator orientation='vertical' className='opacity-25' />
 
         <button
           id='theme-button'

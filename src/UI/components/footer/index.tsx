@@ -20,7 +20,7 @@ export const Footer = (): React.ReactElement => {
       id='footer'
       className='relative flex w-full justify-between pb-10 pt-[4.625rem]'
     >
-      <Separator className='absolute top-0 !w-screen bg-white/10 absolute-center-x' />
+      <Separator alpha className='absolute top-0 !w-screen absolute-center-x' />
 
       <div className='flex flex-col gap-4'>
         <DynamicLordIcon
