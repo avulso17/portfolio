@@ -11,7 +11,7 @@ const buttonStyles = tv({
     variant: {
       primary: 'text-white base-gradient button-shadow hover:brightness-125',
       secondary: 'bg-onyx text-gray-dark hover:brightness-125',
-      text: 'text-gray-light hover:bg-onyx/50',
+      text: 'p-0 h-[1.125rem] text-base text-gray-light leading-normal hover:text-white',
     },
     success: {
       true: 'bg-success text-white',

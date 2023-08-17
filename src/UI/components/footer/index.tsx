@@ -1,20 +1,11 @@
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
-import { tv } from 'tailwind-variants'
-
+import { Button } from '../button'
 import Separator from '../separator'
 const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
 
-const footerStyles = tv({
-  slots: {
-    button:
-      'flex h-[1.125rem] w-fit items-center text-base font-medium leading-normal text-gray-light outline-none transition-all ease-in-out hover:brightness-125 focus:outline-none',
-  },
-})
-
 export const Footer = (): React.ReactElement => {
-  const { button } = footerStyles()
-
   return (
     <footer
       id='footer'
@@ -42,21 +33,30 @@ export const Footer = (): React.ReactElement => {
       <div className='flex gap-28'>
         <div className='flex flex-col gap-4'>
           <b className='mb-4 font-bold'>Links</b>
+          <Link href='/about'>
+            <Button variant='text'>About</Button>
+          </Link>
 
-          <button className={button()}>About</button>
-          <button className={button()}>Work</button>
-          <button className={button()}>Tech Stack</button>
-          <button className={button()}>Contact</button>
+          <Link href='/work'>
+            <Button variant='text'>Work</Button>
+          </Link>
+
+          <Link href='/stacks'>
+            <Button variant='text'>Tech Stack</Button>
+          </Link>
+
+          <Link href='/contact'>
+            <Button variant='text'>Contact</Button>
+          </Link>
         </div>
 
         <div className='flex flex-col gap-4'>
           <b className='mb-4 font-bold'>Elsewhere</b>
-
-          <button className={button()}>Email</button>
-          <button className={button()}>LinkedIn</button>
-          <button className={button()}>GitHub</button>
-          <button className={button()}>Twitter</button>
-          <button className={button()}>Discord</button>
+          <Button variant='text'>Email</Button>
+          <Button variant='text'>LinkedIn</Button>
+          <Button variant='text'>GitHub</Button>
+          <Button variant='text'>Twitter</Button>
+          <Button variant='text'>Discord</Button>
         </div>
       </div>
     </footer>

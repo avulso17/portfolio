@@ -174,7 +174,7 @@ module.exports = withTV({
               lineHeight: 'inherit',
             },
 
-            '@media (max-width: 768px)': {
+            '@media (max-width: 620px)': {
               fontSize: theme('fontSize.5xl'),
             },
           },
@@ -183,7 +183,7 @@ module.exports = withTV({
             fontSize: theme('fontSize.2xl'),
             lineHeight: 'normal',
 
-            '@media (max-width: 768px)': {
+            '@media (max-width: 620px)': {
               fontSize: theme('fontSize.base'),
             },
           },

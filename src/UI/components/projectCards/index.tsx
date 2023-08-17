@@ -24,8 +24,7 @@ type ProjectCardProps = Omit<ComponentProps<'div'>, 'title'> & {
 export const ProjectCard = ({
   title = 'Project Name',
   description = 'Project description goes here',
-  iconSrc = '',
-  className,
+  iconSrc = '', // className,
 }: ProjectCardProps): React.ReactElement => {
   const {
     content,

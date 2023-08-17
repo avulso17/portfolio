@@ -9,6 +9,7 @@ import ChevronDownIcon from '../../../../public/icons/chevron/down.svg'
 import GithubIcon from '../../../../public/icons/github.svg'
 import LinkedinIcon from '../../../../public/icons/linkedin.svg'
 import TwitterIcon from '../../../../public/icons/social/twitter.svg'
+import { Button } from '../button'
 import Separator from '../separator'
 import { DropdownMenu } from './dropdown'
 const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
@@ -47,20 +48,21 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
         </Link>
 
         <Link href='/about'>
-          <button className={navigator()}>About</button>
+          <Button variant='text'>About</Button>
         </Link>
 
         <Link href='/work'>
-          <button className={navigator()}>Work</button>
+          <Button variant='text'>Work</Button>
         </Link>
 
         <Link href='/notebook'>
-          <button className={navigator()}>Notebook</button>
+          <Button variant='text'>Notebook</Button>
         </Link>
 
         <Link href='/contact'>
-          <button className={navigator()}>Contact</button>
+          <Button variant='text'>Contact</Button>
         </Link>
+
         <DropdownMenu navigator={navigator}>
           <button className={navigator()}>
             More
