@@ -54,42 +54,52 @@ type ButtonProps = ComponentProps<'button'> &
     iconSrc?: string
   }
 
-export const Button = ({
-  children,
-  className,
-  emphasis,
-  error,
-  iconSrc,
-  radii,
-  success,
-  variant,
-  warning,
-  width,
-  icon,
-  ...props
-}: ButtonProps): React.ReactElement => {
-  return (
-    <button
-      className={buttonStyles({
-        className,
-        emphasis,
-        error,
-        radii,
-        success,
-        variant,
-        warning,
-        width,
-      })}
-      {...props}
-    >
-      {icon !== undefined && (
-        <Icon
-          className='mr-2 min-w-[1.5rem]'
-          iconComponent={icon}
-          src={iconSrc}
-        />
-      )}
-      {children}
-    </button>
-  )
-}
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      className,
+      emphasis,
+      error,
+      iconSrc,
+      radii,
+      success,
+      variant,
+      warning,
+      width,
+      icon,
+      ...props
+    },
+    forwardRef
+  ) => {
+    return (
+      <button
+        ref={forwardRef}
+        className={buttonStyles({
+          className,
+          emphasis,
+          error,
+          radii,
+          success,
+          variant,
+          warning,
+          width,
+        })}
+        {...props}
+      >
+        {icon !== undefined && (
+          <Icon
+            className='mr-2 min-w-[1.5rem]'
+            iconComponent={icon}
+            src={iconSrc}
+          />
+        )}
+        {children}
+      </button>
+    )
+  }
+)
+
+Button.displayName = 'Button'
+
+export { Button }

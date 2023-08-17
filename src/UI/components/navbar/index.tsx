@@ -64,10 +64,10 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
         </Link>
 
         <DropdownMenu navigator={navigator}>
-          <button className={navigator()}>
+          <Button variant='text'>
             More
             <ChevronDownIcon className='h-5 w-5 transition-all ease-in-out' />
-          </button>
+          </Button>
         </DropdownMenu>
       </div>
 
