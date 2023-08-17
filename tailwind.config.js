@@ -1,10 +1,11 @@
+const { withTV } = require('tailwind-variants/transformer')
 const plugin = require('tailwindcss/plugin')
 
 const { colors: systemColors } = require('./src/UI/styles/colors')
 const { keyframes } = require('./src/UI/styles/keyframes')
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+module.exports = withTV({
   content: ['./src/**/*.{jsx,tsx,mdx}'],
   theme: {
     colors: {
@@ -172,11 +173,19 @@ module.exports = {
               fontWeight: 'inherit',
               lineHeight: 'inherit',
             },
+
+            '@media (max-width: 768px)': {
+              fontSize: theme('fontSize.5xl'),
+            },
           },
           '.hero-text': {
             color: theme('colors.gray.DEFAULT'),
             fontSize: theme('fontSize.2xl'),
             lineHeight: 'normal',
+
+            '@media (max-width: 768px)': {
+              fontSize: theme('fontSize.base'),
+            },
           },
           '.header': {
             color: theme('colors.white'),
@@ -234,4 +243,4 @@ module.exports = {
         )
     }),
   ],
-}
+})

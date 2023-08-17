@@ -31,7 +31,7 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
   return (
     <nav
       className={twMerge(
-        'navbar flex h-fit max-h-[3.75rem] w-full justify-between rounded-xl bg-onyx/30 p-4 backdrop-blur-[2px]',
+        'navbar flex h-fit max-h-[3.75rem] w-full justify-between overflow-hidden rounded-xl bg-onyx/30 p-4 backdrop-blur-[2px]',
         className
       )}
     >
