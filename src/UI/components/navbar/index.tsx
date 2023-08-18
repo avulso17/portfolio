@@ -2,6 +2,8 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
+import { useMemo } from 'react'
+
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
@@ -29,6 +31,30 @@ type NavbarProps = React.ComponentProps<'nav'>
 export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
   const { navigator, social, icon } = buttonStyles()
 
+  const memoPlanetIcon = useMemo(() => {
+    return (
+      <DynamicLordIcon
+        src='/lord/wired/wired-planet.json'
+        trigger='hover'
+        target='.navbar'
+        className='current-color'
+        size={44}
+      />
+    )
+  }, [])
+
+  const memoThemeIcon = useMemo(() => {
+    return (
+      <DynamicLordIcon
+        src='/lord/wired/wired-night-sky-moon-stars.json'
+        trigger='hover'
+        target='#theme-button'
+        className='current-color'
+        size={32}
+      />
+    )
+  }, [])
+
   return (
     <nav
       className={twMerge(
@@ -38,13 +64,7 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
     >
       <div className='flex items-center gap-10'>
         <Link href='/' className='min-h-[1.625rem] min-w-[1.625rem]'>
-          <DynamicLordIcon
-            src='/lord/wired/wired-planet.json'
-            trigger='hover'
-            target='.navbar'
-            className='current-color'
-            size={44}
-          />
+          {memoPlanetIcon}
         </Link>
 
         <Link href='/about'>
@@ -94,13 +114,7 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
           id='theme-button'
           className={twMerge(social(), 'grid place-items-center p-0')}
         >
-          <DynamicLordIcon
-            src='/lord/wired/wired-night-sky-moon-stars.json'
-            trigger='hover'
-            target='#theme-button'
-            className='current-color'
-            size={32}
-          />
+          {memoThemeIcon}
         </button>
       </div>
     </nav>

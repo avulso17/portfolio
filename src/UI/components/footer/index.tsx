@@ -1,11 +1,26 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
+import { useMemo } from 'react'
+
 import { Button } from '../button'
 import Separator from '../separator'
 const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
 
 export const Footer = (): React.ReactElement => {
+  const memoPlanetIcon = useMemo(
+    () => (
+      <DynamicLordIcon
+        src='/lord/wired/wired-planet.json'
+        trigger='hover'
+        target='#footer'
+        className='current-color'
+        size={64}
+      />
+    ),
+    []
+  )
+
   return (
     <footer
       id='footer'
@@ -14,13 +29,7 @@ export const Footer = (): React.ReactElement => {
       <Separator alpha className='absolute top-0 !w-screen absolute-center-x' />
 
       <div className='flex flex-col gap-4'>
-        <DynamicLordIcon
-          src='/lord/wired/wired-planet.json'
-          trigger='hover'
-          target='#footer'
-          className='current-color'
-          size={64}
-        />
+        {memoPlanetIcon}
         <p className='text-xl font-medium leading-normal text-gray'>
           Thanks for stopping by ッ
         </p>
