@@ -59,7 +59,9 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
   return (
     <>
       <div id='nav-mobile' className='mx-auto mb-36 w-fit mobile:hidden'>
-        <PlanetIcon className='w-14 opacity-50' />
+        <Link href='/'>
+          <PlanetIcon className='min-w-[4rem] opacity-50' />
+        </Link>
       </div>
 
       <nav

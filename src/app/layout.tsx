@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 import { Footer } from '@/UI/components/footer'
 import { Gradient } from '@/UI/components/gradient'
 import { Navbar } from '@/UI/components/navbar'
-import { Tooglebar } from '@/UI/components/togglebar'
+import { Togglebar } from '@/UI/components/togglebar'
 
 export const metadata: Metadata = {
   title: 'Portfolio - Felipe M.',
@@ -31,7 +31,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
-        <Tooglebar className='fixed bottom-4 left-4 right-4 mobile:hidden' />
+        <Togglebar className='fixed bottom-4 left-4 right-4 mobile:hidden' />
         <Gradient position='bottom' />
       </body>
     </html>

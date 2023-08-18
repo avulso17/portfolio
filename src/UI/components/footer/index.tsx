@@ -43,7 +43,7 @@ export const Footer = (): React.ReactElement => {
       </div>
 
       <div className='flex flex-col gap-10 tablet:flex-row tablet:gap-28'>
-        <div className='flex flex-col gap-4'>
+        <div className='flex w-fit flex-col gap-4'>
           <b className='mb-4 font-bold'>Links</b>
           <Link href='/about'>
             <Button variant='text'>About</Button>
