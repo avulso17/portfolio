@@ -110,10 +110,21 @@ module.exports = withTV({
         },
       }),
         addUtilities({
+          '.mask-geist': {
+            maskImage: 'url(/assets/geist.svg)',
+            maskSize: 'cover',
+            maskRepeat: 'no-repeat',
+            maskPosition: 'center',
+          },
+
           // base gradient
           '.base-gradient': {
             backgroundImage:
               'linear-gradient(180deg, #1A1A1A 0%, #131313 100%)',
+          },
+          '.radial-gradient': {
+            backgroundImage:
+              'radial-gradient(37.02% 75.07% at 54.91% 36.48%, rgba(13, 13, 13, 0.00) 0%, #0D0D0D 100%)',
           },
 
           // navbar content
@@ -218,6 +229,18 @@ module.exports = withTV({
             left: '50%',
             top: '50%',
             transform: 'translate(-50%, -50%)',
+          },
+
+          '.rotate-inverted': {
+            transform: 'rotate(180deg)',
+          },
+
+          '.rotate-inverted-y': {
+            transform: 'rotateY(180deg)',
+          },
+
+          '.rotate-inverted-x': {
+            transform: 'rotateX(180deg)',
           },
         }),
         matchVariant(

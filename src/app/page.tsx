@@ -1,5 +1,6 @@
 'use client'
 import { Button } from '@/UI/components/button'
+import { Portrait } from '@/UI/components/portrait'
 import { ProjectCard } from '@/UI/components/projectCards'
 import { Widget } from '@/UI/components/widgets'
 
@@ -8,7 +9,7 @@ import SendIcon from '../../public/icons/send.svg'
 export default function Home(): React.ReactElement {
   return (
     <main className='w-full'>
-      <div className='relative mb-[23.375rem] flex w-full flex-col gap-10'>
+      <div className='relative z-0 mb-[23.375rem] flex w-full flex-col gap-10'>
         <h1 className='w-fit font-extrabold'>
           <b>I&rsquo;m</b> Felipe Mateus
         </h1>
@@ -23,6 +24,12 @@ export default function Home(): React.ReactElement {
           <Button>See my resume</Button>
           <Button variant='secondary'>Get in touch</Button>
         </div>
+
+        <Portrait
+          src='/assets/me.jpg'
+          className='absolute -top-10 left-[570px] -z-10'
+          inverted
+        />
       </div>
 
       <h2 className='mb-8 header'>Selected Work</h2>
