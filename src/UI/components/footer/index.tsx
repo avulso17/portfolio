@@ -1,26 +1,38 @@
+'use client'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
+import { useMemo } from 'react'
+
+import PlanetIcon from '../../../../public/lord/wired/wired-planet.svg'
 import { Button } from '../button'
 import Separator from '../separator'
 const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
 
 export const Footer = (): React.ReactElement => {
+  const memoPlanetIcon = useMemo(
+    () => (
+      <DynamicLordIcon
+        src='/lord/wired/wired-planet.json'
+        trigger='hover'
+        target='#footer'
+        className='current-color hidden mobile:block'
+        size={64}
+      />
+    ),
+    []
+  )
+
   return (
     <footer
       id='footer'
-      className='relative flex w-full justify-between pb-10 pt-[4.625rem]'
+      className='relative flex w-full flex-col-reverse justify-between gap-12 py-8 tablet:flex-row tablet:gap-0 tablet:pb-10 tablet:pt-[4.625rem]'
     >
       <Separator alpha className='absolute top-0 !w-screen absolute-center-x' />
 
       <div className='flex flex-col gap-4'>
-        <DynamicLordIcon
-          src='/lord/wired/wired-planet.json'
-          trigger='hover'
-          target='#footer'
-          className='current-color'
-          size={64}
-        />
+        {memoPlanetIcon}
+        <PlanetIcon className='w-16 mobile:hidden' />
         <p className='text-xl font-medium leading-normal text-gray'>
           Thanks for stopping by ッ
         </p>
@@ -30,7 +42,7 @@ export const Footer = (): React.ReactElement => {
         </small>
       </div>
 
-      <div className='flex gap-28'>
+      <div className='flex flex-col gap-10 tablet:flex-row tablet:gap-28'>
         <div className='flex flex-col gap-4'>
           <b className='mb-4 font-bold'>Links</b>
           <Link href='/about'>

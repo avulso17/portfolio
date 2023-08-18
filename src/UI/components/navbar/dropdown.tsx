@@ -31,13 +31,21 @@ export const DropdownMenu = ({
           sideOffset={20.5}
           className={twMerge(
             'rounded-b-xl bg-onyx/60 backdrop-blur-[6px] dropdown-shadow',
-            'flex flex-col gap-4 px-6 py-4',
+            'hidden flex-col gap-4 px-6 py-4 mobile:flex',
             'h-fit w-fit',
             'will-change-[opacity,transform]',
             'data-[side=bottom]:animate-slideUpAndFade data-[side=top]:animate-slideDownAndFade',
             'data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade'
           )}
         >
+          <Link href='/contact' className='flex tablet:hidden'>
+            <Item className={navigator()}>Contact</Item>
+          </Link>
+
+          <Link href='/notebook' className='flex wide:hidden'>
+            <Item className={navigator()}>Notebook</Item>
+          </Link>
+
           <Link href='/bookshelf'>
             <Item className={navigator()}>Bookshelf</Item>
           </Link>
