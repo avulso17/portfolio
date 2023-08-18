@@ -9,25 +9,31 @@ import SendIcon from '../../public/icons/send.svg'
 export default function Home(): React.ReactElement {
   return (
     <main className='w-full'>
-      <div className='relative z-0 mb-[23.375rem] flex w-full flex-col gap-10'>
-        <h1 className='w-fit font-extrabold'>
-          <b>I&rsquo;m</b> Felipe Mateus
+      <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-24 mobile:mb-[23.375rem] mobile:gap-10 mobile:pt-0'>
+        <h1 className='mb-4 w-fit whitespace-nowrap font-extrabold mobile:mb-0'>
+          <b className='block mobile:hidden'>Hi 👋🏻</b>
+          <b>I&rsquo;m</b> Felipe M
+          <p className='hidden font-extrabold text-inherit font-inherit tablet:inline-block'>
+            ateus
+          </p>
         </h1>
 
-        <p className='w-full max-w-[45.625rem] font-medium !leading-[2rem] !text-gray-dark hero-text'>
+        <p className='mb-14 w-full max-w-[45.625rem] font-medium !leading-5 !text-gray-dark hero-text mobile:mb-0 mobile:!leading-[2rem]'>
           A front-end engineer and UI/UX designer helping startups turn their
           visions into a digital reality. I specialize in designing and building
           modern mobile and web-based apps.
         </p>
 
-        <div className='flex w-fit items-center gap-4'>
-          <Button>See my resume</Button>
-          <Button variant='secondary'>Get in touch</Button>
+        <div className='flex flex-col gap-4 mobile:flex-row mobile:items-center'>
+          <Button className='w-full mobile:w-fit'>See my resume</Button>
+          <Button className='w-full mobile:w-fit' variant='secondary'>
+            Get in touch
+          </Button>
         </div>
 
         <Portrait
           src='/assets/me.jpg'
-          className='absolute -top-10 left-[570px] -z-10'
+          className='absolute -top-10 left-[570px] -z-10 hidden wide:flex'
           inverted
         />
       </div>
@@ -75,16 +81,22 @@ export default function Home(): React.ReactElement {
         />
       </div>
 
-      <div className='mb-28 flex items-center justify-between'>
+      <div className='mb-28 flex flex-col items-center justify-between gap-8 tablet:flex-row tablet:gap-0'>
         <div className='flex flex-col gap-2'>
-          <h2 className='header'>Let&rsquo;s work together</h2>
-          <p className='w-full max-w-[31rem] header-text'>
+          <h2 className='text-center header tablet:text-start'>
+            Let&rsquo;s work together
+          </h2>
+          <p className='w-full text-center header-text tablet:max-w-[31rem] tablet:text-start'>
             Want to discuss an opportunity to create something great? I&rsquo;m
             ready when you are.
           </p>
         </div>
 
-        <Button id='get-in-touch-button' icon={<SendIcon />}>
+        <Button
+          id='get-in-touch-button'
+          icon={<SendIcon />}
+          className='w-full mobile:w-fit'
+        >
           Get in touch
         </Button>
       </div>

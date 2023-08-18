@@ -203,15 +203,27 @@ module.exports = withTV({
             fontSize: theme('fontSize.5xl'),
             fontWeight: theme('fontWeight.bold'),
             lineHeight: 'normal',
+
+            '@media (max-width: 620px)': {
+              fontSize: '2rem',
+            },
           },
           '.header-text': {
             color: 'rgba(128, 128, 128, 0.5)',
             fontSize: theme('fontSize.xl'),
             lineHeight: 'normal',
+
+            '@media (max-width: 620px)': {
+              fontSize: '1rem',
+            },
           },
           '.text-body': {
             fontSize: theme('fontSize.base'),
             lineHeight: 'normal',
+          },
+          '.font-inherit': {
+            fontSize: 'inherit',
+            lineHeight: 'inherit',
           },
 
           // utils

@@ -1,4 +1,7 @@
+import '@fontsource-variable/inter'
+import '@fontsource/nanum-pen-script'
 import '@/UI/styles/global.css'
+
 import type { Metadata } from 'next'
 
 import { Footer } from '@/UI/components/footer'
@@ -14,9 +17,6 @@ export const metadata: Metadata = {
   },
 }
 
-import '@fontsource-variable/inter'
-import '@fontsource/nanum-pen-script'
-
 export default function RootLayout({
   children,
 }: {
@@ -24,14 +24,14 @@ export default function RootLayout({
 }): React.ReactElement {
   return (
     <html lang='en'>
-      <body className='relative z-0 px-4 pb-8 mobile:pb-0'>
+      <body className='relative z-0 px-4 pb-20 mobile:pb-0'>
         <Gradient />
         <div className='mx-auto max-w-screen-wide pt-8'>
-          <Navbar className='mb-44' />
+          <Navbar className='mobile:mb-44' />
           {children}
           <Footer />
         </div>
-        <Tooglebar />
+        <Tooglebar className='fixed bottom-4 left-4 right-4 mobile:hidden' />
         <Gradient position='bottom' />
       </body>
     </html>
