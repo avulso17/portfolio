@@ -31,7 +31,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
-        <Togglebar className='fixed bottom-4 left-4 right-4 mobile:hidden' />
+        <Togglebar className='fixed bottom-4 left-4 right-4 z-30 mobile:hidden' />
         <Gradient position='bottom' />
       </body>
     </html>

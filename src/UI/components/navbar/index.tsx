@@ -7,14 +7,16 @@ import { useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
+import { Item } from '@radix-ui/react-dropdown-menu'
+
 import ChevronDownIcon from '../../../../public/icons/chevron/down.svg'
 import GithubIcon from '../../../../public/icons/github.svg'
 import LinkedinIcon from '../../../../public/icons/linkedin.svg'
 import TwitterIcon from '../../../../public/icons/social/twitter.svg'
 import PlanetIcon from '../../../../public/lord/wired/wired-planet.svg'
 import { Button } from '../button'
+import { DropdownMenu } from '../dropdown'
 import Separator from '../separator'
-import { DropdownMenu } from './dropdown'
 const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
 
 const buttonStyles = tv({
@@ -56,6 +58,13 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
     )
   }, [])
 
+  const trigger = (
+    <Button variant='text'>
+      More
+      <ChevronDownIcon className='h-5 w-5 transition-all ease-in-out' />
+    </Button>
+  )
+
   return (
     <>
       <div id='nav-mobile' className='mx-auto mb-36 w-fit mobile:hidden'>
@@ -91,11 +100,30 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
             <Button variant='text'>Contact</Button>
           </Link>
 
-          <DropdownMenu navigator={navigator}>
-            <Button variant='text'>
-              More
-              <ChevronDownIcon className='h-5 w-5 transition-all ease-in-out' />
-            </Button>
+          <DropdownMenu
+            trigger={trigger}
+            sideOffset={20.5}
+            className='hidden mobile:flex'
+          >
+            <Link href='/contact' className='flex tablet:hidden'>
+              <Item className={navigator()}>Contact</Item>
+            </Link>
+
+            <Link href='/notebook' className='flex wide:hidden'>
+              <Item className={navigator()}>Notebook</Item>
+            </Link>
+
+            <Link href='/bookshelf'>
+              <Item className={navigator()}>Bookshelf</Item>
+            </Link>
+
+            <Link href='/stacks'>
+              <Item className={navigator()}>Tech Stack</Item>
+            </Link>
+
+            <Link href='/ui'>
+              <Item className={navigator()}>This UI Kit</Item>
+            </Link>
           </DropdownMenu>
         </div>
 
