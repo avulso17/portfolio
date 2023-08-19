@@ -1,5 +1,3 @@
-'use client'
-
 export default function TechStacksPage(): React.ReactElement {
   return (
     <main className='w-full'>

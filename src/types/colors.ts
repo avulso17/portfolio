@@ -12,6 +12,7 @@ export interface IColors {
   }
   info: string
   inherit: string
+  'nav-border': string
   onyx: string
   red: string
   success: string

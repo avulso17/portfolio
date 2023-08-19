@@ -1,5 +1,3 @@
-'use client'
-
 export default function BookshelfPage(): React.ReactElement {
   return (
     <main className='w-full'>

@@ -6,11 +6,18 @@ import { tv } from 'tailwind-variants'
 
 const widgetStyles = tv({
   slots: {
-    card: 'flex h-widget w-widget shrink-0 flex-col rounded-[2rem] bg-card-bg px-6 overflow-hidden',
-    titleStyles:
-      'mt-[3.75rem] w-full text-center text-[2rem] font-extrabold leading-normal',
-    subtitleStyles:
-      'mt-4 w-full text-center text-base leading-normal text-gray-dark',
+    card: [
+      'aspect-square flex shrink-0 flex-col border border-card-border rounded-[2rem] bg-card-bg px-6 overflow-hidden',
+      'h-auto w-full min-h-[22.375rem] min-w-[22.375rem]',
+      'mobile:w-widget mobile:border-0',
+    ],
+    titleStyles: [
+      'mt-[3.75rem] w-full text-center text-2xl font-extrabold',
+      'tablet:text-[2rem]',
+    ],
+    subtitleStyles: [
+      'mt-4 w-full text-center text-[0.938rem] leading-normal text-gray-dark mobile:text-base',
+    ],
   },
 })
 
@@ -21,10 +28,10 @@ type WidgetProps = ComponentProps<'div'> & {
 }
 
 export const Widget = ({
+  className,
   image,
   subtitle = 'Subtitle',
   title = 'Title',
-  className,
 }: WidgetProps): React.ReactElement => {
   const { card, titleStyles, subtitleStyles } = widgetStyles()
 
