@@ -1,4 +1,3 @@
-'use client'
 import { defineElement } from 'lord-icon-element'
 import lottie from 'lottie-web'
 import { twMerge } from 'tailwind-merge'
