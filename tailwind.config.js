@@ -23,15 +23,12 @@ module.exports = withTV({
       'wide-xl': '1440px',
     },
     extend: {
-      height: {
-        widget: '31.5rem',
-      },
-      width: {
-        widget: '31.5rem',
-      },
       borderRadius: {
         '4xl': '2rem',
         50: '50%',
+      },
+      width: {
+        widget: 'calc(50% - 1rem)',
       },
       keyframes: {
         ...keyframes,

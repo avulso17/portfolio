@@ -19,6 +19,7 @@ export const colors: IColors = {
   yellow: 'rgba(255, 184, 0, 0.43)',
   'card-border': '#383737',
   'card-bg': '#151515',
+  'nav-border': '#27262c',
 
   // actions
   success: '#30D158',

@@ -1,5 +1,3 @@
-'use client'
-
 export default function AboutPage(): React.ReactElement {
   return (
     <main className='w-full'>

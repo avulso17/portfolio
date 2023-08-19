@@ -33,22 +33,27 @@ type TDropdownMenuProps = ContentVariants &
   }
 
 export const DropdownMenu = ({
-  children,
-  trigger,
-  side,
-  sideOffset = 20.5,
   align = 'end',
+  alignOffset = 0,
+  children,
+  className,
+  collisionPadding = 0,
+  modal = true,
   onOpenChange,
   open,
-  className,
+  side,
+  sideOffset = 20.5,
+  trigger,
 }: TDropdownMenuProps): React.ReactElement => {
   return (
-    <Root onOpenChange={onOpenChange} open={open}>
+    <Root onOpenChange={onOpenChange} open={open} modal={modal}>
       <Trigger asChild>{trigger}</Trigger>
 
       <Portal>
         <Content
           align={align}
+          alignOffset={alignOffset}
+          collisionPadding={collisionPadding}
           side={side}
           sideOffset={sideOffset}
           className={twMerge(contentStyles({ side }), className)}

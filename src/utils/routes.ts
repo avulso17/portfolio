@@ -22,7 +22,7 @@ export const routes = [
   },
   {
     name: 'notebook',
-    path: '/notebook ',
+    path: '/notebook',
     icon: NotebookIcon,
   },
   {
