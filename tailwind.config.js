@@ -12,7 +12,7 @@ module.exports = withTV({
       ...systemColors,
     },
     fontFamily: {
-      inter: ['Inter Variable', 'sans-serif'],
+      inter: ['var(--font-inter)'],
       nanum: ['"Nanum Pen Script"', 'sans-serif'],
     },
     screens: {
