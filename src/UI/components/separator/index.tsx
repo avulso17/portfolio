@@ -1,11 +1,11 @@
 'use client'
-
 import { twMerge } from 'tailwind-merge'
 
 import { Root, SeparatorProps } from '@radix-ui/react-separator'
 
 type SeparatorTypes = SeparatorProps & {
   alpha?: boolean
+  screen?: boolean
 }
 
 const Separator = ({
