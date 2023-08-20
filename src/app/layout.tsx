@@ -1,8 +1,8 @@
-import '@fontsource-variable/inter'
 import '@fontsource/nanum-pen-script'
 import '@/UI/styles/global.css'
 
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 
 import { Footer } from '@/UI/components/footer'
 import { Gradient } from '@/UI/components/gradient'
@@ -17,13 +17,19 @@ export const metadata: Metadata = {
   },
 }
 
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }): React.ReactElement {
   return (
-    <html lang='en'>
+    <html lang='en' className={inter.className}>
       <body className='relative z-0 px-4 pb-20 mobile:pb-0'>
         <Gradient />
         <div className='mx-auto max-w-screen-wide pt-8'>

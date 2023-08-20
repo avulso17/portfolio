@@ -41,17 +41,20 @@ export default function Home(): React.ReactElement {
       <h2 className='mb-8 header'>Selected Work</h2>
       <div className='mb-24 flex flex-col gap-8'>
         <ProjectCard
+          href='https://flow-ai-oficial.vercel.app/'
           iconSrc='/logos/logo.svg'
-          title='Flow.ai'
-          description='Create blended photos with Flow.ai'
+          title='Flow.ai - AI Photo Generator'
+          description='This project aims to generate AI photos in a friendly and modern interface, where the user can take control of the jobs generated and store his most beautiful works of art. I had the idea to do it because I really appreciate Midjourney and it would be a good experience to integrate an AI into a project, where I can generate and manage my arts in a more intuitive and user friendly.'
         />
         <ProjectCard
-          iconSrc=''
+          href='https://react.dev/'
+          iconSrc='/apps/react-icon.svg'
           title='React Documentation'
           description='With the release of the new React website on March 16, there was a need for localization to make the documentation accessible to Arabic-speaking developers. I contributed to translating several documentation, worked with great developers, Improved my ability to write better PR requests, and as a side effect, I now know more about the Arabic grammar.'
         />
         <ProjectCard
-          iconSrc=''
+          href='https://nextjs.org/'
+          iconSrc='/apps/storybook-icon.svg'
           title='Storybook Documentation'
           description='This was my very first OSS contribution, I contributed to translating the documentation of Storybook into Arabic, enabling a wider audience to access and understand the resources available. I gained valuable experience in working effectively with teams and navigating the pull request process.'
         />
@@ -63,13 +66,13 @@ export default function Home(): React.ReactElement {
           title='About me'
           subtitle='Who I am and what I do'
           image='/assets/memoji_1.webp'
-          className='top-14 h-auto w-44 absolute-center-x'
+          className='top-[16%] h-auto w-[35%] absolute-center-x wide:top-14 wide:w-44'
         />
         <Widget
           title='Notebook'
           subtitle='My thoughts, insights, and reflections'
           image='/assets/desknotes.svg'
-          className='top-8 h-[29rem] w-[19rem] absolute-center-x'
+          className='top-[10%] h-auto max-h-[29rem] w-[60%] absolute-center-x wide:top-8 wide:w-[19rem]'
         />
         <Widget
           title='Bookshelf'
