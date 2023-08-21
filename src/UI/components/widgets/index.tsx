@@ -7,8 +7,8 @@ import { tv } from 'tailwind-variants'
 const widgetStyles = tv({
   slots: {
     card: [
-      'aspect-square flex shrink-0 flex-col border border-card-border rounded-[2rem] bg-card-bg px-6 overflow-hidden',
-      'h-auto w-full min-h-[22.375rem] min-w-[22.375rem]',
+      'flex aspect-square shrink-0 flex-col overflow-hidden rounded-[2rem] border border-card-border bg-card-bg px-6',
+      'h-auto min-h-[22.375rem] w-full min-w-[22.375rem]',
       'mobile:w-widget mobile:border-0',
     ],
     titleStyles: [

@@ -16,7 +16,7 @@ const textFieldStyles = tv({
     error: {
       true: {
         input:
-          'border-red text-red/80 bg-red/10 focus:border-red focus:ring-red',
+          'border-red bg-red/10 text-red/80 focus:border-red focus:ring-red',
         label: 'text-red/80',
       },
     },

@@ -15,7 +15,7 @@ const projectCardVStyles = tv({
     icon: 'h-[4.375rem] w-[4.375rem] object-contain',
     title: 'text-xl font-extrabold leading-normal mobile:text-[2rem]',
     description:
-      'leading-normal text-[0.938rem] text-gray-dark mobile:text-base',
+      'text-[0.938rem] leading-normal text-gray-dark mobile:text-base',
   },
 })
 

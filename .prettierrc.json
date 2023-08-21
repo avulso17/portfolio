@@ -10,5 +10,5 @@
   "arrowParens": "always",
   "plugins": ["prettier-plugin-tailwindcss"],
   "pluginSearchDirs": false,
-  "tailwindFunctions": ["cva"]
+  "tailwindFunctions": ["tv"]
 }

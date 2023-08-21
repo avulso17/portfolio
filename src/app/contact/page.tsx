@@ -19,7 +19,7 @@ const contactStyles = tv({
       'flex max-h-[3.375rem] w-full items-center rounded-t-xl bg-onyx p-4 shadow-[0px_-1px_0px_0px_rgba(255,_255,_255,_0.03)_inset]',
     controlButton: 'flex h-3 w-3 shrink-0 rounded-50 border',
     content:
-      'flex flex-col gap-6 w-full px-4 pt-6 mobile:py-[0.625rem] mobile:px-8 mobile:gap-8',
+      'flex w-full flex-col gap-6 px-4 pt-6 mobile:gap-8 mobile:px-8 mobile:py-[0.625rem]',
     textArea:
       'h-80 w-full rounded-xl bg-black p-6 text-start shadow-[0px_19px_30px_0px_rgba(0,0,0,0.2)] placeholder:text-gray focus:outline-none',
     socialButtons: 'w-fit text-gray-dark transition-colors hover:text-white',

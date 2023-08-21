@@ -22,7 +22,7 @@ const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
 const buttonStyles = tv({
   slots: {
     navigator:
-      'flex h-[1.125rem] w-fit items-center text-base font-medium leading-normal text-gray-light outline-none transition-all ease-in-out hover:brightness-125 focus:outline-none tablet:',
+      'flex h-[1.125rem] w-fit items-center text-base font-medium leading-normal text-gray-light outline-none transition-all ease-in-out hover:brightness-125 focus:outline-none',
     social:
       'h-11 w-11 cursor-pointer rounded-md p-[0.625rem] font-medium leading-normal text-gray-light transition-all ease-in-out hover:bg-white/10',
     icon: 'min-h-[1.5rem] min-w-[1.5rem]',

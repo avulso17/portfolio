@@ -8,7 +8,7 @@ import { tv } from 'tailwind-variants'
 const techCardStyles = tv({
   slots: {
     container: ['', ''],
-    image: 'aspect-square object-contain w-[7.125rem]',
+    image: 'aspect-square w-[7.125rem] object-contain',
     label: [
       'flex h-fit w-fit items-center justify-center',
       'rounded-3xl border border-[#272525] bg-onyx',

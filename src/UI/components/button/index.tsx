@@ -6,12 +6,12 @@ import { tv, type VariantProps } from 'tailwind-variants'
 import Icon from '../icon'
 
 const buttonStyles = tv({
-  base: 'inline-flex items-center justify-center h-fit whitespace-nowrap px-5 py-4 font-inter font-medium leading-normal transition-all duration-200 ease-in-out disabled:cursor-default disabled:opacity-50 disabled:grayscale',
+  base: 'inline-flex h-fit items-center justify-center whitespace-nowrap px-5 py-4 font-inter font-medium leading-normal transition-all duration-200 ease-in-out disabled:cursor-default disabled:opacity-50 disabled:grayscale',
   variants: {
     variant: {
       primary: 'text-white base-gradient button-shadow hover:brightness-125',
       secondary: 'bg-onyx text-gray-dark hover:brightness-125',
-      text: 'p-0 h-[1.125rem] text-base text-gray-light leading-normal hover:text-white',
+      text: 'h-[1.125rem] p-0 text-base leading-normal text-gray-light hover:text-white',
     },
     success: {
       true: 'bg-success text-white',
