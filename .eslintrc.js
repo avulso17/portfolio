@@ -26,7 +26,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    'import-helpers',
+    'react-hooks',
+    'import',
     '@typescript-eslint',
     'typescript-sort-keys',
     'eslint-plugin-import-helpers',
