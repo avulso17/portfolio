@@ -170,7 +170,6 @@ module.exports = withTV({
 
           // typography
           '.hero-title': {
-            color: theme('colors.white'),
             fontSize: '5rem',
             fontWeight: theme('fontWeight.bold'),
             lineHeight: 'normal',
@@ -196,7 +195,6 @@ module.exports = withTV({
             },
           },
           '.header': {
-            color: theme('colors.white'),
             fontSize: theme('fontSize.5xl'),
             fontWeight: theme('fontWeight.bold'),
             lineHeight: 'normal',

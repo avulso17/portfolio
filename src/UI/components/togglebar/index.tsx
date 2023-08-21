@@ -17,19 +17,19 @@ const containerStyles = tv({
   base: [
     'flex items-center justify-between rounded-xl',
     'border border-nav-border/[0.38] bg-onyx/60 backdrop-blur-[2px]',
-    'h-[3.75rem] p-4 overflow-hidden',
+    'h-[3.75rem] overflow-hidden p-4',
   ],
   variants: {
     active: {
-      true: 'border-t-0 rounded-t-none',
+      true: 'rounded-t-none border-t-0',
     },
   },
 })
 
 const itemStyles = tv({
   base: [
-    'flex shrink-0 items-center h-10 px-4 text-gray-light',
-    'rounded-xl transition-colors ease-in-out outline-none',
+    'flex h-10 shrink-0 items-center px-4 text-gray-light',
+    'rounded-xl outline-none transition-colors ease-in-out',
     'hover:bg-white/20',
   ],
 
@@ -38,7 +38,7 @@ const itemStyles = tv({
       true: 'bg-white/10 text-white',
     },
     sub: {
-      true: 'bg-white/10 rounded-lg text-lg text-white py-4 h-fit w-full',
+      true: 'h-fit w-full rounded-lg bg-white/10 py-4 text-lg text-white',
     },
   },
 })

@@ -12,11 +12,11 @@ const books = [
   'essencialismo.jpg',
   'inteligencia-emocional.jpg',
   'mais-esperto-que-o-diabo.jpg',
-  // 'o-homem-mais-rico-da-babilonia.jpg',
+  'o-homem-mais-rico-da-babilonia.jpg',
   'o-poder-do-subconsciente.jpg',
   'o-principe.jpg',
   'o-processo.jpg',
-  // 'pai-rico-pai-pobre.jpg',
+  'pai-rico-pai-pobre.jpg',
   'rapido-e-devagar.jpg',
 ]
 

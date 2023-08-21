@@ -19,7 +19,7 @@ import Separator from '../separator'
 const dialog = tv({
   slots: {
     contentStyles:
-      'text-white bg-gray dialog focus:outline-none data-[state=open]:animate-contentShow',
+      'bg-gray text-white dialog focus:outline-none data-[state=open]:animate-contentShow',
     titleStyles: 'px-5 pt-5 text-2xl font-bold',
   },
 })
