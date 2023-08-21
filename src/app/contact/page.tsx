@@ -32,7 +32,6 @@ export default function ContactPage(): React.ReactElement {
 
   return (
     <main className='w-full'>
-      <div className='' />
       <div className='relative flex flex-col gap-2 pb-16'>
         <h1>Get in touch</h1>
         <p className='hero-text'>Let&rsquo;s build something awesome.</p>
