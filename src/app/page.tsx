@@ -1,4 +1,6 @@
 'use client'
+import Link from 'next/link'
+
 import { Button } from '@/UI/components/button'
 import { Portrait } from '@/UI/components/portrait'
 import { ProjectCard } from '@/UI/components/projectCards'
@@ -25,10 +27,14 @@ export default function Home(): React.ReactElement {
         </p>
 
         <div className='flex flex-col gap-4 mobile:flex-row mobile:items-center'>
-          <Button className='w-full mobile:w-fit'>See my resume</Button>
-          <Button className='w-full mobile:w-fit' variant='secondary'>
-            Get in touch
-          </Button>
+          <Link href='/about'>
+            <Button className='w-full mobile:w-fit'>See my resume</Button>
+          </Link>
+          <Link href='/contact'>
+            <Button className='w-full mobile:w-fit' variant='secondary'>
+              Get in touch
+            </Button>
+          </Link>
         </div>
 
         <Portrait
@@ -95,13 +101,11 @@ export default function Home(): React.ReactElement {
           </p>
         </div>
 
-        <Button
-          id='get-in-touch-button'
-          icon={<SendIcon />}
-          className='w-full mobile:w-fit'
-        >
-          Get in touch
-        </Button>
+        <Link href='/contact' className='w-full mobile:w-fit'>
+          <Button icon={<SendIcon />} className='w-full'>
+            Get in touch
+          </Button>
+        </Link>
       </div>
     </main>
   )

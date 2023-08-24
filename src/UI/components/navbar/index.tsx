@@ -7,6 +7,7 @@ import { useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
+import { links } from '@/utils/links'
 import { Item } from '@radix-ui/react-dropdown-menu'
 
 import ChevronDownIcon from '../../../../public/icons/chevron/down.svg'
@@ -33,6 +34,7 @@ type NavbarProps = React.ComponentProps<'nav'>
 
 export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
   const { navigator, social, icon } = buttonStyles()
+  const { linkedIn, twitter, github } = links
 
   const memoPlanetIcon = useMemo(() => {
     return (
@@ -128,27 +130,15 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
         </div>
 
         <div className='flex items-center gap-3'>
-          <a
-            href='https://www.linkedin.com/in/felipe-mateus-270246160'
-            rel='noreferrer noopener'
-            className={social()}
-          >
+          <a href={linkedIn} rel='noreferrer noopener' className={social()}>
             <LinkedinIcon className={icon()} />
           </a>
 
-          <a
-            href='https://twitter.com/felipe_teus10'
-            rel='noreferrer noopener'
-            className={social()}
-          >
+          <a href={twitter} rel='noreferrer noopener' className={social()}>
             <TwitterIcon className={icon()} />
           </a>
 
-          <a
-            href='https://github.com/avulso17'
-            rel='noreferrer noopener'
-            className={social()}
-          >
+          <a href={github} rel='noreferrer noopener' className={social()}>
             <GithubIcon className={icon()} />
           </a>
 

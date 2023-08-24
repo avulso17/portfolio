@@ -43,6 +43,31 @@ const itemStyles = tv({
   },
 })
 
+const togglebarStyles = tv({
+  slots: {
+    container: [
+      'flex h-[3.75rem] items-center justify-between rounded-xl p-4',
+      'border border-nav-border/[0.38] bg-onyx/60',
+      'overflow-hidden backdrop-blur-[2px]',
+    ],
+    item: [
+      'flex h-10 shrink-0 items-center px-4',
+      'rounded-xl text-gray-light outline-none',
+      'transition-colors ease-in-out hover:!bg-white/20',
+      'data-[active=true]:bg-white/10 data-[active=true]:text-white',
+      'data-[sub=true]:h-fit data-[sub=true]:w-full data-[sub=true]:rounded-lg',
+      'data-[sub=true]:bg-white/10 data-[sub=true]:py-4 data-[sub=true]:text-lg data-[sub=true]:text-white',
+    ],
+  },
+  variants: {
+    active: {
+      true: {
+        container: 'rounded-t-none border-t-0',
+      },
+    },
+  },
+})
+
 type TogglebarProps = ComponentProps<'nav'>
 
 export const Togglebar = ({
@@ -50,6 +75,7 @@ export const Togglebar = ({
 }: TogglebarProps): React.ReactElement => {
   const pathname = usePathname()
   const [open, setOpen] = useState<boolean>(false)
+  const { container, item } = togglebarStyles({ active: open })
 
   const trigger = (
     <button
@@ -61,12 +87,13 @@ export const Togglebar = ({
   )
 
   return (
-    <nav className={twMerge(containerStyles({ active: open }), className)}>
+    <nav className={twMerge(container(), className)}>
       {routes.map(({ name, path, icon: Icon }, index) => (
         <Link key={index} href={path}>
           <button
             value={name}
-            className={itemStyles({ active: path === pathname })}
+            data-active={path === pathname}
+            className={item()}
           >
             <Icon className='w-6' />
           </button>
@@ -81,25 +108,29 @@ export const Togglebar = ({
         sideOffset={10}
         alignOffset={-16}
         collisionPadding={{ left: 16, right: 16 }}
-        className='flex w-[calc(100vw-2.25rem)] border border-b-0 border-nav-border/[0.38] py-8 mobile:hidden'
+        className='flex w-[calc(100vw-36px)] border border-nav-border/[0.38] py-8 mobile:hidden'
       >
         <Link href='/stacks'>
-          <Item className={itemStyles({ sub: true })}>Tech Stack</Item>
+          <Item data-sub={true} className={item()}>
+            Tech Stack
+          </Item>
         </Link>
 
         <Link href='/bookshelf'>
-          <Item className={itemStyles({ sub: true })}>Bookshelf</Item>
+          <Item data-sub={true} className={item()}>
+            Bookshelf
+          </Item>
         </Link>
 
         <Link href='/ui'>
-          <Item
-            className={itemStyles({ sub: true, active: pathname === 'ui' })}
-          >
+          <Item data-sub={true} className={item()}>
             This UI Kit
           </Item>
         </Link>
 
-        <Item className={itemStyles({ sub: true })}>Theme: Dark</Item>
+        <Item data-sub={true} className={item()}>
+          Theme: Dark
+        </Item>
       </DropdownMenu>
     </nav>
   )

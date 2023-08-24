@@ -8,8 +8,10 @@ import * as Label from '@radix-ui/react-label'
 const textFieldStyles = tv({
   slots: {
     wrapper: 'flex items-baseline gap-2',
-    input:
-      'selection:bg-grey-600 h-fit w-full appearance-none border-none bg-transparent text-gray-light transition-colors placeholder:text-gray focus:outline-none',
+    input: [
+      'h-fit w-full appearance-none border-none bg-transparent text-gray-light ',
+      'transition-colors placeholder:text-gray focus:outline-none',
+    ],
     label: 'inline-block text-base font-medium',
   },
   variants: {

@@ -5,6 +5,7 @@ import { tv } from 'tailwind-variants'
 import { Button } from '@/UI/components/button'
 import Separator from '@/UI/components/separator'
 import TextField from '@/UI/components/textField'
+import { links } from '@/utils/links'
 
 import GithubIcon from '../../../public/icons/github.svg'
 import LinkedinIcon from '../../../public/icons/linkedin.svg'
@@ -16,17 +17,22 @@ import TwitterIcon from '../../../public/icons/social/twitter.svg'
 const contactStyles = tv({
   slots: {
     controlBar:
-      'flex max-h-[3.375rem] w-full items-center rounded-t-xl bg-onyx p-4 shadow-[0px_-1px_0px_0px_rgba(255,_255,_255,_0.03)_inset]',
+      'flex max-h-[3.375rem] w-full items-center rounded-t-xl border-b border-white/[0.03] bg-onyx p-4',
     controlButton: 'flex h-3 w-3 shrink-0 rounded-50 border',
-    content:
-      'flex w-full flex-col gap-6 px-4 pt-6 mobile:gap-8 mobile:px-8 mobile:py-[0.625rem]',
-    textArea:
-      'h-80 w-full rounded-xl bg-black p-6 text-start shadow-[0px_19px_30px_0px_rgba(0,0,0,0.2)] placeholder:text-gray focus:outline-none',
+    content: [
+      'flex w-full flex-col gap-6 px-4 pt-6 ',
+      'mobile:gap-8 mobile:px-8 mobile:py-[0.625rem]',
+    ],
+    textArea: [
+      'h-80 w-full rounded-xl bg-black p-6 text-start',
+      'shadow-text-area placeholder:text-gray focus:outline-none',
+    ],
     socialButtons: 'w-fit text-gray-dark transition-colors hover:text-white',
   },
 })
 
 export default function ContactPage(): React.ReactElement {
+  const { email, linkedIn, github, twitter, discord, instagram } = links
   const { controlBar, controlButton, content, textArea, socialButtons } =
     contactStyles()
 
@@ -103,14 +109,22 @@ export default function ContactPage(): React.ReactElement {
 
         <div className='mx-auto mt-16 flex w-fit max-w-[12.75rem] flex-wrap items-center gap-y-11 px-4 mobile:max-w-none mobile:gap-x-11'>
           <div className='flex w-fit items-center gap-11'>
-            <a href='' rel='noreferrer noopener' className={socialButtons()}>
+            <a
+              href={email}
+              rel='noreferrer noopener'
+              className={socialButtons()}
+            >
               <EmailIcon className='w-7' />
             </a>
-            <a href='' rel='noreferrer noopener' className={socialButtons()}>
+            <a
+              href={linkedIn}
+              rel='noreferrer noopener'
+              className={socialButtons()}
+            >
               <LinkedinIcon className='w-7' />
             </a>
             <a
-              href='https://www.instagram.com/felipe_teus/'
+              href={instagram}
               rel='noreferrer noopener'
               className={socialButtons()}
             >
@@ -120,7 +134,7 @@ export default function ContactPage(): React.ReactElement {
 
           <div className='flex w-fit items-center gap-11'>
             <a
-              href=''
+              href={twitter}
               rel='noreferrer noopener'
               target='_blank'
               className={socialButtons()}
@@ -128,7 +142,7 @@ export default function ContactPage(): React.ReactElement {
               <TwitterIcon className='w-7' />
             </a>
             <a
-              href=''
+              href={github}
               rel='noreferrer noopener'
               target='_blank'
               className={socialButtons()}
@@ -136,7 +150,7 @@ export default function ContactPage(): React.ReactElement {
               <GithubIcon className='w-7' />
             </a>
             <a
-              href=''
+              href={discord}
               rel='noreferrer noopener'
               target='_blank'
               className={socialButtons()}
