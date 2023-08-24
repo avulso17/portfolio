@@ -13,36 +13,6 @@ import { Item } from '@radix-ui/react-dropdown-menu'
 import DropdownIcon from '../../../../public/icons/dashboard/simple.svg'
 import { DropdownMenu } from '../dropdown'
 
-const containerStyles = tv({
-  base: [
-    'flex items-center justify-between rounded-xl',
-    'border border-nav-border/[0.38] bg-onyx/60 backdrop-blur-[2px]',
-    'h-[3.75rem] overflow-hidden p-4',
-  ],
-  variants: {
-    active: {
-      true: 'rounded-t-none border-t-0',
-    },
-  },
-})
-
-const itemStyles = tv({
-  base: [
-    'flex h-10 shrink-0 items-center px-4 text-gray-light',
-    'rounded-xl outline-none transition-colors ease-in-out',
-    'hover:bg-white/20',
-  ],
-
-  variants: {
-    active: {
-      true: 'bg-white/10 text-white',
-    },
-    sub: {
-      true: 'h-fit w-full rounded-lg bg-white/10 py-4 text-lg text-white',
-    },
-  },
-})
-
 const togglebarStyles = tv({
   slots: {
     container: [
@@ -79,7 +49,8 @@ export const Togglebar = ({
 
   const trigger = (
     <button
-      className={itemStyles({ active: open })}
+      data-active={open}
+      className={item()}
       onClick={(): void => setOpen(!open)}
     >
       <DropdownIcon className='w-6' />
