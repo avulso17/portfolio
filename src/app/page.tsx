@@ -11,7 +11,7 @@ import SendIcon from '../../public/icons/send.svg'
 export default function Home(): React.ReactElement {
   return (
     <main className='w-full'>
-      <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-24 mobile:mb-[23.375rem] mobile:gap-10 mobile:pt-0'>
+      <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-14 mobile:mb-[23.375rem] mobile:gap-10 mobile:pt-0'>
         <h1 className='mb-4 w-fit whitespace-nowrap font-extrabold mobile:mb-0'>
           <b className='block mobile:hidden'>Hi 👋🏻</b>
           <b>I&rsquo;m</b> Felipe M
@@ -60,9 +60,9 @@ export default function Home(): React.ReactElement {
         />
         <ProjectCard
           href='https://nextjs.org/'
-          iconSrc='/apps/storybook-icon.svg'
-          title='Storybook Documentation'
-          description='This was my very first OSS contribution, I contributed to translating the documentation of Storybook into Arabic, enabling a wider audience to access and understand the resources available. I gained valuable experience in working effectively with teams and navigating the pull request process.'
+          iconSrc='/apps/tools/Nextjs.png'
+          title='Next Documentation'
+          description='Next.js is a React framework for building full-stack web applications. You use React Components to build user interfaces, and Next.js for additional features and optimizations.'
         />
       </div>
 

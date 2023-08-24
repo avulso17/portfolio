@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Portfolio - Felipe M.',
   description: 'Felipe M. Portfolio - Software Engineer',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/logos/wired-planet.svg',
   },
 }
 
