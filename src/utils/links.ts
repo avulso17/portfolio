@@ -1,8 +1,8 @@
 export const links = {
-  likedIn: 'https://www.linkedin.com/in/alexander-ivanov-1b1b1b1b1/',
+  linkedIn: 'https://www.linkedin.com/in/felipe-mateus-270246160',
   github: 'https://github.com/avulso17',
-  instagram: '',
-  discord: '',
+  instagram: 'https://www.instagram.com/felipe_teus/',
+  discord: 'https://discord.gg/KgWFr3Xn6v',
   twitter: 'https://twitter.com/felipe_teus10',
-  email: 'felipe_mateus08@hotmail.com',
+  email: 'mailto:felipe_mateus08@hotmail.com?subject=Contato%20pelo%20site',
 }

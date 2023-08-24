@@ -11,7 +11,10 @@ import {
 } from '@radix-ui/react-dropdown-menu'
 
 const contentStyles = tv({
-  base: 'flex h-fit w-fit flex-col gap-4 bg-onyx/60 px-6 py-4 backdrop-blur-[6px] will-change-[opacity,transform] dropdown-shadow',
+  base: [
+    'flex h-fit w-fit flex-col gap-4 bg-onyx/60 px-6 py-4',
+    'backdrop-blur-[11px] will-change-[opacity,transform] dropdown-shadow',
+  ],
   variants: {
     side: {
       top: 'animate-slideUpAndFade rounded-t-xl',

@@ -9,6 +9,5 @@
   "jsxSingleQuote": true,
   "arrowParens": "always",
   "plugins": ["prettier-plugin-tailwindcss"],
-  "pluginSearchDirs": false,
   "tailwindFunctions": ["tv"]
 }

@@ -10,7 +10,7 @@ const portraitStyles = tv({
     wrapper: 'h-fit w-fit bg-onyx mask-geist',
     container: 'relative z-0 flex justify-center overflow-hidden',
     after:
-      'after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:z-10 after:radial-gradient',
+      'after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:z-10 after:bg-radial-gradient',
   },
   variants: {
     circle: {

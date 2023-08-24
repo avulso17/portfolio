@@ -23,16 +23,6 @@ module.exports = withTV({
       'wide-xl': '1440px',
     },
     extend: {
-      borderRadius: {
-        '4xl': '2rem',
-        50: '50%',
-      },
-      width: {
-        widget: 'calc(50% - 1rem)',
-      },
-      keyframes: {
-        ...keyframes,
-      },
       animation: {
         contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         enterFromLeft: 'enterFromLeft 250ms ease',
@@ -48,6 +38,24 @@ module.exports = withTV({
         slideLeftAndFade: 'slideLeftAndFade 0.3s ease-out',
         slideRightAndFade: 'slideRightAndFade 0.3s ease-out',
         slideUpAndFade: 'slideUpAndFade 0.3s ease-out',
+      },
+      backgroundImage: {
+        'base-gradient': 'linear-gradient(180deg, #1A1A1A 0%, #131313 100%)',
+        'radial-gradient':
+          'radial-gradient(37.02% 75.07% at 54.91% 36.48%, rgba(13, 13, 13, 0.00) 0%, #0D0D0D 100%)',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+        50: '50%',
+      },
+      boxShadow: {
+        'text-area': '0px 19px 30px 0px rgba(0,0,0,0.2)',
+      },
+      keyframes: {
+        ...keyframes,
+      },
+      width: {
+        widget: 'calc(50% - 1rem)',
       },
     },
   },
@@ -112,16 +120,6 @@ module.exports = withTV({
             maskSize: 'cover',
             maskRepeat: 'no-repeat',
             maskPosition: 'center',
-          },
-
-          // base gradient
-          '.base-gradient': {
-            backgroundImage:
-              'linear-gradient(180deg, #1A1A1A 0%, #131313 100%)',
-          },
-          '.radial-gradient': {
-            backgroundImage:
-              'radial-gradient(37.02% 75.07% at 54.91% 36.48%, rgba(13, 13, 13, 0.00) 0%, #0D0D0D 100%)',
           },
 
           // navbar content
