@@ -9,7 +9,7 @@ const widgetStyles = tv({
     card: [
       'flex aspect-square shrink-0 flex-col overflow-hidden rounded-[2rem] border border-card-border bg-card-bg px-6',
       'h-auto min-h-[22.375rem] w-full min-w-[22.375rem]',
-      'mobile:w-half-rem mobile:border-0',
+      'mobile:w-full mobile:border-0',
     ],
     titleStyles: [
       'mt-[3.75rem] w-full text-center text-2xl font-extrabold',
