@@ -50,12 +50,19 @@ module.exports = withTV({
       },
       boxShadow: {
         'text-area': '0px 19px 30px 0px rgba(0,0,0,0.2)',
+        button:
+          '0px 7px 4px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 2px 0px rgba(255, 255, 255, 0.02) inset',
+        dropdown:
+          '0px 5px 7px 0px rgba(0, 0, 0, 0.11), 0px 8px 5px 0px rgba(0, 0, 0, 0.07) inset',
       },
       keyframes: {
         ...keyframes,
       },
       width: {
-        widget: 'calc(50% - 1rem)',
+        'half-rem': 'calc(50% - 1rem)',
+      },
+      maxWidth: {
+        'tech-card': 'calc(50% - 0.5rem)',
       },
     },
   },
@@ -113,6 +120,20 @@ module.exports = withTV({
           backgroundColor: theme('colors.red'),
           '-webkit-text-fill-color': theme('colors.white'),
         },
+        '::-webkit-scrollbar': {
+          backgroundColor: theme('colors.transparent'),
+          height: theme('spacing.1'),
+          width: theme('spacing.1'),
+          transform: 'translate3d(0, 0, 0)',
+          '-webkit-transform': 'translate3d(0, 0, 0)',
+        },
+        '::-webkit-scrollbar-thumb': {
+          backgroundColor: theme('colors.gray.dark'),
+          borderRadius: theme('borderRadius.lg'),
+        },
+        '::-webkit-scrollbar-thumb:hover': {
+          backgroundColor: theme('colors.gray.light'),
+        },
       }),
         addUtilities({
           '.mask-geist': {
@@ -120,18 +141,6 @@ module.exports = withTV({
             maskSize: 'cover',
             maskRepeat: 'no-repeat',
             maskPosition: 'center',
-          },
-
-          // navbar content
-          '.dropdown-shadow': {
-            boxShadow:
-              '0px 5px 7px 0px rgba(0, 0, 0, 0.11), 0px 8px 5px 0px rgba(0, 0, 0, 0.07) inset',
-          },
-
-          // button shadow
-          '.button-shadow': {
-            boxShadow:
-              '0px 7px 4px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 2px 0px rgba(255, 255, 255, 0.02) inset',
           },
 
           // base dialog
@@ -146,24 +155,6 @@ module.exports = withTV({
             maxWidth: '500px',
             width: '90vw',
             zIndex: 1000,
-          },
-
-          // scrollbar
-          '.custom-scrollbar': {
-            '::-webkit-scrollbar': {
-              backgroundColor: theme('colors.transparent'),
-              height: theme('spacing.1'),
-              width: theme('spacing.1'),
-              transform: 'translate3d(0, 0, 0)',
-              '-webkit-transform': 'translate3d(0, 0, 0)',
-            },
-            '::-webkit-scrollbar-thumb': {
-              backgroundColor: theme('colors.gray.dark'),
-              borderRadius: theme('borderRadius.lg'),
-            },
-            '::-webkit-scrollbar-thumb:hover': {
-              backgroundColor: theme('colors.gray.light'),
-            },
           },
 
           // typography

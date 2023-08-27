@@ -1,62 +1,77 @@
-export const tools = {
-  figma: {
-    image: '',
+export const tools = [
+  {
+    image: '/apps/tools/Figma.png',
     name: 'Figma',
+    type: 'Design',
   },
-  nextJs: {
-    image: '',
+  {
+    image: '/apps/tools/Nextjs.png',
     name: 'Next.js',
+    type: 'Web framework',
   },
-  tailwind: {
-    image: '',
+  {
+    image: '/apps/tools/TailwindCSS.png',
     name: 'Tailwind CSS',
+    type: 'CSS',
   },
-  github: {
-    image: '',
+  {
+    image: '/apps/tools/Github.png',
     name: 'Github',
+    type: 'Version control',
   },
-  vercel: {
-    image: '',
+  {
+    image: '/apps/tools/Vercel.png',
     name: 'Vercel',
+    type: 'Deployment',
   },
-  vscode: {
-    image: '',
-    name: 'Visual Studio Code',
+  {
+    image: '/apps/tools/VSCode.png',
+    name: 'VSCode',
+    type: 'Editor',
   },
-  framer: {
-    image: '',
-    name: 'Framer',
+  {
+    image: '/apps/tools/Framer.png',
+    name: 'Framer Motion',
+    type: 'Animation',
   },
-  typescript: {
-    image: '',
+  {
+    image: '/apps/tools/TypeScript.png',
     name: 'Typescript',
+    type: 'Language',
   },
-  reactHookForm: {
-    image: '',
+  {
+    image: '/apps/tools/React-hook-form.png',
     name: 'React Hook Form',
+    type: 'Library',
   },
-  zod: {
-    image: '',
+  {
+    image: '/apps/tools/Zod.svg',
     name: 'Zod',
+    type: 'Validation',
   },
-  reactQuery: {
-    image: '',
+  {
+    image: '/apps/tools/React-query.png',
     name: 'React Query',
+    type: 'Server State',
   },
-  redux: {
-    image: '',
-    name: 'Redux Toolkit',
+  {
+    image: '/apps/tools/Redux.svg',
+    name: 'Redux',
+    type: 'State management',
   },
-  stitches: {
-    image: '',
+  {
+    image: '/apps/tools/Stitches.svg',
     name: 'Stitches',
+    type: 'CSS',
   },
-  styledComponents: {
-    image: '',
+  {
+    image: '/apps/tools/Styled-components.webp',
     name: 'Styled Components',
+    type: 'CSS',
   },
-  turborepo: {
-    image: '',
+  {
+    image: '/apps/tools/Turborepo.svg',
     name: 'Turborepo',
+    type: 'Monorepo',
   },
-}
+]
