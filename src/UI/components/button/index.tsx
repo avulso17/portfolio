@@ -9,7 +9,7 @@ const buttonStyles = tv({
   base: 'inline-flex h-fit items-center justify-center whitespace-nowrap px-5 py-4 font-inter font-medium leading-normal transition-all duration-200 ease-in-out disabled:cursor-default disabled:opacity-50 disabled:grayscale',
   variants: {
     variant: {
-      primary: 'bg-base-gradient text-white button-shadow hover:brightness-125',
+      primary: 'bg-base-gradient text-white shadow-button hover:brightness-125',
       secondary: 'bg-onyx text-gray-dark hover:brightness-125',
       text: 'h-[1.125rem] p-0 text-base leading-normal text-gray-light hover:text-white',
     },

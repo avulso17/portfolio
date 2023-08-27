@@ -13,7 +13,7 @@ import {
 const contentStyles = tv({
   base: [
     'flex h-fit w-fit flex-col gap-4 bg-onyx/60 px-6 py-4',
-    'backdrop-blur-[11px] will-change-[opacity,transform] dropdown-shadow',
+    'shadow-dropdown backdrop-blur-[11px] will-change-[opacity,transform]',
   ],
   variants: {
     side: {

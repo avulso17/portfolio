@@ -1,13 +1,6 @@
 import Separator from '@/UI/components/separator'
 import { TechCard } from '@/UI/components/techCard'
-
-const devStacks = [
-  {
-    name: 'React',
-    category: 'Frontend',
-    src: '/dev/react.png',
-  },
-]
+import { apps, games, hardware, tools } from '@/utils/stacks'
 
 export default function TechStacksPage(): React.ReactElement {
   return (
@@ -22,22 +15,42 @@ export default function TechStacksPage(): React.ReactElement {
       <div className='mb-12 mt-16'>
         <h2 className='mb-8 text-gray-dark header'>Dev & Design</h2>
         <div className='mb-16 flex w-full flex-wrap content-center items-center gap-4'>
-          <TechCard />
+          {tools.map((tool) => {
+            const { image, name, type } = tool
+
+            return (
+              <TechCard key={name} name={name} category={type} src={image} />
+            )
+          })}
         </div>
 
         <h2 className='mb-8 text-gray-dark header'>Apps</h2>
         <div className='mb-16 flex w-full flex-wrap content-center items-center gap-4'>
-          <TechCard />
+          {apps.map((apps) => {
+            const { image, name, type } = apps
+
+            return (
+              <TechCard key={name} name={name} category={type} src={image} />
+            )
+          })}
         </div>
 
         <h2 className='mb-8 text-gray-dark header'>Hardware</h2>
         <div className='mb-16 flex w-full flex-wrap content-center items-center gap-4'>
-          <TechCard />
+          {hardware.map((hardware) => {
+            const { image, name } = hardware
+
+            return <TechCard key={name} name={name} src={image} />
+          })}
         </div>
 
         <h2 className='mb-8 text-gray-dark header'>Games</h2>
         <div className='mb-16 flex w-full flex-wrap content-center items-center gap-4'>
-          <TechCard />
+          {games.map((games) => {
+            const { image, name } = games
+
+            return <TechCard key={name} name={name} src={image} />
+          })}
         </div>
       </div>
     </main>

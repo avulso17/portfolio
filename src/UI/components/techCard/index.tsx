@@ -7,12 +7,22 @@ import { tv } from 'tailwind-variants'
 
 const techCardStyles = tv({
   slots: {
-    container: ['', ''],
-    image: 'aspect-square w-[7.125rem] object-contain',
+    container: [
+      'flex w-full items-center justify-end gap-4 p-3.5',
+      'relative rounded-2xl border border-card-border bg-onyx',
+      'mobile:max-w-tech-card mobile:rounded-[1.375rem] wide:max-w-[18.75rem]',
+      'mobile:aspect-square mobile:flex-col mobile:gap-10 mobile:p-6',
+    ],
+    image: [
+      'aspect-square w-16 object-contain',
+      'overflow-hidden rounded-3xl mobile:-mt-1.5 mobile:rounded-2xl',
+      'mobile:absolute mobile:w-[35%] mobile:absolute-center wide:w-28',
+    ],
+    title: 'text-base font-semibold leading-normal mobile:text-lg',
     label: [
       'flex h-fit w-fit items-center justify-center',
       'rounded-3xl border border-[#272525] bg-onyx',
-      ' px-3 py-[0.375rem] text-sm leading-normal text-gray-dark',
+      'px-3 py-1.5 text-xs leading-normal text-gray-dark',
     ],
   },
 })
@@ -25,30 +35,25 @@ type TechCardProps = ComponentProps<'div'> & {
 
 export const TechCard = ({
   className,
-  name = 'ChatGPT',
-  category = 'Productivity',
-  src = '/apps/ChatGPT.png',
+  name = 'Name',
+  category,
+  src = '',
 }: TechCardProps): React.ReactElement => {
-  const { container, image, label } = techCardStyles()
+  const { container, image, title, label } = techCardStyles()
 
   return (
-    <div
-      className={twMerge(
-        container(),
-        className,
-        'flex aspect-square w-full max-w-[18.75rem] flex-col items-center justify-end gap-10 rounded-[1.375rem] border border-card-border bg-onyx p-6'
-      )}
-    >
+    <div className={twMerge(container(), className)}>
       <Image
         src={src}
-        alt='tech_icon'
+        alt='stack_icon'
         className={image()}
-        height={114}
-        width={114}
+        height={112}
+        width={112}
+        quality={100}
       />
       <div className='flex w-full items-end justify-between'>
-        <p className='text-xl font-medium leading-normal'>{name}</p>
-        <span className={label()}>{category}</span>
+        <p className={title()}>{name}</p>
+        {category !== undefined && <span className={label()}>{category}</span>}
       </div>
     </div>
   )
