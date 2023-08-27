@@ -1,11 +1,5 @@
-import { tv } from 'tailwind-variants'
-
 import { Book } from '@/UI/components/book'
 import Separator from '@/UI/components/separator'
-
-const bookStyles = tv({
-  base: 'w-[10.625rem] mobile:w-[13.375rem]',
-})
 
 const books = [
   'arte-de-viver.jpg',
@@ -32,9 +26,9 @@ export default function BookshelfPage(): React.ReactElement {
         <Separator className='absolute bottom-0 !w-screen opacity-[0.06] absolute-center-x' />
       </div>
 
-      <div className='flex w-full flex-wrap items-center justify-between gap-y-6 pb-12 pt-16'>
+      <div className='grid w-full grid-cols-[repeat(2,_minmax(9.625rem,_1fr))] items-center gap-4 gap-y-6 pb-12 pt-16 mobile:grid-cols-[repeat(auto-fit,_minmax(13.375rem,_1fr))]'>
         {books.map((book) => (
-          <Book key={book} image={`/books/${book}`} className={bookStyles()} />
+          <Book key={book} image={`/books/${book}`} className='w-full' />
         ))}
       </div>
     </main>

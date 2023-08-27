@@ -67,7 +67,7 @@ export default function Home(): React.ReactElement {
       </div>
 
       <h2 className='mb-8 header'>Get to know me</h2>
-      <div className='mb-[6.75rem] flex flex-wrap gap-4'>
+      <div className='mb-[6.75rem] grid grid-cols-[repeat(auto-fit,_minmax(22.375rem,_1fr))] gap-4'>
         <Widget
           title='About me'
           subtitle='Who I am and what I do'
