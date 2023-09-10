@@ -1,8 +1,5 @@
 'use client'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
-
-import { useMemo } from 'react'
 
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
@@ -14,11 +11,11 @@ import ChevronDownIcon from '../../../../public/icons/chevron/down.svg'
 import GithubIcon from '../../../../public/icons/github.svg'
 import LinkedinIcon from '../../../../public/icons/linkedin.svg'
 import TwitterIcon from '../../../../public/icons/social/twitter.svg'
-import PlanetIcon from '../../../../public/lord/wired/wired-planet.svg'
+import SunIcon from '../../../../public/icons/sun.svg'
+import LogoIcon from '../../../../public/icons/UFO.svg'
 import { Button } from '../button'
 import { DropdownMenu } from '../dropdown'
 import Separator from '../separator'
-const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
 
 const buttonStyles = tv({
   slots: {
@@ -36,30 +33,6 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
   const { navigator, social, icon } = buttonStyles()
   const { linkedIn, twitter, github } = links
 
-  const memoPlanetIcon = useMemo(() => {
-    return (
-      <DynamicLordIcon
-        src='/lord/wired/wired-planet.json'
-        trigger='hover'
-        target='.navbar'
-        className='current-color'
-        size={44}
-      />
-    )
-  }, [])
-
-  const memoThemeIcon = useMemo(() => {
-    return (
-      <DynamicLordIcon
-        src='/lord/wired/wired-night-sky-moon-stars.json'
-        trigger='hover'
-        target='#theme-button'
-        className='current-color'
-        size={32}
-      />
-    )
-  }, [])
-
   const trigger = (
     <Button variant='text'>
       More
@@ -71,7 +44,7 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
     <>
       <div id='nav-mobile' className='mx-auto mb-36 w-fit mobile:hidden'>
         <Link href='/'>
-          <PlanetIcon className='min-w-[4rem] opacity-50' />
+          <LogoIcon className='max-w-[4rem] text-white/50' />
         </Link>
       </div>
 
@@ -83,7 +56,7 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
       >
         <div className='flex items-center gap-10'>
           <Link href='/' className='min-h-[1.625rem] min-w-[1.625rem]'>
-            {memoPlanetIcon}
+            <LogoIcon className='aspect-square w-11 text-white/50 transition-colors hover:text-white' />
           </Link>
 
           <Link href='/about'>
@@ -144,11 +117,8 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
 
           <Separator orientation='vertical' className='opacity-25' />
 
-          <button
-            id='theme-button'
-            className={twMerge(social(), 'grid place-items-center p-0')}
-          >
-            {memoThemeIcon}
+          <button id='theme-button' className={social()}>
+            <SunIcon className={icon()} />
           </button>
         </div>
       </nav>

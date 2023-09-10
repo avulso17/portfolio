@@ -1,31 +1,14 @@
 'use client'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
-
-import { useMemo } from 'react'
 
 import { links } from '@/utils/links'
 
-import PlanetIcon from '../../../../public/lord/wired/wired-planet.svg'
+import LogoIcon from '../../../../public/icons/UFO.svg'
 import { Button } from '../button'
 import Separator from '../separator'
-const DynamicLordIcon = dynamic(() => import('../lordIcon'), { ssr: false })
 
 export const Footer = (): React.ReactElement => {
   const { linkedIn, email, github, twitter, discord } = links
-
-  const memoPlanetIcon = useMemo(
-    () => (
-      <DynamicLordIcon
-        src='/lord/wired/wired-planet.json'
-        trigger='hover'
-        target='#footer'
-        className='current-color hidden mobile:block'
-        size={64}
-      />
-    ),
-    []
-  )
 
   return (
     <footer
@@ -35,8 +18,7 @@ export const Footer = (): React.ReactElement => {
       <Separator alpha className='absolute top-0 !w-screen absolute-center-x' />
 
       <div className='flex flex-col gap-4'>
-        {memoPlanetIcon}
-        <PlanetIcon className='w-16 mobile:hidden' />
+        <LogoIcon className='w-16' />
         <p className='text-xl font-medium leading-normal text-gray'>
           Thanks for stopping by ッ
         </p>
