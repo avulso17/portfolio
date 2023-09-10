@@ -1,7 +1,15 @@
+import { Header } from '@/UI/components/header'
+import { UnderConstruction } from '@/UI/components/underConstruction'
+
 export default function NotebookPage(): React.ReactElement {
   return (
     <main className='w-full'>
-      <h1>notebook page</h1>
+      <Header
+        title='Notebook'
+        subtitle='My thoughts, insights, and reflections.'
+      />
+
+      <UnderConstruction />
     </main>
   )
 }

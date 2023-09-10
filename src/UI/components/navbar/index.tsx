@@ -42,9 +42,9 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
 
   return (
     <>
-      <div id='nav-mobile' className='mx-auto mb-36 w-fit mobile:hidden'>
+      <div className='mx-auto mb-36 w-fit mobile:hidden'>
         <Link href='/'>
-          <LogoIcon className='max-w-[4rem] text-white/50' />
+          <LogoIcon className='min-w-[4rem] text-white/50 transition-colors hover:text-white' />
         </Link>
       </div>
 
