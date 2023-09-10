@@ -14,7 +14,7 @@ const techCardStyles = tv({
       'mobile:aspect-square mobile:flex-col mobile:gap-10 mobile:p-6',
     ],
     image: [
-      'aspect-square w-16 object-contain',
+      'aspect-square w-16 min-w-[3.75rem] object-contain',
       'overflow-hidden rounded-3xl mobile:-mt-1.5 mobile:rounded-2xl',
       'mobile:absolute mobile:w-[35%] mobile:absolute-center wide:w-28',
     ],

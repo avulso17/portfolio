@@ -8,7 +8,7 @@ type SeparatorTypes = SeparatorProps & {
   screen?: boolean
 }
 
-const Separator = ({
+export const Separator = ({
   alpha = false,
   asChild = false,
   className,
@@ -33,5 +33,3 @@ const Separator = ({
     </Root>
   )
 }
-
-export default Separator

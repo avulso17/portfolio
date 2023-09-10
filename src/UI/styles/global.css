@@ -9,6 +9,14 @@
     @apply text-body;
   }
 
+  a {
+    @apply outline-none;
+  }
+
+  button {
+    @apply outline-none focus:underline;
+  }
+
   h1 {
     @apply hero-title;
   }

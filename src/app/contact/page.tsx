@@ -2,9 +2,7 @@
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { Button } from '@/UI/components/button'
-import Separator from '@/UI/components/separator'
-import TextField from '@/UI/components/textField'
+import { Button, Header, Separator, TextField } from '@/UI/components'
 import { links } from '@/utils/links'
 
 import GithubIcon from '../../../public/icons/github.svg'
@@ -38,12 +36,10 @@ export default function ContactPage(): React.ReactElement {
 
   return (
     <main className='w-full'>
-      <div className='relative flex flex-col gap-2 pb-16'>
-        <h1>Get in touch</h1>
-        <p className='hero-text'>Let&rsquo;s build something awesome.</p>
-
-        <Separator className='absolute bottom-0 !w-screen opacity-[0.06] absolute-center-x' />
-      </div>
+      <Header
+        title='Get in touch'
+        subtitle='Let&rsquo;s build something awesome.'
+      />
 
       <div className='mb-20 mt-8 w-full mobile:mt-16'>
         <div className='flex w-full flex-col overflow-hidden rounded-xl bg-onyx'>
