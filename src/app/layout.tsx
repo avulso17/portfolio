@@ -4,10 +4,7 @@ import '@/UI/styles/global.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import { Footer } from '@/UI/components/footer'
-import { Gradient } from '@/UI/components/gradient'
-import { Navbar } from '@/UI/components/navbar'
-import { Togglebar } from '@/UI/components/togglebar'
+import { Footer, Gradient, Navbar, Togglebar } from '@/UI/components'
 
 export const metadata: Metadata = {
   title: 'Portfolio - Felipe M.',

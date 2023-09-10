@@ -15,7 +15,7 @@ import SunIcon from '../../../../public/icons/sun.svg'
 import LogoIcon from '../../../../public/icons/UFO.svg'
 import { Button } from '../button'
 import { DropdownMenu } from '../dropdown'
-import Separator from '../separator'
+import { Separator } from '../separator'
 
 const buttonStyles = tv({
   slots: {

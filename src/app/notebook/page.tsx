@@ -1,5 +1,4 @@
-import { Header } from '@/UI/components/header'
-import { UnderConstruction } from '@/UI/components/underConstruction'
+import { Header, UnderConstruction } from '@/UI/components'
 
 export default function NotebookPage(): React.ReactElement {
   return (

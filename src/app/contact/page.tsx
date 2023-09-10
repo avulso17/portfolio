@@ -2,10 +2,7 @@
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { Button } from '@/UI/components/button'
-import { Header } from '@/UI/components/header'
-import Separator from '@/UI/components/separator'
-import TextField from '@/UI/components/textField'
+import { Button, Header, Separator, TextField } from '@/UI/components'
 import { links } from '@/utils/links'
 
 import GithubIcon from '../../../public/icons/github.svg'

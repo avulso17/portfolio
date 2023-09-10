@@ -5,7 +5,7 @@ import { links } from '@/utils/links'
 
 import LogoIcon from '../../../../public/icons/UFO.svg'
 import { Button } from '../button'
-import Separator from '../separator'
+import { Separator } from '../separator'
 
 export const Footer = (): React.ReactElement => {
   const { linkedIn, email, github, twitter, discord } = links

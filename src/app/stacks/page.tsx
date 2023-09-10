@@ -1,5 +1,4 @@
-import { Header } from '@/UI/components/header'
-import { TechCard } from '@/UI/components/techCard'
+import { Header, TechCard } from '@/UI/components'
 import { apps, games, hardware, tools } from '@/utils/stacks'
 
 export default function TechStacksPage(): React.ReactElement {

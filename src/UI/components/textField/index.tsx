@@ -1,3 +1,4 @@
+'use client'
 import { ComponentProps, forwardRef } from 'react'
 
 import { twMerge } from 'tailwind-merge'
@@ -74,4 +75,4 @@ const TextField = forwardRef<HTMLInputElement, ITextField>(
 
 TextField.displayName = 'TextField'
 
-export default TextField
+export { TextField }
