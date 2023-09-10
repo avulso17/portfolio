@@ -1,4 +1,5 @@
 import { Header } from '@/UI/components/header'
+import { UnderConstruction } from '@/UI/components/underConstruction'
 
 export default function AboutPage(): React.ReactElement {
   return (
@@ -7,6 +8,8 @@ export default function AboutPage(): React.ReactElement {
         title='A little bit about me'
         subtitle='Who I am and what I do.'
       />
+
+      <UnderConstruction />
     </main>
   )
 }
