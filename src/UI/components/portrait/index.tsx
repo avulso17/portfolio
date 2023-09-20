@@ -6,22 +6,28 @@ import { VariantProps, tv } from 'tailwind-variants'
 
 const portraitStyles = tv({
   slots: {
+    after: [
+      'after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0',
+      'after:z-10 after:bg-radial-gradient',
+    ],
+    container: 'relative z-0 flex justify-center overflow-hidden',
     image: 'block h-[21.5rem] w-72 object-cover object-[55%_22%]',
     wrapper: 'h-fit w-fit bg-onyx mask-geist',
-    container: 'relative z-0 flex justify-center overflow-hidden',
-    after:
-      'after:absolute after:bottom-0 after:left-0 after:right-0 after:top-0 after:z-10 after:bg-radial-gradient',
   },
   variants: {
     circle: {
       true: {
-        wrapper: 'mt-[5.375rem]',
         container: 'h-[33.75rem] w-[33.75rem] rounded-50',
+        wrapper: 'mt-[5.375rem]',
       },
     },
     square: {
       true: {
-        container: 'h-[33.75rem] w-[33.75rem] rounded-50',
+        after: 'after:hidden',
+        container:
+          'h-fit w-fit rounded-xl border border-card-border bg-black px-11 py-16',
+        image: 'h-[19rem] min-w-[16rem]',
+        wrapper: 'mt-0',
       },
     },
     inverted: {
