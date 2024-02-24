@@ -1,8 +1,8 @@
 const { withTV } = require('tailwind-variants/transformer')
 const plugin = require('tailwindcss/plugin')
 
-const { colors: systemColors } = require('./src/UI/styles/colors')
-const { keyframes } = require('./src/UI/styles/keyframes')
+const { colors: systemColors } = require('./src/styles/colors')
+const { keyframes } = require('./src/styles/keyframes')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = withTV({

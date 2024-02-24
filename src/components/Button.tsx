@@ -1,9 +1,10 @@
 'use client'
+
 import React, { ComponentProps } from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
 
-import Icon from '../icon'
+import Icon from './Icon'
 
 const buttonStyles = tv({
   base: 'inline-flex h-fit items-center justify-center whitespace-nowrap px-5 py-4 font-inter font-medium leading-normal transition-all duration-200 ease-in-out disabled:cursor-default disabled:opacity-50 disabled:grayscale',

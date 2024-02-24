@@ -1,4 +1,5 @@
-import { Book, Header } from '@/UI/components'
+import { Book } from '@/components/Book'
+import { Header } from '@/components/Header'
 
 const books = [
   'arte-de-viver.jpg',

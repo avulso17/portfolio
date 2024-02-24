@@ -1,8 +1,11 @@
 'use client'
+
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { Button, Header, Portrait } from '@/UI/components'
+import { Button } from '@/components/Button'
+import { Header } from '@/components/Header'
+import { Portrait } from '@/components/Portrait'
 
 import SendIcon from '../../../public/icons/send.svg'
 

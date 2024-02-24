@@ -1,10 +1,11 @@
 'use client'
+
 import { ComponentProps } from 'react'
 
 import { tv } from 'tailwind-variants'
 
-import ArrowRight from '../../../../public/icons/arrow/right.svg'
-import { Button } from '../button'
+import ArrowRight from '../../public/icons/arrow/right.svg'
+import { Button } from './Button'
 
 const projectCardVStyles = tv({
   slots: {

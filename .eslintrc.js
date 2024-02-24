@@ -81,7 +81,6 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'warn',
     '@typescript-eslint/restrict-plus-operands': 'warn',
-    '@typescript-eslint/explicit-function-return-type': 'warn',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',

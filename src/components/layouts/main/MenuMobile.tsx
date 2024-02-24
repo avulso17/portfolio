@@ -1,4 +1,5 @@
 'use client'
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -7,11 +8,11 @@ import { ComponentProps, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
+import { DropdownMenu } from '@/components/Dropdown'
 import { routes } from '@/utils/routes'
 import { Item } from '@radix-ui/react-dropdown-menu'
 
 import DropdownIcon from '../../../../public/icons/dashboard/simple.svg'
-import { DropdownMenu } from '../dropdown'
 
 const togglebarStyles = tv({
   slots: {
@@ -38,11 +39,9 @@ const togglebarStyles = tv({
   },
 })
 
-type TogglebarProps = ComponentProps<'nav'>
+type MenuMobileProps = ComponentProps<'nav'>
 
-export const Togglebar = ({
-  className,
-}: TogglebarProps): React.ReactElement => {
+export const MenuMobile = ({ className }: MenuMobileProps) => {
   const pathname = usePathname()
   const [open, setOpen] = useState<boolean>(false)
   const { container, item } = togglebarStyles({ active: open })

@@ -1,9 +1,13 @@
 'use client'
+
 import Link from 'next/link'
 
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
+import { Button } from '@/components/Button'
+import { DropdownMenu } from '@/components/Dropdown'
+import { Separator } from '@/components/Separator'
 import { links } from '@/utils/links'
 import { Item } from '@radix-ui/react-dropdown-menu'
 
@@ -13,9 +17,6 @@ import LinkedinIcon from '../../../../public/icons/linkedin.svg'
 import TwitterIcon from '../../../../public/icons/social/twitter.svg'
 import SunIcon from '../../../../public/icons/sun.svg'
 import LogoIcon from '../../../../public/icons/UFO.svg'
-import { Button } from '../button'
-import { DropdownMenu } from '../dropdown'
-import { Separator } from '../separator'
 
 const buttonStyles = tv({
   slots: {

@@ -1,11 +1,12 @@
 'use client'
+
 import Link from 'next/link'
 
+import { Button } from '@/components/Button'
+import { Separator } from '@/components/Separator'
 import { links } from '@/utils/links'
 
 import LogoIcon from '../../../../public/icons/UFO.svg'
-import { Button } from '../button'
-import { Separator } from '../separator'
 
 export const Footer = (): React.ReactElement => {
   const { linkedIn, email, github, twitter, discord } = links

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Button } from '../button'
+import { Button } from './Button'
 
 export const UnderConstruction = (): React.ReactElement => {
   return (
