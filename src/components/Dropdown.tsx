@@ -1,14 +1,15 @@
 'use client'
+
 import { twMerge } from 'tailwind-merge'
 import { VariantProps, tv } from 'tailwind-variants'
 
 import {
   Content,
+  DropdownMenuProps,
+  MenuContentProps,
   Portal,
   Root,
   Trigger,
-  MenuContentProps,
-  DropdownMenuProps,
 } from '@radix-ui/react-dropdown-menu'
 
 const contentStyles = tv({

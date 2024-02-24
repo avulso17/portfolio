@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react'
 
-import { colors } from '@/UI/styles/colors'
+import { colors } from '@/styles/colors'
 
 type BookProps = ComponentProps<'svg' | 'div'> & {
   image?: string

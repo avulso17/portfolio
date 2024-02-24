@@ -1,7 +1,11 @@
 'use client'
+
 import Link from 'next/link'
 
-import { Button, Portrait, ProjectCard, Widget } from '@/UI/components'
+import { Button } from '@/components/Button'
+import { Portrait } from '@/components/Portrait'
+import { ProjectCard } from '@/components/ProjectCards'
+import { Widget } from '@/components/Widgets'
 
 import SendIcon from '../../public/icons/send.svg'
 

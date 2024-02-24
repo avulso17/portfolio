@@ -1,8 +1,12 @@
 'use client'
+
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { Button, Header, Separator, TextField } from '@/UI/components'
+import { Button } from '@/components/Button'
+import { Header } from '@/components/Header'
+import { Separator } from '@/components/Separator'
+import { TextField } from '@/components/TextField'
 import { links } from '@/utils/links'
 
 import GithubIcon from '../../../public/icons/github.svg'
