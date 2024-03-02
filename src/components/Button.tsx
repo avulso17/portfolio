@@ -1,10 +1,6 @@
-'use client'
-
-import React, { ComponentProps } from 'react'
+import React, { ComponentProps, forwardRef } from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
-
-import Icon from './Icon'
 
 const buttonStyles = tv({
   base: 'inline-flex h-fit items-center justify-center whitespace-nowrap px-5 py-4 font-inter font-medium leading-normal transition-all duration-200 ease-in-out disabled:cursor-default disabled:opacity-50 disabled:grayscale',
@@ -22,6 +18,9 @@ const buttonStyles = tv({
     },
     warning: {
       true: 'bg-warning text-black',
+    },
+    icon: {
+      true: 'gap-2',
     },
     emphasis: {
       true: 'font-display-medium',
@@ -51,56 +50,48 @@ type ButtonVariants = VariantProps<typeof buttonStyles>
 
 type ButtonProps = ComponentProps<'button'> &
   ButtonVariants & {
-    icon?: unknown
-    iconSrc?: string
+    leftIcon?: React.ReactNode
+    rightIcon?: React.ReactNode
   }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      children,
-      className,
-      emphasis,
-      error,
-      iconSrc,
-      radii,
-      success,
-      variant,
-      warning,
-      width,
-      icon,
-      ...props
-    },
-    forwardRef
-  ) => {
-    return (
-      <button
-        ref={forwardRef}
-        className={buttonStyles({
-          className,
-          emphasis,
-          error,
-          radii,
-          success,
-          variant,
-          warning,
-          width,
-        })}
-        {...props}
-      >
-        {icon !== undefined && (
-          <Icon
-            className='mr-2 min-w-[1.5rem]'
-            iconComponent={icon}
-            src={iconSrc}
-          />
-        )}
-        {children}
-      </button>
-    )
-  }
-)
-
-Button.displayName = 'Button'
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  {
+    children,
+    className,
+    emphasis,
+    error,
+    radii,
+    success,
+    variant,
+    warning,
+    width,
+    leftIcon,
+    rightIcon,
+    ...props
+  },
+  forwardRef
+) {
+  return (
+    <button
+      ref={forwardRef}
+      className={buttonStyles({
+        className,
+        emphasis,
+        error,
+        radii,
+        success,
+        variant,
+        warning,
+        icon: leftIcon !== undefined || rightIcon !== undefined,
+        width,
+      })}
+      {...props}
+    >
+      {leftIcon !== undefined ? leftIcon : null}
+      {children}
+      {rightIcon !== undefined ? rightIcon : null}
+    </button>
+  )
+})
 
 export { Button }
