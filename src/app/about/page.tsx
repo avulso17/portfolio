@@ -1,13 +1,10 @@
-'use client'
-
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 import { Button } from '@/components/Button'
 import { Header } from '@/components/Header'
 import { Portrait } from '@/components/Portrait'
-
-import SendIcon from '../../../public/icons/send.svg'
+import SendIcon from '@/icons/send'
 
 const aboutStyles = tv({
   slots: {
@@ -16,7 +13,7 @@ const aboutStyles = tv({
   },
 })
 
-export default function AboutPage(): React.ReactElement {
+export default function AboutPage() {
   const { title, text } = aboutStyles.slots
 
   return (
@@ -66,7 +63,7 @@ export default function AboutPage(): React.ReactElement {
 
         <div className='flex flex-col items-center'>
           <Portrait src='/assets/me.jpg' square />
-          <Button className='mt-20' icon={<SendIcon />}>
+          <Button className='mt-20' leftIcon={<SendIcon />}>
             Get in touch
           </Button>
         </div>
