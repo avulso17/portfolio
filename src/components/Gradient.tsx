@@ -1,5 +1,3 @@
-'use client'
-
 import { ComponentProps } from 'react'
 
 import { VariantProps, tv } from 'tailwind-variants'
@@ -35,7 +33,7 @@ const styles = tv({
 
 type GradientProps = ComponentProps<'div'> & VariantProps<typeof styles>
 
-export const Gradient = ({ position }: GradientProps): React.ReactElement => {
+export const Gradient = ({ position }: GradientProps) => {
   const { wrapper, box1, box2, box3 } = styles({ position })
 
   return (

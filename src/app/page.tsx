@@ -1,15 +1,12 @@
-'use client'
-
 import Link from 'next/link'
 
 import { Button } from '@/components/Button'
 import { Portrait } from '@/components/Portrait'
 import { ProjectCard } from '@/components/ProjectCards'
 import { Widget } from '@/components/Widgets'
+import SendIcon from '@/icons/send'
 
-import SendIcon from '../../public/icons/send.svg'
-
-export default function Home(): React.ReactElement {
+export default function Home() {
   return (
     <main className='w-full'>
       <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-14 mobile:mb-[23.375rem] mobile:gap-10 mobile:pt-0'>
@@ -68,27 +65,36 @@ export default function Home(): React.ReactElement {
       </div>
 
       <h2 className='mb-8 header'>Get to know me</h2>
-      <div className='mb-[6.75rem] grid grid-cols-[repeat(auto-fit,_minmax(22.375rem,_1fr))] gap-4'>
-        <Widget
-          title='About me'
-          subtitle='Who I am and what I do'
-          image='/assets/memoji_1.webp'
-          className='top-[16%] h-auto w-[35%] absolute-center-x wide:top-14 wide:w-44'
-        />
-        <Widget
-          title='Notebook'
-          subtitle='My thoughts, insights, and reflections'
-          image='/assets/desknotes.svg'
-          className='top-[10%] h-auto max-h-[29rem] w-[60%] absolute-center-x wide:top-8 wide:w-[19rem]'
-        />
-        <Widget
-          title='Bookshelf'
-          subtitle="Books and pieces of wisdom I've enjoyed reading"
-        />
-        <Widget
-          title='Tech Stack'
-          subtitle='The dev tools, apps, devices, and games I use and play.'
-        />
+      <div className='mb-[6.75rem] flex flex-col gap-4'>
+        <div className='flex flex-col items-center gap-4 tablet:flex-row'>
+          <Widget
+            title='About me'
+            subtitle='Who I am and what I do'
+            imgSrc='/assets/about-me.png'
+            imgClassName='object-contain mobile:object-cover'
+          />
+          <Widget
+            title='Notebook'
+            subtitle='My thoughts, insights, and reflections'
+            imgSrc='/assets/notebook.png'
+            imgClassName='object-contain mobile:object-cover'
+          />
+        </div>
+
+        <div className='flex flex-col items-center gap-4 tablet:flex-row'>
+          <Widget
+            title='Bookshelf'
+            subtitle="Books and pieces of wisdom I've enjoyed reading"
+            imgSrc='/assets/bookshelf.png'
+            imgClassName='object-cover'
+          />
+          <Widget
+            title='Tech Stack'
+            subtitle='The dev tools, apps, devices, and games I use and play.'
+            imgSrc='/assets/tech-stack.png'
+            imgClassName='object-cover object-left'
+          />
+        </div>
       </div>
 
       <div className='mb-28 flex flex-col items-center justify-between gap-8 tablet:flex-row tablet:gap-0'>
@@ -103,7 +109,7 @@ export default function Home(): React.ReactElement {
         </div>
 
         <Link href='/contact' className='w-full mobile:w-fit'>
-          <Button icon={<SendIcon />} className='w-full'>
+          <Button leftIcon={<SendIcon />} width='full'>
             Get in touch
           </Button>
         </Link>
