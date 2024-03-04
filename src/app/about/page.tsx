@@ -4,7 +4,7 @@ import { tv } from 'tailwind-variants'
 import { Button } from '@/components/Button'
 import { Header } from '@/components/Header'
 import { Portrait } from '@/components/Portrait'
-import SendIcon from '@/icons/send'
+import SendIcon from '@/icons/Send'
 
 const aboutStyles = tv({
   slots: {
