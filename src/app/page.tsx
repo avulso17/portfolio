@@ -4,12 +4,12 @@ import { Button } from '@/components/Button'
 import { Portrait } from '@/components/Portrait'
 import { ProjectCard } from '@/components/ProjectCards'
 import { Widget } from '@/components/Widgets'
-import SendIcon from '@/icons/send'
+import SendIcon from '@/icons/Send'
 
 export default function Home() {
   return (
     <main className='w-full'>
-      <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-14 mobile:mb-[23.375rem] mobile:gap-10 mobile:pt-0'>
+      <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-14 mobile:mb-[20.625rem] mobile:gap-10 mobile:pt-0'>
         <h1 className='mb-4 w-fit whitespace-nowrap font-extrabold mobile:mb-0'>
           <b className='block mobile:hidden'>Hi 👋🏻</b>
           <b>I&rsquo;m</b> Felipe M
@@ -44,23 +44,26 @@ export default function Home() {
 
       <h2 className='mb-8 header'>Selected Work</h2>
       <div className='mb-24 flex flex-col gap-8'>
-        <ProjectCard
-          href='https://flow-ai-oficial.vercel.app/'
+        {/* <ProjectCard
           iconSrc='/logos/logo.svg'
+          imgSrc='/assets/pigmo-screenshot.png'
           title='Flow.ai - AI Photo Generator'
+          href='https://flow-ai-oficial.vercel.app/'
           description='This project aims to generate AI photos in a friendly and modern interface, where the user can take control of the jobs generated and store his most beautiful works of art. I had the idea to do it because I really appreciate Midjourney and it would be a good experience to integrate an AI into a project, where I can generate and manage my arts in a more intuitive and user friendly.'
+        /> */}
+        <ProjectCard
+          iconSrc='/apps/redux-store-icon.svg'
+          imgSrc='/assets/redux-store-screenshot.png'
+          title='Redux Store'
+          href='https://redux-store-oficial.vercel.app/'
+          description='This project is a simple store that uses Redux to manage the state of the application. I had the idea to do it because I really appreciate Redux and it would be a good experience to integrate it into a project, where I can manage the state of my store in a more intuitive and user friendly.'
         />
         <ProjectCard
-          href='https://react.dev/'
-          iconSrc='/apps/react-icon.svg'
-          title='React Documentation'
-          description='With the release of the new React website on March 16, there was a need for localization to make the documentation accessible to Arabic-speaking developers. I contributed to translating several documentation, worked with great developers, Improved my ability to write better PR requests, and as a side effect, I now know more about the Arabic grammar.'
-        />
-        <ProjectCard
-          href='https://nextjs.org/'
-          iconSrc='/apps/tools/Nextjs.png'
-          title='Next Documentation'
-          description='Next.js is a React framework for building full-stack web applications. You use React Components to build user interfaces, and Next.js for additional features and optimizations.'
+          iconSrc='/apps/pigmo-icon.svg'
+          imgSrc='/assets/pigmo-screenshot.png'
+          title='Pigmo - Casino Online'
+          href='https://app.pigmo.com/'
+          description='Pigmo is a casino online that offers a wide range of games, including slots, table games, and live casino. I was responsible for the development of the website, which was built with Next.js and ChakraUI. I also worked on the integration of the payment gateway and the implementation of the affiliate/rewards system. The website is fully responsive and optimized for SEO.'
         />
       </div>
 
