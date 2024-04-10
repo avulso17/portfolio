@@ -4,7 +4,7 @@ import '@fontsource/nanum-pen-script'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import MainLayout from '@/components/layouts/MainLayout'
+import MainLayout from '@/components/layouts/main'
 
 export const metadata: Metadata = {
   title: 'Portfolio - Felipe M.',
@@ -29,7 +29,7 @@ export default function RootLayout({
   }
 }) {
   return (
-    <html lang='en' className={inter.className}>
+    <html lang='en' className={inter.variable}>
       <body>
         <MainLayout>{children}</MainLayout>
       </body>

@@ -8,13 +8,11 @@ import { tv } from 'tailwind-variants'
 import { Button } from '@/components/Button'
 import { DropdownMenu } from '@/components/Dropdown'
 import { Separator } from '@/components/Separator'
-import { links } from '@/utils/links'
 import { Item } from '@radix-ui/react-dropdown-menu'
 
+import { navigation } from '@/configs/nav'
 import ChevronDownIcon from '../../../../public/icons/chevron/down.svg'
-import GithubIcon from '../../../../public/icons/github.svg'
-import LinkedinIcon from '../../../../public/icons/linkedin.svg'
-import TwitterIcon from '../../../../public/icons/social/twitter.svg'
+
 import SunIcon from '../../../../public/icons/sun.svg'
 import LogoIcon from '../../../../public/icons/UFO.svg'
 
@@ -22,17 +20,22 @@ const buttonStyles = tv({
   slots: {
     navigator:
       'flex h-[1.125rem] w-fit items-center text-base font-medium leading-normal text-gray-light outline-none transition-all ease-in-out hover:brightness-125 focus:outline-none',
-    social:
-      'h-11 w-11 cursor-pointer rounded-md p-[0.625rem] font-medium leading-normal text-gray-light transition-all ease-in-out hover:bg-white/10',
+    social: [
+      'flex h-11 w-11 items-center justify-center p-[0.625rem]',
+      'cursor-pointer rounded-md text-2xl font-medium leading-normal text-gray-light',
+      'transition-all ease-in-out hover:bg-white/10',
+    ],
     icon: 'min-h-[1.5rem] min-w-[1.5rem]',
   },
 })
 
-type NavbarProps = React.ComponentProps<'nav'>
+export type NavbarProps = React.ComponentProps<'nav'>
 
-export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
+export const Navbar = ({ className }: NavbarProps) => {
   const { navigator, social, icon } = buttonStyles()
-  const { linkedIn, twitter, github } = links
+
+  const socials = navigation.social.filter((item) => !item.hidden)
+  const routes = navigation.routes
 
   const trigger = (
     <Button variant='text'>
@@ -104,17 +107,16 @@ export const Navbar = ({ className }: NavbarProps): React.ReactElement => {
         </div>
 
         <div className='flex items-center gap-3'>
-          <a href={linkedIn} rel='noreferrer noopener' className={social()}>
-            <LinkedinIcon className={icon()} />
-          </a>
-
-          <a href={twitter} rel='noreferrer noopener' className={social()}>
-            <TwitterIcon className={icon()} />
-          </a>
-
-          <a href={github} rel='noreferrer noopener' className={social()}>
-            <GithubIcon className={icon()} />
-          </a>
+          {socials.map((item) => (
+            <Link
+              key={item.path}
+              href={item.path}
+              className={social()}
+              target='_blank'
+            >
+              {item.icon}
+            </Link>
+          ))}
 
           <Separator orientation='vertical' className='opacity-25' />
 

@@ -1,6 +1,6 @@
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-export default function HomeIcon({ children, ...props }: SVGProps) {
+export default function MoonIcon({ children, ...props }: SVGProps) {
   return (
     <svg viewBox='0 0 24 24' height='1em' width='1em' {...props}>
       <path
