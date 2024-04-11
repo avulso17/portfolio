@@ -2,17 +2,17 @@
 
 import Link from 'next/link'
 
+import { AnimatePresence, motion } from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
 import { Button } from '@/components/Button'
-import { DropdownMenu } from '@/components/Dropdown'
-import { Item } from '@radix-ui/react-dropdown-menu'
 
 import { navigation } from '@/configs/nav'
 
 import ChevronBottomIcon from '@/icons/ChevronBottom'
 import UFOIcon from '@/icons/UFO'
+import { useState } from 'react'
 
 const buttonStyles = tv({
   slots: {
@@ -29,33 +29,27 @@ const buttonStyles = tv({
 export type NavbarProps = React.ComponentProps<'nav'>
 
 export default function Navbar({ className }: NavbarProps) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   const { navigator, social } = buttonStyles()
 
   const socials = navigation.social.filter((item) => !item.hidden)
-  const routes = navigation.routes
 
-  const trigger = (
-    <Button
-      variant='text'
-      rightIcon={<ChevronBottomIcon className='text-xl' />}
-    >
-      More
-    </Button>
-  )
+  const handleToggleMenu = () => setIsMenuOpen((prev) => !prev)
+
+  const onCloseMenu = () => setIsMenuOpen(false)
 
   return (
     <nav
       className={twMerge(
-        'mb-44 hidden h-fit max-h-[3.75rem] w-full justify-between overflow-hidden rounded-xl bg-onyx/30 p-4 backdrop-blur-[2px] mobile:flex',
+        'mb-44 hidden h-fit max-h-[3.75rem] w-full justify-between rounded-xl bg-onyx/30 p-4 backdrop-blur-sm mobile:flex',
         className
       )}
     >
-      <div className='flex items-center gap-10'>
+      <div className='relative flex items-center gap-10'>
         <Link href='/' className='shrink-0'>
           <UFOIcon className='text-4xl text-white/50 transition-colors hover:text-white' />
         </Link>
-
-        {/* {routes} */}
 
         <Link href='/about'>
           <Button variant='text'>About</Button>
@@ -73,31 +67,55 @@ export default function Navbar({ className }: NavbarProps) {
           <Button variant='text'>Contact</Button>
         </Link>
 
-        <DropdownMenu
-          trigger={trigger}
-          sideOffset={20.5}
-          className='hidden mobile:flex'
+        <Button
+          variant='text'
+          rightIcon={<ChevronBottomIcon className='text-xl' />}
+          onClick={handleToggleMenu}
         >
-          <Link href='/contact' className='flex tablet:hidden'>
-            <Item className={navigator()}>Contact</Item>
-          </Link>
+          More
+        </Button>
 
-          <Link href='/notebook' className='flex wide:hidden'>
-            <Item className={navigator()}>Notebook</Item>
-          </Link>
+        <AnimatePresence initial={false}>
+          {isMenuOpen ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: -2 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -2 }}
+              transition={{ duration: 0.1 }}
+              className='absolute right-0 top-[calc(100%+1rem)] flex flex-col gap-4 rounded-b-xl bg-onyx/50 p-4'
+            >
+              <Link href='/contact' className='flex tablet:hidden'>
+                <span className={navigator()} onClick={onCloseMenu}>
+                  Contact
+                </span>
+              </Link>
 
-          <Link href='/bookshelf'>
-            <Item className={navigator()}>Bookshelf</Item>
-          </Link>
+              <Link href='/notebook' className='flex wide:hidden'>
+                <span className={navigator()} onClick={onCloseMenu}>
+                  Notebook
+                </span>
+              </Link>
 
-          <Link href='/stacks'>
-            <Item className={navigator()}>Tech Stack</Item>
-          </Link>
+              <Link href='/bookshelf'>
+                <span className={navigator()} onClick={onCloseMenu}>
+                  Bookshelf
+                </span>
+              </Link>
 
-          <Link href='/ui'>
-            <Item className={navigator()}>This UI Kit</Item>
-          </Link>
-        </DropdownMenu>
+              <Link href='/stacks'>
+                <span className={navigator()} onClick={onCloseMenu}>
+                  Tech Stack
+                </span>
+              </Link>
+
+              <Link href='/ui'>
+                <span className={navigator()} onClick={onCloseMenu}>
+                  This UI Kit
+                </span>
+              </Link>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
       </div>
 
       <div className='flex items-center gap-3'>

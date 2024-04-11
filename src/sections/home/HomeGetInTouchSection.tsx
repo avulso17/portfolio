@@ -17,7 +17,7 @@ export default function HomeGetInTouchSection() {
       </div>
 
       <Link href='/contact' className='w-full mobile:w-fit'>
-        <Button leftIcon={<SendIcon />} width='full'>
+        <Button leftIcon={<SendIcon />} full>
           Get in touch
         </Button>
       </Link>

@@ -80,7 +80,7 @@ const navbarMobileStyles = tv({
   slots: {
     container: ['fixed bottom-4 left-4 right-4 z-30 mobile:hidden'],
     nav: [
-      'bg-onyx/60 ring-1 ring-nav-border/60 backdrop-blur-[2px]',
+      'bg-onyx/80 ring-1 ring-nav-border/60 backdrop-blur-sm',
       'flex h-[3.75rem] items-center justify-between rounded-2xl px-2.5 py-2',
       'transition-all duration-200 ease-in-out',
     ],
@@ -91,8 +91,8 @@ const navbarMobileStyles = tv({
       'data-[active=true]:bg-white/10 data-[active=true]:text-white',
     ],
     list: [
-      'flex w-full flex-col gap-4 px-4 py-6 backdrop-blur-[2px]',
-      'rounded-t-2xl bg-black/60 ring-1 ring-nav-border/60',
+      'flex w-full flex-col gap-4 px-4 py-6 backdrop-blur-sm',
+      'rounded-t-2xl bg-black/80 ring-1 ring-nav-border/60',
       'absolute bottom-full left-0 z-10',
     ],
     listItem: [
