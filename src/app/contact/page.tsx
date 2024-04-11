@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
@@ -7,14 +9,13 @@ import { Button } from '@/components/Button'
 import { Header } from '@/components/Header'
 import { Separator } from '@/components/Separator'
 import { TextField } from '@/components/TextField'
+import DiscordIcon from '@/icons/Discord'
+import GitHubIcon from '@/icons/GitHub'
+import InstagramIcon from '@/icons/Instagram'
+import LinkedInIcon from '@/icons/LinkedIn'
+import MessageFillIcon from '@/icons/MessageFill'
+import TwitterIcon from '@/icons/Twitter'
 import { links } from '@/utils/links'
-
-import GithubIcon from '../../../public/icons/github.svg'
-import LinkedinIcon from '../../../public/icons/linkedin.svg'
-import EmailIcon from '../../../public/icons/message.svg'
-import DiscordIcon from '../../../public/icons/social/discord.svg'
-import InstagramIcon from '../../../public/icons/social/instagram.svg'
-import TwitterIcon from '../../../public/icons/social/twitter.svg'
 
 const contactStyles = tv({
   slots: {
@@ -109,26 +110,22 @@ export default function ContactPage(): React.ReactElement {
 
         <div className='mx-auto mt-16 flex w-fit max-w-[12.75rem] flex-wrap items-center gap-y-11 px-4 mobile:max-w-none mobile:gap-x-11'>
           <div className='flex w-fit items-center gap-11'>
-            <a
-              href={email}
-              rel='noreferrer noopener'
-              className={socialButtons()}
-            >
-              <EmailIcon className='w-7' />
-            </a>
+            <Link href={email} className={socialButtons()} target='_blank'>
+              <MessageFillIcon className='text-3xl' />
+            </Link>
             <a
               href={linkedIn}
               rel='noreferrer noopener'
               className={socialButtons()}
             >
-              <LinkedinIcon className='w-7' />
+              <LinkedInIcon className='text-3xl' />
             </a>
             <a
               href={instagram}
               rel='noreferrer noopener'
               className={socialButtons()}
             >
-              <InstagramIcon className='w-7' />
+              <InstagramIcon className='text-3xl' />
             </a>
           </div>
 
@@ -139,7 +136,7 @@ export default function ContactPage(): React.ReactElement {
               target='_blank'
               className={socialButtons()}
             >
-              <TwitterIcon className='w-7' />
+              <TwitterIcon className='text-3xl' />
             </a>
             <a
               href={github}
@@ -147,7 +144,7 @@ export default function ContactPage(): React.ReactElement {
               target='_blank'
               className={socialButtons()}
             >
-              <GithubIcon className='w-7' />
+              <GitHubIcon className='text-3xl' />
             </a>
             <a
               href={discord}
@@ -155,7 +152,7 @@ export default function ContactPage(): React.ReactElement {
               target='_blank'
               className={socialButtons()}
             >
-              <DiscordIcon className='w-7' />
+              <DiscordIcon className='text-3xl' />
             </a>
           </div>
         </div>
