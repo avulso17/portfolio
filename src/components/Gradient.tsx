@@ -33,7 +33,7 @@ const styles = tv({
 
 type GradientProps = ComponentProps<'div'> & VariantProps<typeof styles>
 
-export const Gradient = ({ position }: GradientProps) => {
+export default function Gradient({ position }: GradientProps) {
   const { wrapper, box1, box2, box3 } = styles({ position })
 
   return (

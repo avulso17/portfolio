@@ -8,7 +8,7 @@ import { links } from '@/utils/links'
 
 import LogoIcon from '../../../../public/icons/UFO.svg'
 
-export const Footer = (): React.ReactElement => {
+export default function Footer() {
   const { linkedIn, email, github, twitter, discord } = links
 
   return (

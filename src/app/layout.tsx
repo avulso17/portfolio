@@ -7,10 +7,13 @@ import { Inter } from 'next/font/google'
 import MainLayout from '@/components/layouts/main'
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Felipe M.',
-  description: 'Felipe M. Portfolio - Software Engineer',
+  title: 'Felipe Mateus - Software Engineer',
+  description: 'Felipe Mateus - Software Engineer',
   icons: {
     icon: '/logos/wired-planet.svg',
+  },
+  appleWebApp: {
+    statusBarStyle: 'black-translucent',
   },
 }
 

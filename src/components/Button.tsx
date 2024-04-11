@@ -3,24 +3,26 @@ import React, { ComponentProps, forwardRef } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const buttonStyles = tv({
-  base: 'inline-flex h-fit items-center justify-center whitespace-nowrap px-5 py-4 font-inter font-medium leading-normal transition-all duration-200 ease-in-out disabled:cursor-default disabled:opacity-50 disabled:grayscale',
+  base: [
+    'inline-flex h-fit shrink-0 items-center justify-center',
+    'whitespace-nowrap font-inter font-medium leading-normal',
+    'relative transition-all duration-200 ease-in-out',
+    'disabled:cursor-default disabled:opacity-50 disabled:grayscale',
+  ],
   variants: {
     variant: {
-      primary: 'bg-base-gradient text-white shadow-button hover:brightness-125',
-      secondary: 'bg-onyx text-gray-dark hover:brightness-125',
-      text: 'h-[1.125rem] p-0 text-base leading-normal text-gray-light hover:text-white',
-    },
-    success: {
-      true: 'bg-success text-white',
-    },
-    error: {
-      true: 'bg-error text-white',
-    },
-    warning: {
-      true: 'bg-warning text-black',
+      primary: [
+        'bg-base-gradient px-5 py-4 text-white shadow-button',
+        'hover:brightness-125',
+      ],
+      secondary: ['bg-onyx px-5 py-4 text-gray-dark', 'hover:brightness-125'],
+      text: [
+        'h-[1.125rem] text-base leading-normal text-gray-light',
+        'hover:text-white',
+      ],
     },
     icon: {
-      true: 'gap-2',
+      true: 'gap-1',
     },
     emphasis: {
       true: 'font-display-medium',
@@ -30,25 +32,22 @@ const buttonStyles = tv({
       pill: 'rounded-[2.5rem]',
       rounded: 'rounded-lg',
     },
-    width: {
-      fit: 'w-fit',
-      full: 'w-full',
+    full: {
+      true: 'w-full',
+      false: 'w-fit',
     },
   },
   defaultVariants: {
     emphasis: true,
-    error: false,
-    radii: 'rounded',
-    success: false,
     variant: 'primary',
-    warning: false,
-    width: 'fit',
+    radii: 'rounded',
+    full: false,
   },
 })
 
-type ButtonVariants = VariantProps<typeof buttonStyles>
+export type ButtonVariants = VariantProps<typeof buttonStyles>
 
-type ButtonProps = ComponentProps<'button'> &
+export type ButtonProps = ComponentProps<'button'> &
   ButtonVariants & {
     leftIcon?: React.ReactNode
     rightIcon?: React.ReactNode
@@ -59,12 +58,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
     children,
     className,
     emphasis,
-    error,
     radii,
-    success,
     variant,
-    warning,
-    width,
+    full,
     leftIcon,
     rightIcon,
     ...props
@@ -77,13 +73,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
       className={buttonStyles({
         className,
         emphasis,
-        error,
         radii,
-        success,
         variant,
-        warning,
         icon: leftIcon !== undefined || rightIcon !== undefined,
-        width,
+        full,
       })}
       {...props}
     >
