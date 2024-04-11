@@ -60,15 +60,15 @@ export const Widget = memo<WidgetProps>(function Widget({
       containerClassName={containerStyles()}
     >
       <CardBody className={bodyStyles()}>
-        <CardItem as='h3' className={titleStyles()} translateZ='50'>
+        <CardItem as='h3' className={titleStyles()} translateZ='45'>
           {title}
         </CardItem>
 
-        <CardItem as='p' className={subtitleStyles()} translateZ='60'>
+        <CardItem as='p' className={subtitleStyles()} translateZ='55'>
           {subtitle}
         </CardItem>
 
-        <CardItem className={imgStyles()} translateZ='100'>
+        <CardItem className={imgStyles()} translateZ='65'>
           <Image
             className={twMerge('object-top', imgClassName)}
             src={imgSrc}

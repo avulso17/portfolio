@@ -4,11 +4,10 @@ import Link from 'next/link'
 
 import { Button } from '@/components/Button'
 import { Separator } from '@/components/Separator'
+import UFOIcon from '@/icons/UFO'
 import { links } from '@/utils/links'
 
-import LogoIcon from '../../../../public/icons/UFO.svg'
-
-export const Footer = (): React.ReactElement => {
+export default function Footer() {
   const { linkedIn, email, github, twitter, discord } = links
 
   return (
@@ -19,7 +18,7 @@ export const Footer = (): React.ReactElement => {
       <Separator alpha className='absolute top-0 !w-screen absolute-center-x' />
 
       <div className='flex flex-col gap-4'>
-        <LogoIcon className='w-16' />
+        <UFOIcon className='text-6xl' />
         <p className='text-xl font-medium leading-normal text-gray'>
           Thanks for stopping by ッ
         </p>

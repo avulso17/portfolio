@@ -6,7 +6,7 @@ import ArrowRightIcon from '@/icons/ArrowRight'
 import Image from 'next/image'
 import { Button } from './Button'
 
-const projectCardVStyles = tv({
+const projectCardStyles = tv({
   slots: {
     content: [
       'flex rounded-4xl border border-card-border bg-onyx',
@@ -40,7 +40,7 @@ export const ProjectCard = ({
     icon,
     description: descriptionStyles,
     title: titleStyles,
-  } = projectCardVStyles()
+  } = projectCardStyles()
 
   return (
     <div className={content()}>
@@ -51,6 +51,7 @@ export const ProjectCard = ({
           alt={`${title} Icon`}
           height={70}
           width={70}
+          priority
         />
         <h3 className={titleStyles()}>{title}</h3>
         <p className={descriptionStyles()}>{description}</p>
@@ -79,6 +80,7 @@ export const ProjectCard = ({
           src={imgSrc}
           alt={`${title} Banner`}
           fill
+          priority
         />
       </div>
     </div>
