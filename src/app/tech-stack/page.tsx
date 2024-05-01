@@ -1,26 +1,18 @@
 import { Header } from '@/components/Header'
 import { TechCard } from '@/components/TechCard'
-import { apps, games, hardware, tools } from '@/utils/stacks'
+import TechStackToolsList from '@/sections/tech-stack/TechStackToolsList'
+import { apps, games, hardware } from '@/utils/stacks'
 
-export default function TechStacksPage(): React.ReactElement {
+export default function TechStacksPage() {
   return (
-    <main className='w-full'>
+    <div className='w-full'>
       <Header
         title='Tech Stack'
         subtitle='The dev tools, apps, devices, and games I use and play.'
       />
 
       <div className='mb-12 mt-16'>
-        <h2 className='mb-8 text-gray-dark header'>Dev & Design</h2>
-        <div className='mb-16 flex w-full flex-wrap content-center items-center gap-4'>
-          {tools.map((tool) => {
-            const { image, name, type } = tool
-
-            return (
-              <TechCard key={name} name={name} category={type} src={image} />
-            )
-          })}
-        </div>
+        <TechStackToolsList />
 
         <h2 className='mb-8 text-gray-dark header'>Apps</h2>
         <div className='mb-16 flex w-full flex-wrap content-center items-center gap-4'>
@@ -51,6 +43,6 @@ export default function TechStacksPage(): React.ReactElement {
           })}
         </div>
       </div>
-    </main>
+    </div>
   )
 }

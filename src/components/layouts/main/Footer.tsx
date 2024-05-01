@@ -39,7 +39,7 @@ export default function Footer() {
             <Button variant='text'>Work</Button>
           </Link>
 
-          <Link href='/stacks'>
+          <Link href='/tech-stack'>
             <Button variant='text'>Tech Stack</Button>
           </Link>
 
