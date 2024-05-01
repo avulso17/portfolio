@@ -10,7 +10,9 @@ import { Button } from '@/components/Button'
 
 import { navigation } from '@/configs/nav'
 
+import { Separator } from '@/components/Separator'
 import ChevronBottomIcon from '@/icons/ChevronBottom'
+import StarsIcon from '@/icons/Stars'
 import UFOIcon from '@/icons/UFO'
 import { useState } from 'react'
 
@@ -102,7 +104,7 @@ export default function Navbar({ className }: NavbarProps) {
                 </span>
               </Link>
 
-              <Link href='/stacks'>
+              <Link href='/tech-stack'>
                 <span className={navigator()} onClick={onCloseMenu}>
                   Tech Stack
                 </span>
@@ -130,11 +132,11 @@ export default function Navbar({ className }: NavbarProps) {
           </Link>
         ))}
 
-        {/* <Separator orientation='vertical' className='opacity-25' />
+        <Separator orientation='vertical' className='opacity-25' />
 
-        <button id='theme-button' className={social()}>
-          <SunIcon className={icon()} />
-        </button> */}
+        <Link href='/playground' className={social()}>
+          <StarsIcon />
+        </Link>
       </div>
     </nav>
   )

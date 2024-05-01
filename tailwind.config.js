@@ -143,6 +143,14 @@ module.exports = withTV({
             maskPosition: 'center',
           },
 
+          '.blur-performance': {
+            willChange: 'filter',
+            WebkitBackfaceVisibility: 'hidden',
+            WebkitPerspective: '1000',
+            backfaceVisibility: 'hidden',
+            perspective: '1000',
+          },
+
           // base dialog
           '.dialog': {
             borderRadius: '20px',
