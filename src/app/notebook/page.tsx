@@ -1,5 +1,5 @@
 import { Header } from '@/components/Header'
-import { UnderConstruction } from '@/components/UnderConstruction'
+import NotebookPageWrapper from '@/sections/notebook/NotebookPageWrapper'
 
 export default function NotebookPage(): React.ReactElement {
   return (
@@ -9,7 +9,7 @@ export default function NotebookPage(): React.ReactElement {
         subtitle='My thoughts, insights, and reflections.'
       />
 
-      <UnderConstruction />
+      <NotebookPageWrapper />
     </main>
   )
 }
