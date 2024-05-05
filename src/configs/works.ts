@@ -1,4 +1,24 @@
-const works = {
+export const works = {
+  home: [
+    {
+      id: '1',
+      title: 'Redux Store',
+      description:
+        'This project is a simple store that uses Redux to manage the state of the application. I had the idea to do it because I really appreciate Redux and it would be a good experience to integrate it into a project, where I can manage the state of my store in a more intuitive and user friendly.',
+      url: 'https://redux-store-oficial.vercel.app/',
+      icon: '/apps/redux-store-icon.svg',
+      image: '/assets/redux-store-screenshot.png',
+    },
+    {
+      id: '2',
+      title: 'Pigmo - Casino Online',
+      description:
+        'Pigmo is a casino online that offers a wide range of games, including slots, table games, and live casino. I was responsible for the development of the website, which was built with Next.js and ChakraUI. I also worked on the integration of the payment gateway and the implementation of the affiliate/rewards system. The website is fully responsive and optimized for SEO.',
+      url: 'https://app.pigmo.com/',
+      icon: '/apps/pigmo-icon.svg',
+      image: '/assets/pigmo-screenshot.png',
+    },
+  ],
   projects: [
     {
       id: '1',
@@ -26,7 +46,6 @@ const works = {
       url: 'https://flow-ai-oficial.vercel.app/',
       icon: '/logos/logo.svg',
       image: '/assets/pigmo-screenshot.png',
-      hidden: true,
     },
   ],
 }

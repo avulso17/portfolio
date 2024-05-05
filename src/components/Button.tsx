@@ -22,7 +22,7 @@ const buttonStyles = tv({
       ],
     },
     icon: {
-      true: 'gap-1',
+      true: 'gap-2',
     },
     emphasis: {
       true: 'font-display-medium',

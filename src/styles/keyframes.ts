@@ -1,4 +1,12 @@
 export const keyframes = {
+  rotateDashedBorder: {
+    from: {
+      backgroundPosition: '0 0, -34px 0, 100% -34px, 0 100%',
+    },
+    to: {
+      backgroundPosition: '0 -34px, 0 0, 100% 0, -34px 100%',
+    },
+  },
   slideUpAndFade: {
     from: {
       opacity: 0,
