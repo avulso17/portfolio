@@ -1,5 +1,6 @@
 import { Button } from '@/components/Button'
 import SendIcon from '@/icons/Send'
+import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 import AboutPortrait from './AboutPortrait'
@@ -57,9 +58,11 @@ export default function AboutContent() {
         <div className='order-1 mb-16 flex flex-col wide:order-2 wide:mb-0 wide:items-center'>
           <AboutPortrait />
 
-          <Button className='mt-20 hidden wide:flex' leftIcon={<SendIcon />}>
-            Get in touch
-          </Button>
+          <Link href='/contact' className='hidden wide:block'>
+            <Button className='mt-20' leftIcon={<SendIcon />}>
+              Get in touch
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -75,13 +78,15 @@ export default function AboutContent() {
 
       <p>Felipe Mateus</p>
 
-      <Button
-        className='mx-auto mt-28 flex max-w-none tablet:max-w-[400px] wide:hidden'
-        leftIcon={<SendIcon className='text-2xl' />}
-        full
-      >
-        Get in touch
-      </Button>
+      <Link href='/contact' className='wide:hidden'>
+        <Button
+          className='mx-auto mt-28 max-w-none tablet:max-w-[400px] '
+          leftIcon={<SendIcon className='text-2xl' />}
+          full
+        >
+          Get in touch
+        </Button>
+      </Link>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { ProjectCard } from '@/components/ProjectCards'
+import { ProjectCard } from '@/components/ProjectCard'
 
 export default function HomeSelectedWorkSection() {
   return (

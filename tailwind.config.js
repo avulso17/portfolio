@@ -38,6 +38,7 @@ module.exports = withTV({
         slideLeftAndFade: 'slideLeftAndFade 0.3s ease-out',
         slideRightAndFade: 'slideRightAndFade 0.3s ease-out',
         slideUpAndFade: 'slideUpAndFade 0.3s ease-out',
+        'rotate-border': 'rotateDashedBorder 1s infinite linear',
       },
       backgroundImage: {
         'base-gradient': 'linear-gradient(180deg, #1A1A1A 0%, #131313 100%)',
@@ -149,6 +150,14 @@ module.exports = withTV({
             WebkitPerspective: '1000',
             backfaceVisibility: 'hidden',
             perspective: '1000',
+          },
+
+          '.custom-border-dashed': {
+            backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='32' ry='32' stroke='%23383737FF' stroke-width='5' stroke-dasharray='20' stroke-dashoffset='10' stroke-linecap='round'/%3e%3c/svg%3e")`,
+          },
+
+          '.custom-border-dashed-mobile': {
+            backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='32' ry='32' stroke='%23383737FF' stroke-width='4' stroke-dasharray='14' stroke-dashoffset='10' stroke-linecap='round'/%3e%3c/svg%3e")`,
           },
 
           // base dialog

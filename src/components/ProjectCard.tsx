@@ -4,14 +4,14 @@ import { tv } from 'tailwind-variants'
 
 import ArrowRightIcon from '@/icons/ArrowRight'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Button } from './Button'
 
 const projectCardStyles = tv({
   slots: {
     content: [
-      'flex rounded-4xl border border-card-border bg-onyx',
-      'h-[26.75rem] w-full',
-      'mobile:h-[35.25rem]',
+      'flex w-full rounded-4xl border border-card-border bg-onyx',
+      'tablet:h-[35.25rem]',
     ],
     icon: 'rounded-2xl object-contain',
     title: 'text-xl font-extrabold leading-normal mobile:text-[2rem]',
@@ -56,11 +56,10 @@ export const ProjectCard = ({
         <h3 className={titleStyles()}>{title}</h3>
         <p className={descriptionStyles()}>{description}</p>
 
-        <a
+        <Link
           href={href}
-          rel='noopener noreferrer'
           target='_blank'
-          className='mt-auto h-fit w-fit'
+          className='mt-8 h-fit w-fit tablet:mt-auto'
         >
           <Button
             className='group text-lg'
@@ -71,7 +70,7 @@ export const ProjectCard = ({
           >
             Visit Site
           </Button>
-        </a>
+        </Link>
       </div>
 
       <div className='relative hidden shrink-0 grow tablet:flex'>
