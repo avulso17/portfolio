@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import { Button } from '@/components/Button'
-import { Portrait } from '@/components/Portrait'
+import HomePortrait from './HomePortrait'
 
 export default function HomeHero() {
   return (
@@ -32,11 +32,7 @@ export default function HomeHero() {
         </Link>
       </div>
 
-      <Portrait
-        src='/assets/me.jpg'
-        className='absolute -top-10 left-[570px] -z-10 hidden wide:flex'
-        inverted
-      />
+      <HomePortrait className='absolute -top-10 left-[570px] -z-10 hidden wide:flex' />
     </div>
   )
 }

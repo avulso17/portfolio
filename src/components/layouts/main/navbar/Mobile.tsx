@@ -87,7 +87,7 @@ const navbarMobileStyles = tv({
     item: [
       'flex h-10 shrink-0 items-center px-4',
       'rounded-lg text-gray-light outline-none',
-      'transition-colors ease-in-out hover:bg-white/20',
+      'transition-colors ease-in-out',
       'data-[active=true]:bg-white/10 data-[active=true]:text-white',
     ],
     list: [
@@ -98,7 +98,7 @@ const navbarMobileStyles = tv({
     listItem: [
       'flex h-14 shrink-0 items-center justify-center px-4 py-2',
       'w-full rounded-lg bg-white/5 text-gray-light outline-none',
-      'transition-colors ease-in-out hover:bg-white/20',
+      'transition-colors ease-in-out',
       'data-[active=true]:bg-white/10 data-[active=true]:text-white',
     ],
   },
