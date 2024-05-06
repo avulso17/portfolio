@@ -110,17 +110,17 @@ export default function Navbar({ className }: NavbarProps) {
                 </span>
               </Link>
 
-              <Link href='/ui'>
+              {/* <Link href='/ui'>
                 <span className={navigator()} onClick={onCloseMenu}>
                   This UI Kit
                 </span>
-              </Link>
+              </Link> */}
             </motion.div>
           ) : null}
         </AnimatePresence>
       </div>
 
-      <div className='flex items-center gap-3'>
+      <div className='flex items-center gap-2'>
         {socials.map((item) => (
           <Link
             key={item.path}
@@ -132,7 +132,7 @@ export default function Navbar({ className }: NavbarProps) {
           </Link>
         ))}
 
-        <Separator orientation='vertical' className='opacity-25' />
+        <Separator orientation='vertical' className='mx-1 opacity-25' />
 
         <Link href='/playground' className={social()}>
           <StarsIcon />

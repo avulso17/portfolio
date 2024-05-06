@@ -1,4 +1,5 @@
 import { Button } from '@/components/Button'
+import { EMAIL_PATH, LINKEDIN_PATH, TWITTER_PATH } from '@/env/social'
 import SendIcon from '@/icons/Send'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
@@ -19,38 +20,62 @@ export default function AboutContent() {
     <>
       <div className='flex flex-col justify-between pt-16 wide:flex-row'>
         <div className='order-2 flex w-full flex-col gap-8 pr-4 wide:order-1'>
-          <div>
+          <div className='flex flex-col gap-2'>
             <h2 className={title}>Who I am</h2>
             <p className={text}>
-              I&rsquo;m <b className='text-white'>Felipe</b> a
-              multi-disciplinary front-end engineer and UI/UX designer based in
-              Uberlândia, Brazil 🇧🇷.
+              I&rsquo;m <b className='text-white font-inherit'>Felipe Mateus</b>{' '}
+              a multi-disciplinary Software Engineer and Front-end Software
+              Developer based in Uberlândia, Brazil 🇧🇷.
+            </p>
+
+            <p className={text}>
+              I am an ambitious person passionate about challenges and my goal
+              in life is to change lives, whether with a good action, advice,
+              good work or delivering personalized solutions for your
+              business/company.
             </p>
           </div>
 
-          <div>
+          <div className='flex flex-col gap-2'>
             <h2 className={title}>What I Do</h2>
             <p className={text}>
-              With two years of invaluable experience in my role at Harmony
-              Technology &#8212; a tech company based here in Rabat, I have
-              honed my skills in React.js, Next.js, TailwindCSS, and TypeScript,
-              allowing me to craft seamless and interactive user experiences.
-              During my time at Harmony Technology, I had the privilege of
-              collaborating on projects for esteemed clients such as the
-              Ministry of Health, Ministry of Education, and Ministry of
-              Justice. It was an incredibly rewarding experience to develop
-              applications that directly impact the lives of Moroccan citizens.
+              With three years of experience as a software engineer, I&rsquo;ve
+              had the privilege of contributing to groundbreaking projects in
+              the tech industry.
+            </p>
+
+            <p className={text}>
+              Throughout my experience, I had the opportunity to work in
+              startups with innovative ideas, where I could acquire and improve
+              my skills in <b className='text-white font-inherit'>React.js</b>,{' '}
+              <b className='text-white font-inherit'>Next.js</b>,{' '}
+              <b className='text-white font-inherit'>TailwindCSS</b>,{' '}
+              <b className='text-white font-inherit'>JavaScript</b> and{' '}
+              <b className='text-white font-inherit'>TypeScript</b>, allowing me
+              to craft seamless and interactive user experiences.
+            </p>
+
+            <p className={text}>
+              Looking ahead, I am driven by the desire to continue pushing
+              boundaries and leveraging technology to create meaningful impact.
+              I am enthusiastic about exploring new opportunities where I can
+              collaborate with talented teams, tackle complex challenges, and
+              contribute to building the next generation of innovative
+              solutions.
             </p>
           </div>
 
-          <div>
+          <div className='flex flex-col gap-2'>
             <h2 className={title}>What I Did</h2>
             <p className={text}>
-              Before delving into the realm of front end engineering, I spent
-              five years as a graphic designer. This background has equipped me
-              with a keen eye for aesthetics and a deep understanding of
-              user-centered design principles. It enables me to seamlessly blend
-              functionality and visual appeal in every project I undertake.
+              Before delving into front-end engineering, I spent five years in
+              IT. This experience gave me broad knowledge of different areas of
+              technology, providing me with a holistic understanding of software
+              development, allowing me to identify more efficient solutions,
+              helping to deal with complex challenges, facilitating
+              collaboration with other professionals and teams, promoting more
+              efficient communication and preparing myself to adapt to new
+              technologies and changes in the technological scenario.
             </p>
           </div>
         </div>
@@ -67,9 +92,32 @@ export default function AboutContent() {
       </div>
 
       <p className={twMerge(text, 'my-16')}>
-        Feel free to reach out via e-mail, or follow me on Twitter. Want to see
-        where I&rsquo;ve worked? Check out my Resume, or Connect with me on
-        LinkedIn.
+        Feel free to reach out via{' '}
+        <Link
+          href={EMAIL_PATH}
+          className='text-white underline font-inherit'
+          target='_blank'
+        >
+          e-mail
+        </Link>
+        , or follow me on{' '}
+        <Link
+          href={TWITTER_PATH}
+          className='text-white underline font-inherit'
+          target='_blank'
+        >
+          Twitter.
+        </Link>{' '}
+        Want to see where I&rsquo;ve worked? Check out my Resume, or Connect
+        with me on{' '}
+        <Link
+          href={LINKEDIN_PATH}
+          className='text-white underline font-inherit'
+          target='_blank'
+        >
+          LinkedIn
+        </Link>
+        .
       </p>
 
       <p className={twMerge(text, 'mb-4')}>
@@ -80,7 +128,7 @@ export default function AboutContent() {
 
       <Link href='/contact' className='wide:hidden'>
         <Button
-          className='mx-auto mt-28 max-w-none tablet:max-w-[400px] '
+          className='mt-28 max-w-none tablet:max-w-[400px] '
           leftIcon={<SendIcon className='text-2xl' />}
           full
         >

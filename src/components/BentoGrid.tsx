@@ -23,7 +23,7 @@ export const BentoGrid = ({
 const Skeleton = () => (
   <div
     className={cn([
-      'bg-black bg-dot-white/[0.2]',
+      'bg-black bg-dot-white/20',
       'flex h-full min-h-[10rem] w-full flex-1',
       'rounded-xl border border-white/[0.2]',
       '[mask-image:radial-gradient(ellipse_at_center,white,transparent)]',

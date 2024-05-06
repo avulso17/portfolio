@@ -253,6 +253,7 @@ module.exports = withTV({
           },
           '.font-inherit': {
             fontSize: 'inherit',
+            fontWeight: 'inherit',
             lineHeight: 'inherit',
           },
 

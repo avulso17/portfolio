@@ -20,7 +20,7 @@ const cardStyles = tv({
     title: 'text-base font-semibold !leading-none mobile:text-lg',
     label: [
       'flex h-fit w-fit items-center justify-center',
-      'rounded-3xl border border-[#272525] bg-onyx',
+      'rounded-3xl border border-card-border bg-onyx',
       'px-3 py-1.5 text-xs leading-normal text-gray-dark',
     ],
   },
