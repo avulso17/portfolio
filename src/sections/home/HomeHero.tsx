@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import { Button } from '@/components/Button'
+import { TextGenerateEffect } from '@/components/TextGeneratorEffect'
 import HomePortrait from './HomePortrait'
 
 export default function HomeHero() {
@@ -14,11 +15,13 @@ export default function HomeHero() {
         </p>
       </h1>
 
-      <p className='mb-14 w-full max-w-[45.625rem] font-medium !leading-5 !text-gray-dark hero-text mobile:mb-0 mobile:!leading-[2rem]'>
-        A front-end engineer and UI/UX designer helping startups turn their
+      <TextGenerateEffect
+        speed={0.1}
+        words='A Software Engineer and Front-end Developer helping startups turn their
         visions into a digital reality. I specialize in designing and building
-        modern mobile and web-based apps.
-      </p>
+        modern mobile and web-based apps.'
+        className='mb-14 w-full max-w-[45.625rem] font-medium !leading-5 !text-gray-dark hero-text mobile:mb-0 mobile:!leading-[2rem]'
+      />
 
       <div className='flex flex-col gap-4 mobile:flex-row mobile:items-center'>
         <Link href='/about'>

@@ -44,36 +44,22 @@ const routes = [
   {
     name: 'more',
     icon: MoreOutlineIcon,
-    more: [
-      {
-        name: 'Tech Stack',
-        path: '/stacks',
-      },
-      {
-        name: 'Bookshelf',
-        path: '/bookshelf',
-      },
-      {
-        name: 'This UI Kit',
-        path: '/ui',
-      },
-    ],
   },
 ]
 
 const more = [
   {
     name: 'Tech Stack',
-    path: '/stacks',
+    path: '/tech-stack',
   },
   {
     name: 'Bookshelf',
     path: '/bookshelf',
   },
-  {
-    name: 'This UI Kit',
-    path: '/ui',
-  },
+  // {
+  //   name: 'This UI Kit',
+  //   path: '/ui',
+  // },
 ]
 
 const navbarMobileStyles = tv({
@@ -162,7 +148,7 @@ export default function NavbarMobile({ className }: NavbarMobileProps) {
   return (
     <div className={container()}>
       <nav className={nav({ className })}>
-        {routes.map(({ path, icon: Icon, more }, index) => {
+        {routes.map(({ path, icon: Icon }, index) => {
           if (path === undefined) {
             return (
               <button
@@ -177,10 +163,13 @@ export default function NavbarMobile({ className }: NavbarMobileProps) {
           }
 
           return (
-            <Link key={index} href={path!}>
-              <button data-active={path === pathname} className={item()}>
-                <Icon className='text-2xl' />
-              </button>
+            <Link
+              key={index}
+              href={path}
+              className={item()}
+              data-active={path === pathname}
+            >
+              <Icon className='text-2xl' />
             </Link>
           )
         })}

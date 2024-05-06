@@ -1,3 +1,11 @@
+import {
+  DISCORD_PATH,
+  EMAIL_PATH,
+  GITHUB_PATH,
+  INSTAGRAM_PATH,
+  LINKEDIN_PATH,
+  TWITTER_PATH,
+} from '@/env/social'
 import BagFillIcon from '@/icons/BagFill'
 import DiscordIcon from '@/icons/Discord'
 import GitHubIcon from '@/icons/GitHub'
@@ -40,34 +48,34 @@ export const navigation = {
   social: [
     {
       name: 'LinkedIn',
-      path: 'https://www.linkedin.com/in/felipe-mateus-270246160',
+      path: LINKEDIN_PATH,
       icon: <LinkedInIcon />,
     },
     {
       name: 'X',
-      path: 'https://twitter.com/felipe_teus10',
+      path: TWITTER_PATH,
       icon: <TwitterIcon />,
     },
     {
       name: 'GitHub',
-      path: 'https://github.com/avulso17',
+      path: GITHUB_PATH,
       icon: <GitHubIcon />,
     },
     {
       name: 'Instagram',
-      path: 'https://www.instagram.com/felipe_teus/',
+      path: INSTAGRAM_PATH,
       icon: <InstagramIcon />,
       hidden: true,
     },
     {
       name: 'Discord',
-      path: 'https://discord.gg/KgWFr3Xn6v',
+      path: DISCORD_PATH,
       icon: <DiscordIcon />,
       hidden: true,
     },
     {
       name: 'Email',
-      path: 'mailto:felipe_mateus08@hotmail.com?subject=Contato%20pelo%20site',
+      path: EMAIL_PATH,
       icon: <MessageFillIcon />,
       hidden: true,
     },

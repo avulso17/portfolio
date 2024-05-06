@@ -1,5 +1,5 @@
 import { BentoGrid, BentoGridItem } from '@/components/BentoGrid'
-import { Note } from '@/configs/notes'
+import { Note } from '@/types/note'
 import { twMerge } from 'tailwind-merge'
 
 export type NotebookCategoryStack = React.ComponentProps<'div'> & {
