@@ -13,7 +13,7 @@ export default function MainLayout({
   children: React.ReactNode
 }) {
   return (
-    <main className='relative z-0 px-4 pb-20 mobile:pb-0'>
+    <div className='relative z-0 px-4 pb-20 mobile:pb-0'>
       <Gradient position='top' />
 
       <div className='mx-auto max-w-screen-wide pt-8'>
@@ -31,6 +31,6 @@ export default function MainLayout({
       <NavbarMobile />
 
       <Gradient position='bottom' />
-    </main>
+    </div>
   )
 }

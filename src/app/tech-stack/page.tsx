@@ -1,48 +1,26 @@
 import { Header } from '@/components/Header'
-import { TechCard } from '@/components/TechCard'
+import TechStackAppsList from '@/sections/tech-stack/TechStackAppsList'
+import TechStackGamesList from '@/sections/tech-stack/TechStackGamesList'
+import TechStackHardwareList from '@/sections/tech-stack/TechStackHardwareList'
 import TechStackToolsList from '@/sections/tech-stack/TechStackToolsList'
-import { apps, games, hardware } from '@/utils/stacks'
 
 export default function TechStacksPage() {
   return (
-    <div className='w-full'>
+    <main className='w-full'>
       <Header
         title='Tech Stack'
         subtitle='The dev tools, apps, devices, and games I use and play.'
       />
 
-      <div className='mb-12 mt-16'>
+      <div className='mb-28 mt-12'>
         <TechStackToolsList />
 
-        <h2 className='mb-8 text-gray-dark header'>Apps</h2>
-        <div className='mb-16 flex w-full flex-wrap content-center items-center gap-4'>
-          {apps.map((apps) => {
-            const { image, name, type } = apps
+        <TechStackAppsList />
 
-            return (
-              <TechCard key={name} name={name} category={type} src={image} />
-            )
-          })}
-        </div>
+        <TechStackHardwareList />
 
-        <h2 className='mb-8 text-gray-dark header'>Hardware</h2>
-        <div className='mb-16 flex w-full flex-wrap content-center items-center gap-4'>
-          {hardware.map((hardware) => {
-            const { image, name } = hardware
-
-            return <TechCard key={name} name={name} src={image} />
-          })}
-        </div>
-
-        <h2 className='mb-8 text-gray-dark header'>Games</h2>
-        <div className='mb-16 flex w-full flex-wrap content-center items-center gap-4'>
-          {games.map((games) => {
-            const { image, name } = games
-
-            return <TechCard key={name} name={name} src={image} />
-          })}
-        </div>
+        <TechStackGamesList />
       </div>
-    </div>
+    </main>
   )
 }

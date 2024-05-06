@@ -10,7 +10,7 @@ export default function TechStackGroup({
   return (
     <div
       className={cn(
-        'mb-16 grid w-full grid-rows-[3,_minmax(280px,_1fr)] gap-4',
+        'mb-16 grid w-full gap-4 mobile:grid-cols-2 tablet:grid-cols-3',
         className
       )}
       {...props}

@@ -3,6 +3,7 @@ import StarsIcon from '@/icons/Stars'
 export type Note = {
   description: string
   header?: React.ReactNode
+  href?: string
   icon: React.ReactNode
   title: string
 }
@@ -12,6 +13,7 @@ export type Notes = Record<string, Note[]>
 export const notes: Notes = {
   dev: [
     {
+      href: '/notebook/note',
       title: 'The Dawn of Innovation',
       description: 'Explore the birth of groundbreaking ideas and inventions.',
       icon: <StarsIcon className='h-4 w-4 text-gray-dark' />,
