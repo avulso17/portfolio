@@ -1,4 +1,5 @@
 import { cn } from '@/utils/cn'
+import Link from 'next/link'
 
 export const BentoGrid = ({
   className,
@@ -10,7 +11,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        'grid max-w-7xl grid-cols-1 gap-4 tablet:grid-cols-2 wide:auto-rows-[18rem] wide:grid-cols-3',
+        'grid max-w-7xl grid-cols-1 gap-4 mobile:grid-cols-2 wide:auto-rows-[18rem] wide:grid-cols-3',
         className
       )}
     >
@@ -36,19 +37,49 @@ export const BentoGridItem = ({
   title,
   description,
   header,
+  href,
   icon,
 }: {
   className?: string
   description?: string | React.ReactNode
   header?: React.ReactNode
+  href?: string
   icon?: React.ReactNode
   title?: string | React.ReactNode
 }) => {
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={cn(
+          [
+            'group/bento row-span-1 space-y-4 p-4',
+            'flex flex-col justify-between rounded-xl',
+            'border border-card-border bg-black shadow-none',
+            'transition duration-200 hover:shadow-xl',
+          ],
+          className
+        )}
+      >
+        {header ?? <Skeleton />}
+        <div className='transition duration-200 group-hover/bento:translate-x-2'>
+          {icon}
+          <div className='mb-2 mt-2 font-inter font-bold text-white'>
+            {title}
+          </div>
+          <div className='text-xs font-normal text-gray-light'>
+            {description}
+          </div>
+        </div>
+      </Link>
+    )
+  }
+
   return (
     <div
       className={cn(
         [
-          'group/bento row-span-1 space-y-4 p-4',
+          'group/bento row-span-1 cursor-pointer space-y-4 p-4',
           'flex flex-col justify-between rounded-xl',
           'border border-card-border bg-black shadow-none',
           'transition duration-200 hover:shadow-xl',

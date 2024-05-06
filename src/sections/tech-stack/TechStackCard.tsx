@@ -9,7 +9,7 @@ const cardStyles = tv({
     container: [
       'flex items-center justify-end gap-4 p-3.5',
       'relative rounded-2xl border border-card-border bg-onyx',
-      'mobile:aspect-square mobile:w-auto ',
+      'mobile:aspect-square mobile:w-auto',
       'mobile:flex-col mobile:gap-10 mobile:rounded-3xl mobile:p-6',
     ],
     image: [
@@ -17,7 +17,7 @@ const cardStyles = tv({
       'overflow-hidden rounded-3xl mobile:-mt-1.5 mobile:rounded-2xl',
       'mobile:absolute mobile:w-[35%] mobile:absolute-center wide:w-28',
     ],
-    title: 'text-base font-semibold leading-normal mobile:text-lg',
+    title: 'text-base font-semibold !leading-none mobile:text-lg',
     label: [
       'flex h-fit w-fit items-center justify-center',
       'rounded-3xl border border-[#272525] bg-onyx',
@@ -51,7 +51,7 @@ export default function TechStackCard({
         quality={100}
       />
 
-      <div className='flex w-full items-end justify-between'>
+      <div className='flex w-full items-center justify-between gap-2'>
         <p className={classes.title()}>{name}</p>
 
         {category !== undefined ? (
