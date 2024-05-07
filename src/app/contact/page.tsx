@@ -1,44 +1,9 @@
-'use client'
-
-import Link from 'next/link'
-
-import { twMerge } from 'tailwind-merge'
-import { tv } from 'tailwind-variants'
-
-import { Button } from '@/components/Button'
 import { Header } from '@/components/Header'
-import { Separator } from '@/components/Separator'
-import { TextField } from '@/components/TextField'
-import DiscordIcon from '@/icons/Discord'
-import GitHubIcon from '@/icons/GitHub'
-import InstagramIcon from '@/icons/Instagram'
-import LinkedInIcon from '@/icons/LinkedIn'
-import MessageFillIcon from '@/icons/MessageFill'
-import TwitterIcon from '@/icons/Twitter'
-import { links } from '@/utils/links'
+import ContactNewMessageForm from '@/sections/contact/ContactNewMessageForm'
+import ContactSocialButtonGroup from '@/sections/contact/ContactSocialButtonGroup'
+import ContactWindow from '@/sections/contact/ContactWindow'
 
-const contactStyles = tv({
-  slots: {
-    controlBar:
-      'flex max-h-[3.375rem] w-full items-center rounded-t-xl border-b border-white/[0.03] bg-onyx p-4',
-    controlButton: 'flex h-3 w-3 shrink-0 rounded-50 border',
-    content: [
-      'flex w-full flex-col gap-6 px-4 pt-6 ',
-      'mobile:gap-8 mobile:px-8 mobile:py-[0.625rem]',
-    ],
-    textArea: [
-      'h-80 w-full rounded-xl bg-black p-6 text-start',
-      'shadow-text-area placeholder:text-gray focus:outline-none',
-    ],
-    socialButtons: 'w-fit text-gray-dark transition-colors hover:text-white',
-  },
-})
-
-export default function ContactPage(): React.ReactElement {
-  const { email, linkedIn, github, twitter, discord, instagram } = links
-  const { controlBar, controlButton, content, textArea, socialButtons } =
-    contactStyles()
-
+export default function ContactPage() {
   return (
     <main className='w-full'>
       <Header
@@ -47,115 +12,11 @@ export default function ContactPage(): React.ReactElement {
       />
 
       <div className='mb-20 mt-8 w-full mobile:mt-16'>
-        <div className='flex w-full flex-col overflow-hidden rounded-xl bg-onyx'>
-          <div className={controlBar()}>
-            <div className='flex h-fit w-fit gap-2'>
-              <button
-                className={twMerge(
-                  controlButton(),
-                  'border-[#D62929] bg-[#F63636]'
-                )}
-              />
-              <button
-                className={twMerge(
-                  controlButton(),
-                  'border-[#CEA435] bg-[#F6C136]'
-                )}
-              />
-              <button
-                className={twMerge(
-                  controlButton(),
-                  'border-[#53CC28] bg-[#68F636]'
-                )}
-              />
-            </div>
+        <ContactWindow>
+          <ContactNewMessageForm />
+        </ContactWindow>
 
-            <span className='absolute select-none font-medium text-white absolute-center-x'>
-              New message
-            </span>
-          </div>
-
-          <form className={content()}>
-            <div className='h-fit w-full'>
-              <TextField
-                type='email'
-                placeholder='Enter your email address'
-                label='Email:'
-              />
-              <Separator alpha className='my-4' />
-              <TextField
-                type='text'
-                placeholder='Enter your name'
-                label='Name:'
-              />
-              <Separator alpha className='my-4' />
-              <TextField
-                type='text'
-                placeholder='Enter subject'
-                label='Subject:'
-              />
-            </div>
-            <Separator alpha />
-
-            <textarea
-              placeholder='Write your message here'
-              className={textArea()}
-            />
-          </form>
-
-          <div className='flex w-full justify-end px-4 py-6 mobile:px-12 mobile:py-4'>
-            <Button className='w-full mobile:w-fit'>Send</Button>
-          </div>
-        </div>
-
-        <div className='mx-auto mt-16 flex w-fit max-w-[12.75rem] flex-wrap items-center gap-y-11 px-4 mobile:max-w-none mobile:gap-x-11'>
-          <div className='flex w-fit items-center gap-11'>
-            <Link href={email} className={socialButtons()} target='_blank'>
-              <MessageFillIcon className='text-3xl' />
-            </Link>
-            <a
-              href={linkedIn}
-              rel='noreferrer noopener'
-              className={socialButtons()}
-            >
-              <LinkedInIcon className='text-3xl' />
-            </a>
-            <a
-              href={instagram}
-              rel='noreferrer noopener'
-              className={socialButtons()}
-            >
-              <InstagramIcon className='text-3xl' />
-            </a>
-          </div>
-
-          <div className='flex w-fit items-center gap-11'>
-            <a
-              href={twitter}
-              rel='noreferrer noopener'
-              target='_blank'
-              className={socialButtons()}
-            >
-              <TwitterIcon className='text-3xl' />
-            </a>
-            <a
-              href={github}
-              rel='noreferrer noopener'
-              target='_blank'
-              className={socialButtons()}
-            >
-              <GitHubIcon className='text-3xl' />
-            </a>
-            <a
-              href={discord}
-              rel='noreferrer noopener'
-              target='_blank'
-              className={socialButtons()}
-            >
-              <DiscordIcon className='text-3xl' />
-            </a>
-          </div>
-        </div>
+        <ContactSocialButtonGroup />
       </div>
     </main>
   )

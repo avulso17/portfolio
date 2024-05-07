@@ -26,6 +26,7 @@ export default function HomePortrait({ className }: HomePortraitProps) {
           className='block object-cover object-[55%_22%]'
           src='/assets/felipe_1.jpg'
           alt='Felipe Mateus'
+          priority
           fill
         />
       </div>
