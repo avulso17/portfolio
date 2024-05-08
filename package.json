@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "commit": "cz",
-    "postinstall": "husky install",
-    "svgo": "svgo ./public/icons/home/home.svg -o ./public/icons_min/home/home.svg --recursive"
+    "postinstall": "husky install"
   },
   "engines": {
     "node": "v20.12.2"
