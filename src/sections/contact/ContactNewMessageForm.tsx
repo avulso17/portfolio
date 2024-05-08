@@ -1,45 +1,99 @@
-import { Button } from '@/components/Button'
+'use client'
+
+import { useActionState } from 'react'
+
+import sendEmail, { type Email } from '@/app/contact/actions'
 import { Separator } from '@/components/Separator'
 import { TextField } from '@/components/TextField'
 import { cn } from '@/utils/cn'
+import ContactSubmitButton from './ContactSubmitButton'
 
-export default function ContactNewMessageForm() {
+const initialState: Email = {
+  email: '',
+  name: '',
+  subject: '',
+  text: '',
+}
+
+export type ContactNewMessageFormProps = React.ComponentProps<'form'>
+
+export default function ContactNewMessageForm({
+  action,
+  className,
+  ...props
+}: ContactNewMessageFormProps) {
+  const [state, submitAction, isPending] = useActionState(sendEmail, null)
+
+  const errors = state?.errors
+
+  console.log('erros', errors)
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (
+      (e.ctrlKey || e.metaKey) &&
+      (e.key === 'Enter' || e.key === 'NumpadEnter')
+    ) {
+      e.preventDefault()
+      e.currentTarget.form?.requestSubmit()
+    }
+  }
+
   return (
     <form
+      action={submitAction}
+      // onSubmit={test}
       className={cn([
         'flex w-full flex-col gap-6 px-4 pt-6',
         'mobile:gap-8 mobile:px-8 mobile:py-[0.625rem]',
+        className,
       ])}
+      {...props}
     >
       <div className='h-fit w-full'>
         <TextField
+          id='email'
           type='email'
+          name='email'
           placeholder='Enter your email address'
           label='Email:'
+          // required
         />
 
         <Separator alpha className='my-4' />
 
-        <TextField type='text' placeholder='Enter your name' label='Name:' />
+        <TextField
+          id='name'
+          type='text'
+          name='name'
+          placeholder='Enter your name'
+          label='Name:'
+        />
 
         <Separator alpha className='my-4' />
 
-        <TextField type='text' placeholder='Enter subject' label='Subject:' />
+        <TextField
+          type='text'
+          id='subject'
+          name='subject'
+          placeholder='Enter subject'
+          label='Subject:'
+        />
       </div>
 
       <Separator alpha />
 
       <textarea
+        id='text'
+        name='text'
         placeholder='Write your message here'
         className={cn([
           'h-80 w-full rounded-xl bg-black p-6 text-start',
           'shadow-text-area placeholder:text-gray focus:outline-none',
         ])}
+        onKeyDown={handleKeyDown}
       />
 
-      <Button type='submit' className='ml-auto mr-4 w-full px-8 mobile:w-fit'>
-        Send
-      </Button>
+      <ContactSubmitButton />
     </form>
   )
 }

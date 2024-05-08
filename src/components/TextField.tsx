@@ -44,7 +44,7 @@ type ITextField = Omit<ComponentProps<'input'>, 'width'> &
 
 const TextField = forwardRef<HTMLInputElement, ITextField>(
   (
-    { id, label, type, error, success, className, placeholder, ...props },
+    { id, label, error, success, className, placeholder, ...props },
     forwardRef
   ) => {
     const {
@@ -64,7 +64,6 @@ const TextField = forwardRef<HTMLInputElement, ITextField>(
         <input
           ref={forwardRef}
           id={id}
-          type={type}
           className={twMerge(input(), className)}
           placeholder={placeholder}
           {...props}
