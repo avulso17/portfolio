@@ -2,8 +2,10 @@ import HandArrowDown from '@/assets/HandArrowDown'
 import MessageErrorIcon from '@/icons/MessageError'
 import MessageSentIcon from '@/icons/MessageSent'
 
+export type SentStatus = 'error' | 'success'
+
 export type ContactMessageSent = {
-  status: 'error' | 'success'
+  status: SentStatus
 }
 
 export default function ContactMessageSent({ status }: ContactMessageSent) {

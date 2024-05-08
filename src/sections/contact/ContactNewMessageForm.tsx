@@ -1,33 +1,18 @@
-'use client'
-
-import { useActionState } from 'react'
-
-import sendEmail, { type Email } from '@/app/contact/actions'
 import { Separator } from '@/components/Separator'
 import { TextField } from '@/components/TextField'
 import { cn } from '@/utils/cn'
 import ContactSubmitButton from './ContactSubmitButton'
 
-const initialState: Email = {
-  email: '',
-  name: '',
-  subject: '',
-  text: '',
+export type ContactNewMessageFormProps = React.ComponentProps<'form'> & {
+  errors?: any
 }
-
-export type ContactNewMessageFormProps = React.ComponentProps<'form'>
 
 export default function ContactNewMessageForm({
   action,
   className,
+  errors,
   ...props
 }: ContactNewMessageFormProps) {
-  const [state, submitAction, isPending] = useActionState(sendEmail, null)
-
-  const errors = state?.errors
-
-  console.log('erros', errors)
-
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (
       (e.ctrlKey || e.metaKey) &&
@@ -40,8 +25,7 @@ export default function ContactNewMessageForm({
 
   return (
     <form
-      action={submitAction}
-      // onSubmit={test}
+      action={action}
       className={cn([
         'flex w-full flex-col gap-6 px-4 pt-6',
         'mobile:gap-8 mobile:px-8 mobile:py-[0.625rem]',

@@ -36,6 +36,11 @@ export default async function sendEmail(_: any, formData: FormData) {
 
   const data = validatedFields.data
 
+  const dataWithHtml = {
+    ...data,
+    html: '<strong>Ai vai um teste</strong>',
+  }
+
   // Mutate data
   try {
     await fetch(`${PUBLIC_URL}/api/contact/send`, {
@@ -43,11 +48,11 @@ export default async function sendEmail(_: any, formData: FormData) {
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(dataWithHtml),
     })
 
-    return { message: 'Email successfully sent!' }
+    return { message: 'Email successfully sent!', status: 'success' }
   } catch (e: any) {
-    return { message: 'Something went wrong!' }
+    return { message: 'Something went wrong!', status: 'error' }
   }
 }
