@@ -1,15 +1,17 @@
-'use client'
-
 import Link from 'next/link'
 
 import { Button } from '@/components/Button'
 import { Separator } from '@/components/Separator'
+import {
+  DISCORD_PATH,
+  EMAIL_PATH,
+  GITHUB_PATH,
+  LINKEDIN_PATH,
+  TWITTER_PATH,
+} from '@/env/social'
 import UFOIcon from '@/icons/UFO'
-import { links } from '@/utils/links'
 
 export default function Footer() {
-  const { linkedIn, email, github, twitter, discord } = links
-
   return (
     <footer
       id='footer'
@@ -50,56 +52,25 @@ export default function Footer() {
 
         <div className='flex flex-col gap-4'>
           <b className='mb-4 font-bold'>Elsewhere</b>
-          <Button variant='text'>
-            <a
-              href={email}
-              rel='noreferrer noopener'
-              target='_blank'
-              className='font-medium font-inherit'
-            >
-              Email
-            </a>
-          </Button>
-          <Button variant='text'>
-            <a
-              href={linkedIn}
-              rel='noreferrer noopener'
-              target='_blank'
-              className='font-medium font-inherit'
-            >
-              LinkedIn
-            </a>
-          </Button>
-          <Button variant='text'>
-            <a
-              href={github}
-              rel='noreferrer noopener'
-              target='_blank'
-              className='font-medium font-inherit'
-            >
-              GitHub
-            </a>
-          </Button>
-          <Button variant='text'>
-            <a
-              href={twitter}
-              rel='noreferrer noopener'
-              target='_blank'
-              className='font-medium font-inherit'
-            >
-              Twitter
-            </a>
-          </Button>
-          <Button variant='text'>
-            <a
-              href={discord}
-              rel='noreferrer noopener'
-              target='_blank'
-              className='font-medium font-inherit'
-            >
-              Discord
-            </a>
-          </Button>
+          <Link href={EMAIL_PATH} target='_blank'>
+            <Button variant='text'>Email</Button>
+          </Link>
+
+          <Link href={LINKEDIN_PATH} target='_blank'>
+            <Button variant='text'>LinkedIn</Button>
+          </Link>
+
+          <Link href={GITHUB_PATH} target='_blank'>
+            <Button variant='text'>GitHub</Button>
+          </Link>
+
+          <Link href={TWITTER_PATH} target='_blank'>
+            <Button variant='text'>X</Button>
+          </Link>
+
+          <Link href={DISCORD_PATH} target='_blank'>
+            <Button variant='text'>Discord</Button>
+          </Link>
         </div>
       </div>
     </footer>

@@ -8,8 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "commit": "cz",
-    "postinstall": "husky install",
-    "svgo": "svgo ./public/icons/home/home.svg -o ./public/icons_min/home/home.svg --recursive"
+    "postinstall": "husky install"
+  },
+  "engines": {
+    "node": "v20.12.2"
   },
   "dependencies": {
     "@fontsource/nanum-pen-script": "^5.0.7",
@@ -17,22 +19,23 @@
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-separator": "^1.0.3",
-    "@radix-ui/react-toggle-group": "^1.0.4",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.8",
     "mini-svg-data-uri": "^1.4.4",
-    "next": "^14.1.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "^14.3.0-canary.47",
+    "react": "^19.0.0-beta-e7d213dfb0-20240507",
+    "react-dom": "^19.0.0-beta-e7d213dfb0-20240507",
+    "resend": "^3.2.0",
+    "sharp": "^0.33.3",
     "tailwind-merge": "^1.14.0",
-    "tailwind-variants": "^0.1.13"
+    "tailwind-variants": "^0.1.13",
+    "zod": "^3.23.6"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.0.1",
     "@types/negotiator": "^0.6.3",
     "@types/node": "20.4.2",
-    "@types/react": "18.2.15",
-    "@types/react-dom": "18.2.7",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "autoprefixer": "^10.4.14",
