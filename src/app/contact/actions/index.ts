@@ -2,7 +2,7 @@
 
 import { z } from 'zod'
 
-const PUBLIC_URL = process.env.NEXT_PUBLIC_BASE_PATH
+const PUBLIC_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 const SendEmailSchema = z.object({
   email: z
@@ -19,6 +19,7 @@ export type Email = z.infer<typeof SendEmailSchema>
 
 export default async function sendEmail(formData: FormData) {
   const rawFormData = Object.fromEntries(formData)
+  console.log(PUBLIC_URL)
 
   const validatedFields = SendEmailSchema.safeParse({
     email: rawFormData['email'],
@@ -38,7 +39,7 @@ export default async function sendEmail(formData: FormData) {
 
   // Mutate data
   try {
-    await fetch(`${PUBLIC_URL}/api/contact/send`, {
+    await fetch(`http://localhost:3000/api/contact/send`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
