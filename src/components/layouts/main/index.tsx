@@ -1,7 +1,6 @@
 import Link from 'next/link'
 
-import UFOIcon from '@/icons/UFO'
-
+import LogoSvg from '@/assets/Logo'
 import Gradient from '../../Gradient'
 import Footer from './Footer'
 import Navbar from './navbar'
@@ -19,7 +18,7 @@ export default function MainLayout({
       <div className='mx-auto max-w-screen-wide pt-8'>
         <div className='mx-auto mb-28 w-fit mobile:hidden'>
           <Link href='/'>
-            <UFOIcon className='mx-auto text-6xl text-white/50 transition-colors hover:text-white' />
+            <LogoSvg className='mx-auto h-8 w-12 text-white opacity-50 transition-opacity hover:opacity-80' />
           </Link>
         </div>
 

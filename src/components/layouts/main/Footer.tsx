@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import LogoSvg from '@/assets/Logo'
 import { Button } from '@/components/Button'
 import { Separator } from '@/components/Separator'
 import {
@@ -9,7 +10,6 @@ import {
   LINKEDIN_PATH,
   TWITTER_PATH,
 } from '@/env/social'
-import UFOIcon from '@/icons/UFO'
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
       <Separator alpha className='absolute top-0 !w-screen absolute-center-x' />
 
       <div className='flex flex-col gap-4'>
-        <UFOIcon className='text-6xl' />
+        <LogoSvg className='h-[60px] w-[92px]' />
         <p className='text-xl font-medium leading-normal text-gray'>
           Thanks for stopping by ッ
         </p>

@@ -1,6 +1,6 @@
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-export default function HandArrowDown({ children, ...props }: SVGProps) {
+export default function HandArrowDownSvg({ children, ...props }: SVGProps) {
   return (
     <svg viewBox='0 0 70 110' height='1em' width='1em' fill='none' {...props}>
       <path
