@@ -19,7 +19,6 @@ export type Email = z.infer<typeof SendEmailSchema>
 
 export default async function sendEmail(formData: FormData) {
   const rawFormData = Object.fromEntries(formData)
-  console.log(PUBLIC_URL)
 
   const validatedFields = SendEmailSchema.safeParse({
     email: rawFormData['email'],
@@ -39,7 +38,7 @@ export default async function sendEmail(formData: FormData) {
 
   // Mutate data
   try {
-    await fetch(`http://localhost:3000/api/contact/send`, {
+    await fetch(`https://felipe-mateus.com/api/contact/send`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
