@@ -30,6 +30,7 @@ module.exports = withTV({
     },
     extend: {
       animation: {
+        'bounce-in-top': 'bounce-in-top 0.9s both',
         contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
         enterFromLeft: 'enterFromLeft 250ms ease',
         enterFromRight: 'enterFromRight 250ms ease',

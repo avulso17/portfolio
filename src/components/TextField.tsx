@@ -11,7 +11,7 @@ const textFieldStyles = tv({
   slots: {
     wrapper: 'flex items-baseline gap-2',
     input: [
-      'h-fit w-full appearance-none border-none bg-transparent text-gray-light ',
+      'h-fit w-full appearance-none border-none bg-transparent text-gray-light',
       'transition-colors placeholder:text-gray focus:outline-none',
     ],
     label: 'inline-block text-base font-medium',
@@ -19,16 +19,8 @@ const textFieldStyles = tv({
   variants: {
     error: {
       true: {
-        input:
-          'border-red bg-red/10 text-red/80 focus:border-red focus:ring-red',
+        input: 'border-red text-red/80 placeholder:text-red',
         label: 'text-red/80',
-      },
-    },
-    success: {
-      true: {
-        input:
-          'border-green text-green/80 bg-green/10 focus:border-green focus:ring-green',
-        label: 'text-green/80',
       },
     },
   },
@@ -43,15 +35,8 @@ type ITextField = Omit<ComponentProps<'input'>, 'width'> &
   }
 
 const TextField = forwardRef<HTMLInputElement, ITextField>(
-  (
-    { id, label, error, success, className, placeholder, ...props },
-    forwardRef
-  ) => {
-    const {
-      wrapper,
-      input,
-      label: labelStyles,
-    } = textFieldStyles({ error, success })
+  ({ id, label, error, className, placeholder, ...props }, forwardRef) => {
+    const { wrapper, input, label: labelStyles } = textFieldStyles({ error })
 
     return (
       <div className={wrapper()}>

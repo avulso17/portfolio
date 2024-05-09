@@ -26,7 +26,6 @@
   },
   "include": [
     ".eslintrc.js",
-    "eslint.config.js",
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
