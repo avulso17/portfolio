@@ -7,12 +7,27 @@ import { Inter } from 'next/font/google'
 import MainLayout from '@/components/layouts/main'
 
 export const metadata: Metadata = {
+  generator: 'Next.js',
+  applicationName: 'Felipe Mateus - Software Engineer',
+  referrer: 'origin-when-cross-origin',
+  keywords: [
+    'Next.js',
+    'React',
+    'JavaScript',
+    'Software Engineer',
+    'Front-end',
+  ],
+  authors: [{ name: 'Felipe', url: 'https://felipe-mateus.com' }],
+  creator: 'Felipe Mateus',
+  publisher: 'Felipe Mateus',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   metadataBase: new URL('https://felipe-mateus.com'),
   title: 'Felipe Mateus - Software Engineer',
   description: 'Felipe Mateus - Software Engineer',
-  icons: {
-    icon: '/logos/wired-planet.svg',
-  },
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
@@ -21,10 +36,32 @@ export const metadata: Metadata = {
     description:
       "I'm Felipe Mateus a multi-disciplinary Software Engineer and Front-end Software Developer based in Uberlândia, Brazil 🇧🇷.",
     url: 'https://felipe-mateus.com',
-    type: 'website',
-    images: '/og/og-home.jpg',
     siteName: 'Felipe Mateus',
-    locale: 'en',
+    images: [
+      {
+        url: '/og/og-home.jpg',
+        width: 800,
+        height: 600,
+      },
+      {
+        url: '/og/og-home.jpg',
+        width: 1800,
+        height: 1600,
+        alt: 'My custom alt',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Felipe Mateus - Software Engineer',
+    description:
+      "I'm Felipe Mateus a multi-disciplinary Software Engineer and Front-end Software Developer based in Uberlândia, Brazil 🇧🇷.",
+    siteId: '1467726470533754880',
+    creator: 'Felipe Mateus',
+    creatorId: '1467726470533754880',
+    images: ['/og/og-home.jpg'],
   },
 }
 
