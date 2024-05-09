@@ -10,14 +10,14 @@ const SendEmailSchema = z.object({
       invalid_type_error: 'Invalid Email',
     })
     .min(1, 'E-mail is required!'),
-  name: z.string(),
-  subject: z.string(),
-  text: z.string(),
+  name: z.string().min(1, 'Name is required!'),
+  subject: z.string().min(1, 'Subject is required!'),
+  text: z.string().min(1, 'Message is required!'),
 })
 
 export type Email = z.infer<typeof SendEmailSchema>
 
-export default async function sendEmail(_: any, formData: FormData) {
+export default async function sendEmail(formData: FormData) {
   const rawFormData = Object.fromEntries(formData)
 
   const validatedFields = SendEmailSchema.safeParse({
@@ -36,11 +36,6 @@ export default async function sendEmail(_: any, formData: FormData) {
 
   const data = validatedFields.data
 
-  const dataWithHtml = {
-    ...data,
-    html: '<strong>Ai vai um teste</strong>',
-  }
-
   // Mutate data
   try {
     await fetch(`${PUBLIC_URL}/api/contact/send`, {
@@ -48,7 +43,7 @@ export default async function sendEmail(_: any, formData: FormData) {
       headers: {
         'Content-type': 'application/json',
       },
-      body: JSON.stringify(dataWithHtml),
+      body: JSON.stringify(data),
     })
 
     return { message: 'Email successfully sent!', status: 'success' }

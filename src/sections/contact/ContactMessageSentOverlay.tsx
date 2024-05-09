@@ -8,9 +8,11 @@ export type ContactMessageSent = {
   status: SentStatus
 }
 
-export default function ContactMessageSent({ status }: ContactMessageSent) {
+export default function ContactMessageSentOverlay({
+  status,
+}: ContactMessageSent) {
   return (
-    <div className='absolute inset-0 z-10 flex flex-col justify-between bg-onyx p-6'>
+    <div className='absolute inset-0 z-10 flex animate-bounce-in-top flex-col justify-between bg-onyx p-6'>
       <div />
 
       <div className='flex flex-col items-center gap-4'>
@@ -37,12 +39,12 @@ export default function ContactMessageSent({ status }: ContactMessageSent) {
         )}
       </div>
 
-      <div className='flex flex-col items-center gap-10'>
+      <div className='flex flex-col items-center gap-8'>
         <p className='font-medium text-gray-dark'>
           In the meantime, follow me on these platforms below
         </p>
 
-        <HandArrowDown className='h-[108px] w-[70px] animate-bounce text-gray-light dark:text-gray-dark' />
+        <HandArrowDown className='h-[98px] w-[56px] animate-bounce text-gray-light delay-100 dark:text-gray-dark' />
       </div>
     </div>
   )
