@@ -1,4 +1,4 @@
-import HandArrowDown from '@/assets/HandArrowDown'
+import HandArrowDownSvg from '@/assets/HandArrowDown'
 import MessageErrorIcon from '@/icons/MessageError'
 import MessageSentIcon from '@/icons/MessageSent'
 
@@ -22,7 +22,7 @@ export default function ContactMessageSentOverlay({
           <MessageErrorIcon className='text-[40px] text-error' />
         )}
 
-        <span className='text-4xl font-semibold'>
+        <span className='text-center text-4xl font-semibold'>
           {status === 'success' ? 'Message Sent!' : 'Cannot send message :('}
         </span>
 
@@ -44,7 +44,7 @@ export default function ContactMessageSentOverlay({
           In the meantime, follow me on these platforms below
         </p>
 
-        <HandArrowDown className='h-[98px] w-[56px] animate-bounce text-gray-light delay-100 dark:text-gray-dark' />
+        <HandArrowDownSvg className='h-[98px] w-[56px] animate-bounce text-gray-light delay-100 dark:text-gray-dark' />
       </div>
     </div>
   )

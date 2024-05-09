@@ -10,10 +10,10 @@ import { Button } from '@/components/Button'
 
 import { navigation } from '@/configs/nav'
 
+import LogoSvg from '@/assets/Logo'
 import { Separator } from '@/components/Separator'
 import ChevronBottomIcon from '@/icons/ChevronBottom'
 import StarsIcon from '@/icons/Stars'
-import UFOIcon from '@/icons/UFO'
 import { useState } from 'react'
 
 const buttonStyles = tv({
@@ -50,7 +50,7 @@ export default function Navbar({ className }: NavbarProps) {
     >
       <div className='relative flex items-center gap-10'>
         <Link href='/' className='shrink-0'>
-          <UFOIcon className='text-4xl text-white/50 transition-colors hover:text-white' />
+          <LogoSvg className='h-7 w-10 text-white transition-colors hover:text-gray-light' />
         </Link>
 
         <Link href='/about'>
