@@ -1,8 +1,11 @@
 'use server'
 
+import { ContactEmailTemplate } from '@/sections/contact/ContactEmailTemplate'
+import { Resend } from 'resend'
+
 import { z } from 'zod'
 
-const PUBLIC_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 const SendEmailSchema = z.object({
   email: z
@@ -34,16 +37,20 @@ export default async function sendEmail(formData: FormData) {
     }
   }
 
-  const data = validatedFields.data
+  const { email, name, subject, text } = validatedFields.data
 
   // Mutate data
   try {
-    await fetch(`https://felipe-mateus.com/api/contact/send`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(data),
+    await resend.emails.send({
+      from: `${name} <contact@felipe-mateus.com>`,
+      to: ['felipe_mateus08@hotmail.com', 'felipe_dev08@hotmail.com'],
+      subject,
+      react: ContactEmailTemplate({
+        name,
+        email,
+        subject,
+        text,
+      }),
     })
 
     return { message: 'Email successfully sent!', status: 'success' }

@@ -17,6 +17,8 @@ export type Errors = {
   text?: string[] | undefined
 }
 
+type ErrorsKeys = keyof Errors
+
 export type ContactNewMessageFormProps = React.ComponentProps<'form'>
 
 export default function ContactNewMessageForm({
@@ -44,8 +46,16 @@ export default function ContactNewMessageForm({
     })
   }
 
-  const clearErrors = () => {
-    setErrors({})
+  const clearError = (name: ErrorsKeys) => {
+    setErrors((prev) => {
+      const updatedErrors = { ...prev }
+
+      if (name in updatedErrors) {
+        delete updatedErrors[name]
+      }
+
+      return updatedErrors
+    })
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -62,7 +72,6 @@ export default function ContactNewMessageForm({
     <>
       <form
         action={submitAction}
-        onChange={clearErrors}
         className={cn([
           'flex w-full flex-col gap-6 px-4 pt-6',
           'mobile:gap-8 mobile:px-8 mobile:py-[0.625rem]',
@@ -78,6 +87,7 @@ export default function ContactNewMessageForm({
             placeholder='Enter your email address'
             label='Email:'
             disabled={isPending}
+            onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             error={Boolean(errors?.email)}
           />
 
@@ -90,6 +100,7 @@ export default function ContactNewMessageForm({
             placeholder='Enter your name'
             label='Name:'
             disabled={isPending}
+            onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             error={Boolean(errors?.name)}
           />
 
@@ -102,6 +113,7 @@ export default function ContactNewMessageForm({
             placeholder='Enter subject'
             label='Subject:'
             disabled={isPending}
+            onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             error={Boolean(errors?.subject)}
           />
         </div>
@@ -124,6 +136,7 @@ export default function ContactNewMessageForm({
             }
           )}
           disabled={isPending}
+          onChange={(e) => clearError(e.target.name as ErrorsKeys)}
           onKeyDown={handleKeyDown}
         />
 
