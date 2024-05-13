@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import MainLayout from '@/components/layouts/main'
+import { getStaticParams } from '@/locales/server'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -72,6 +73,10 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'swap',
 })
+
+export function generateStaticParams() {
+  return getStaticParams()
+}
 
 export default function RootLayout({
   children,
