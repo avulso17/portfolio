@@ -2,9 +2,12 @@ import Link from 'next/link'
 
 import { Button } from '@/components/Button'
 import { TextGenerateEffect } from '@/components/TextGeneratorEffect'
+import { getI18n } from '@/locales/server'
 import HomePortrait from './HomePortrait'
 
-export default function HomeHero() {
+export default async function HomeHero() {
+  const t = await getI18n()
+
   return (
     <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-14 mobile:mb-[20.625rem] mobile:gap-10 mobile:pt-0'>
       <h1 className='mb-4 w-fit whitespace-nowrap font-extrabold mobile:mb-0'>
@@ -17,9 +20,7 @@ export default function HomeHero() {
 
       <TextGenerateEffect
         speed={0.1}
-        words='A Software Engineer and Front-end Developer helping startups turn their
-        visions into a digital reality. I specialize in designing and building
-        modern mobile and web-based apps.'
+        words={t('home.hero.description')}
         className='mb-14 w-full max-w-[45.625rem] font-medium !leading-5 !text-gray-dark hero-text mobile:mb-0 mobile:!leading-[2rem]'
       />
 
@@ -27,7 +28,6 @@ export default function HomeHero() {
         <Link href='/about'>
           <Button className='w-full mobile:w-fit'>See my resume</Button>
         </Link>
-
         <Link href='/contact'>
           <Button className='w-full mobile:w-fit' variant='secondary'>
             Get in touch
