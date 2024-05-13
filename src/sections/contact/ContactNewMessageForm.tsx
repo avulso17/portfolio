@@ -1,6 +1,6 @@
 'use client'
 
-import sendEmail from '@/app/contact/actions'
+import sendEmail from '@/app/[locale]/contact/actions'
 import { Separator } from '@/components/Separator'
 import { TextField } from '@/components/TextField'
 import { cn } from '@/utils/cn'

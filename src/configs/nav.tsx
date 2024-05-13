@@ -16,6 +16,8 @@ import MessageFillIcon from '@/icons/MessageFill'
 import PenFillIcon from '@/icons/PenFill'
 import TwitterIcon from '@/icons/Twitter'
 import UserFillIcon from '@/icons/UserFill'
+import EnglishIcon from '@/icons/langs/English'
+import PortugueseIcon from '@/icons/langs/Portuguese'
 
 export const navigation = {
   routes: [
@@ -80,4 +82,14 @@ export const navigation = {
       hidden: true,
     },
   ],
+  langs: {
+    en: {
+      locale: 'en',
+      icon: <EnglishIcon />,
+    },
+    'pt-BR': {
+      locale: 'pt-BR',
+      icon: <PortugueseIcon />,
+    },
+  },
 }
