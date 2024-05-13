@@ -70,9 +70,6 @@ export default function Navbar({ className }: NavbarProps) {
 
         <Separator orientation='vertical' className='mx-1 opacity-25' />
 
-        {/* <Link href='/playground' className={iconButtonStyles()}>
-          <StarsIcon />
-        </Link> */}
         <ChangeLocaleMenu />
       </div>
     </nav>

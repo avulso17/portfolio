@@ -11,8 +11,8 @@ export default async function HomeHero() {
   return (
     <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-14 mobile:mb-[20.625rem] mobile:gap-10 mobile:pt-0'>
       <h1 className='mb-4 w-fit whitespace-nowrap font-extrabold mobile:mb-0'>
-        <b className='block mobile:hidden'>Hi 👋🏻</b>
-        <b>I&rsquo;m</b> Felipe M
+        <b className='block mobile:hidden'>{t('home.hero.title.mobile')} 👋🏻</b>
+        <b>{t('home.hero.title.desktop')}</b> Felipe M
         <p className='hidden font-extrabold text-inherit font-inherit tablet:inline-block'>
           ateus
         </p>
@@ -26,11 +26,13 @@ export default async function HomeHero() {
 
       <div className='flex flex-col gap-4 mobile:flex-row mobile:items-center'>
         <Link href='/about'>
-          <Button className='w-full mobile:w-fit'>See my resume</Button>
+          <Button className='w-full mobile:w-fit'>
+            {t('home.hero.buttons.see-my-resume')}
+          </Button>
         </Link>
         <Link href='/contact'>
           <Button className='w-full mobile:w-fit' variant='secondary'>
-            Get in touch
+            {t('home.hero.buttons.get-in-touch')}
           </Button>
         </Link>
       </div>

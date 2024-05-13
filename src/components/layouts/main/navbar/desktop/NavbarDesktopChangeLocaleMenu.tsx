@@ -5,6 +5,7 @@ import { Button } from '@/components/Button'
 import EnglishIcon from '@/icons/langs/English'
 import PortugueseIcon from '@/icons/langs/Portuguese'
 import { useChangeLocale, useCurrentLocale } from '@/locales/client'
+import { CheckIcon } from '@radix-ui/react-icons'
 import { useState } from 'react'
 import { tv } from 'tailwind-variants'
 
@@ -43,13 +44,23 @@ export default function NavbarDesktopChangeLocaleMenu() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -2 }}
             transition={{ duration: 0.1 }}
-            className='absolute right-0 top-[calc(100%+1rem)] flex flex-col gap-4 rounded-b-xl bg-onyx/50 p-4'
+            className='absolute right-4 top-full flex min-w-[150px] flex-col gap-4 rounded-b-xl bg-onyx/50 p-4'
           >
-            <Button variant='text' onClick={() => handleChangeLocale('en')}>
+            <Button
+              variant='text'
+              full
+              onClick={() => handleChangeLocale('en')}
+            >
+              <CheckIcon className='text-xl' />
               English
             </Button>
 
-            <Button variant='text' onClick={() => handleChangeLocale('pt-BR')}>
+            <Button
+              variant='text'
+              full
+              onClick={() => handleChangeLocale('pt-BR')}
+            >
+              <CheckIcon className='text-xl' />
               Português
             </Button>
           </motion.div>
