@@ -12,5 +12,16 @@ export default {
         'get-in-touch': 'Entre em contato',
       },
     },
+    works: {
+      title: 'Selected Work',
+    },
+    about: {
+      title: 'Get to know me',
+    },
+    'work-together': {
+      title: 'Let’s work together',
+      subtitle:
+        'Want to discuss an opportunity to create something great? I’m ready when you are.',
+    },
   },
 } as const
