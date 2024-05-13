@@ -17,7 +17,8 @@ export const metadata: Metadata = {
     'work',
     'projects',
     'apps',
-    'games',
+    'repositories',
+    'experiences',
   ],
   authors: [{ name: 'Felipe', url: 'https://felipe-mateus.com' }],
   creator: 'Felipe Mateus',
@@ -30,14 +31,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://felipe-mateus.com'),
   title: 'Felipe Mateus - Software Engineer',
   description:
-    'On this page you will find the main technologies I use, which I use to work, be productive, projects I have done and more...',
+    'Discover the main projects I’ve done and work in which I’ve participated...',
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
     title: 'Felipe Mateus - Software Engineer',
     description:
-      'On this page you will find the main technologies I use, which I use to work, be productive, projects I have done and more...',
+      'Discover the main projects I’ve done and work in which I’ve participated...',
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
     images: [
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Felipe Mateus - Software Engineer',
     description:
-      'On this page you will find the main technologies I use, which I use to work, be productive, projects I have done and more...',
+      'Discover the main projects I’ve done and work in which I’ve participated...',
     creator: 'Felipe Mateus',
     images: ['/og/og-work.jpg'],
   },
