@@ -40,7 +40,7 @@ export default function ContactMessageSentOverlay({
       </div>
 
       <div className='flex flex-col items-center gap-8'>
-        <p className='font-medium text-gray-dark'>
+        <p className='text-center font-medium text-gray-dark'>
           In the meantime, follow me on these platforms below
         </p>
 
