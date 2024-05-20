@@ -105,188 +105,127 @@ module.exports = withTV({
       matchVariant,
       matchUtilities,
     }) {
-      addBase({
-        'html, body': {
-          backgroundColor: theme('colors.black'),
-          color: theme('colors.white'),
-          fontFamily: theme('fontFamily.inter'),
-          fontSize: theme('fontSize.base'),
-          overflowX: 'hidden',
-          scrollBehavior: 'smooth',
+      addUtilities({
+        '.mask-geist': {
+          maskImage: 'url(/assets/geist.svg)',
+          maskSize: 'cover',
+          maskRepeat: 'no-repeat',
+          maskPosition: 'center',
         },
-        html: {
-          height: '100%',
-          fontSize: theme('fontSize.base'),
-        },
-        body: {
-          minHeight: '100%',
-          '-webkit-font-smoothing': 'antialiased',
-          '-moz-osx-font-smoothing': 'grayscale',
-          textRendering: 'optimizeLegibility',
-        },
-        '*, ::before, ::after': {
-          padding: 0,
-          margin: 0,
-        },
-        a: {
-          userSelect: 'none',
-        },
-        button: {
-          fontSize: theme('fontSize.lg'),
-          userSelect: 'none',
-        },
-        img: {
-          userSelect: 'none',
-          '-webkit-user-drag': 'none',
-        },
-        'h1, h2, h3, h4, h5, h6, p, b, a, small, span': {
-          fontWeight: theme('fontWeight.normal'),
-        },
-        'input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button':
-          {
-            appearance: 'none',
-            '-webkit-appearance': 'none',
-          },
-        '::selection': {
-          backgroundColor: theme('colors.red'),
-          '-webkit-text-fill-color': theme('colors.white'),
-        },
-        '::-webkit-scrollbar': {
-          backgroundColor: theme('colors.transparent'),
-          height: theme('spacing.1'),
-          width: theme('spacing.1'),
-          transform: 'translate3d(0, 0, 0)',
-          '-webkit-transform': 'translate3d(0, 0, 0)',
-        },
-        '::-webkit-scrollbar-thumb': {
-          backgroundColor: theme('colors.gray.dark'),
-          borderRadius: theme('borderRadius.lg'),
-        },
-        '::-webkit-scrollbar-thumb:hover': {
-          backgroundColor: theme('colors.gray.light'),
-        },
-      }),
-        addUtilities({
-          '.mask-geist': {
-            maskImage: 'url(/assets/geist.svg)',
-            maskSize: 'cover',
-            maskRepeat: 'no-repeat',
-            maskPosition: 'center',
-          },
 
-          '.blur-performance': {
-            willChange: 'filter',
-            WebkitBackfaceVisibility: 'hidden',
-            WebkitPerspective: '1000',
-            backfaceVisibility: 'hidden',
-            perspective: '1000',
-          },
+        '.blur-performance': {
+          willChange: 'filter',
+          WebkitBackfaceVisibility: 'hidden',
+          WebkitPerspective: '1000',
+          backfaceVisibility: 'hidden',
+          perspective: '1000',
+        },
 
-          '.custom-border-dashed': {
-            backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='32' ry='32' stroke='%23383737FF' stroke-width='5' stroke-dasharray='20' stroke-dashoffset='10' stroke-linecap='round'/%3e%3c/svg%3e")`,
-          },
+        '.custom-border-dashed': {
+          backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='32' ry='32' stroke='%23383737FF' stroke-width='5' stroke-dasharray='20' stroke-dashoffset='10' stroke-linecap='round'/%3e%3c/svg%3e")`,
+        },
 
-          '.custom-border-dashed-mobile': {
-            backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='32' ry='32' stroke='%23383737FF' stroke-width='4' stroke-dasharray='14' stroke-dashoffset='10' stroke-linecap='round'/%3e%3c/svg%3e")`,
-          },
+        '.custom-border-dashed-mobile': {
+          backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='32' ry='32' stroke='%23383737FF' stroke-width='4' stroke-dasharray='14' stroke-dashoffset='10' stroke-linecap='round'/%3e%3c/svg%3e")`,
+        },
 
-          // base dialog
-          '.dialog': {
-            borderRadius: '20px',
-            position: 'fixed',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
-            backdropFilter: 'blur(25px)',
-            maxHeight: '85vh',
-            maxWidth: '500px',
-            width: '90vw',
-            zIndex: 1000,
-          },
+        // base dialog
+        '.dialog': {
+          borderRadius: '20px',
+          position: 'fixed',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+          backdropFilter: 'blur(25px)',
+          maxHeight: '85vh',
+          maxWidth: '500px',
+          width: '90vw',
+          zIndex: 1000,
+        },
 
-          // typography
-          '.hero-title': {
-            fontSize: '5rem',
-            fontWeight: theme('fontWeight.bold'),
-            lineHeight: 'normal',
+        // typography
+        '.hero-title': {
+          fontSize: '5rem',
+          fontWeight: theme('fontWeight.bold'),
+          lineHeight: 'normal',
 
-            b: {
-              color: theme('colors.gray.dark'),
-              fontSize: 'inherit',
-              fontWeight: 'inherit',
-              lineHeight: 'inherit',
-            },
-
-            '@media (max-width: 620px)': {
-              fontSize: theme('fontSize.5xl'),
-            },
-          },
-          '.hero-text': {
-            color: theme('colors.gray.DEFAULT'),
-            fontSize: theme('fontSize.2xl'),
-            lineHeight: 'normal',
-
-            '@media (max-width: 620px)': {
-              fontSize: theme('fontSize.base'),
-            },
-          },
-          '.header': {
-            fontSize: theme('fontSize.5xl'),
-            fontWeight: theme('fontWeight.bold'),
-            lineHeight: 'normal',
-
-            '@media (max-width: 620px)': {
-              fontSize: '2rem',
-            },
-          },
-          '.header-text': {
-            color: 'rgba(128, 128, 128, 0.5)',
-            fontSize: theme('fontSize.xl'),
-            lineHeight: 'normal',
-
-            '@media (max-width: 620px)': {
-              fontSize: '1rem',
-            },
-          },
-          '.text-body': {
-            fontSize: theme('fontSize.base'),
-            lineHeight: 'normal',
-          },
-          '.font-inherit': {
+          b: {
+            color: theme('colors.gray.dark'),
             fontSize: 'inherit',
             fontWeight: 'inherit',
             lineHeight: 'inherit',
           },
 
-          // utils
-          '.absolute-center-x': {
-            left: '50%',
-            transform: 'translateX(-50%)',
+          '@media (max-width: 620px)': {
+            fontSize: theme('fontSize.5xl'),
           },
+        },
+        '.hero-text': {
+          color: theme('colors.gray.DEFAULT'),
+          fontSize: theme('fontSize.2xl'),
+          lineHeight: 'normal',
 
-          '.absolute-center-y': {
-            top: '50%',
-            transform: 'translateY(-50%)',
+          '@media (max-width: 620px)': {
+            fontSize: theme('fontSize.base'),
           },
+        },
+        '.header': {
+          fontSize: theme('fontSize.5xl'),
+          fontWeight: theme('fontWeight.bold'),
+          lineHeight: 'normal',
 
-          '.absolute-center': {
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
+          '@media (max-width: 620px)': {
+            fontSize: '2rem',
           },
+        },
+        '.header-text': {
+          color: 'rgba(128, 128, 128, 0.5)',
+          fontSize: theme('fontSize.xl'),
+          lineHeight: 'normal',
 
-          '.rotate-inverted': {
-            transform: 'rotate(180deg)',
+          '@media (max-width: 620px)': {
+            fontSize: '1rem',
           },
+        },
+        '.text-body': {
+          fontSize: theme('fontSize.base'),
+          lineHeight: 'normal',
+        },
+        '.font-inherit': {
+          fontSize: 'inherit',
+          fontWeight: 'inherit',
+          lineHeight: 'inherit',
+        },
 
-          '.rotate-inverted-y': {
-            transform: 'rotateY(180deg)',
-          },
+        // utils
+        '.absolute-center-x': {
+          left: '50%',
+          transform: 'translateX(-50%)',
+        },
 
-          '.rotate-inverted-x': {
-            transform: 'rotateX(180deg)',
-          },
-        }),
+        '.absolute-center-y': {
+          top: '50%',
+          transform: 'translateY(-50%)',
+        },
+
+        '.absolute-center': {
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
+        },
+
+        '.rotate-inverted': {
+          transform: 'rotate(180deg)',
+        },
+
+        '.rotate-inverted-y': {
+          transform: 'rotateY(180deg)',
+        },
+
+        '.rotate-inverted-x': {
+          transform: 'rotateX(180deg)',
+        },
+      }),
         matchVariant(
           'nth',
           (value) => {

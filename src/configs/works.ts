@@ -84,3 +84,5 @@ export const works = {
     },
   ],
 }
+
+export type Projects = typeof works.projects

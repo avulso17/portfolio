@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn'
+import { cn } from '@/lib/utils/cn'
 import { tv } from 'tailwind-variants'
 
 const buttonStyles = tv({

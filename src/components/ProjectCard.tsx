@@ -34,7 +34,7 @@ export const ProjectCard = ({
   iconSrc = '',
   imgSrc = '/',
   href = '',
-}: ProjectCardProps): React.ReactElement => {
+}: ProjectCardProps) => {
   const {
     content,
     icon,

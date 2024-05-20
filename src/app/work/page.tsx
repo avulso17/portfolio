@@ -1,5 +1,5 @@
 import { Header } from '@/components/Header'
-import ProjectsList from '@/sections/projects/ProjectsList'
+import ProjectsContent from '@/sections/projects/ProjectsContent'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -72,7 +72,7 @@ export default function WorkPage() {
     <div className='w-full'>
       <Header title='Projects' subtitle="Projects and ideas I've worked on" />
 
-      <ProjectsList />
+      <ProjectsContent />
     </div>
   )
 }

@@ -3,6 +3,34 @@
 @tailwind utilities;
 
 @layer base {
+  *,
+  ::before,
+  ::after {
+    @apply m-0 box-border p-0;
+  }
+
+  html {
+    @apply h-full text-body;
+    color-scheme: dark;
+  }
+
+  html,
+  body {
+    @apply overflow-x-hidden scroll-smooth bg-black font-inter text-white text-body;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    @apply min-h-full w-screen !pr-4;
+  }
+
+  img {
+    -webkit-user-drag: none;
+    @apply select-none;
+  }
+
   p,
   b,
   a {
@@ -10,15 +38,35 @@
   }
 
   a {
-    @apply outline-none;
+    @apply select-none outline-none;
   }
 
   button {
-    @apply outline-none focus:underline;
+    @apply select-none text-lg outline-none focus:underline;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  b,
+  a,
+  small,
+  span {
+    @apply font-normal;
   }
 
   h1 {
     @apply hero-title;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    @apply appearance-none;
   }
 
   input:-webkit-autofill,
@@ -28,7 +76,8 @@
       color 600000s 0s;
   }
 
-  input[data-autocompleted] {
-    @apply !bg-transparent;
+  ::selection {
+    -webkit-text-fill-color: #ffffff;
+    @apply bg-red;
   }
 }

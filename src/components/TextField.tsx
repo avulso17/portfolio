@@ -9,20 +9,31 @@ import * as Label from '@radix-ui/react-label'
 
 const textFieldStyles = tv({
   slots: {
-    wrapper: 'flex items-baseline gap-2',
+    wrapper: 'flex w-full items-center gap-2',
     input: [
-      'h-fit w-full appearance-none border-none bg-transparent text-gray-light',
+      'w-full min-w-0 appearance-none text-gray-light',
       'transition-colors placeholder:text-gray focus:outline-none',
     ],
     label: 'inline-block text-base font-medium',
   },
   variants: {
+    variant: {
+      outlined: {
+        input: [],
+      },
+      standard: {
+        input: ['border-none bg-transparent'],
+      },
+    },
     error: {
       true: {
         input: 'border-red text-red/80 placeholder:text-red',
         label: 'text-red/80',
       },
     },
+  },
+  defaultVariants: {
+    variant: 'standard',
   },
 })
 

@@ -3,7 +3,7 @@
 import sendEmail from '@/app/contact/actions'
 import { Separator } from '@/components/Separator'
 import { TextField } from '@/components/TextField'
-import { cn } from '@/utils/cn'
+import { cn } from '@/lib/utils/cn'
 import { useState, useTransition } from 'react'
 import ContactMessageSentOverlay, {
   type SentStatus,

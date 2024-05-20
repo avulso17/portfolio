@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn'
+import { cn } from '@/lib/utils/cn'
 
 export type TechStackGroupTitleProps = React.ComponentProps<'h2'>
 
