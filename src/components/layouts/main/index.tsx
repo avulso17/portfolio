@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import LogoSvg from '@/assets/Logo'
-import Gradient from '../../Gradient'
+import Gradient from '@/components/ui/Gradient'
 import Footer from './Footer'
 import Navbar from './navbar/desktop'
 import NavbarMobile from './navbar/mobile'

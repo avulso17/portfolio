@@ -1,4 +1,4 @@
-import { Widget } from '@/components/Widget'
+import { Widget } from './Widget'
 
 export default function HomeGetToKnowSection() {
   return (

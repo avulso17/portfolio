@@ -1,5 +1,5 @@
 'use client'
-import { Button } from '@/components/Button'
+import { Button } from '@/components/ui/Button'
 import { useOnClickOutside } from '@/hooks/useOnClickOutsite'
 import ChevronBottomIcon from '@/icons/ChevronBottom'
 import { AnimatePresence, motion } from 'framer-motion'

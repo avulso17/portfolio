@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Button } from '@/components/Button'
+import { Button } from '@/components/ui/Button'
 import SendIcon from '@/icons/Send'
 
 export default function HomeGetInTouchSection() {

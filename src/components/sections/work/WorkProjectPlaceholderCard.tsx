@@ -1,4 +1,4 @@
-import { Button } from '@/components/Button'
+import { Button } from '@/components/ui/Button'
 import SendIcon from '@/icons/Send'
 import StarsIcon from '@/icons/Stars'
 import Link from 'next/link'
@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge'
 
 type ProjectPlaceholderCardProps = React.ComponentProps<'div'>
 
-export default function ProjectsPlaceholderCard({
+export default function WorkProjectPlaceholderCard({
   className,
 }: ProjectPlaceholderCardProps) {
   return (

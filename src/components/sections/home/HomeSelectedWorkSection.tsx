@@ -1,7 +1,8 @@
-import { ProjectCard } from '@/components/ProjectCard'
 import { works } from '@/configs/works'
 
-const selectedWorks = works.home
+import ProjectCard from '../work/WorkProjectCard'
+
+const selectedWorks = works.slice(0, 1)
 
 export default function HomeSelectedWorkSection() {
   return (

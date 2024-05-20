@@ -1,17 +1,17 @@
 import dynamic from 'next/dynamic'
 
-import HomeHero from '@/sections/home/HomeHero'
+import HomeHero from '@/components/sections/home/HomeHero'
 
 const HomeSelectedWorkSection = dynamic(
-  () => import('@/sections/home/HomeSelectedWorkSection')
+  () => import('@/components/sections/home/HomeSelectedWorkSection')
 )
 
 const HomeGetToKnowSection = dynamic(
-  () => import('@/sections/home/HomeGetToKnowSection')
+  () => import('@/components/sections/home/HomeGetToKnowSection')
 )
 
 const HomeGetInTouchSection = dynamic(
-  () => import('@/sections/home/HomeGetInTouchSection')
+  () => import('@/components/sections/home/HomeGetInTouchSection')
 )
 
 export default function Home() {

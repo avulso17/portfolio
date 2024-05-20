@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import { Button } from '@/components/Button'
-import { TextGenerateEffect } from '@/components/TextGeneratorEffect'
+import { Button } from '@/components/ui/Button'
+import { TextGenerateEffect } from '@/components/ui/TextGeneratorEffect'
 import HomePortrait from './HomePortrait'
 
 export default function HomeHero() {

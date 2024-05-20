@@ -1,4 +1,4 @@
-import { Button } from '@/components/Button'
+import { Button } from '@/components/ui/Button'
 import { EMAIL_PATH, LINKEDIN_PATH, TWITTER_PATH } from '@/env/social'
 import SendIcon from '@/icons/Send'
 import Link from 'next/link'

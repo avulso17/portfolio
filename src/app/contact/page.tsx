@@ -1,7 +1,8 @@
-import { Header } from '@/components/Header'
-import ContactSocialButtonGroup from '@/sections/contact/ContactSocialButtonGroup'
-import ContactWindow from '@/sections/contact/ContactWindow'
 import { Metadata } from 'next'
+
+import ContactSocialButtonGroup from '@/components/sections/contact/ContactSocialButtonGroup'
+import ContactWindow from '@/components/sections/contact/ContactWindow'
+import { Header } from '@/components/ui/Header'
 
 export const metadata: Metadata = {
   generator: 'Next.js',

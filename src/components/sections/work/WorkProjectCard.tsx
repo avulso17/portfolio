@@ -2,12 +2,12 @@ import { ComponentProps } from 'react'
 
 import { tv } from 'tailwind-variants'
 
+import { Button } from '@/components/ui/Button'
 import ArrowRightIcon from '@/icons/ArrowRight'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from './Button'
 
-const projectCardStyles = tv({
+const styles = tv({
   slots: {
     content: [
       'flex w-full rounded-4xl border border-card-border bg-onyx',
@@ -20,7 +20,7 @@ const projectCardStyles = tv({
   },
 })
 
-type ProjectCardProps = Omit<ComponentProps<'div'>, 'title'> & {
+export type WorkProjectCardProps = Omit<ComponentProps<'div'>, 'title'> & {
   description?: string
   href?: string
   iconSrc?: string
@@ -28,33 +28,28 @@ type ProjectCardProps = Omit<ComponentProps<'div'>, 'title'> & {
   title?: string
 }
 
-export const ProjectCard = ({
+const WorkProjectCard = ({
   title = 'Project Name',
   description = 'Project description goes here',
   iconSrc = '',
   imgSrc = '/',
   href = '',
-}: ProjectCardProps) => {
-  const {
-    content,
-    icon,
-    description: descriptionStyles,
-    title: titleStyles,
-  } = projectCardStyles()
+}: WorkProjectCardProps) => {
+  const slots = styles()
 
   return (
-    <div className={content()}>
+    <div className={slots.content()}>
       <div className='flex flex-col gap-4 px-6 py-8 mobile:p-[3.75rem] tablet:max-w-[35rem] tablet:pr-0'>
         <Image
-          className={icon()}
+          className={slots.icon()}
           src={iconSrc}
           alt={`${title} Icon`}
           height={70}
           width={70}
           priority
         />
-        <h3 className={titleStyles()}>{title}</h3>
-        <p className={descriptionStyles()}>{description}</p>
+        <h3 className={slots.title()}>{title}</h3>
+        <p className={slots.description()}>{description}</p>
 
         <Link
           href={href}
@@ -85,3 +80,5 @@ export const ProjectCard = ({
     </div>
   )
 }
+
+export default WorkProjectCard

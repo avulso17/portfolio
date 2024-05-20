@@ -1,5 +1,5 @@
-import { Header } from '@/components/Header'
-import FallingSand from '@/components/falling-sand'
+import { Header } from '@/components/ui/Header'
+import FallingSand from '@/playground/falling-sand'
 
 export default function PlaygroundPage() {
   return (

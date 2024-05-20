@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/components/Button'
+import { Button } from '@/components/ui/Button'
 import { useFormStatus } from 'react-dom'
 
 export default function ContactSubmitButton() {

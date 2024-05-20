@@ -5,6 +5,7 @@ import {
   LINKEDIN_PATH,
   TWITTER_PATH,
 } from '@/env/social'
+
 import DiscordIcon from '@/icons/Discord'
 import GitHubIcon from '@/icons/GitHub'
 import InstagramIcon from '@/icons/Instagram'

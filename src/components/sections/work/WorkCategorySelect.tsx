@@ -4,9 +4,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/Select'
+} from '@/components/ui/Select'
 
-export default function ProjectsFilterByCategory() {
+export default function WorkCategorySelect() {
   return (
     <Select>
       <SelectTrigger className='w-[180px]'>

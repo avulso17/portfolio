@@ -1,12 +1,13 @@
-import { ProjectCard } from '@/components/ProjectCard'
-import { Projects } from '@/configs/works'
-import ProjectsPlaceholderCard from './ProjectsPlaceholderCard'
+import { type Projects } from '@/configs/works'
 
-export type ProjectsCardStackProps = {
+import ProjectCard from './WorkProjectCard'
+import ProjectPlaceholderCard from './WorkProjectPlaceholderCard'
+
+export type WorkCardStackProps = {
   items: Projects
 }
 
-export default function ProjectsCardStack({ items }: ProjectsCardStackProps) {
+export default function WorkCardStack({ items }: WorkCardStackProps) {
   return (
     <div className='flex flex-col gap-4'>
       {items.map(({ icon, image, title, description, url }, index) => (
@@ -20,7 +21,7 @@ export default function ProjectsCardStack({ items }: ProjectsCardStackProps) {
         />
       ))}
 
-      <ProjectsPlaceholderCard />
+      <ProjectPlaceholderCard />
     </div>
   )
 }

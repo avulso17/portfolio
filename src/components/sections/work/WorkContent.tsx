@@ -1,13 +1,15 @@
 'use client'
-import Input from '@/components/Input'
-import { works } from '@/configs/works'
-import { useCallback, useEffect, useState } from 'react'
-import ProjectsCardStack from './ProjectsCardStack'
-import Select from './ProjectsFilterByCategory'
 
-export default function ProjectsContent() {
+import { useCallback, useEffect, useState } from 'react'
+
+import Input from '@/components/ui/Input'
+import { works } from '@/configs/works'
+import CardStack from './WorkCardStack'
+import CategorySelect from './WorkCategorySelect'
+
+export default function WorkContent() {
   const [search, setSearch] = useState('')
-  const [projects, setProjects] = useState(works.projects)
+  const [projects, setProjects] = useState(works)
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -18,13 +20,13 @@ export default function ProjectsContent() {
     const lowerSearch = search.trim().toLocaleLowerCase()
 
     if (lowerSearch !== '') {
-      const filteredProjects = works.projects.filter((item) =>
+      const filteredProjects = works.filter((item) =>
         item.title.toLocaleLowerCase().includes(lowerSearch)
       )
 
       setProjects(filteredProjects)
     } else {
-      setProjects(works.projects)
+      setProjects(works)
     }
   }, [search])
 
@@ -47,11 +49,11 @@ export default function ProjectsContent() {
           onChange={handleSearch}
         />
 
-        <Select />
+        <CategorySelect />
       </div>
       {/* <TextField className='bg-red' placeholder='Search projects...' /> */}
 
-      <ProjectsCardStack items={projects} />
+      <CardStack items={projects} />
     </div>
   )
 }

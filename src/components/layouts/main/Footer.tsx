@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 import LogoSvg from '@/assets/Logo'
-import { Button } from '@/components/Button'
-import { Separator } from '@/components/Separator'
+import { Button } from '@/components/ui/Button'
+import { Separator } from '@/components/ui/Separator'
 import {
   DISCORD_PATH,
   EMAIL_PATH,

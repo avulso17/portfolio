@@ -2,10 +2,10 @@
 
 import { ComponentProps, memo } from 'react'
 
+import { CardBody, CardContainer, CardItem } from '@/components/ui/3DCard'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
-import { CardBody, CardContainer, CardItem } from './3DCard'
 
 const widgetStyles = tv({
   slots: {

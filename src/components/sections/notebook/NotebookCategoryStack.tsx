@@ -1,4 +1,4 @@
-import { BentoGrid, BentoGridItem } from '@/components/BentoGrid'
+import { BentoGrid, BentoGridItem } from '@/components/ui/BentoGrid'
 import { Note } from '@/types/note'
 import { twMerge } from 'tailwind-merge'
 

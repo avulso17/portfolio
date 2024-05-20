@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 
-import { Button } from '@/components/Button'
+import { Button } from '@/components/ui/Button'
 
 import { navigation } from '@/configs/nav'
 
