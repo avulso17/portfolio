@@ -6,17 +6,30 @@ import {
   SelectValue,
 } from '@/components/ui/Select'
 
-export default function WorkCategorySelect() {
+export type WorkCategorySelectOption = {
+  label: string
+  value: string
+}
+
+export type WorkCategorySelectProps = {
+  options: WorkCategorySelectOption[]
+}
+
+export default function WorkCategorySelect({
+  options,
+}: WorkCategorySelectProps) {
   return (
     <Select>
-      <SelectTrigger className='w-[180px]'>
-        <SelectValue placeholder='Theme' />
+      <SelectTrigger className='w-[172px] rounded-r-4xl'>
+        <SelectValue placeholder='Category' />
       </SelectTrigger>
 
       <SelectContent>
-        <SelectItem value='light'>Light</SelectItem>
-        <SelectItem value='dark'>Dark</SelectItem>
-        <SelectItem value='system'>System</SelectItem>
+        {options.map((option, index) => (
+          <SelectItem key={index} value={option.value}>
+            {option.label}
+          </SelectItem>
+        ))}
       </SelectContent>
     </Select>
   )

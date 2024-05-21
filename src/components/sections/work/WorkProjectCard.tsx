@@ -1,55 +1,55 @@
 import { ComponentProps } from 'react'
 
-import { tv } from 'tailwind-variants'
-
-import { Button } from '@/components/ui/Button'
-import ArrowRightIcon from '@/icons/ArrowRight'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const styles = tv({
-  slots: {
-    content: [
-      'flex w-full rounded-4xl border border-card-border bg-onyx',
-      'tablet:h-[35.25rem]',
-    ],
-    icon: 'rounded-2xl object-contain',
-    title: 'text-xl font-extrabold leading-normal mobile:text-[2rem]',
-    description:
-      'text-[0.938rem] leading-normal text-gray-dark mobile:text-base',
-  },
-})
+import { Button } from '@/components/ui/Button'
+import ArrowRightIcon from '@/icons/ArrowRight'
+import { cn } from '@/lib/utils/cn'
 
 export type WorkProjectCardProps = Omit<ComponentProps<'div'>, 'title'> & {
-  description?: string
+  description: string
   href?: string
-  iconSrc?: string
-  imgSrc?: string
-  title?: string
+  iconSrc: string
+  imgSrc: string
+  imgView?: string
+  title: string
 }
 
-const WorkProjectCard = ({
+export default function WorkProjectCard({
   title = 'Project Name',
   description = 'Project description goes here',
-  iconSrc = '',
+  iconSrc = '/',
   imgSrc = '/',
-  href = '',
-}: WorkProjectCardProps) => {
-  const slots = styles()
-
+  href = '/',
+  imgView,
+  className,
+}: WorkProjectCardProps) {
   return (
-    <div className={slots.content()}>
+    <div
+      className={cn(
+        [
+          'flex w-full overflow-hidden rounded-4xl border border-card-border bg-onyx',
+          'tablet:h-[35.25rem]',
+        ],
+        className
+      )}
+    >
       <div className='flex flex-col gap-4 px-6 py-8 mobile:p-[3.75rem] tablet:max-w-[35rem] tablet:pr-0'>
         <Image
-          className={slots.icon()}
+          className='rounded-2xl object-contain'
           src={iconSrc}
           alt={`${title} Icon`}
           height={70}
           width={70}
           priority
         />
-        <h3 className={slots.title()}>{title}</h3>
-        <p className={slots.description()}>{description}</p>
+        <h3 className='text-xl font-extrabold leading-normal mobile:text-[2rem]'>
+          {title}
+        </h3>
+        <p className='text-[0.938rem] leading-normal text-gray-dark mobile:text-base'>
+          {description}
+        </p>
 
         <Link
           href={href}
@@ -70,7 +70,12 @@ const WorkProjectCard = ({
 
       <div className='relative hidden shrink-0 grow tablet:flex'>
         <Image
-          className='object-cover object-left'
+          className={cn(
+            'object-cover object-left transition-transform duration-300 hover:scale-110',
+            {
+              'hover:rotate-[-5.1deg]': imgView === 'tablet',
+            }
+          )}
           src={imgSrc}
           alt={`${title} Banner`}
           fill
@@ -80,5 +85,3 @@ const WorkProjectCard = ({
     </div>
   )
 }
-
-export default WorkProjectCard

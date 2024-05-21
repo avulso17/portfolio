@@ -75,6 +75,7 @@ module.exports = withTV({
     },
   },
   plugins: [
+    require('tailwindcss-animate'),
     addVariablesForColors,
     function ({ matchUtilities, theme }) {
       matchUtilities(

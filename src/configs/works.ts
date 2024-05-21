@@ -22,6 +22,7 @@ export const works = [
     url: 'https://redux-store-oficial.vercel.app',
     icon: '/apps/redux-store-icon.svg',
     image: '/assets/redux-store-screenshot.png',
+    screenshotView: 'tablet',
   },
   {
     title: 'Pepy The Platypus',
@@ -30,6 +31,7 @@ export const works = [
     url: 'https://development-pepy.vercel.app',
     icon: '/logos/pepy-logo.svg',
     image: '/assets/pepy-screenshot.svg',
+    screenshotView: 'tablet',
   },
   // {
   //   title: 'Flow.ai - AI Photo Generator',
@@ -46,6 +48,7 @@ export const works = [
     url: 'https://flow-ai-oficial.vercel.app/',
     icon: '/logos/EqualsVenue-logo.svg',
     image: '/assets/equalsVenue-screenshot.svg',
+    screenshotView: 'tablet',
   },
   {
     title: 'EqualsSport',
@@ -62,6 +65,7 @@ export const works = [
     url: 'https://flow-ai-oficial.vercel.app/',
     icon: '/logos/Equals9-logo.svg',
     image: '/assets/equals9-screenshot.svg',
+    screenshotView: 'tablet',
   },
 ]
 

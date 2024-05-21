@@ -10,16 +10,25 @@ export type WorkCardStackProps = {
 export default function WorkCardStack({ items }: WorkCardStackProps) {
   return (
     <div className='flex flex-col gap-4'>
-      {items.map(({ icon, image, title, description, url }, index) => (
-        <ProjectCard
-          key={index}
-          iconSrc={icon}
-          imgSrc={image}
-          title={title}
-          href={url}
-          description={description}
-        />
-      ))}
+      {items.length > 0 ? (
+        items.map(
+          ({ icon, image, title, description, url, screenshotView }, index) => (
+            <ProjectCard
+              key={index}
+              iconSrc={icon}
+              title={title}
+              description={description}
+              href={url}
+              imgSrc={image}
+              imgView={screenshotView}
+            />
+          )
+        )
+      ) : (
+        <div className='flex items-center justify-center py-10'>
+          No items found
+        </div>
+      )}
 
       <ProjectPlaceholderCard />
     </div>

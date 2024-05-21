@@ -7,6 +7,21 @@ import { works } from '@/configs/works'
 import CardStack from './WorkCardStack'
 import CategorySelect from './WorkCategorySelect'
 
+const options = [
+  {
+    label: 'Landing Page',
+    value: 'lp',
+  },
+  {
+    label: 'Web Apps',
+    value: 'webapp',
+  },
+  {
+    label: 'Projects',
+    value: 'projects',
+  },
+]
+
 export default function WorkContent() {
   const [search, setSearch] = useState('')
   const [projects, setProjects] = useState(works)
@@ -49,7 +64,7 @@ export default function WorkContent() {
           onChange={handleSearch}
         />
 
-        <CategorySelect />
+        <CategorySelect options={options} />
       </div>
       {/* <TextField className='bg-red' placeholder='Search projects...' /> */}
 
