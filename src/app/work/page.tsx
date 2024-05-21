@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://felipe-mateus.com'),
-  title: 'Felipe Mateus - Software Engineer',
+  title: 'Work | Felipe Mateus - Software Engineer',
   description:
     'Discover the main projects I’ve done and work in which I’ve participated...',
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    title: 'Felipe Mateus - Software Engineer',
+    title: 'Work | Felipe Mateus - Software Engineer',
     description:
       'Discover the main projects I’ve done and work in which I’ve participated...',
     url: 'https://felipe-mateus.com',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Felipe Mateus - Software Engineer',
+    title: 'Work | Felipe Mateus - Software Engineer',
     description:
       'Discover the main projects I’ve done and work in which I’ve participated...',
     creator: 'Felipe Mateus',

@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/Button'
 import { EMAIL_PATH, LINKEDIN_PATH, TWITTER_PATH } from '@/env/social'
 import SendIcon from '@/icons/Send'
+import Image from 'next/image'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
@@ -124,7 +125,12 @@ export default function AboutContent() {
         Let&rsquo;s build something great,
       </p>
 
-      <p>Felipe Mateus</p>
+      <Image
+        src='/assets/white_signature.png'
+        alt='Felipe Mateus'
+        height={86}
+        width={300}
+      />
 
       <Link href='/contact' className='wide:hidden'>
         <Button

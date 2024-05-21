@@ -12,9 +12,9 @@ export default function WorkCardStack({ items }: WorkCardStackProps) {
     <div className='flex flex-col gap-4'>
       {items.length > 0 ? (
         items.map(
-          ({ icon, image, title, description, url, screenshotView }, index) => (
+          ({ icon, image, title, description, url, screenshotView }) => (
             <ProjectCard
-              key={index}
+              key={title}
               iconSrc={icon}
               title={title}
               description={description}

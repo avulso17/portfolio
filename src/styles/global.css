@@ -23,7 +23,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    @apply min-h-full w-screen !pr-4;
+    @apply min-h-screen;
   }
 
   img {

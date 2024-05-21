@@ -2,25 +2,10 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
-import Input from '@/components/ui/Input'
 import { works } from '@/configs/works'
-import CardStack from './WorkCardStack'
-import CategorySelect from './WorkCategorySelect'
 
-const options = [
-  {
-    label: 'Landing Page',
-    value: 'lp',
-  },
-  {
-    label: 'Web Apps',
-    value: 'webapp',
-  },
-  {
-    label: 'Projects',
-    value: 'projects',
-  },
-]
+import { TextField } from '@/components/ui/TextField'
+import CardStack from './WorkCardStack'
 
 export default function WorkContent() {
   const [search, setSearch] = useState('')
@@ -32,11 +17,11 @@ export default function WorkContent() {
   }
 
   const filterProjects = useCallback(() => {
-    const lowerSearch = search.trim().toLocaleLowerCase()
+    const lowerSearch = search.trim().toLowerCase()
 
     if (lowerSearch !== '') {
       const filteredProjects = works.filter((item) =>
-        item.title.toLocaleLowerCase().includes(lowerSearch)
+        item.title.toLowerCase().includes(lowerSearch)
       )
 
       setProjects(filteredProjects)
@@ -56,17 +41,15 @@ export default function WorkContent() {
   return (
     <div className='flex flex-col gap-8 pb-28 pt-16'>
       <div className='flex grow items-center gap-4'>
-        <Input
-          className='grow rounded-r-lg'
+        <TextField
+          className='grow'
+          label='Search:'
           placeholder='Search projects...'
           variant='outlined'
           value={search}
           onChange={handleSearch}
         />
-
-        <CategorySelect options={options} />
       </div>
-      {/* <TextField className='bg-red' placeholder='Search projects...' /> */}
 
       <CardStack items={projects} />
     </div>

@@ -1,7 +1,11 @@
+'use client'
+
 import { ComponentProps } from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { motion } from 'framer-motion'
 
 import { Button } from '@/components/ui/Button'
 import ArrowRightIcon from '@/icons/ArrowRight'
@@ -26,7 +30,11 @@ export default function WorkProjectCard({
   className,
 }: WorkProjectCardProps) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.1, ease: 'easeIn' }}
+      viewport={{ once: true }}
       className={cn(
         [
           'flex w-full overflow-hidden rounded-4xl border border-card-border bg-onyx',
@@ -73,6 +81,7 @@ export default function WorkProjectCard({
           className={cn(
             'object-cover object-left transition-transform duration-300 hover:scale-110',
             {
+              'hover:rotate-[-6.1deg]': imgView === 'mobile',
               'hover:rotate-[-5.1deg]': imgView === 'tablet',
             }
           )}
@@ -82,6 +91,6 @@ export default function WorkProjectCard({
           priority
         />
       </div>
-    </div>
+    </motion.div>
   )
 }

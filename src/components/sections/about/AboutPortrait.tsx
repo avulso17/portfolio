@@ -1,12 +1,12 @@
+import { cn } from '@/lib/utils/cn'
 import Image from 'next/image'
-import { twMerge } from 'tailwind-merge'
 
 type AboutPortraitProps = React.ComponentProps<'div'>
 
 export default function AboutPortrait({ className }: AboutPortraitProps) {
   return (
     <div
-      className={twMerge(
+      className={cn(
         [
           'flex justify-center rounded-xl border border-card-border bg-black',
           'relative z-0 h-[322px] w-[250px] overflow-hidden',
