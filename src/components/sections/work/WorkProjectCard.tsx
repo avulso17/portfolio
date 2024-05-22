@@ -43,7 +43,7 @@ export default function WorkProjectCard({
         className
       )}
     >
-      <div className='flex flex-col gap-4 px-6 py-8 mobile:p-[3.75rem] tablet:max-w-[35rem] tablet:pr-0'>
+      <div className='flex grow flex-col gap-4 px-6 py-8 mobile:p-[3.75rem] tablet:max-w-[35rem] tablet:pr-0'>
         <Image
           className='rounded-2xl object-contain'
           src={iconSrc}
@@ -76,7 +76,7 @@ export default function WorkProjectCard({
         </Link>
       </div>
 
-      <div className='relative hidden shrink-0 grow tablet:flex'>
+      <div className='relative hidden max-w-[462px] shrink-0 grow tablet:flex'>
         <Image
           className={cn(
             'object-cover object-left transition-transform duration-300 hover:scale-110',
