@@ -1,14 +1,15 @@
-import { ComponentProps } from 'react'
+import Image, { type StaticImageData } from 'next/image'
 
-import { colors } from '@/styles/colors'
+import { cn } from '@/lib/utils/cn'
 
-type BookProps = ComponentProps<'svg' | 'div'> & {
-  image?: string
+type BookProps = React.ComponentProps<'svg' | 'div'> & {
+  cover: string | StaticImageData
+  name: string
 }
 
-export const Book = ({ image, className }: BookProps): React.ReactElement => {
+export default function Book({ cover, name, className }: BookProps) {
   return (
-    <div className={className}>
+    <div className={cn('relative z-0 overflow-hidden rounded-md', className)}>
       <svg
         width='100%'
         height='100%'
@@ -16,13 +17,12 @@ export const Book = ({ image, className }: BookProps): React.ReactElement => {
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
       >
-        <g clipPath={`url(#clip-${image})`}>
-          <rect width='215' height='330' rx='6' fill={colors.black} />
+        <g clipPath={`url(#clip-${name})`}>
           <rect
             y='-8'
             width='230'
             height='352'
-            fill={`url(#pattern-${image})`}
+            fill={`url(#pattern-${name})`}
           />
           <g filter='url(#filter0_ii_927_4022)'>
             <rect
@@ -37,13 +37,13 @@ export const Book = ({ image, className }: BookProps): React.ReactElement => {
 
         <defs>
           <pattern
-            id={`pattern-${image}`}
+            id={`pattern-${name}`}
             patternContentUnits='objectBoundingBox'
             width='1'
             height='1'
           >
             <use
-              xlinkHref={`#image-${image}`}
+              xlinkHref={`#image-${name}`}
               transform='matrix(0.00166667 0 0 0.00108902 0 -0.00094697)'
             />
           </pattern>
@@ -101,13 +101,20 @@ export const Book = ({ image, className }: BookProps): React.ReactElement => {
             />
           </filter>
 
-          <clipPath id={`clip-${image}`}>
+          <clipPath id={`clip-${name}`}>
             <rect width='215' height='330' rx='6' fill='white' />
           </clipPath>
-
-          <image id={`image-${image}`} width='588' height='920' href={image} />
         </defs>
       </svg>
+
+      <Image
+        className='-z-10 object-cover'
+        src={cover}
+        alt={name}
+        fill
+        loading='lazy'
+        placeholder='blur'
+      />
     </div>
   )
 }
