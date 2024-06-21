@@ -26,7 +26,7 @@ export default function Footer() {
         </p>
 
         <small className='mt-auto select-none text-sm leading-normal text-gray'>
-          &#169; 2023 Felipe Mateus. All Rights Reserved.
+          &#169; 2024 Felipe Mateus. All Rights Reserved.
         </small>
       </div>
 
