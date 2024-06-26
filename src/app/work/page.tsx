@@ -1,6 +1,7 @@
-import { Header } from '@/components/Header'
-import ProjectsList from '@/sections/projects/ProjectsList'
 import { Metadata } from 'next'
+
+import Content from '@/components/sections/work/WorkContent'
+import { Header } from '@/components/ui/Header'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -29,14 +30,14 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://felipe-mateus.com'),
-  title: 'Felipe Mateus - Software Engineer',
+  title: 'Work | Felipe Mateus - Software Engineer',
   description:
     'Discover the main projects I’ve done and work in which I’ve participated...',
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    title: 'Felipe Mateus - Software Engineer',
+    title: 'Work | Felipe Mateus - Software Engineer',
     description:
       'Discover the main projects I’ve done and work in which I’ve participated...',
     url: 'https://felipe-mateus.com',
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Felipe Mateus - Software Engineer',
+    title: 'Work | Felipe Mateus - Software Engineer',
     description:
       'Discover the main projects I’ve done and work in which I’ve participated...',
     creator: 'Felipe Mateus',
@@ -70,9 +71,9 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <div className='w-full'>
-      <Header title='Project' subtitle="Projects and ideas I've worked on" />
+      <Header title='Projects' subtitle="Projects and ideas I've worked on" />
 
-      <ProjectsList />
+      <Content />
     </div>
   )
 }

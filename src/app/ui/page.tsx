@@ -1,5 +1,5 @@
-import { Header } from '@/components/Header'
-import { UnderConstruction } from '@/components/UnderConstruction'
+import { Header } from '@/components/ui/Header'
+import { UnderConstruction } from '@/components/ui/UnderConstruction'
 
 export default function UIKitPage(): React.ReactElement {
   return (

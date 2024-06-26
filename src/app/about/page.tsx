@@ -1,6 +1,7 @@
-import { Header } from '@/components/Header'
-import AboutContent from '@/sections/about/AboutContent'
 import { Metadata } from 'next'
+
+import AboutContent from '@/components/sections/about/AboutContent'
+import { Header } from '@/components/ui/Header'
 
 export const metadata: Metadata = {
   generator: 'Next.js',

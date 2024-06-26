@@ -1,6 +1,7 @@
-import { Header } from '@/components/Header'
-import NotebookPageWrapper from '@/sections/notebook/NotebookPageWrapper'
 import { Metadata } from 'next'
+
+import NotebookPageWrapper from '@/components/sections/notebook/NotebookPageWrapper'
+import { Header } from '@/components/ui/Header'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
