@@ -48,6 +48,8 @@ module.exports = withTV({
         'rotate-border': 'rotateDashedBorder 1s infinite linear',
       },
       backgroundImage: {
+        'portrait-radient':
+          'radial-gradient(48.31% 55.24% at 50.54% 40.52%, hsla(0, 0%, 98%, 0) 0, #0d0d0d 100%)',
         'base-gradient': 'linear-gradient(180deg, #1A1A1A 0%, #131313 100%)',
         'radial-gradient':
           'radial-gradient(37.02% 75.07% at 54.91% 36.48%, rgba(13, 13, 13, 0.00) 0%, #0D0D0D 100%)',
