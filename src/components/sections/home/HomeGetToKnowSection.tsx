@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+
 import { motion } from 'framer-motion'
 
 import Widget from './HomeWidget'
@@ -14,13 +16,14 @@ export default function HomeGetToKnowSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <Widget
-            href='/about'
-            title='About me'
-            subtitle='Who I am and what I do'
-            imgSrc='/assets/about-me.png'
-            imgClassName='object-contain mobile:object-cover'
-          />
+          <Link href='/about' className='w-full'>
+            <Widget
+              title='About me'
+              subtitle='Who I am and what I do'
+              imgSrc='/assets/about-me.png'
+              imgClassName='object-contain mobile:object-cover'
+            />
+          </Link>
         </motion.li>
 
         <motion.li
@@ -30,7 +33,6 @@ export default function HomeGetToKnowSection() {
           transition={{ delay: 0.1 }}
         >
           <Widget
-            href='/notebook'
             title='Notebook'
             subtitle='My thoughts, insights, and reflections'
             imgSrc='/assets/notebook.png'
@@ -44,13 +46,14 @@ export default function HomeGetToKnowSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          <Widget
-            href='/bookshelf'
-            title='Bookshelf'
-            subtitle="Books and pieces of wisdom I've enjoyed reading"
-            imgSrc='/assets/bookshelf.png'
-            imgClassName='object-cover'
-          />
+          <Link href='/bookshelf'>
+            <Widget
+              title='Bookshelf'
+              subtitle="Books and pieces of wisdom I've enjoyed reading"
+              imgSrc='/assets/bookshelf.png'
+              imgClassName='object-cover'
+            />
+          </Link>
         </motion.li>
 
         <motion.li
@@ -59,13 +62,14 @@ export default function HomeGetToKnowSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <Widget
-            href='/tech-stack'
-            title='Tech Stack'
-            subtitle='The dev tools, apps, devices, and games I use and play.'
-            imgSrc='/assets/tech-stack.png'
-            imgClassName='object-cover object-left'
-          />
+          <Link href='/tech-stack'>
+            <Widget
+              title='Tech Stack'
+              subtitle='The dev tools, apps, devices, and games I use and play.'
+              imgSrc='/assets/tech-stack.png'
+              imgClassName='object-cover object-left'
+            />
+          </Link>
         </motion.li>
       </ul>
     </>

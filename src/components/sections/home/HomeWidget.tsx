@@ -2,11 +2,12 @@
 
 import { ComponentProps, memo } from 'react'
 
-import { CardBody, CardContainer, CardItem } from '@/components/ui/3DCard'
 import Image from 'next/image'
-import Link from 'next/link'
+
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
+
+import { CardBody, CardContainer, CardItem } from '@/components/ui/3DCard'
 
 const widgetStyles = tv({
   slots: {
@@ -34,7 +35,6 @@ const widgetStyles = tv({
 })
 
 type WidgetProps = ComponentProps<'div'> & {
-  href: string
   imgClassName?: string
   imgSrc: string
   subtitle: string
@@ -46,7 +46,6 @@ const HomeWidget = memo<WidgetProps>(function HomeWidget({
   imgSrc = '/assets/about-me.png',
   subtitle = 'Subtitle',
   title = 'Title',
-  href,
 }: WidgetProps) {
   const {
     cardStyles,
@@ -58,33 +57,31 @@ const HomeWidget = memo<WidgetProps>(function HomeWidget({
   } = widgetStyles()
 
   return (
-    <Link href={href} className='w-full'>
-      <CardContainer
-        className={cardStyles()}
-        containerClassName={containerStyles()}
-      >
-        <CardBody className={bodyStyles()}>
-          <CardItem as='h3' className={titleStyles()} translateZ='45'>
-            {title}
-          </CardItem>
+    <CardContainer
+      className={cardStyles()}
+      containerClassName={containerStyles()}
+    >
+      <CardBody className={bodyStyles()}>
+        <CardItem as='h3' className={titleStyles()} translateZ='45'>
+          {title}
+        </CardItem>
 
-          <CardItem as='p' className={subtitleStyles()} translateZ='55'>
-            {subtitle}
-          </CardItem>
+        <CardItem as='p' className={subtitleStyles()} translateZ='55'>
+          {subtitle}
+        </CardItem>
 
-          <CardItem className={imgStyles()} translateZ='65'>
-            <Image
-              className={twMerge('object-top', imgClassName)}
-              src={imgSrc}
-              alt='widget_image'
-              fill
-              priority
-              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-            />
-          </CardItem>
-        </CardBody>
-      </CardContainer>
-    </Link>
+        <CardItem className={imgStyles()} translateZ='65'>
+          <Image
+            className={twMerge('object-top', imgClassName)}
+            src={imgSrc}
+            alt='widget_image'
+            fill
+            priority
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+          />
+        </CardItem>
+      </CardBody>
+    </CardContainer>
   )
 })
 
