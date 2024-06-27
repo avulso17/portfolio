@@ -1,8 +1,10 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
 import { Button } from '@/components/ui/Button'
 import { TextGenerateEffect } from '@/components/ui/TextGeneratorEffect'
-import HomePortrait from './HomePortrait'
+
+const HomePortrait = dynamic(() => import('./HomePortrait'))
 
 export default function HomeHero() {
   return (

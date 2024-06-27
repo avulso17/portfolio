@@ -1,11 +1,22 @@
+'use client'
+
 import Image from 'next/image'
+
+import { motion } from 'framer-motion'
+
 import { twMerge } from 'tailwind-merge'
 
 type HomePortraitProps = React.ComponentProps<'div'>
 
 export default function HomePortrait({ className }: HomePortraitProps) {
   return (
-    <div
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
       className={twMerge(
         [
           'flex justify-center rounded-50',
@@ -30,6 +41,6 @@ export default function HomePortrait({ className }: HomePortraitProps) {
           fill
         />
       </div>
-    </div>
+    </motion.div>
   )
 }
