@@ -21,11 +21,11 @@ export default function Footer() {
 
       <div className='flex flex-col gap-4'>
         <LogoSvg className='h-[60px] w-[92px]' />
-        <p className='text-xl font-medium leading-normal text-gray'>
+        <p className='text-xl font-medium leading-normal text-white/40'>
           Thanks for stopping by ッ
         </p>
 
-        <small className='mt-auto select-none text-sm leading-normal text-gray'>
+        <small className='mt-auto select-none text-sm leading-normal text-white/40'>
           &#169; 2024 Felipe Mateus. All Rights Reserved.
         </small>
       </div>
