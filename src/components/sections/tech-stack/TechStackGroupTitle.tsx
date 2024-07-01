@@ -8,7 +8,7 @@ export default function TechStackGroupTitle({
   ...props
 }: TechStackGroupTitleProps) {
   return (
-    <h2 className={cn('mb-8 text-gray-dark header', className)} {...props}>
+    <h2 className={cn('mb-8 text-white/90 header', className)} {...props}>
       {children}
     </h2>
   )
