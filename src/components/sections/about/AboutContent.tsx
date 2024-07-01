@@ -25,40 +25,33 @@ export default function AboutContent() {
             <h2 className={title}>Who I am</h2>
             <p className={text}>
               I&rsquo;m <b className='text-white font-inherit'>Felipe Mateus</b>{' '}
-              a multi-disciplinary Software Engineer and Front-end Software
-              Developer based in Uberlândia, Brazil 🇧🇷.
+              a multidisciplinary front-end engineer based in Uberlândia, Brazil
+              🇧🇷.
             </p>
 
             <p className={text}>
-              I am an ambitious person passionate about challenges and my goal
-              in life is to change lives, whether with a good action, advice,
-              good work or delivering personalized solutions for your
-              business/company.
+              I have always been a very curious and creative person, working
+              with front-end today, for me, significantly expresses my passion
+              for visual arts and technology.
             </p>
           </div>
 
           <div className='flex flex-col gap-2'>
             <h2 className={title}>What I Do</h2>
+
             <p className={text}>
-              With three years of experience as a software engineer, I&rsquo;ve
-              had the privilege of contributing to groundbreaking projects in
-              the tech industry.
+              Currently, I am a software developer specializing in front-end and
+              UI, helping and contributing to startups transforming their dreams
+              into technology.
             </p>
 
             <p className={text}>
-              Throughout my experience, I had the opportunity to work in
-              startups with innovative ideas, where I could acquire and improve
-              my skills in <b className='text-white font-inherit'>React.js</b>,{' '}
-              <b className='text-white font-inherit'>Next.js</b>,{' '}
-              <b className='text-white font-inherit'>TailwindCSS</b>,{' '}
-              <b className='text-white font-inherit'>JavaScript</b> and{' '}
-              <b className='text-white font-inherit'>TypeScript</b>, allowing me
-              to craft seamless and interactive user experiences.
+              Some of my skills are: the ability to faithfully reproduce
+              designs, vast knowledge about UI and responsive/mobile and
+              building custom landing pages.
             </p>
 
             <p className={text}>
-              Looking ahead, I am driven by the desire to continue pushing
-              boundaries and leveraging technology to create meaningful impact.
               I am enthusiastic about exploring new opportunities where I can
               collaborate with talented teams, tackle complex challenges, and
               contribute to building the next generation of innovative
@@ -68,15 +61,39 @@ export default function AboutContent() {
 
           <div className='flex flex-col gap-2'>
             <h2 className={title}>What I Did</h2>
+
             <p className={text}>
-              Before delving into front-end engineering, I spent five years in
-              IT. This experience gave me broad knowledge of different areas of
-              technology, providing me with a holistic understanding of software
-              development, allowing me to identify more efficient solutions,
-              helping to deal with complex challenges, facilitating
-              collaboration with other professionals and teams, promoting more
-              efficient communication and preparing myself to adapt to new
-              technologies and changes in the technological scenario.
+              With three years of experience as a software developer, I had the
+              privilege of contributing to innovative projects, where I acquired
+              and improved my skills in:{' '}
+              <b className='text-white font-inherit'>React.js</b>,{' '}
+              <b className='text-white font-inherit'>Next.js</b>,{' '}
+              <b className='text-white font-inherit'>TailwindCSS</b>,{' '}
+              <b className='text-white font-inherit'>JavaScript</b> and{' '}
+              <b className='text-white font-inherit'>TypeScript</b>, etc.
+              Allowing me to craft seamless and interactive user experiences.
+            </p>
+
+            <p className={text}>
+              Before specializing in front-end engineering, I worked in IT for
+              five years. This experience provided me with comprehensive
+              knowledge in various areas of technology, allowing me to:
+              <ul className='list-inside list-disc py-2'>
+                <li>Understand software development holistically;</li>
+                <li>
+                  Identify more efficient solutions to complex challenges;
+                </li>
+                <li>
+                  Facilitate collaboration with other professionals and teams;
+                </li>
+                <li>Promote more effective communication;</li>
+                <li>
+                  Adapt quickly to new technologies and changes in the
+                  technological landscape;
+                </li>
+              </ul>
+              This solid foundation prepared me to face challenges and seize
+              opportunities in front-end engineering.
             </p>
           </div>
         </div>
