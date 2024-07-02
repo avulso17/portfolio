@@ -20,7 +20,7 @@ export const works = [
     description:
       'This project is a simple store that uses Redux to manage the state of the application. I had the idea to do it because I really appreciate Flux architecture and it would be a good experience to integrate it into a project, where I could manage data globally, facilitating access and manipulation of data.',
     url: 'https://redux-store-oficial.vercel.app',
-    icon: '/apps/redux-store-icon.svg',
+    icon: '/assets/redux-store-icon.svg',
     image: '/assets/redux-store-screenshot.png',
     screenshotView: 'tablet',
   },

@@ -1,17 +1,24 @@
-import { hardware } from '@/utils/stacks'
+import Link from 'next/link'
+
 import TechStackCard from './TechStackCard'
 import TechStackGroup from './TechStackGroup'
 import TechStackGroupTitle from './TechStackGroupTitle'
+
+import { hardware } from '@/configs/hardware'
 
 export default function TechStackHardwareList() {
   return (
     <>
       <TechStackGroupTitle>Hardware</TechStackGroupTitle>
       <TechStackGroup>
-        {hardware.map((tool) => {
-          const { image, name } = tool
+        {hardware.map((item) => {
+          const { image, name, link } = item
 
-          return <TechStackCard key={name} name={name} src={image} />
+          return (
+            <Link key={name} href={link}>
+              <TechStackCard name={name} src={image} />
+            </Link>
+          )
         })}
       </TechStackGroup>
     </>

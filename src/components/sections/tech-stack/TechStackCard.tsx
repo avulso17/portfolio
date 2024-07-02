@@ -1,5 +1,5 @@
 import ArrowRightIcon from '@/icons/ArrowRight'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
 import { ComponentProps } from 'react'
 
@@ -38,14 +38,14 @@ const cardStyles = tv({
 type TechStackCardProps = ComponentProps<'div'> & {
   category?: string
   name?: string
-  src?: string
+  src: StaticImageData
 }
 
 export default function TechStackCard({
   className,
   category,
-  name = 'Next.js',
-  src = '/apps/tools/Nextjs.png',
+  name = 'Title',
+  src,
 }: TechStackCardProps) {
   const classes = cardStyles()
 
@@ -62,7 +62,8 @@ export default function TechStackCard({
         quality={100}
         height={112}
         width={112}
-        priority
+        loading='lazy'
+        placeholder='blur'
       />
 
       <div className='flex w-full items-center justify-between gap-2'>

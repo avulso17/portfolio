@@ -1,7 +1,10 @@
-import { tools } from '@/configs/tools'
+import Link from 'next/link'
+
 import TechStackCard from './TechStackCard'
 import TechStackGroup from './TechStackGroup'
 import TechStackGroupTitle from './TechStackGroupTitle'
+
+import { tools } from '@/configs/tools'
 
 export default function TechStackToolsList() {
   return (
@@ -9,10 +12,12 @@ export default function TechStackToolsList() {
       <TechStackGroupTitle>Dev & Design</TechStackGroupTitle>
       <TechStackGroup>
         {tools.map((tool) => {
-          const { image, name, type } = tool
+          const { image, name, type, link } = tool
 
           return (
-            <TechStackCard key={name} name={name} category={type} src={image} />
+            <Link key={name} href={link}>
+              <TechStackCard name={name} category={type} src={image} />
+            </Link>
           )
         })}
       </TechStackGroup>
