@@ -1,7 +1,12 @@
-import { Header } from '@/components/Header'
-import ContactSocialButtonGroup from '@/sections/contact/ContactSocialButtonGroup'
-import ContactWindow from '@/sections/contact/ContactWindow'
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+
+import ContactSocialButtonGroup from '@/components/sections/contact/ContactSocialButtonGroup'
+import { Header } from '@/components/ui/Header'
+
+const Form = dynamic(
+  () => import('@/components/sections/contact/ContactWindow')
+)
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -34,14 +39,14 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://felipe-mateus.com'),
-  title: 'Felipe Mateus - Software Engineer',
+  title: 'Contact | Felipe Mateus - Software Engineer',
   description:
     'Contact me by message, email or social media. Let’s build something awesome.',
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    title: 'Felipe Mateus - Software Engineer',
+    title: 'Contact | Felipe Mateus - Software Engineer',
     description:
       'Contact me by message, email or social media. Let’s build something awesome.',
     url: 'https://felipe-mateus.com',
@@ -64,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Felipe Mateus - Software Engineer',
+    title: 'Contact | Felipe Mateus - Software Engineer',
     description:
       'Contact me by message, email or social media. Let’s build something awesome.',
     creator: 'Felipe Mateus',
@@ -81,8 +86,7 @@ export default function ContactPage() {
       />
 
       <div className='mb-20 mt-8 w-full mobile:mt-16'>
-        <ContactWindow />
-
+        <Form />
         <ContactSocialButtonGroup />
       </div>
     </main>
