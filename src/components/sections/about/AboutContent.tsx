@@ -82,20 +82,22 @@ export default function AboutContent() {
               Before specializing in front-end engineering, I worked in IT for
               five years. This experience provided me with comprehensive
               knowledge in various areas of technology, allowing me to:
-              <ul className='list-inside list-disc py-2'>
-                <li>Understand software development holistically;</li>
-                <li>
-                  Identify more efficient solutions to complex challenges;
-                </li>
-                <li>
-                  Facilitate collaboration with other professionals and teams;
-                </li>
-                <li>Promote more effective communication;</li>
-                <li>
-                  Adapt quickly to new technologies and changes in the
-                  technological landscape;
-                </li>
-              </ul>
+            </p>
+
+            <ul className={cn(text, 'list-inside list-disc')}>
+              <li>Understand software development holistically;</li>
+              <li>Identify more efficient solutions to complex challenges;</li>
+              <li>
+                Facilitate collaboration with other professionals and teams;
+              </li>
+              <li>Promote more effective communication;</li>
+              <li>
+                Adapt quickly to new technologies and changes in the
+                technological landscape;
+              </li>
+            </ul>
+
+            <p className={text}>
               This solid foundation prepared me to face challenges and seize
               opportunities in front-end engineering.
             </p>
