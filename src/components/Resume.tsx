@@ -1,9 +1,9 @@
-import { LINKEDIN_PATH } from '@/env/social'
+import { GITHUB_PATH, LINKEDIN_PATH } from '@/env/social'
 import { tv } from 'tailwind-variants'
 
 const styles = tv({
   slots: {
-    name: ['text-center text-2xl font-bold'],
+    name: ['text-2xl font-bold'],
     topic: ['text-xl font-bold uppercase'],
     subtopic: ['text-base font-bold leading-normal first-letter:uppercase'],
     content: ['text-base font-normal leading-tight'],
@@ -34,10 +34,9 @@ export default function Resume() {
     <div className='flex flex-col gap-6 p-8 font-calibri'>
       <div className='flex flex-col items-center'>
         <h1 className={name()}>FELIPE MATEUS GONÇALVES CRUZEIRO</h1>
-        <p className={content('text-center')}>24 anos</p>
-        <p className={content('text-center')}>Santa Mônica, Uberlândia/MG</p>
-        <p className={content('text-center')}>(34) 99308-8635</p>
-        <p className={content('text-center')}>felipe_mateus08@hotmail.com</p>
+        <p className={content('text-center')}>25 anos</p>
+        <p className={content('text-center')}>Uberlândia/MG, Brasil</p>
+        <p className={content('text-center')}>felipe_dev08@hotmail.com</p>
         <a
           href={LINKEDIN_PATH}
           target='_blank'
@@ -46,12 +45,20 @@ export default function Resume() {
         >
           linkedin.com/in/felipe-mateus-g
         </a>
+        <a
+          href={GITHUB_PATH}
+          target='_blank'
+          rel='noreferrer noopener'
+          className={content('text-center')}
+        >
+          github.com/avulso17
+        </a>
       </div>
 
-      <ResumeItem topic='OBJETIVO' content='Software Engineer' />
+      <ResumeItem topic='CARGO' content='Software Engineer' />
       <ResumeItem
         topic='RESUMO PROFISSIONAL'
-        content='Profissional experiente em desenvolvimento de software, com sólida atuação em desenvolvimento e manutenção de aplicações web. Possuo forte habilidade em HTML, CSS e JavaScript para a construção de layouts "pixel-perfect", e SEO, garantindo a otimização e a alta performance dos sites, além de condução de testes rigorosos para assegurar a qualidade e a funcionalidade dos sistemas. Expertise em levantamento de requisitos e metodologias ágeis, focado em soluções eficientes e escaláveis.'
+        content='Sou desenvolvedor front-end pleno, apaixonado por criar soluções digitais que conectam funcionalidade e experiência de usuário. Especializado em React.js, TypeScript, Next.js e Node.js, possuo experiência no desenvolvimento de WebApps, LPs e SaaS. Em projetos anteriores, liderei refatoramentos que resultaram em aumento de performance, como redução de tempo de carregamento em até 60% e melhoria na produtividade da equipe. Busco oportunidades que unam criatividade, inovação e desafios complexos.'
       />
       <ResumeItem
         topic='FORMAÇÃO ACADÊMICA'
@@ -59,7 +66,7 @@ export default function Resume() {
           <ul className='list-inside list-disc pl-4'>
             <li>
               <b className='font-bold'>Engenharia da Computação </b>- Faculdade
-              Anhanguera, conclusão em 2022
+              Anhanguera, conclusão em 2023
             </li>
             <li>
               <b className='font-bold'>Manutenção e Suporte em Informática </b>-
@@ -74,64 +81,90 @@ export default function Resume() {
           <>
             <div className='mb-4'>
               <h3 className={subtopic()}>Pigmo</h3>
-              <h4 className={subtopic()}>
-                ago de 2023 - mai de 2024 · 10 meses
-              </h4>
+              <h4 className={subtopic()}>ago de 2023 - mai de 2024</h4>
               <h5 className={subtopic()}>Software Engineer</h5>
               <ul className='list-inside list-disc pl-4'>
-                <li>desenvolvimento de software</li>
-                <li>desenvolvimento e manutenção</li>
-                <li>testes</li>
-                <li>levantamento de requisitos</li>
-                <li>desenvolvimento de aplicações</li>
+                <li>atual</li>
               </ul>
+              <span>Stack: --</span>
             </div>
 
             <div className='mb-4'>
               <h3 className={subtopic()}>Zeus Agrotech</h3>
-              <h4 className={subtopic()}>
-                dez de 2022 - set de 2023 · 10 meses
-              </h4>
-              <h5 className={subtopic()}>Desenvolvedor Front-end PL</h5>
+              <h4 className={subtopic()}>dez de 2022 - set de 2023</h4>
+              <h5 className={subtopic()}>Desenvolvedor Front-end Pleno</h5>
               <ul className='list-inside list-disc pl-4'>
-                <li>desenvolvimento de software</li>
-                <li>desenvolvimento e manutenção</li>
-                <li>testes</li>
-                <li>levantamento de requisitos</li>
-                <li>desenvolvimento de aplicações</li>
+                <li>
+                  Liderança técnica na definição de arquitetura frontend e
+                  seleção de tecnologias.
+                </li>
+                <li>
+                  Redução de 50% no tempo de desenvolvimento de novas features
+                  com arquitetura de componentes reutilizáveis.
+                </li>
+                <li>
+                  Recriação de sistema legado, com foco em performance e UX,
+                  utilizando microfrontends e stacks modernas.
+                </li>
+                <li>
+                  Uso de Storybook para documentação e padronização visual dos
+                  componentes.
+                </li>
               </ul>
+              <span>
+                Stack: React.js, Vite, Redux, Styled-Components, Stitches, SCSS,
+                Jest, Storybook, TailwindCSS, Radix
+              </span>
             </div>
 
             <div className='mb-4'>
               <h3 className={subtopic()}>SolaLand</h3>
-              <h4 className={subtopic()}>
-                mar de 2022 - nov de 2022 · 9 meses
-              </h4>
-              <h5 className={subtopic()}>Front-end Developer</h5>
+              <h4 className={subtopic()}>mar de 2022 - nov de 2022</h4>
+              <h5 className={subtopic()}>Frontend Web Developer</h5>
               <ul className='list-inside list-disc pl-4'>
-                <li>desenvolvimento de software</li>
-                <li>desenvolvimento e manutenção</li>
-                <li>testes</li>
-                <li>levantamento de requisitos</li>
-                <li>desenvolvimento de aplicações</li>
+                <li>
+                  Criação de um Design System completo do zero, promovendo
+                  consistência e eficiência.
+                </li>
+                <li>
+                  Desenvolvimento do primeiro dApp de soft staking da empresa.
+                </li>
+                <li>
+                  Refatoramento de aplicações para otimizar performance e
+                  responsividade.
+                </li>
+                <li>
+                  Mentoria de devs júnior e colaboração na definição de stack e
+                  boas práticas.
+                </li>
               </ul>
+              <span>
+                Stack: React.js, Next.js, Styled-Components, TailwindCSS,
+                Stitches, WebSockets, Jest, StoryBook
+              </span>
             </div>
 
             <div>
               <h3 className={subtopic()}>
                 Equals9 Empreendimentos e Participações S/A
               </h3>
-              <h4 className={subtopic()}>
-                jul de 2021 - fev de 2022 · 8 meses
-              </h4>
-              <h5 className={subtopic()}>Desenvolvedor Front-end</h5>
+              <h4 className={subtopic()}>jul de 2021 - fev de 2022</h4>
+              <h5 className={subtopic()}>Frontend Web Developer & UX/UI</h5>
               <ul className='list-inside list-disc pl-4'>
-                <li>desenvolvimento de software</li>
-                <li>desenvolvimento e manutenção</li>
-                <li>testes</li>
-                <li>levantamento de requisitos</li>
-                <li>desenvolvimento de aplicações</li>
+                <li>
+                  Desenvolvimento integral do sistema EqualsVenue desde a
+                  arquitetura até a entrega final.
+                </li>
+                <li>
+                  Transformei ideias do time em interfaces responsivas e
+                  intuitivas com Figma.
+                </li>
+                <li>
+                  Implementação de componentes performáticos com foco em reuso e
+                  animações modernas.
+                </li>
               </ul>
+              <span>Stack: React.js, CSS, Sass/SCSS, Material UI, Figma</span>
             </div>
           </>
         }
@@ -151,21 +184,16 @@ export default function Resume() {
           <ul className='list-inside list-disc px-4'>
             <li>
               HTML5 e CSS3: Técnicas Avançadas (Com Flexbox e 5 Projetos) -
-              Udemy (9.5h)
+              Udemy
             </li>
             <li>
               Next.js e React - Curso Completo - Aprenda com Projetos - Udemy
-              (28.5h)
             </li>
-            <li>SASS e SCSS do básico ao avançado + Projetos - Udemy (14h)</li>
-            <li>
-              Tailwind CSS do básico ao avançado + Projetos - Udemy (11.5h)
-            </li>
-            <li>
-              REACT: GERENCIAMENTO DE ESTADOS GLOBAIS COM REDUX - Alura (10h)
-            </li>
-            <li>NEXT.JS: TRABALHANDO COM ARQUITETURA FRONT-END - Alura (8h)</li>
-            <li>NODE.JS: API REST COM EXPRESS E MONGODB - Alura (12h)</li>
+            <li>SASS e SCSS do básico ao avançado + Projetos - Udemy</li>
+            <li>Tailwind CSS do básico ao avançado + Projetos - Udemy</li>
+            <li>REACT: GERENCIAMENTO DE ESTADOS GLOBAIS COM REDUX - Alura</li>
+            <li>NEXT.JS: TRABALHANDO COM ARQUITETURA FRONT-END - Alura</li>
+            <li>NODE.JS: API REST COM EXPRESS E MONGODB - Alura</li>
           </ul>
         }
       />
@@ -178,8 +206,6 @@ export default function Resume() {
               Preferência pelo modelo de trabalho remoto e flexível para os
               modelos híbrido/presencial
             </p>
-            <p>Domínio de linguagem Java</p>
-            <p>Conhecimento em modelagem de dados</p>
             <p>
               Conhecimento em renderização 3D, Blender, React Three Fiber e
               Three.js
