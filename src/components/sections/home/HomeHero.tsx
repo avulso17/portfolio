@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { Button } from '@/components/ui/Button'
 import { TextGenerateEffect } from '@/components/ui/TextGeneratorEffect'
+import ResumeModalButton from './HomeResumeModalButton'
 
 const HomePortrait = dynamic(() => import('./HomePortrait'))
 
@@ -26,9 +27,7 @@ export default function HomeHero() {
       />
 
       <div className='flex flex-col gap-4 mobile:flex-row mobile:items-center'>
-        <Link href='/about'>
-          <Button className='w-full mobile:w-fit'>See my resume</Button>
-        </Link>
+        <ResumeModalButton />
 
         <Link href='/contact'>
           <Button className='w-full mobile:w-fit' variant='secondary'>

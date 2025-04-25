@@ -20,6 +20,7 @@ module.exports = withTV({
     fontFamily: {
       inter: ['var(--font-inter)'],
       nanum: ['"Nanum Pen Script"', 'sans-serif'],
+      calibri: ['"Calibri"', '"Arial"', 'sans-serif'],
     },
     screens: {
       'm-xs': '480px',
@@ -64,6 +65,9 @@ module.exports = withTV({
           '0px 7px 4px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 2px 0px rgba(255, 255, 255, 0.02) inset',
         dropdown:
           '0px 5px 7px 0px rgba(0, 0, 0, 0.11), 0px 8px 5px 0px rgba(0, 0, 0, 0.07) inset',
+      },
+      lineHeight: {
+        normal: 'normal',
       },
       keyframes: {
         ...keyframes,

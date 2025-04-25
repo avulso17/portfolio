@@ -1,11 +1,15 @@
-import { Button } from '@/components/ui/Button'
-import { EMAIL_PATH, LINKEDIN_PATH, TWITTER_PATH } from '@/env/social'
-import SendIcon from '@/icons/Send'
 import Image from 'next/image'
 import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
+
+import { cn } from '@/lib/utils/cn'
 import { tv } from 'tailwind-variants'
+
+import { Button } from '@/components/ui/Button'
+import SendIcon from '@/icons/Send'
 import AboutPortrait from './AboutPortrait'
+import AboutResumeModal from './AboutResumeModal'
+
+import { EMAIL_PATH, LINKEDIN_PATH, TWITTER_PATH } from '@/env/social'
 
 const aboutStyles = tv({
   slots: {
@@ -78,20 +82,22 @@ export default function AboutContent() {
               Before specializing in front-end engineering, I worked in IT for
               five years. This experience provided me with comprehensive
               knowledge in various areas of technology, allowing me to:
-              <ul className='list-inside list-disc py-2'>
-                <li>Understand software development holistically;</li>
-                <li>
-                  Identify more efficient solutions to complex challenges;
-                </li>
-                <li>
-                  Facilitate collaboration with other professionals and teams;
-                </li>
-                <li>Promote more effective communication;</li>
-                <li>
-                  Adapt quickly to new technologies and changes in the
-                  technological landscape;
-                </li>
-              </ul>
+            </p>
+
+            <ul className={cn(text, 'list-inside list-disc')}>
+              <li>Understand software development holistically;</li>
+              <li>Identify more efficient solutions to complex challenges;</li>
+              <li>
+                Facilitate collaboration with other professionals and teams;
+              </li>
+              <li>Promote more effective communication;</li>
+              <li>
+                Adapt quickly to new technologies and changes in the
+                technological landscape;
+              </li>
+            </ul>
+
+            <p className={text}>
               This solid foundation prepared me to face challenges and seize
               opportunities in front-end engineering.
             </p>
@@ -109,40 +115,41 @@ export default function AboutContent() {
         </div>
       </div>
 
-      <p className={twMerge(text, 'my-16')}>
-        Feel free to reach out via{' '}
-        <Link
-          href={EMAIL_PATH}
-          className='text-white underline font-inherit'
-          target='_blank'
-        >
-          e-mail
-        </Link>
-        , or follow me on{' '}
-        <Link
-          href={TWITTER_PATH}
-          className='text-white underline font-inherit'
-          target='_blank'
-        >
-          Twitter.
-        </Link>{' '}
-        Want to see where I&rsquo;ve worked? Check out my Resume, or Connect
-        with me on{' '}
-        <Link
-          href={LINKEDIN_PATH}
-          className='text-white underline font-inherit'
-          target='_blank'
-        >
-          LinkedIn
-        </Link>
-        .
-      </p>
+      <div className='my-16'>
+        <span className={cn(text, 'inline-block')}>
+          Feel free to reach out via{' '}
+          <Link
+            href={EMAIL_PATH}
+            className='text-white underline font-inherit'
+            target='_blank'
+          >
+            e-mail
+          </Link>
+          , or follow me on{' '}
+          <Link
+            href={TWITTER_PATH}
+            className='text-white underline font-inherit'
+            target='_blank'
+          >
+            Twitter.
+          </Link>{' '}
+          Want to see where I&rsquo;ve worked? Check out my <AboutResumeModal />
+          , or Connect with me on{' '}
+          <Link
+            href={LINKEDIN_PATH}
+            className='text-white underline font-inherit'
+            target='_blank'
+          >
+            LinkedIn
+          </Link>
+          .
+        </span>
+      </div>
 
-      <p className={twMerge(text, 'mb-4')}>
-        Let&rsquo;s build something great,
-      </p>
+      <p className={text}>Let&rsquo;s build something great,</p>
 
       <Image
+        className='mt-4'
         src='/assets/white_signature.png'
         alt='Felipe Mateus'
         height={86}
