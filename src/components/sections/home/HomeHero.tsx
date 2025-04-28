@@ -36,7 +36,7 @@ export default function HomeHero() {
         </Link>
       </div>
 
-      <HomePortrait className='absolute -top-10 left-[570px] -z-10 hidden wide:flex' />
+      {/* <HomePortrait className='absolute -top-10 left-[570px] -z-10 hidden wide:flex' /> */}
     </div>
   )
 }

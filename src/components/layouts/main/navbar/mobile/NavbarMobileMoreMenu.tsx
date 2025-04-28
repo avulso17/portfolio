@@ -64,7 +64,7 @@ export default function NavbarMobileMoreMenu({
             </Link>
           ))}
 
-          <button className={listItem()}>Theme: Dark</button>
+          {/* <button className={listItem()}>Theme: Dark</button> */}
         </motion.div>
       ) : null}
     </AnimatePresence>

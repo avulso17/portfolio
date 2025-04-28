@@ -4,7 +4,6 @@ import BagFillIcon from '@/icons/BagFill'
 import HomeIcon from '@/icons/Home'
 import MessageFillIcon from '@/icons/MessageFill'
 import MoreOutlineIcon from '@/icons/MoreOutline'
-import PenFillIcon from '@/icons/PenFill'
 import UserFillIcon from '@/icons/UserFill'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -28,11 +27,11 @@ const routes = [
     path: '/work',
     icon: BagFillIcon,
   },
-  {
-    name: 'notebook',
-    path: '/notebook',
-    icon: PenFillIcon,
-  },
+  // {
+  //   name: 'notebook',
+  //   path: '/notebook',
+  //   icon: PenFillIcon,
+  // },
   {
     name: 'contact',
     path: '/contact',
