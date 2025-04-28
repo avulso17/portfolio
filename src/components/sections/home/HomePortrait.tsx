@@ -1,9 +1,7 @@
 'use client'
 
-import Image from 'next/image'
-
 import { motion } from 'framer-motion'
-
+import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 
 type HomePortraitProps = React.ComponentProps<'div'>
@@ -27,20 +25,14 @@ export default function HomePortrait({ className }: HomePortraitProps) {
         className
       )}
     >
-      <div
-        className={twMerge([
-          'relative mt-[5.375rem] h-[21.5rem] w-72',
-          'bg-onyx mask-geist rotate-inverted-y',
-        ])}
-      >
-        <Image
-          className='block object-cover object-[55%_22%]'
-          src='/assets/felipe_1.jpg'
-          alt='Felipe Mateus'
-          priority
-          fill
-        />
-      </div>
+      <Image
+        className='block h-auto w-auto object-contain'
+        src='/assets/me-cropped.png'
+        alt='Felipe Mateus'
+        priority
+        height={528}
+        width={388}
+      />
     </motion.div>
   )
 }
