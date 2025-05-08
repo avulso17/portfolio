@@ -9,7 +9,7 @@ import ProcessoBook from '@/assets/images/books/o-processo.jpg'
 import PaiRicoPaiPobreBook from '@/assets/images/books/pai-rico-pai-pobre.jpg'
 import RapidoDevagarBook from '@/assets/images/books/rapido-e-devagar.jpg'
 
-export const useBooks = () => {
+export const useBookshelf = () => {
   const books = [
     {
       name: 'A Arte de Viver',

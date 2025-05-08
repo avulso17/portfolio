@@ -81,7 +81,7 @@ export function ContactEmailTemplate({
         <Section style={footer}>
           <Row>
             <Text style={{ textAlign: 'center', color: '#C5C5C5' }}>
-              © 2024 Felipe Mateus, All Rights Reserved <br />
+              © 2025 Felipe Mateus, All Rights Reserved <br />
               Av. Lazara Alves Ferreira 300, AP 304 Torre 2, Uberlandia, MG,
               38408-092 - BRAZIL
             </Text>

@@ -1,15 +1,12 @@
 'use client'
 
-import { ComponentProps } from 'react'
-
-import Image from 'next/image'
-import Link from 'next/link'
-
-import { motion } from 'framer-motion'
-
 import { Button } from '@/components/ui/Button'
 import ArrowRightIcon from '@/icons/ArrowRight'
 import { cn } from '@/lib/utils/cn'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ComponentProps } from 'react'
 
 export type WorkProjectCardProps = Omit<ComponentProps<'div'>, 'title'> & {
   description: string

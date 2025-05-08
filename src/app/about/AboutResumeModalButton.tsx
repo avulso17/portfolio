@@ -2,7 +2,6 @@
 
 import { useModal } from '@/components/ui/AnimatedModal'
 import { cn } from '@/lib/utils/cn'
-import React from 'react'
 
 export type AboutResumeModalButtonProps =
   React.ButtonHTMLAttributes<HTMLButtonElement>

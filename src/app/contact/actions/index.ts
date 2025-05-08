@@ -1,7 +1,7 @@
 'use server'
 
-import { ContactEmailTemplate } from '@/components/sections/contact/ContactEmailTemplate'
 import { Resend } from 'resend'
+import { ContactEmailTemplate } from '../ContactEmailTemplate'
 
 import { z } from 'zod'
 

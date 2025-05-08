@@ -1,7 +1,6 @@
-import { Metadata } from 'next'
-
-import NotebookPageWrapper from '@/components/sections/notebook/NotebookPageWrapper'
 import { Header } from '@/components/ui/Header'
+import { Metadata } from 'next'
+import NotebookPageWrapper from './NotebookPageWrapper'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -69,12 +68,11 @@ export const metadata: Metadata = {
 
 export default function NotebookPage() {
   return (
-    <main className='w-full'>
+    <main>
       <Header
         title='Notebook'
         subtitle='My thoughts, insights, and reflections.'
       />
-
       <NotebookPageWrapper />
     </main>
   )

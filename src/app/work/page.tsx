@@ -1,7 +1,6 @@
-import { Metadata } from 'next'
-
-import Content from '@/components/sections/work/WorkContent'
 import { Header } from '@/components/ui/Header'
+import { Metadata } from 'next'
+import Content from './WorkContent'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -70,10 +69,9 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <div className='w-full'>
+    <main>
       <Header title='Projects' subtitle="Projects and ideas I've worked on" />
-
       <Content />
-    </div>
+    </main>
   )
 }
