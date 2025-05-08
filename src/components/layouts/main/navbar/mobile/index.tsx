@@ -90,14 +90,16 @@ export default function NavbarMobile({ className }: NavbarMobileProps) {
   return (
     <div ref={ref} className={container()}>
       <nav className={nav({ className })}>
-        {routes.map(({ path, icon: Icon }, index) => {
+        {routes.map(({ name, path, icon: Icon }, index) => {
           if (!path) {
             return (
               <button
-                key={index}
+                key={name}
                 data-active={isMenuOpen}
                 className={item()}
                 onClick={handleToggle}
+                name={name}
+                aria-label={name}
               >
                 <Icon className='text-2xl' />
               </button>
@@ -110,6 +112,7 @@ export default function NavbarMobile({ className }: NavbarMobileProps) {
               href={path}
               className={item()}
               data-active={path === pathname}
+              aria-label={name}
             >
               <Icon className='text-2xl' />
             </Link>

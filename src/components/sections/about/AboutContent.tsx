@@ -1,12 +1,10 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
-import { cn } from '@/lib/utils/cn'
-import { tv } from 'tailwind-variants'
-
 import { Button } from '@/components/ui/Button'
 import { SOCIAL_LINKS } from '@/constants/social'
 import SendIcon from '@/icons/Send'
+import { cn } from '@/lib/utils/cn'
+import Image from 'next/image'
+import Link from 'next/link'
+import { tv } from 'tailwind-variants'
 import AboutPortrait from './AboutPortrait'
 import AboutResumeModal from './AboutResumeModal'
 
@@ -66,7 +64,7 @@ export default function AboutContent() {
             <h2 className={title}>What I Did</h2>
 
             <p className={text}>
-              With three years of experience as a software developer, I had the
+              With four years of experience as a software developer, I had the
               privilege of contributing to innovative projects, where I acquired
               and improved my skills in:{' '}
               <b className='text-white font-inherit'>React.js</b>,{' '}
