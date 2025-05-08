@@ -1,7 +1,6 @@
-import { Metadata } from 'next'
-
 import AboutContent from '@/components/sections/about/AboutContent'
 import { Header } from '@/components/ui/Header'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -92,7 +91,6 @@ export default function AboutPage() {
         title='A little bit about me'
         subtitle='Who I am and what I do.'
       />
-
       <AboutContent />
     </main>
   )

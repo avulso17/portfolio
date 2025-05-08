@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 type AboutPortraitProps = React.ComponentProps<'div'>
 
-export default function AboutPortrait({ className }: AboutPortraitProps) {
+const AboutPortrait: React.FC = ({ className }: AboutPortraitProps) => {
   return (
     <div
       className={cn(
@@ -15,14 +15,16 @@ export default function AboutPortrait({ className }: AboutPortraitProps) {
         className
       )}
     >
-      <div className='relative h-full w-full bg-onyx'>
-        <Image
-          className='block object-cover object-[0%_20%] rotate-inverted-y'
-          src='/assets/felipe_2.jpg'
-          alt='Felipe Mateus'
-          fill
-        />
-      </div>
+      <Image
+        className='block bg-onyx object-cover'
+        src='/assets/me-green-shirt.png'
+        alt='Felipe Mateus Portrait'
+        height={432}
+        width={344}
+        priority
+      />
     </div>
   )
 }
+
+export default AboutPortrait

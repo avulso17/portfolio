@@ -1,4 +1,4 @@
-import { GITHUB_PATH, INSTAGRAM_PATH, LINKEDIN_PATH } from '@/env/social'
+import { SOCIAL_LINKS } from '@/constants/social'
 import BagFillIcon from '@/icons/BagFill'
 import GitHubIcon from '@/icons/GitHub'
 import HomeIcon from '@/icons/Home'
@@ -39,17 +39,17 @@ export const navigation = {
   social: [
     {
       name: 'LinkedIn',
-      path: LINKEDIN_PATH,
+      path: SOCIAL_LINKS.linkedIn,
       icon: <LinkedInIcon />,
     },
     {
       name: 'Instagram',
-      path: INSTAGRAM_PATH,
+      path: SOCIAL_LINKS.instagram,
       icon: <InstagramIcon />,
     },
     {
       name: 'GitHub',
-      path: GITHUB_PATH,
+      path: SOCIAL_LINKS.github,
       icon: <GitHubIcon />,
     },
   ],

@@ -1,15 +1,27 @@
-import Link from 'next/link'
-
 import LogoSvg from '@/assets/Logo'
 import { Button } from '@/components/ui/Button'
 import { Separator } from '@/components/ui/Separator'
-import {
-  DISCORD_PATH,
-  EMAIL_PATH,
-  GITHUB_PATH,
-  LINKEDIN_PATH,
-  TWITTER_PATH,
-} from '@/env/social'
+import { SOCIAL_LINKS } from '@/constants/social'
+import Link from 'next/link'
+
+const LinkButton: React.FC<{
+  href: string
+  label: string
+  target?: React.HTMLAttributeAnchorTarget
+}> = ({ label, href, target }) => {
+  return (
+    <Link
+      className='h-10 w-fit min-w-16'
+      href={href}
+      aria-label={label}
+      target={target}
+    >
+      <Button className='h-full w-full justify-start' variant='text'>
+        {label}
+      </Button>
+    </Link>
+  )
+}
 
 export default function Footer() {
   return (
@@ -31,46 +43,33 @@ export default function Footer() {
       </div>
 
       <div className='flex flex-col gap-10 tablet:flex-row tablet:gap-28'>
-        <div className='flex w-fit flex-col gap-4'>
+        <div className='flex w-fit flex-col gap-1'>
           <b className='mb-4 font-bold'>Links</b>
-          <Link href='/about'>
-            <Button variant='text'>About</Button>
-          </Link>
-
-          <Link href='/work'>
-            <Button variant='text'>Work</Button>
-          </Link>
-
-          <Link href='/tech-stack'>
-            <Button variant='text'>Tech Stack</Button>
-          </Link>
-
-          <Link href='/contact'>
-            <Button variant='text'>Contact</Button>
-          </Link>
+          <LinkButton href='/about' label='About' />
+          <LinkButton href='/work' label='Work' />
+          <LinkButton href='/tech-stack' label='Tech Stack' />
+          <LinkButton href='/contact' label='Contact' />
         </div>
 
-        <div className='flex flex-col gap-4'>
+        <div className='flex flex-col gap-1'>
           <b className='mb-4 font-bold'>Elsewhere</b>
-          <Link href={EMAIL_PATH} target='_blank'>
-            <Button variant='text'>Email</Button>
-          </Link>
-
-          <Link href={LINKEDIN_PATH} target='_blank'>
-            <Button variant='text'>LinkedIn</Button>
-          </Link>
-
-          <Link href={GITHUB_PATH} target='_blank'>
-            <Button variant='text'>GitHub</Button>
-          </Link>
-
-          <Link href={TWITTER_PATH} target='_blank'>
-            <Button variant='text'>X</Button>
-          </Link>
-
-          <Link href={DISCORD_PATH} target='_blank'>
-            <Button variant='text'>Discord</Button>
-          </Link>
+          <LinkButton href={SOCIAL_LINKS.email} label='Email' target='_blank' />
+          <LinkButton
+            href={SOCIAL_LINKS.linkedIn}
+            label='LinkedIn'
+            target='_blank'
+          />
+          <LinkButton
+            href={SOCIAL_LINKS.github}
+            label='GitHub'
+            target='_blank'
+          />
+          <LinkButton href={SOCIAL_LINKS.x} label='X' target='_blank' />
+          <LinkButton
+            href={SOCIAL_LINKS.discord}
+            label='Discord'
+            target='_blank'
+          />
         </div>
       </div>
     </footer>

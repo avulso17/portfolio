@@ -17,7 +17,7 @@ export default function MainLayout({
 
       <div className='mx-auto max-w-screen-wide pt-8'>
         <div className='mx-auto mb-28 w-fit mobile:hidden'>
-          <Link href='/'>
+          <Link href='/' aria-label='Home'>
             <LogoSvg className='mx-auto h-8 w-12 text-white opacity-50 transition-opacity hover:opacity-80' />
           </Link>
         </div>

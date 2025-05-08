@@ -1,15 +1,12 @@
+import { Button } from '@/components/ui/Button'
+import { SOCIAL_LINKS } from '@/constants/social'
+import SendIcon from '@/icons/Send'
+import { cn } from '@/lib/utils/cn'
 import Image from 'next/image'
 import Link from 'next/link'
-
-import { cn } from '@/lib/utils/cn'
 import { tv } from 'tailwind-variants'
-
-import { Button } from '@/components/ui/Button'
-import SendIcon from '@/icons/Send'
 import AboutPortrait from './AboutPortrait'
 import AboutResumeModal from './AboutResumeModal'
-
-import { EMAIL_PATH, LINKEDIN_PATH, TWITTER_PATH } from '@/env/social'
 
 const aboutStyles = tv({
   slots: {
@@ -67,7 +64,7 @@ export default function AboutContent() {
             <h2 className={title}>What I Did</h2>
 
             <p className={text}>
-              With three years of experience as a software developer, I had the
+              With four years of experience as a software developer, I had the
               privilege of contributing to innovative projects, where I acquired
               and improved my skills in:{' '}
               <b className='text-white font-inherit'>React.js</b>,{' '}
@@ -119,7 +116,7 @@ export default function AboutContent() {
         <span className={cn(text, 'inline-block')}>
           Feel free to reach out via{' '}
           <Link
-            href={EMAIL_PATH}
+            href={SOCIAL_LINKS.email}
             className='text-white underline font-inherit'
             target='_blank'
           >
@@ -127,16 +124,16 @@ export default function AboutContent() {
           </Link>
           , or follow me on{' '}
           <Link
-            href={TWITTER_PATH}
+            href={SOCIAL_LINKS.x}
             className='text-white underline font-inherit'
             target='_blank'
           >
-            Twitter.
+            X.
           </Link>{' '}
           Want to see where I&rsquo;ve worked? Check out my <AboutResumeModal />
           , or Connect with me on{' '}
           <Link
-            href={LINKEDIN_PATH}
+            href={SOCIAL_LINKS.linkedIn}
             className='text-white underline font-inherit'
             target='_blank'
           >

@@ -1,4 +1,4 @@
-import { GITHUB_PATH, LINKEDIN_PATH } from '@/env/social'
+import { SOCIAL_LINKS } from '@/constants/social'
 import { tv } from 'tailwind-variants'
 
 const styles = tv({
@@ -38,7 +38,7 @@ export default function Resume() {
         <p className={content('text-center')}>Uberlândia/MG, Brasil</p>
         <p className={content('text-center')}>felipe_dev08@hotmail.com</p>
         <a
-          href={LINKEDIN_PATH}
+          href={SOCIAL_LINKS.linkedIn}
           target='_blank'
           rel='noreferrer noopener'
           className={content('text-center')}
@@ -46,7 +46,7 @@ export default function Resume() {
           linkedin.com/in/felipe-mateus-g
         </a>
         <a
-          href={GITHUB_PATH}
+          href={SOCIAL_LINKS.github}
           target='_blank'
           rel='noreferrer noopener'
           className={content('text-center')}
