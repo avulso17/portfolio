@@ -1,15 +1,23 @@
+import { cn } from '@/lib/utils/cn'
 import Image, { type StaticImageData } from 'next/image'
 
-import { cn } from '@/lib/utils/cn'
-
-type BookProps = React.ComponentProps<'svg' | 'div'> & {
+type BookshelfGridItemProps = React.ComponentProps<'svg' | 'div'> & {
   cover: string | StaticImageData
   name: string
 }
 
-export default function Book({ cover, name, className }: BookProps) {
+const BookshelfGridItem: React.FC<BookshelfGridItemProps> = ({
+  cover,
+  name,
+  className,
+}) => {
   return (
-    <div className={cn('relative z-0 overflow-hidden rounded-md', className)}>
+    <div
+      className={cn(
+        'relative z-0 w-full overflow-hidden rounded-md',
+        className
+      )}
+    >
       <svg
         width='100%'
         height='100%'
@@ -114,7 +122,10 @@ export default function Book({ cover, name, className }: BookProps) {
         fill
         loading='lazy'
         placeholder='blur'
+        sizes='(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw'
       />
     </div>
   )
 }
+
+export default BookshelfGridItem

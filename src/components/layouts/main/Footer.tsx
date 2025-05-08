@@ -3,13 +3,7 @@ import Link from 'next/link'
 import LogoSvg from '@/assets/Logo'
 import { Button } from '@/components/ui/Button'
 import { Separator } from '@/components/ui/Separator'
-import {
-  DISCORD_PATH,
-  EMAIL_PATH,
-  GITHUB_PATH,
-  LINKEDIN_PATH,
-  TWITTER_PATH,
-} from '@/env/social'
+import { SOCIAL_LINKS } from '@/constants/social'
 
 export default function Footer() {
   return (
@@ -52,23 +46,23 @@ export default function Footer() {
 
         <div className='flex flex-col gap-4'>
           <b className='mb-4 font-bold'>Elsewhere</b>
-          <Link href={EMAIL_PATH} target='_blank'>
+          <Link href={SOCIAL_LINKS.email} target='_blank'>
             <Button variant='text'>Email</Button>
           </Link>
 
-          <Link href={LINKEDIN_PATH} target='_blank'>
+          <Link href={SOCIAL_LINKS.linkedIn} target='_blank'>
             <Button variant='text'>LinkedIn</Button>
           </Link>
 
-          <Link href={GITHUB_PATH} target='_blank'>
+          <Link href={SOCIAL_LINKS.github} target='_blank'>
             <Button variant='text'>GitHub</Button>
           </Link>
 
-          <Link href={TWITTER_PATH} target='_blank'>
+          <Link href={SOCIAL_LINKS.x} target='_blank'>
             <Button variant='text'>X</Button>
           </Link>
 
-          <Link href={DISCORD_PATH} target='_blank'>
+          <Link href={SOCIAL_LINKS.discord} target='_blank'>
             <Button variant='text'>Discord</Button>
           </Link>
         </div>

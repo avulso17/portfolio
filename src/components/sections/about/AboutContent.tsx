@@ -5,11 +5,10 @@ import { cn } from '@/lib/utils/cn'
 import { tv } from 'tailwind-variants'
 
 import { Button } from '@/components/ui/Button'
+import { SOCIAL_LINKS } from '@/constants/social'
 import SendIcon from '@/icons/Send'
 import AboutPortrait from './AboutPortrait'
 import AboutResumeModal from './AboutResumeModal'
-
-import { EMAIL_PATH, LINKEDIN_PATH, TWITTER_PATH } from '@/env/social'
 
 const aboutStyles = tv({
   slots: {
@@ -119,7 +118,7 @@ export default function AboutContent() {
         <span className={cn(text, 'inline-block')}>
           Feel free to reach out via{' '}
           <Link
-            href={EMAIL_PATH}
+            href={SOCIAL_LINKS.email}
             className='text-white underline font-inherit'
             target='_blank'
           >
@@ -127,16 +126,16 @@ export default function AboutContent() {
           </Link>
           , or follow me on{' '}
           <Link
-            href={TWITTER_PATH}
+            href={SOCIAL_LINKS.x}
             className='text-white underline font-inherit'
             target='_blank'
           >
-            Twitter.
+            X.
           </Link>{' '}
           Want to see where I&rsquo;ve worked? Check out my <AboutResumeModal />
           , or Connect with me on{' '}
           <Link
-            href={LINKEDIN_PATH}
+            href={SOCIAL_LINKS.linkedIn}
             className='text-white underline font-inherit'
             target='_blank'
           >

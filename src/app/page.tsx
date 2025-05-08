@@ -1,22 +1,19 @@
-import dynamic from 'next/dynamic'
-
 import HomeHero from '@/components/sections/home/HomeHero'
+import dynamic from 'next/dynamic'
 
 const HomeSelectedWorkSection = dynamic(
   () => import('@/components/sections/home/HomeSelectedWorkSection')
 )
-
 const HomeGetToKnowSection = dynamic(
   () => import('@/components/sections/home/HomeGetToKnowSection')
 )
-
 const HomeGetInTouchSection = dynamic(
   () => import('@/components/sections/home/HomeGetInTouchSection')
 )
 
-export default function Home() {
+const HomePage: React.FC = () => {
   return (
-    <div className='w-full'>
+    <div>
       <HomeHero />
       <HomeSelectedWorkSection />
       <HomeGetToKnowSection />
@@ -24,3 +21,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default HomePage
