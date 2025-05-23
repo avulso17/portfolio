@@ -1,4 +1,5 @@
 'use client'
+
 import { Button } from '@/components/ui/Button'
 import { useOnClickOutside } from '@/hooks/useOnClickOutsite'
 import ChevronBottomIcon from '@/icons/ChevronBottom'
@@ -6,11 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
 
-export type NavbarDesktopDropdownMenu = {
-  navigatorStyles: string
-}
-
-export default function NavbarDesktopDropdownMenu() {
+const NavbarDesktopDropdownMenu: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -52,12 +49,6 @@ export default function NavbarDesktopDropdownMenu() {
               </Button>
             </Link>
 
-            {/* <Link href='/notebook' className='flex wide:hidden'>
-              <Button variant='text' onClick={onCloseMenu}>
-                Notebook
-              </Button>
-            </Link> */}
-
             <Link href='/bookshelf'>
               <Button variant='text' onClick={onCloseMenu}>
                 Bookshelf
@@ -75,3 +66,5 @@ export default function NavbarDesktopDropdownMenu() {
     </>
   )
 }
+
+export default NavbarDesktopDropdownMenu

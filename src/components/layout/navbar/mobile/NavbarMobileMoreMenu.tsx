@@ -1,3 +1,5 @@
+'use client'
+
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -35,10 +37,10 @@ export type NavbarMobileMoreMenuProps = {
   onClose: () => void
 }
 
-export default function NavbarMobileMoreMenu({
+const NavbarMobileMoreMenu: React.FC<NavbarMobileMoreMenuProps> = ({
   isOpen,
   onClose,
-}: NavbarMobileMoreMenuProps) {
+}) => {
   const pathname = usePathname()
 
   const { list, listItem } = styles()
@@ -63,10 +65,10 @@ export default function NavbarMobileMoreMenu({
               </button>
             </Link>
           ))}
-
-          {/* <button className={listItem()}>Theme: Dark</button> */}
         </motion.div>
       ) : null}
     </AnimatePresence>
   )
 }
+
+export default NavbarMobileMoreMenu

@@ -1,4 +1,4 @@
-import WorkProjectCard from '@/app/work/WorkProjectCard'
+import ProjectsCard from '@/app/projects/components/ProjectsCard'
 import { works } from '@/configs/works'
 
 const selectedWorks = works.slice(0, 3)
@@ -11,7 +11,7 @@ export default function HomeSelectedWorkSection() {
         {selectedWorks.map(
           ({ icon, image, title, description, url, screenshotView }, index) => (
             <li key={index}>
-              <WorkProjectCard
+              <ProjectsCard
                 iconSrc={icon}
                 title={title}
                 description={description}

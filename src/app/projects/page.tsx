@@ -1,6 +1,6 @@
 import { Header } from '@/components/ui/Header'
 import { Metadata } from 'next'
-import Content from './WorkContent'
+import Content from './components/ProjectsContent'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function WorkPage() {
+const ProjectsPage: React.FC = () => {
   return (
     <main>
       <Header title='Projects' subtitle="Projects and ideas I've worked on" />
@@ -75,3 +75,5 @@ export default function WorkPage() {
     </main>
   )
 }
+
+export default ProjectsPage

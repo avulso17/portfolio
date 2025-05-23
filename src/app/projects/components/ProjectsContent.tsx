@@ -3,9 +3,9 @@
 import { TextField } from '@/components/ui/TextField'
 import { works } from '@/configs/works'
 import { useCallback, useEffect, useState } from 'react'
-import CardStack from './WorkCardStack'
+import CardStack from './ProjectsCardStack'
 
-export default function WorkContent() {
+const ProjectsContent: React.FC = () => {
   const [search, setSearch] = useState('')
   const [projects, setProjects] = useState(works)
 
@@ -53,3 +53,5 @@ export default function WorkContent() {
     </div>
   )
 }
+
+export default ProjectsContent

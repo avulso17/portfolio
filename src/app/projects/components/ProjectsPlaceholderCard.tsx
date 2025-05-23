@@ -1,17 +1,17 @@
 import { Button } from '@/components/ui/Button'
 import SendIcon from '@/icons/Send'
 import StarsIcon from '@/icons/Stars'
+import { cn } from '@/lib/utils/cn'
 import Link from 'next/link'
-import { twMerge } from 'tailwind-merge'
 
-type ProjectPlaceholderCardProps = React.ComponentProps<'div'>
+type ProjectsPlaceholderCardProps = { className?: string }
 
-export default function WorkProjectPlaceholderCard({
+const ProjectsPlaceholderCard: React.FC<ProjectsPlaceholderCardProps> = ({
   className,
-}: ProjectPlaceholderCardProps) {
+}) => {
   return (
     <div
-      className={twMerge(
+      className={cn(
         [
           'flex w-full flex-col items-center justify-center',
           'rounded-4xl bg-onyx/50 py-16 custom-border-dashed-mobile',
@@ -36,3 +36,5 @@ export default function WorkProjectPlaceholderCard({
     </div>
   )
 }
+
+export default ProjectsPlaceholderCard

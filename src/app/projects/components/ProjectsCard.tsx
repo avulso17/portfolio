@@ -8,7 +8,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ComponentProps } from 'react'
 
-export type WorkProjectCardProps = Omit<ComponentProps<'div'>, 'title'> & {
+export type ProjectsCardProps = Omit<ComponentProps<'div'>, 'title'> & {
   description: string
   href?: string
   iconSrc: string
@@ -17,7 +17,7 @@ export type WorkProjectCardProps = Omit<ComponentProps<'div'>, 'title'> & {
   title: string
 }
 
-export default function WorkProjectCard({
+const ProjectsCard: React.FC<ProjectsCardProps> = ({
   title = 'Project Name',
   description = 'Project description goes here',
   iconSrc = '/',
@@ -25,7 +25,7 @@ export default function WorkProjectCard({
   href = '/',
   imgView,
   className,
-}: WorkProjectCardProps) {
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -91,3 +91,5 @@ export default function WorkProjectCard({
     </motion.div>
   )
 }
+
+export default ProjectsCard

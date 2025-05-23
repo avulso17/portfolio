@@ -1,14 +1,10 @@
+import LogoSvg from '@/assets/Logo'
+import { Button } from '@/components/ui/Button'
+import { navigation } from '@/configs/nav'
 import Link from 'next/link'
-
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
-
-import { Button } from '@/components/ui/Button'
-
-import { navigation } from '@/configs/nav'
-
-import LogoSvg from '@/assets/Logo'
-import DropdownMenu from './NavbarDesktopDropdownMenu'
+import NavbarDesktopDropdownMenu from './NavbarDesktopDropdownMenu'
 
 const iconButtonStyles = tv({
   base: [
@@ -20,7 +16,7 @@ const iconButtonStyles = tv({
 
 export type NavbarProps = React.ComponentProps<'nav'>
 
-export default function Navbar({ className }: NavbarProps) {
+const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
   const socials = navigation.social
 
   return (
@@ -39,19 +35,15 @@ export default function Navbar({ className }: NavbarProps) {
           <Button variant='text'>About</Button>
         </Link>
 
-        <Link href='/work'>
-          <Button variant='text'>Work</Button>
+        <Link href='/projects'>
+          <Button variant='text'>Projects</Button>
         </Link>
-
-        {/* <Link href='/notebook' className='hidden wide:block'>
-          <Button variant='text'>Notebook</Button>
-        </Link> */}
 
         <Link href='/contact' className='hidden tablet:block'>
           <Button variant='text'>Contact</Button>
         </Link>
 
-        <DropdownMenu />
+        <NavbarDesktopDropdownMenu />
       </div>
 
       <div className='flex items-center gap-2'>
@@ -73,3 +65,5 @@ export default function Navbar({ className }: NavbarProps) {
     </nav>
   )
 }
+
+export default NavbarDesktop

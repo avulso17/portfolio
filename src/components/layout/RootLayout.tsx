@@ -1,35 +1,30 @@
-import Link from 'next/link'
-
 import LogoSvg from '@/assets/Logo'
-import Gradient from '@/components/ui/Gradient'
-import Footer from './Footer'
-import Navbar from './navbar/desktop'
+import Link from 'next/link'
+import Gradient from '../ui/Gradient'
+import Container from './Container'
+import Footer from './footer'
+import NavbarDesktop from './navbar/desktop'
 import NavbarMobile from './navbar/mobile'
 
-export default function MainLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className='relative z-0 px-4 pb-20 mobile:pb-0'>
       <Gradient position='top' />
-
-      <div className='mx-auto max-w-screen-wide pt-8'>
+      <Container className='pt-8'>
         <div className='mx-auto mb-28 w-fit mobile:hidden'>
           <Link href='/' aria-label='Home'>
             <LogoSvg className='mx-auto h-8 w-12 text-white opacity-50 transition-opacity hover:opacity-80' />
           </Link>
         </div>
 
-        <Navbar />
+        <NavbarDesktop />
         {children}
         <Footer />
-      </div>
-
-      <NavbarMobile />
-
+      </Container>
       <Gradient position='bottom' />
+      <NavbarMobile />
     </div>
   )
 }
+
+export default RootLayout

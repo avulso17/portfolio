@@ -1,19 +1,18 @@
 import { type Projects } from '@/configs/works'
+import Card from './ProjectsCard'
+import CardPlaceholder from './ProjectsPlaceholderCard'
 
-import ProjectCard from './WorkProjectCard'
-import ProjectPlaceholderCard from './WorkProjectPlaceholderCard'
-
-export type WorkCardStackProps = {
+export type ProjectsCardStackProps = {
   items: Projects
 }
 
-export default function WorkCardStack({ items }: WorkCardStackProps) {
+const ProjectsCardStack: React.FC<ProjectsCardStackProps> = ({ items }) => {
   return (
     <div className='flex flex-col gap-4'>
       {items.length > 0 ? (
         items.map(
           ({ icon, image, title, description, url, screenshotView }) => (
-            <ProjectCard
+            <Card
               key={title}
               iconSrc={icon}
               title={title}
@@ -30,7 +29,9 @@ export default function WorkCardStack({ items }: WorkCardStackProps) {
         </div>
       )}
 
-      <ProjectPlaceholderCard />
+      <CardPlaceholder />
     </div>
   )
 }
+
+export default ProjectsCardStack

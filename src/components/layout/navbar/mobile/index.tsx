@@ -24,14 +24,9 @@ const routes = [
   },
   {
     name: 'work',
-    path: '/work',
+    path: '/projects',
     icon: BagFillIcon,
   },
-  // {
-  //   name: 'notebook',
-  //   path: '/notebook',
-  //   icon: PenFillIcon,
-  // },
   {
     name: 'contact',
     path: '/contact',
@@ -69,7 +64,7 @@ const navbarMobileStyles = tv({
 
 export type NavbarMobileProps = ComponentProps<'nav'>
 
-export default function NavbarMobile({ className }: NavbarMobileProps) {
+const NavbarMobile: React.FC<NavbarMobileProps> = ({ className }) => {
   const ref = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
@@ -124,3 +119,5 @@ export default function NavbarMobile({ className }: NavbarMobileProps) {
     </div>
   )
 }
+
+export default NavbarMobile

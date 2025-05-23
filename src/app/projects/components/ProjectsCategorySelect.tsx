@@ -6,18 +6,18 @@ import {
   SelectValue,
 } from '@/components/ui/Select'
 
-export type WorkCategorySelectOption = {
+export type ProjectsCategorySelectOption = {
   label: string
   value: string
 }
 
-export type WorkCategorySelectProps = {
-  options: WorkCategorySelectOption[]
+export type ProjectsCategorySelectProps = {
+  options: ProjectsCategorySelectOption[]
 }
 
-export default function WorkCategorySelect({
+const ProjectsCategorySelect: React.FC<ProjectsCategorySelectProps> = ({
   options,
-}: WorkCategorySelectProps) {
+}) => {
   return (
     <Select>
       <SelectTrigger className='w-[172px] rounded-r-4xl'>
@@ -34,3 +34,5 @@ export default function WorkCategorySelect({
     </Select>
   )
 }
+
+export default ProjectsCategorySelect

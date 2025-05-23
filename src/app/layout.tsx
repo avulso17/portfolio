@@ -4,7 +4,7 @@ import '@fontsource/nanum-pen-script'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import MainLayout from '@/components/layouts/main'
+import RootLayout from '@/components/layout/RootLayout'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -136,14 +136,9 @@ const inter = Inter({
   display: 'swap',
 })
 
-export default function RootLayout({
-  children,
-}: {
+const Layout: React.FC<{
   children: React.ReactNode
-  params: {
-    locale: string
-  }
-}) {
+}> = ({ children }) => {
   return (
     <html lang='en' className={inter.variable}>
       <head>
@@ -156,8 +151,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <MainLayout>{children}</MainLayout>
+        <RootLayout>{children}</RootLayout>
       </body>
     </html>
   )
 }
+export default Layout
