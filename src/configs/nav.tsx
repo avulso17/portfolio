@@ -1,12 +1,12 @@
+import BagFillIcon from '@/components/icons/BagFill'
+import GitHubIcon from '@/components/icons/GitHub'
+import HomeIcon from '@/components/icons/Home'
+import InstagramIcon from '@/components/icons/Instagram'
+import LinkedInIcon from '@/components/icons/LinkedIn'
+import MessageFillIcon from '@/components/icons/MessageFill'
+import PenFillIcon from '@/components/icons/PenFill'
+import UserFillIcon from '@/components/icons/UserFill'
 import { SOCIAL_LINKS } from '@/constants/social'
-import BagFillIcon from '@/icons/BagFill'
-import GitHubIcon from '@/icons/GitHub'
-import HomeIcon from '@/icons/Home'
-import InstagramIcon from '@/icons/Instagram'
-import LinkedInIcon from '@/icons/LinkedIn'
-import MessageFillIcon from '@/icons/MessageFill'
-import PenFillIcon from '@/icons/PenFill'
-import UserFillIcon from '@/icons/UserFill'
 
 export const navigation = {
   routes: [

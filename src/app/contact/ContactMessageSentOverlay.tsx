@@ -1,6 +1,6 @@
 import HandArrowDownSvg from '@/assets/HandArrowDown'
-import MessageErrorIcon from '@/icons/MessageError'
-import MessageSentIcon from '@/icons/MessageSent'
+import MessageErrorIcon from '@/components/icons/MessageError'
+import MessageSentIcon from '@/components/icons/MessageSent'
 
 export type SentStatus = 'error' | 'success'
 

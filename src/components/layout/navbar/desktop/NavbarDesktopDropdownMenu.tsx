@@ -1,8 +1,8 @@
 'use client'
 
+import ChevronBottomIcon from '@/components/icons/ChevronBottom'
 import { Button } from '@/components/ui/Button'
 import { useOnClickOutside } from '@/hooks/useOnClickOutsite'
-import ChevronBottomIcon from '@/icons/ChevronBottom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRef, useState } from 'react'

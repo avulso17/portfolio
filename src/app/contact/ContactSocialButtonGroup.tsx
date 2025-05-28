@@ -1,10 +1,10 @@
+import DiscordIcon from '@/components/icons/Discord'
+import GitHubIcon from '@/components/icons/GitHub'
+import InstagramIcon from '@/components/icons/Instagram'
+import LinkedInIcon from '@/components/icons/LinkedIn'
+import MessageFillIcon from '@/components/icons/MessageFill'
+import TwitterIcon from '@/components/icons/Twitter'
 import { SOCIAL_LINKS } from '@/constants/social'
-import DiscordIcon from '@/icons/Discord'
-import GitHubIcon from '@/icons/GitHub'
-import InstagramIcon from '@/icons/Instagram'
-import LinkedInIcon from '@/icons/LinkedIn'
-import MessageFillIcon from '@/icons/MessageFill'
-import TwitterIcon from '@/icons/Twitter'
 import Link from 'next/link'
 
 type SocialButtonProps = React.ComponentProps<'a'>

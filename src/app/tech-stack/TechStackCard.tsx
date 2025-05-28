@@ -1,4 +1,4 @@
-import ArrowRightIcon from '@/icons/ArrowRight'
+import ArrowRightIcon from '@/components/icons/ArrowRight'
 import Image, { StaticImageData } from 'next/image'
 
 import { ComponentProps } from 'react'

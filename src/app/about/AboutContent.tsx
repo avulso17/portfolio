@@ -1,6 +1,6 @@
+import SendIcon from '@/components/icons/Send'
 import { Button } from '@/components/ui/Button'
 import { SOCIAL_LINKS } from '@/constants/social'
-import SendIcon from '@/icons/Send'
 import { cn } from '@/lib/utils/cn'
 import Image from 'next/image'
 import Link from 'next/link'

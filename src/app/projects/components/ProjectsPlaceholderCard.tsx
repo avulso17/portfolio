@@ -1,6 +1,6 @@
+import SendIcon from '@/components/icons/Send'
+import StarsIcon from '@/components/icons/Stars'
 import { Button } from '@/components/ui/Button'
-import SendIcon from '@/icons/Send'
-import StarsIcon from '@/icons/Stars'
 import { cn } from '@/lib/utils/cn'
 import Link from 'next/link'
 

@@ -1,4 +1,4 @@
-import StarsIcon from '@/icons/Stars'
+import StarsIcon from '@/components/icons/Stars'
 import NotebookCategoryStack from './NotebookCategoryStack'
 
 const notes = [

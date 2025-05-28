@@ -1,7 +1,7 @@
 'use client'
 
+import ArrowRightIcon from '@/components/icons/ArrowRight'
 import { Button } from '@/components/ui/Button'
-import ArrowRightIcon from '@/icons/ArrowRight'
 import { cn } from '@/lib/utils/cn'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
