@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ContactPage() {
+const ContactPage: React.FC = () => {
   return (
     <main>
       <Header
@@ -89,3 +89,5 @@ export default function ContactPage() {
     </main>
   )
 }
+
+export default ContactPage

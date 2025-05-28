@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import MacOSControlBar from './ContactMacOSControlBar'
 import Form from './ContactNewMessageForm'
 
-export default function ContactWindow() {
+const ContactWindow: React.FC = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 70, rotateX: '-35deg' }}
@@ -17,3 +17,5 @@ export default function ContactWindow() {
     </motion.div>
   )
 }
+
+export default ContactWindow

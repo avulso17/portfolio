@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function NotebookPage() {
+const NotebookPage: React.FC = () => {
   return (
     <main>
       <Header
@@ -77,3 +77,5 @@ export default function NotebookPage() {
     </main>
   )
 }
+
+export default NotebookPage

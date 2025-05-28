@@ -2,11 +2,11 @@ import { cn } from '@/lib/utils/cn'
 
 export type TechStackGroupProps = React.ComponentProps<'div'>
 
-export default function TechStackGroup({
+const TechStackGroup: React.FC<TechStackGroupProps> = ({
   children,
   className,
   ...props
-}: TechStackGroupProps) {
+}) => {
   return (
     <div
       className={cn(
@@ -19,3 +19,5 @@ export default function TechStackGroup({
     </div>
   )
 }
+
+export default TechStackGroup

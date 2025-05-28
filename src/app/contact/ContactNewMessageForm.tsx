@@ -21,10 +21,10 @@ type ErrorsKeys = keyof Errors
 
 export type ContactNewMessageFormProps = React.ComponentProps<'form'>
 
-export default function ContactNewMessageForm({
+const ContactNewMessageForm: React.FC<ContactNewMessageFormProps> = ({
   className,
   ...props
-}: ContactNewMessageFormProps) {
+}) => {
   const [status, setStatus] = useState<string | undefined>(undefined)
   const [errors, setErrors] = useState<Errors>({})
 
@@ -149,3 +149,5 @@ export default function ContactNewMessageForm({
     </>
   )
 }
+
+export default ContactNewMessageForm

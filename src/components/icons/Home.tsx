@@ -1,6 +1,6 @@
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-export default function HomeIcon({ children, ...props }: SVGProps) {
+const HomeIcon: React.FC<SVGProps> = ({ children, ...props }) => {
   return (
     <svg fill='none' viewBox='0 0 24 24' height='1em' width='1em' {...props}>
       <path
@@ -13,3 +13,5 @@ export default function HomeIcon({ children, ...props }: SVGProps) {
     </svg>
   )
 }
+
+export default HomeIcon

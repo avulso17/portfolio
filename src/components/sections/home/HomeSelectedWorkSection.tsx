@@ -3,7 +3,7 @@ import { works } from '@/configs/works'
 
 const selectedWorks = works.slice(0, 3)
 
-export default function HomeSelectedWorkSection() {
+const HomeSelectedWorkSection: React.FC = () => {
   return (
     <>
       <h2 className='mb-8 header'>Selected Work</h2>
@@ -26,3 +26,5 @@ export default function HomeSelectedWorkSection() {
     </>
   )
 }
+
+export default HomeSelectedWorkSection

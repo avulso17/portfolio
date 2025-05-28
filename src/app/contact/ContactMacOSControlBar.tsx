@@ -5,7 +5,7 @@ const buttonStyles = tv({
   base: ['flex h-3 w-3 shrink-0 rounded-50 border'],
 })
 
-export default function MacOSControlBar() {
+const ContactMacOSControlBar: React.FC = () => {
   return (
     <div
       className={cn([
@@ -39,3 +39,5 @@ export default function MacOSControlBar() {
     </div>
   )
 }
+
+export default ContactMacOSControlBar

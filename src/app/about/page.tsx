@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function AboutPage() {
+const AboutPage: React.FC = () => {
   return (
     <main className='pb-20'>
       <Header
@@ -95,3 +95,5 @@ export default function AboutPage() {
     </main>
   )
 }
+
+export default AboutPage

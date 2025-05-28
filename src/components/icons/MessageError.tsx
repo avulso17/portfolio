@@ -1,6 +1,6 @@
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-export default function MessageErrorIcon({ children, ...props }: SVGProps) {
+const MessageErrorIcon: React.FC<SVGProps> = ({ children, ...props }) => {
   return (
     <svg viewBox='0 0 41 40' height='1em' width='1em' fill='none' {...props}>
       <path
@@ -34,3 +34,5 @@ export default function MessageErrorIcon({ children, ...props }: SVGProps) {
     </svg>
   )
 }
+
+export default MessageErrorIcon

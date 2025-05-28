@@ -1,6 +1,6 @@
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-export default function MessageSentIcon({ children, ...props }: SVGProps) {
+const MessageSentIcon: React.FC<SVGProps> = ({ children, ...props }) => {
   return (
     <svg viewBox='0 0 41 41' height='1em' width='1em' fill='none' {...props}>
       <path
@@ -27,3 +27,5 @@ export default function MessageSentIcon({ children, ...props }: SVGProps) {
     </svg>
   )
 }
+
+export default MessageSentIcon

@@ -6,9 +6,9 @@ import { cn } from '@/lib/utils/cn'
 export type AboutResumeModalButtonProps =
   React.ButtonHTMLAttributes<HTMLButtonElement>
 
-export default function AboutResumeModalButton({
+const AboutResumeModalButton: React.FC<AboutResumeModalButtonProps> = ({
   className,
-}: AboutResumeModalButtonProps) {
+}) => {
   const { setOpen } = useModal()
 
   return (
@@ -20,3 +20,5 @@ export default function AboutResumeModalButton({
     </button>
   )
 }
+
+export default AboutResumeModalButton

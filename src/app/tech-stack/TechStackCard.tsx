@@ -41,12 +41,12 @@ type TechStackCardProps = ComponentProps<'div'> & {
   src: StaticImageData
 }
 
-export default function TechStackCard({
+const TechStackCard: React.FC<TechStackCardProps> = ({
   className,
   category,
   name = 'Title',
   src,
-}: TechStackCardProps) {
+}) => {
   const classes = cardStyles()
 
   return (
@@ -76,3 +76,5 @@ export default function TechStackCard({
     </div>
   )
 }
+
+export default TechStackCard

@@ -1,6 +1,6 @@
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-export default function InstagramIcon({ children, ...props }: SVGProps) {
+const InstagramIcon: React.FC<SVGProps> = ({ children, ...props }) => {
   return (
     <svg viewBox='0 0 24 24' height='1em' width='1em' fill='none' {...props}>
       <path
@@ -13,3 +13,5 @@ export default function InstagramIcon({ children, ...props }: SVGProps) {
     </svg>
   )
 }
+
+export default InstagramIcon

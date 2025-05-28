@@ -1,6 +1,6 @@
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-export default function TwitterIcon({ children, ...props }: SVGProps) {
+const TwitterIcon: React.FC<SVGProps> = ({ children, ...props }) => {
   return (
     <svg viewBox='0 0 24 24' height='1em' width='1em' fill='none' {...props}>
       <path
@@ -10,3 +10,5 @@ export default function TwitterIcon({ children, ...props }: SVGProps) {
     </svg>
   )
 }
+
+export default TwitterIcon

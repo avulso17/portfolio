@@ -1,12 +1,10 @@
+import { games } from '@/configs/games'
 import Link from 'next/link'
-
 import TechStackCard from './TechStackCard'
 import TechStackGroup from './TechStackGroup'
 import TechStackGroupTitle from './TechStackGroupTitle'
 
-import { games } from '@/configs/games'
-
-export default function TechStackGamesList() {
+const TechStackGamesList: React.FC = () => {
   return (
     <>
       <TechStackGroupTitle>Games</TechStackGroupTitle>
@@ -24,3 +22,5 @@ export default function TechStackGamesList() {
     </>
   )
 }
+
+export default TechStackGamesList

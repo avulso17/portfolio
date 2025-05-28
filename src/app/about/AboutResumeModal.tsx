@@ -2,7 +2,7 @@ import Resume from '@/components/Resume'
 import { Modal, ModalBody, ModalContent } from '@/components/ui/AnimatedModal'
 import Trigger from './AboutResumeModalButton'
 
-export default function AboutResumeModal() {
+const AboutResumeModal: React.FC = () => {
   return (
     <Modal>
       <Trigger />
@@ -15,3 +15,5 @@ export default function AboutResumeModal() {
     </Modal>
   )
 }
+
+export default AboutResumeModal

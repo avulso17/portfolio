@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function TechStacksPage() {
+const TechStacksPage: React.FC = () => {
   return (
     <main className='w-full'>
       <Header
@@ -89,3 +89,5 @@ export default function TechStacksPage() {
     </main>
   )
 }
+
+export default TechStacksPage

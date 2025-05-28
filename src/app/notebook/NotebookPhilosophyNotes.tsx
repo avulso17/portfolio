@@ -9,6 +9,8 @@ const notes = [
   },
 ]
 
-export default function NotebookPhilosophyNotes() {
+const NotebookPhilosophyNotes: React.FC = () => {
   return <NotebookCategoryStack category='Philosophy' notes={notes} />
 }
+
+export default NotebookPhilosophyNotes

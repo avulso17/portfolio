@@ -15,7 +15,7 @@ const aboutStyles = tv({
   },
 })
 
-export default function AboutContent() {
+const AboutContent: React.FC = () => {
   const { title, text } = aboutStyles.slots
 
   return (
@@ -165,3 +165,5 @@ export default function AboutContent() {
     </>
   )
 }
+
+export default AboutContent

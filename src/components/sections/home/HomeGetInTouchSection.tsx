@@ -1,9 +1,8 @@
-import Link from 'next/link'
-
 import SendIcon from '@/components/icons/Send'
 import { Button } from '@/components/ui/Button'
+import Link from 'next/link'
 
-export default function HomeGetInTouchSection() {
+const HomeGetInTouchSection: React.FC = () => {
   return (
     <div className='mb-28 flex flex-col items-center justify-between gap-8 tablet:flex-row tablet:gap-0'>
       <div className='flex flex-col gap-2'>
@@ -24,3 +23,5 @@ export default function HomeGetInTouchSection() {
     </div>
   )
 }
+
+export default HomeGetInTouchSection

@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/Button'
 import { useFormStatus } from 'react-dom'
 
-export default function ContactSubmitButton() {
+const ContactSubmitButton: React.FC = () => {
   const { pending } = useFormStatus()
 
   return (
@@ -16,3 +16,5 @@ export default function ContactSubmitButton() {
     </Button>
   )
 }
+
+export default ContactSubmitButton

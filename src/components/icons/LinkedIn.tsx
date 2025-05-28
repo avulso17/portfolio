@@ -1,6 +1,6 @@
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-function LinkedInIcon({ children, ...props }: SVGProps) {
+const LinkedInIcon: React.FC<SVGProps> = ({ children, ...props }) => {
   return (
     <svg fill='none' viewBox='0 0 24 24' height='1em' width='1em' {...props}>
       <path

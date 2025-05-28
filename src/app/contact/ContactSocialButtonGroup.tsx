@@ -9,7 +9,11 @@ import Link from 'next/link'
 
 type SocialButtonProps = React.ComponentProps<'a'>
 
-function SocialButton({ href, children, ...props }: SocialButtonProps) {
+const SocialButton: React.FC<SocialButtonProps> = ({
+  href,
+  children,
+  ...props
+}) => {
   return (
     <Link
       href={href ?? '/'}
@@ -21,7 +25,7 @@ function SocialButton({ href, children, ...props }: SocialButtonProps) {
   )
 }
 
-export default function ContactSocialButtonGroup() {
+const ContactSocialButtonGroup: React.FC = () => {
   return (
     <div className='mx-auto mt-16 flex w-fit max-w-[12.75rem] flex-wrap items-center gap-y-11 px-4 mobile:max-w-none mobile:gap-x-11'>
       <div className='flex w-fit items-center gap-11'>
@@ -54,3 +58,5 @@ export default function ContactSocialButtonGroup() {
     </div>
   )
 }
+
+export default ContactSocialButtonGroup

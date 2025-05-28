@@ -10,13 +10,10 @@ const styles = tv({
   },
 })
 
-function ResumeItem({
-  topic,
-  content,
-}: {
+const ResumeItem: React.FC<{
   content: React.ReactNode
   topic: React.ReactNode
-}) {
+}> = ({ topic, content }) => {
   const classes = styles()
 
   return (
@@ -27,7 +24,7 @@ function ResumeItem({
   )
 }
 
-export default function Resume() {
+const Resume: React.FC = () => {
   const { content, subtopic, name } = styles()
 
   return (
@@ -216,3 +213,5 @@ export default function Resume() {
     </div>
   )
 }
+
+export default Resume

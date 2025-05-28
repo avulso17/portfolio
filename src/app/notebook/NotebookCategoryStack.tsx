@@ -7,11 +7,11 @@ export type NotebookCategoryStack = React.ComponentProps<'div'> & {
   notes: Note[]
 }
 
-export default function NotebookCategoryStack({
+const NotebookCategoryStack: React.FC<NotebookCategoryStack> = ({
   className,
   category,
   notes,
-}: NotebookCategoryStack) {
+}) => {
   return (
     <div className={twMerge(['flex flex-col gap-8'], className)}>
       {/* HEADER */}
@@ -38,3 +38,5 @@ export default function NotebookCategoryStack({
     </div>
   )
 }
+
+export default NotebookCategoryStack

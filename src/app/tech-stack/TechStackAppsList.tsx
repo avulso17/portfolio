@@ -1,12 +1,10 @@
+import { apps } from '@/configs/apps'
 import Link from 'next/link'
-
 import TechStackCard from './TechStackCard'
 import TechStackGroup from './TechStackGroup'
 import TechStackGroupTitle from './TechStackGroupTitle'
 
-import { apps } from '@/configs/apps'
-
-export default function TechStackAppsList() {
+const TechStackAppsList: React.FC = () => {
   return (
     <>
       <TechStackGroupTitle>Apps</TechStackGroupTitle>
@@ -24,3 +22,5 @@ export default function TechStackAppsList() {
     </>
   )
 }
+
+export default TechStackAppsList

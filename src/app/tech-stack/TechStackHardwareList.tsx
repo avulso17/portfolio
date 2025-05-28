@@ -1,12 +1,10 @@
+import { hardware } from '@/configs/hardware'
 import Link from 'next/link'
-
 import TechStackCard from './TechStackCard'
 import TechStackGroup from './TechStackGroup'
 import TechStackGroupTitle from './TechStackGroupTitle'
 
-import { hardware } from '@/configs/hardware'
-
-export default function TechStackHardwareList() {
+const TechStackHardwareList: React.FC = () => {
   return (
     <>
       <TechStackGroupTitle>Hardware</TechStackGroupTitle>
@@ -24,3 +22,5 @@ export default function TechStackHardwareList() {
     </>
   )
 }
+
+export default TechStackHardwareList

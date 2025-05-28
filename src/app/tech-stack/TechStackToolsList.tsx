@@ -1,12 +1,10 @@
+import { tools } from '@/configs/tools'
 import Link from 'next/link'
-
 import TechStackCard from './TechStackCard'
 import TechStackGroup from './TechStackGroup'
 import TechStackGroupTitle from './TechStackGroupTitle'
 
-import { tools } from '@/configs/tools'
-
-export default function TechStackToolsList() {
+const TechStackToolsList: React.FC = () => {
   return (
     <>
       <TechStackGroupTitle>Dev & Design</TechStackGroupTitle>
@@ -24,3 +22,5 @@ export default function TechStackToolsList() {
     </>
   )
 }
+
+export default TechStackToolsList

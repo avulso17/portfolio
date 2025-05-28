@@ -8,9 +8,9 @@ export type ContactMessageSent = {
   status: SentStatus
 }
 
-export default function ContactMessageSentOverlay({
+const ContactMessageSentOverlay: React.FC<ContactMessageSent> = ({
   status,
-}: ContactMessageSent) {
+}) => {
   return (
     <div className='absolute inset-0 z-10 flex animate-bounce-in-top flex-col justify-between bg-onyx p-6'>
       <div />
@@ -49,3 +49,5 @@ export default function ContactMessageSentOverlay({
     </div>
   )
 }
+
+export default ContactMessageSentOverlay
