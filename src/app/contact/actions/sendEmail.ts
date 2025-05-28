@@ -1,7 +1,7 @@
 'use server'
 
 import { Resend } from 'resend'
-import { ContactEmailTemplate } from '../ContactEmailTemplate'
+import { ContactEmailTemplate } from '../components/ContactEmailTemplate'
 
 import { z } from 'zod'
 

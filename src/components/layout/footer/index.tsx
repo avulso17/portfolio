@@ -54,6 +54,11 @@ const Footer: React.FC = () => {
             label='Discord'
             target='_blank'
           />
+          <FooterLinkButton
+            href={SOCIAL_LINKS.youTube}
+            label='YouTube'
+            target='_blank'
+          />
         </div>
       </div>
     </footer>

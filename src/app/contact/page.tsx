@@ -1,9 +1,9 @@
 import { Header } from '@/components/ui/Header'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import ContactSocialButtonGroup from './ContactSocialButtonGroup'
+import ContactSocialButtonGroup from './components/ContactSocialButtonGroup'
 
-const Form = dynamic(() => import('./ContactWindow'))
+const Form = dynamic(() => import('./components/ContactWindow'))
 
 export const metadata: Metadata = {
   generator: 'Next.js',

@@ -1,6 +1,9 @@
 import LogoSvg from '@/assets/Logo'
+import GitHubIcon from '@/components/icons/GitHub'
+import InstagramIcon from '@/components/icons/Instagram'
+import LinkedInIcon from '@/components/icons/LinkedIn'
 import { Button } from '@/components/ui/Button'
-import { navigation } from '@/configs/nav'
+import { SOCIAL_LINKS } from '@/constants/social'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
@@ -17,8 +20,6 @@ const iconButtonStyles = tv({
 export type NavbarProps = React.ComponentProps<'nav'>
 
 const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
-  const socials = navigation.social
-
   return (
     <nav
       className={twMerge(
@@ -47,16 +48,27 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
       </div>
 
       <div className='flex items-center gap-2'>
-        {socials.map((item) => (
-          <Link
-            key={item.path}
-            href={item.path}
-            className={iconButtonStyles()}
-            target='_blank'
-          >
-            {item.icon}
-          </Link>
-        ))}
+        <Link
+          href={SOCIAL_LINKS.linkedIn}
+          className={iconButtonStyles()}
+          target='_blank'
+        >
+          <LinkedInIcon />
+        </Link>
+        <Link
+          href={SOCIAL_LINKS.instagram}
+          className={iconButtonStyles()}
+          target='_blank'
+        >
+          <InstagramIcon />
+        </Link>
+        <Link
+          href={SOCIAL_LINKS.github}
+          className={iconButtonStyles()}
+          target='_blank'
+        >
+          <GitHubIcon />
+        </Link>
 
         {/* <Separator orientation='vertical' className='mx-1 opacity-25' /> */}
 
