@@ -3,22 +3,22 @@ import { tv } from 'tailwind-variants'
 
 const styles = tv({
   slots: {
-    name: ['text-2xl font-bold'],
-    topic: ['text-xl font-bold uppercase'],
-    subtopic: ['text-base font-bold leading-normal first-letter:uppercase'],
+    name: ['text-lg font-bold'],
+    topic: ['mb-2 text-lg font-bold'],
+    subtopic: ['text-base leading-normal'],
     content: ['text-base font-normal leading-tight'],
   },
 })
 
 const ResumeItem: React.FC<{
   content: React.ReactNode
-  topic: React.ReactNode
-}> = ({ topic, content }) => {
+  title: React.ReactNode
+}> = ({ title, content }) => {
   const classes = styles()
 
   return (
     <div>
-      <h2 className={classes.topic()}>{topic}</h2>
+      <h2 className={classes.topic()}>{title}</h2>
       <span className={classes.content()}>{content}</span>
     </div>
   )
@@ -29,154 +29,261 @@ const Resume: React.FC = () => {
 
   return (
     <div className='flex flex-col gap-6 p-8 font-calibri'>
-      <div className='flex flex-col items-center'>
+      <div className='flex flex-col'>
         <h1 className={name()}>FELIPE MATEUS GONÇALVES CRUZEIRO</h1>
-        <p className={content('text-center')}>25 anos</p>
-        <p className={content('text-center')}>Uberlândia/MG, Brasil</p>
-        <p className={content('text-center')}>felipe_dev08@hotmail.com</p>
-        <a
-          href={SOCIAL_LINKS.linkedIn}
-          target='_blank'
-          rel='noreferrer noopener'
-          className={content('text-center')}
-        >
-          linkedin.com/in/felipe-mateus-g
-        </a>
-        <a
-          href={SOCIAL_LINKS.github}
-          target='_blank'
-          rel='noreferrer noopener'
-          className={content('text-center')}
-        >
-          github.com/avulso17
-        </a>
-      </div>
+        <p className={content()}>Uberlândia/MG, Brasil</p>
+        <p className={content()}>
+          E-mail:{' '}
+          <a
+            href={SOCIAL_LINKS.linkedIn}
+            target='_blank'
+            rel='noreferrer noopener'
+            className='underline'
+          >
+            felipe_mateus08@hotmail.com
+          </a>
+        </p>
 
-      <ResumeItem topic='CARGO' content='Software Engineer' />
+        <p className={content()}>
+          LinkedIn:{' '}
+          <a
+            href={SOCIAL_LINKS.linkedIn}
+            target='_blank'
+            rel='noreferrer noopener'
+            className='underline'
+          >
+            linkedin.com/in/felipe-mateus-g
+          </a>
+        </p>
+
+        <p className={content()}>
+          GitHub:{' '}
+          <a
+            href={SOCIAL_LINKS.github}
+            target='_blank'
+            rel='noreferrer noopener'
+            className='underline'
+          >
+            github.com/avulso17
+          </a>
+        </p>
+
+        <p className={content()}>
+          Portfolio:{' '}
+          <a
+            href='https://felipe-mateus.com'
+            target='_blank'
+            rel='noreferrer noopener'
+            className='underline'
+          >
+            felipe-mateus.com
+          </a>
+        </p>
+      </div>
       <ResumeItem
-        topic='RESUMO PROFISSIONAL'
-        content='Sou desenvolvedor front-end pleno, apaixonado por criar soluções digitais que conectam funcionalidade e experiência de usuário. Especializado em React.js, TypeScript, Next.js e Node.js, possuo experiência no desenvolvimento de WebApps, LPs e SaaS. Em projetos anteriores, liderei refatoramentos que resultaram em aumento de performance, como redução de tempo de carregamento em até 60% e melhoria na produtividade da equipe. Busco oportunidades que unam criatividade, inovação e desafios complexos.'
+        title='🔍 Resumo'
+        content='Sou desenvolvedor front-end pleno com mais de 4 anos de experiência, com foco em performance, acessibilidade e interfaces responsivas. Especializado em React.js, Next.js e TypeScript, atuo com integração via APIs REST, SSR, otimização web e boas práticas de UI/UX. Domino o uso de design system, testes automatizados com React Testing Library e Jest, e estratégias de arquiteturas escaláveis. Busco oportunidades onde possa continuar entregando produtos eficientes, visualmente impecáveis e que entreguem real valor para as pessoas/clientes.'
       />
+
       <ResumeItem
-        topic='FORMAÇÃO ACADÊMICA'
-        content={
-          <ul className='list-inside list-disc pl-4'>
-            <li>
-              <b className='font-bold'>Engenharia da Computação </b>- Faculdade
-              Anhanguera, conclusão em 2023
-            </li>
-            <li>
-              <b className='font-bold'>Manutenção e Suporte em Informática </b>-
-              IFTM, conclusão em 2017
-            </li>
-          </ul>
-        }
-      />
-      <ResumeItem
-        topic='EXPERIÊNCIA PROFISSIONAL'
+        title='💼 Experiência'
         content={
           <>
-            <div className='mb-4'>
-              <h3 className={subtopic()}>Pigmo</h3>
-              <h4 className={subtopic()}>ago de 2023 - mai de 2024</h4>
-              <h5 className={subtopic()}>Software Engineer</h5>
-              <ul className='list-inside list-disc pl-4'>
-                <li>atual</li>
-              </ul>
-              <span>Stack: --</span>
-            </div>
-
-            <div className='mb-4'>
-              <h3 className={subtopic()}>Zeus Agrotech</h3>
-              <h4 className={subtopic()}>dez de 2022 - set de 2023</h4>
-              <h5 className={subtopic()}>Desenvolvedor Front-end Pleno</h5>
-              <ul className='list-inside list-disc pl-4'>
+            <div className='mb-6'>
+              <h3 className={subtopic()}>
+                <b>Pigmo</b> — Frontend Engineer
+              </h3>
+              <h4 className={subtopic()}>ago de 2023 - o momento</h4>
+              <ul className='my-2 list-inside list-disc pl-4'>
                 <li>
-                  Liderança técnica na definição de arquitetura frontend e
-                  seleção de tecnologias.
+                  Iniciei o projeto desde a concepção com os fundadores,
+                  liderando a criação da base de código e arquitetura do
+                  frontend.
                 </li>
                 <li>
-                  Redução de 50% no tempo de desenvolvimento de novas features
-                  com arquitetura de componentes reutilizáveis.
+                  Criei interfaces pixel perfect com alta fidelidade ao design
+                  system, consolidando excelente relação com o time de design.
                 </li>
                 <li>
-                  Recriação de sistema legado, com foco em performance e UX,
-                  utilizando microfrontends e stacks modernas.
+                  Implementei camadas de cache com React Query para requisições
+                  e https state, e estratégias de renderização com SSR do
+                  Next.js.
                 </li>
                 <li>
-                  Uso de Storybook para documentação e padronização visual dos
-                  componentes.
+                  Ajudei na refatoração completa para v2 do sistema, com aumento
+                  de performance de até 85% ao migrar de bibliotecas run-time
+                  para CSS puro e build-time styling.
+                </li>
+                <li>
+                  Traduzi todo o projeto já em produção para 16 linguagens,
+                  utilizando Next.js internationalization (i18n).
+                </li>
+                <li>
+                  Desenvolvimento em parceria com engenheiro sênior em sessões
+                  de pair programming, aprimorando tomada de decisão e qualidade
+                  arquitetural.
+                </li>
+                <li>
+                  Construí do zero um mini-app para o telegram, mini-game para
+                  impulsionar o lançamento da criptomoeda da empresa.
                 </li>
               </ul>
               <span>
-                Stack: React.js, Vite, Redux, Styled-Components, Stitches, SCSS,
-                Jest, Storybook, TailwindCSS, Radix
+                <b>Stack:</b> React 18, Next.js 14, TypeScript, REST APIs, CSS,
+                SCSS, Git, React Testing Library, SSR, Arquitetura de Software,
+                performance web, PageSpeed Insights, Google Lighthouse, Figma,
+                i18n, next-intl, Vite, ChakraUI, React Query
               </span>
             </div>
 
-            <div className='mb-4'>
-              <h3 className={subtopic()}>SolaLand</h3>
-              <h4 className={subtopic()}>mar de 2022 - nov de 2022</h4>
-              <h5 className={subtopic()}>Frontend Web Developer</h5>
-              <ul className='list-inside list-disc pl-4'>
+            <div className='mb-6'>
+              <h3 className={subtopic()}>
+                <b>Zeus Agrotech</b> — Desenvolvedor Front-end Pleno
+              </h3>
+              <h4 className={subtopic()}>dez de 2022 - set de 2023</h4>
+              <ul className='my-2 list-inside list-disc pl-4'>
                 <li>
-                  Criação de um Design System completo do zero, promovendo
-                  consistência e eficiência.
+                  Liderei tecnicamente na definição de arquitetura frontend e
+                  seleção de tecnologias.
                 </li>
                 <li>
-                  Desenvolvimento do primeiro dApp de soft staking da empresa.
+                  Reduzi em até 50% o tempo de desenvolvimento de novas
+                  funcionalidades ao estruturar um sistema de componentes com
+                  Storybook.
                 </li>
                 <li>
-                  Refatoramento de aplicações para otimizar performance e
-                  responsividade.
+                  Ajudei na refatoração de sistema legado com foco em
+                  performance e acessibilidade, implementando microfrontend para
+                  modularização.
                 </li>
                 <li>
-                  Mentoria de devs júnior e colaboração na definição de stack e
-                  boas práticas.
+                  Implementei testes unitários com React Testing Library + Jest
+                  para garantir estabilidade e manutenção do código.
+                </li>
+                <li>
+                  Colaborei diretamente com designers na evolução do design
+                  system da empresa.
                 </li>
               </ul>
               <span>
-                Stack: React.js, Next.js, Styled-Components, TailwindCSS,
-                Stitches, WebSockets, Jest, StoryBook
+                <b>Stack:</b> React, Redux, React Query, Styled-Components,
+                TailwindCSS, Stitches, SCSS, React Testing Library, Jest,
+                Storybook, Git, React Leaflet, Google Maps API
+              </span>
+            </div>
+
+            <div className='mb-6'>
+              <h3 className={subtopic()}>
+                <b>SolaLand</b> — Frontend Web Developer
+              </h3>
+              <h4 className={subtopic()}>mar de 2022 - nov de 2022</h4>
+              <ul className='my-2 list-inside list-disc pl-4'>
+                <li>
+                  Mentorei desenvolvedores juniores na adoção de boas práticas e
+                  alinhamento com os padrões dos produtos da empresa.
+                </li>
+                <li>
+                  Criei um Design System com foco em pixel perfect, performance
+                  web e acessibilidade, padronizando os componentes dos
+                  produtos.
+                </li>
+                <li>
+                  Construí o primeiro dApp (decentralized application) da
+                  empresa para soft staking de NFTs, com integração via APIs
+                  REST.
+                </li>
+                <li>
+                  Refatorei aplicações existentes para melhorar responsividade e
+                  manutenção.
+                </li>
+              </ul>
+              <span>
+                <b>Stack:</b> React, Next.js, Styled-Components, TailwindCSS,
+                WebSockets, Jest, Storybook, Git
               </span>
             </div>
 
             <div>
               <h3 className={subtopic()}>
-                Equals9 Empreendimentos e Participações S/A
+                <b>Equals9 Empreendimentos e Participações S/A</b> — Frontend
+                Web Developer & UX/UI
               </h3>
               <h4 className={subtopic()}>jul de 2021 - fev de 2022</h4>
-              <h5 className={subtopic()}>Frontend Web Developer & UX/UI</h5>
-              <ul className='list-inside list-disc pl-4'>
+              <ul className='my-2 list-inside list-disc pl-4'>
                 <li>
-                  Desenvolvimento integral do sistema EqualsVenue desde a
-                  arquitetura até a entrega final.
+                  Desenvolvi a Landing Page e ajudei na EqualsSports, integrando
+                  interfaces modernas e responsivas com foco em pixel perfect e
+                  responsividade.
                 </li>
                 <li>
-                  Transformei ideias do time em interfaces responsivas e
-                  intuitivas com Figma.
+                  Aprendi e apliquei conceitos de grid system e padrões de
+                  UI/UX.
                 </li>
                 <li>
-                  Implementação de componentes performáticos com foco em reuso e
-                  animações modernas.
+                  Transformei ideias em protótipos funcionais com Figma e grid
+                  responsivo.
+                </li>
+                <li>
+                  Desenvolvi a Equals Venue, plataforma de solução de
+                  pagamentos, desde sua concepção até a entrega.
                 </li>
               </ul>
-              <span>Stack: React.js, CSS, Sass/SCSS, Material UI, Figma</span>
+              <span>
+                <b>Stack:</b> React, CSS, Sass/SCSS, Material UI, Figma, Git
+              </span>
             </div>
           </>
         }
       />
       <ResumeItem
-        topic='IDIOMAS'
+        title='🛠 Stack Técnica'
         content={
-          <>
-            <p>Inglês - Fluente</p>
-            <p>Espanhol - Intermediário</p>
-          </>
+          <ul className='list-inside list-disc pl-4'>
+            <li>
+              <b>Linguagens:</b> JavaScript, TypeScript, Rust
+            </li>
+            <li>
+              <b>Frameworks e Bibliotecas:</b> React.js, Next.js, Vite, Angular,
+              Redux, Zustand, React Query
+            </li>
+            <li>
+              <b>DevOps e Ferramentas:</b> Git, CI/CD, observabilidade/logs,
+              Storybook, WebSocket
+            </li>
+            <li>
+              <b>Testes:</b> Jest, React Testing Library, Cypress
+            </li>
+            <li>
+              <b>Estilização e UI/UX:</b> CSS, SCSS, TailwindCSS, Styled
+              Components, Material UI, Design System, Pixel Perfect, Figma
+            </li>
+            <li>
+              <b>Outros:</b> REST APIs, GraphQL, Microsserviços, Mono Repo, SSR,
+              acessibilidade, PageSpeed Insights, Google Lighthouse, i18n,
+              next-intl
+            </li>
+          </ul>
         }
       />
       <ResumeItem
-        topic='FORMAÇÃO COMPLEMENTAR'
+        title='📍 Formação Acadêmica'
+        content={
+          <ul className='list-inside list-disc pl-4'>
+            <li>
+              <b>Bacharel em Engenharia da Computação</b> — Faculdade Pitágoras
+              (2018 - atual)
+            </li>
+            <li>
+              <b className='font-bold'>
+                Técnico em Manutenção e Suporte em Informática{' '}
+              </b>
+              — IFTM (2015 - 2017)
+            </li>
+          </ul>
+        }
+      />
+      <ResumeItem
+        title='🎓 Certificações e Cursos'
         content={
           <ul className='list-inside list-disc px-4'>
             <li>
@@ -195,19 +302,36 @@ const Resume: React.FC = () => {
         }
       />
       <ResumeItem
-        topic='INFORMAÇÕES ADICIONAIS'
+        title='🌍 Idiomas'
         content={
-          <>
-            <p>Mobilidade total para mudanças de estado</p>
-            <p>
+          <ul className='list-inside list-disc pl-4'>
+            <li>
+              <b>Português:</b> Nativo
+            </li>
+            <li>
+              <b>Inglês:</b> Avançado
+            </li>
+            <li>
+              <b>Espanhol:</b> Intermediário
+            </li>
+          </ul>
+        }
+      />
+      <ResumeItem
+        title='INFORMAÇÕES ADICIONAIS'
+        content={
+          <ul className='list-inside list-disc pl-4'>
+            <li>Mobilidade total para mudanças de estado</li>
+            <li>
               Preferência pelo modelo de trabalho remoto e flexível para os
               modelos híbrido/presencial
-            </p>
-            <p>
+            </li>
+            <li>
               Conhecimento em renderização 3D, Blender, React Three Fiber e
               Three.js
-            </p>
-          </>
+            </li>
+            <li>Experiência em desenvolvimento de jogos</li>
+          </ul>
         }
       />
     </div>
