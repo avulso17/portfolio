@@ -1,7 +1,7 @@
 'use client'
 
 import sendEmail from '@/app/contact/actions/sendEmail'
-import { Separator } from '@/components/ui/Separator'
+import Separator from '@/components/ui/Separator'
 import { TextField } from '@/components/ui/TextField'
 import { cn } from '@/lib/utils/cn'
 import { useState, useTransition } from 'react'

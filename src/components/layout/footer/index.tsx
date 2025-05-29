@@ -1,5 +1,5 @@
 import LogoSvg from '@/assets/Logo'
-import { Separator } from '@/components/ui/Separator'
+import Separator from '@/components/ui/Separator'
 import { SOCIAL_LINKS } from '@/constants/social'
 import FooterLinkButton from './FooterLinkButton'
 
@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       id='footer'
       className='relative flex w-full flex-col-reverse justify-between gap-12 py-8 tablet:flex-row tablet:gap-0 tablet:pb-10 tablet:pt-[4.625rem]'
     >
-      <Separator alpha className='absolute top-0 !w-screen absolute-center-x' />
+      <Separator alpha screen />
 
       <div className='flex flex-col gap-4'>
         <LogoSvg className='h-[60px] w-[92px]' />

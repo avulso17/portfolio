@@ -1,4 +1,4 @@
-import { Separator } from './Separator'
+import Separator from './Separator'
 
 type HeaderProps = {
   subtitle?: string

@@ -1,36 +1,39 @@
-'use client'
-
-import { twMerge } from 'tailwind-merge'
-
-import { Root, SeparatorProps } from '@radix-ui/react-separator'
+import { cn } from '@/lib/utils/cn'
+import { SeparatorProps } from '@radix-ui/react-separator'
 
 type SeparatorTypes = SeparatorProps & {
   alpha?: boolean
   screen?: boolean
 }
 
-export const Separator = ({
-  alpha = false,
-  asChild = false,
-  className,
+const Separator: React.FC<SeparatorTypes> = ({
+  alpha,
   children,
-  orientation,
+  className,
   decorative,
-}: SeparatorTypes): React.ReactElement => {
+  orientation = 'horizontal',
+  screen,
+}) => {
   return (
-    <Root
-      data-alpha={alpha}
-      className={twMerge(
-        `bg-white data-[alpha=true]:opacity-10`,
-        'data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full',
-        'data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px',
+    <div
+      role='separator'
+      className={cn(
+        [
+          `bg-white data-[alpha=true]:opacity-10`,
+          'data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full',
+          'data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px',
+          'data-[screen=true]:absolute data-[screen=true]:top-0 data-[screen=true]:w-screen data-[screen=true]:absolute-center-x',
+        ],
         className
       )}
-      asChild={asChild}
-      decorative={decorative}
-      orientation={orientation}
+      data-alpha={alpha}
+      data-decorative={decorative}
+      data-orientation={orientation}
+      data-screen={screen}
     >
       {children}
-    </Root>
+    </div>
   )
 }
+
+export default Separator
