@@ -94,7 +94,7 @@ const Resume: React.FC = () => {
                 <b>Pigmo</b> — Frontend Engineer
               </h3>
               <h4 className={subtopic()}>ago de 2023 - o momento</h4>
-              <ul className='my-2 list-inside list-disc pl-4'>
+              <ul className='my-2 list-inside list-disc pl-8'>
                 <li>
                   Iniciei o projeto desde a concepção com os fundadores,
                   liderando a criação da base de código e arquitetura do
@@ -141,7 +141,7 @@ const Resume: React.FC = () => {
                 <b>Zeus Agrotech</b> — Desenvolvedor Front-end Pleno
               </h3>
               <h4 className={subtopic()}>dez de 2022 - set de 2023</h4>
-              <ul className='my-2 list-inside list-disc pl-4'>
+              <ul className='my-2 list-outside list-disc pl-8'>
                 <li>
                   Liderei tecnicamente na definição de arquitetura frontend e
                   seleção de tecnologias.
@@ -177,7 +177,7 @@ const Resume: React.FC = () => {
                 <b>SolaLand</b> — Frontend Web Developer
               </h3>
               <h4 className={subtopic()}>mar de 2022 - nov de 2022</h4>
-              <ul className='my-2 list-inside list-disc pl-4'>
+              <ul className='my-2 list-outside list-disc pl-8'>
                 <li>
                   Mentorei desenvolvedores juniores na adoção de boas práticas e
                   alinhamento com os padrões dos produtos da empresa.
@@ -209,7 +209,7 @@ const Resume: React.FC = () => {
                 Web Developer & UX/UI
               </h3>
               <h4 className={subtopic()}>jul de 2021 - fev de 2022</h4>
-              <ul className='my-2 list-inside list-disc pl-4'>
+              <ul className='my-2 list-outside list-disc pl-8'>
                 <li>
                   Desenvolvi a Landing Page e ajudei na EqualsSports, integrando
                   interfaces modernas e responsivas com foco em pixel perfect e
@@ -238,7 +238,7 @@ const Resume: React.FC = () => {
       <ResumeItem
         title='🛠 Stack Técnica'
         content={
-          <ul className='list-inside list-disc pl-4'>
+          <ul className='list-outside list-disc pl-8'>
             <li>
               <b>Linguagens:</b> JavaScript, TypeScript, Rust
             </li>
@@ -268,7 +268,7 @@ const Resume: React.FC = () => {
       <ResumeItem
         title='📍 Formação Acadêmica'
         content={
-          <ul className='list-inside list-disc pl-4'>
+          <ul className='list-outside list-disc pl-8'>
             <li>
               <b>Bacharel em Engenharia da Computação</b> — Faculdade Pitágoras
               (2018 - atual)
@@ -285,7 +285,7 @@ const Resume: React.FC = () => {
       <ResumeItem
         title='🎓 Certificações e Cursos'
         content={
-          <ul className='list-inside list-disc px-4'>
+          <ul className='list-outside list-disc px-4'>
             <li>
               HTML5 e CSS3: Técnicas Avançadas (Com Flexbox e 5 Projetos) -
               Udemy
@@ -304,7 +304,7 @@ const Resume: React.FC = () => {
       <ResumeItem
         title='🌍 Idiomas'
         content={
-          <ul className='list-inside list-disc pl-4'>
+          <ul className='list-outside list-disc pl-8'>
             <li>
               <b>Português:</b> Nativo
             </li>
@@ -320,7 +320,7 @@ const Resume: React.FC = () => {
       <ResumeItem
         title='INFORMAÇÕES ADICIONAIS'
         content={
-          <ul className='list-inside list-disc pl-4'>
+          <ul className='list-outside list-disc pl-8'>
             <li>Mobilidade total para mudanças de estado</li>
             <li>
               Preferência pelo modelo de trabalho remoto e flexível para os
