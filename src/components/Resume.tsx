@@ -28,7 +28,7 @@ const Resume: React.FC = () => {
   const { content, subtopic, name } = styles()
 
   return (
-    <div className='flex flex-col gap-6 p-8 font-calibri'>
+    <div className='flex flex-col gap-6 font-calibri mobile:p-8'>
       <div className='flex flex-col'>
         <h1 className={name()}>FELIPE MATEUS GONÇALVES CRUZEIRO</h1>
         <p className={content()}>Uberlândia/MG, Brasil</p>
