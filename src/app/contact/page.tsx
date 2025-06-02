@@ -1,12 +1,9 @@
+import { Header } from '@/components/ui/Header'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import ContactSocialButtonGroup from './components/ContactSocialButtonGroup'
 
-import ContactSocialButtonGroup from '@/components/sections/contact/ContactSocialButtonGroup'
-import { Header } from '@/components/ui/Header'
-
-const Form = dynamic(
-  () => import('@/components/sections/contact/ContactWindow')
-)
+const Form = dynamic(() => import('./components/ContactWindow'))
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -77,9 +74,9 @@ export const metadata: Metadata = {
   },
 }
 
-export default function ContactPage() {
+const ContactPage: React.FC = () => {
   return (
-    <main className='w-full'>
+    <main>
       <Header
         title='Get in touch'
         subtitle='Let&rsquo;s build something awesome.'
@@ -92,3 +89,5 @@ export default function ContactPage() {
     </main>
   )
 }
+
+export default ContactPage

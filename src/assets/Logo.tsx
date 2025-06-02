@@ -1,6 +1,6 @@
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-export default function LogoSvg(props: SVGProps) {
+const LogoSvg: React.FC<SVGProps> = (props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -23,3 +23,5 @@ export default function LogoSvg(props: SVGProps) {
     </svg>
   )
 }
+
+export default LogoSvg

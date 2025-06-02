@@ -1,5 +1,7 @@
 import { Header } from '@/components/ui/Header'
-import BookshelfGrid from './BookshelfGrid'
+import { Suspense } from 'react'
+import BookshelfItems from './components/BookshelfItems'
+import BookshelfLoading from './components/BookshelfLoading'
 
 const BookshelfPage: React.FC = () => {
   return (
@@ -8,7 +10,9 @@ const BookshelfPage: React.FC = () => {
         title='Bookshelf'
         subtitle='Books and pieces of wisdom I&rsquo;ve enjoyed reading.'
       />
-      <BookshelfGrid />
+      <Suspense fallback={<BookshelfLoading />}>
+        <BookshelfItems />
+      </Suspense>
     </main>
   )
 }

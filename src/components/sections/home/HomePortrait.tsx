@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge'
 
 type HomePortraitProps = React.ComponentProps<'div'>
 
-export default function HomePortrait({ className }: HomePortraitProps) {
+const HomePortrait: React.FC<HomePortraitProps> = ({ className }) => {
   return (
     <motion.div
       initial={{
@@ -36,3 +36,5 @@ export default function HomePortrait({ className }: HomePortraitProps) {
     </motion.div>
   )
 }
+
+export default HomePortrait

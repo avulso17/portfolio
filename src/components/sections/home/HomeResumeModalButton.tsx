@@ -6,7 +6,7 @@ import {
   ModalTrigger,
 } from '@/components/ui/AnimatedModal'
 
-export default function HomeResumeModalButton() {
+const HomeResumeModalButton: React.FC = () => {
   return (
     <Modal>
       <ModalTrigger className='group/modal-btn w-full overflow-hidden mobile:w-fit'>
@@ -26,3 +26,5 @@ export default function HomeResumeModalButton() {
     </Modal>
   )
 }
+
+export default HomeResumeModalButton

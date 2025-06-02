@@ -4,8 +4,6 @@ import { ComponentProps, forwardRef } from 'react'
 
 import { tv, type VariantProps } from 'tailwind-variants'
 
-import * as Label from '@radix-ui/react-label'
-
 const textFieldStyles = tv({
   slots: {
     wrapper: 'flex w-full items-center gap-2',
@@ -72,9 +70,9 @@ const TextField = forwardRef<HTMLInputElement, ITextField>(
     return (
       <div className={wrapper({ className })}>
         {label !== undefined && (
-          <Label.Root className={labelStyles()} htmlFor={id}>
+          <label className={labelStyles()} htmlFor={id}>
             {label}
-          </Label.Root>
+          </label>
         )}
 
         <input

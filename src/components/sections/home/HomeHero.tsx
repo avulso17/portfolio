@@ -1,13 +1,9 @@
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-
 import { Button } from '@/components/ui/Button'
 import { TextGenerateEffect } from '@/components/ui/TextGeneratorEffect'
+import Link from 'next/link'
 import ResumeModalButton from './HomeResumeModalButton'
 
-const HomePortrait = dynamic(() => import('./HomePortrait'))
-
-export default function HomeHero() {
+const HomeHero: React.FC = () => {
   return (
     <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-14 mobile:mb-[20.625rem] mobile:gap-10 mobile:pt-0'>
       <h1 className='mb-4 w-fit whitespace-nowrap font-extrabold mobile:mb-0'>
@@ -35,8 +31,8 @@ export default function HomeHero() {
           </Button>
         </Link>
       </div>
-
-      {/* <HomePortrait className='absolute -top-10 left-[570px] -z-10 hidden wide:flex' /> */}
     </div>
   )
 }
+
+export default HomeHero

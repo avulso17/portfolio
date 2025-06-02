@@ -1,10 +1,9 @@
+import ProjectsCard from '@/app/projects/components/ProjectsCard'
 import { works } from '@/configs/works'
-
-import ProjectCard from '../work/WorkProjectCard'
 
 const selectedWorks = works.slice(0, 3)
 
-export default function HomeSelectedWorkSection() {
+const HomeSelectedWorkSection: React.FC = () => {
   return (
     <>
       <h2 className='mb-8 header'>Selected Work</h2>
@@ -12,7 +11,7 @@ export default function HomeSelectedWorkSection() {
         {selectedWorks.map(
           ({ icon, image, title, description, url, screenshotView }, index) => (
             <li key={index}>
-              <ProjectCard
+              <ProjectsCard
                 iconSrc={icon}
                 title={title}
                 description={description}
@@ -27,3 +26,5 @@ export default function HomeSelectedWorkSection() {
     </>
   )
 }
+
+export default HomeSelectedWorkSection

@@ -1,10 +1,9 @@
-import { Metadata } from 'next'
-
-import TechStackAppsList from '@/components/sections/tech-stack/TechStackAppsList'
-import TechStackGamesList from '@/components/sections/tech-stack/TechStackGamesList'
-import TechStackHardwareList from '@/components/sections/tech-stack/TechStackHardwareList'
-import TechStackToolsList from '@/components/sections/tech-stack/TechStackToolsList'
 import { Header } from '@/components/ui/Header'
+import { Metadata } from 'next'
+import TechStackAppsList from './TechStackAppsList'
+import TechStackGamesList from './TechStackGamesList'
+import TechStackHardwareList from './TechStackHardwareList'
+import TechStackToolsList from './TechStackToolsList'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -70,7 +69,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function TechStacksPage() {
+const TechStacksPage: React.FC = () => {
   return (
     <main className='w-full'>
       <Header
@@ -90,3 +89,5 @@ export default function TechStacksPage() {
     </main>
   )
 }
+
+export default TechStacksPage

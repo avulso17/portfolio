@@ -1,0 +1,17 @@
+type SVGProps = React.SVGProps<SVGSVGElement>
+
+const UserFillIcon: React.FC<SVGProps> = ({ children, ...props }) => {
+  return (
+    <svg viewBox='0 0 24 24' height='1em' width='1em' fill='none' {...props}>
+      <path
+        d='M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm0 8H8a4 4 0 0 0-4 4 2 2 0 0 0 2 2h12a2 2 0 0 0 2-2 4 4 0 0 0-4-4Z'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='2'
+        stroke='currentColor'
+      />
+    </svg>
+  )
+}
+
+export default UserFillIcon

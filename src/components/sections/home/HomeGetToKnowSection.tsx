@@ -1,12 +1,10 @@
 'use client'
 
-import Link from 'next/link'
-
 import { motion } from 'framer-motion'
-
+import Link from 'next/link'
 import Widget from './HomeWidget'
 
-export default function HomeGetToKnowSection() {
+const HomeGetToKnowSection: React.FC = () => {
   return (
     <>
       <h2 className='mb-8 header'>Get to know me</h2>
@@ -75,3 +73,5 @@ export default function HomeGetToKnowSection() {
     </>
   )
 }
+
+export default HomeGetToKnowSection
