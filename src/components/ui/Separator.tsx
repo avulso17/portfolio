@@ -1,8 +1,10 @@
 import { cn } from '@/lib/utils/cn'
-import { SeparatorProps } from '@radix-ui/react-separator'
 
-type SeparatorTypes = SeparatorProps & {
+type SeparatorTypes = {
   alpha?: boolean
+  children?: React.ReactNode
+  className?: string
+  orientation?: 'horizontal' | 'vertical'
   screen?: boolean
 }
 
@@ -10,7 +12,6 @@ const Separator: React.FC<SeparatorTypes> = ({
   alpha,
   children,
   className,
-  decorative,
   orientation = 'horizontal',
   screen,
 }) => {
@@ -27,7 +28,6 @@ const Separator: React.FC<SeparatorTypes> = ({
         className
       )}
       data-alpha={alpha}
-      data-decorative={decorative}
       data-orientation={orientation}
       data-screen={screen}
     >
