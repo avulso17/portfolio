@@ -1,5 +1,8 @@
 'use client'
 
+import { cn } from '@/lib/utils/cn'
+import { Portal } from '@radix-ui/react-portal'
+import { AnimatePresence, motion } from 'framer-motion'
 import React, {
   ReactNode,
   createContext,
@@ -8,11 +11,6 @@ import React, {
   useRef,
   useState,
 } from 'react'
-
-import { Portal } from '@radix-ui/react-portal'
-
-import { cn } from '@/lib/utils/cn'
-import { AnimatePresence, motion } from 'framer-motion'
 import { Button } from './Button'
 
 interface ModalContextType {

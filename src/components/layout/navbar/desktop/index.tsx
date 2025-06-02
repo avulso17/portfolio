@@ -1,7 +1,7 @@
 import LogoSvg from '@/assets/Logo'
 import GitHubIcon from '@/components/icons/GitHub'
-import InstagramIcon from '@/components/icons/Instagram'
 import LinkedInIcon from '@/components/icons/LinkedIn'
+import YouTubeIcon from '@/components/icons/YouTube'
 import { Button } from '@/components/ui/Button'
 import { SOCIAL_LINKS } from '@/constants/social'
 import Link from 'next/link'
@@ -56,11 +56,11 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
           <LinkedInIcon />
         </Link>
         <Link
-          href={SOCIAL_LINKS.instagram}
+          href={SOCIAL_LINKS.youTube}
           className={iconButtonStyles()}
           target='_blank'
         >
-          <InstagramIcon />
+          <YouTubeIcon />
         </Link>
         <Link
           href={SOCIAL_LINKS.github}
