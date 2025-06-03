@@ -6,14 +6,13 @@ import Headset from '@/assets/images/hardware/HyperXCloudAlphaS.png'
 import Mouse from '@/assets/images/hardware/HyperXPulsefireSurgeRGB.png'
 import Smartphone from '@/assets/images/hardware/IphoneX.png'
 import Monitor from '@/assets/images/hardware/MSI_G24.png'
-import Console from '@/assets/images/hardware/Nintendo3DS.png'
-import Nitro5 from '@/assets/images/hardware/Nitro5.png'
+import MacBookProM1 from '@/assets/images/hardware/MacbookProM1.png'
 
 export const hardware = [
   {
-    image: Nitro5,
-    name: 'Acer Nitro 5',
-    link: 'https://www.acer.com/br-pt/laptops/nitro/nitro-5',
+    image: MacBookProM1,
+    name: "MacBook Pro M1 16'",
+    link: 'https://www.amazon.com.br/dp/B09L5BKB6B',
   },
   {
     image: Mouse,
@@ -49,11 +48,6 @@ export const hardware = [
     image: Watch,
     name: 'Apple Watch Series 3',
     link: 'https://support.apple.com/en-us/111891',
-  },
-  {
-    image: Console,
-    name: 'Nintendo 3DS XL',
-    link: 'https://www.nintendo.com/pt-pt/Consolas-e-acessorios/Familia-Nintendo-3DS/Familia-Nintendo-3DS-94560.html',
   },
   {
     image: Chair,

@@ -1,6 +1,6 @@
 import { Header } from '@/components/ui/Header'
 import { Metadata } from 'next'
-import NotebookPageWrapper from './NotebookPageWrapper'
+import NotebookPageWrapper from './_components/NotebookPageWrapper'
 
 export const metadata: Metadata = {
   generator: 'Next.js',

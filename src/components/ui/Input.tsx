@@ -34,13 +34,14 @@ type InputVariantProps = VariantProps<typeof styles>
 
 export type InputProps = React.ComponentProps<'input'> & InputVariantProps
 
-const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { className, variant, ...props },
-  ref
-) {
-  return (
-    <input ref={ref} className={styles({ variant, className })} {...props} />
-  )
-})
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, variant, ...props }, ref) => {
+    return (
+      <input ref={ref} className={styles({ variant, className })} {...props} />
+    )
+  }
+)
+
+Input.displayName = 'Input'
 
 export default Input

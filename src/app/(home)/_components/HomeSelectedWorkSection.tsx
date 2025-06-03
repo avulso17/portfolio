@@ -1,4 +1,4 @@
-import ProjectsCard from '@/app/projects/components/ProjectsCard'
+import ProjectsCard from '@/app/projects/_components/ProjectsCard'
 import { works } from '@/configs/works'
 
 const selectedWorks = works.slice(0, 3)

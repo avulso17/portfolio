@@ -1,9 +1,9 @@
 import { Header } from '@/components/ui/Header'
 import { Metadata } from 'next'
-import TechStackAppsList from './TechStackAppsList'
-import TechStackGamesList from './TechStackGamesList'
-import TechStackHardwareList from './TechStackHardwareList'
-import TechStackToolsList from './TechStackToolsList'
+import TechStackAppsList from './_components/TechStackAppsList'
+import TechStackGamesList from './_components/TechStackGamesList'
+import TechStackHardwareList from './_components/TechStackHardwareList'
+import TechStackToolsList from './_components/TechStackToolsList'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
