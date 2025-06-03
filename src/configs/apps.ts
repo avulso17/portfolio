@@ -1,17 +1,30 @@
 import ChatGPTImage from '@/assets/images/apps/ChatGPT.png'
+import ClaudeImage from '@/assets/images/apps/Claude.png'
 import DiscordImage from '@/assets/images/apps/Discord.png'
 import DuolingImage from '@/assets/images/apps/Duolingo.png'
+import GeminiImage from '@/assets/images/apps/Gemini.png'
 import NotionImage from '@/assets/images/apps/Notion.png'
 import SlackImage from '@/assets/images/apps/Slack.png'
 import SpotifyImage from '@/assets/images/apps/Spotify.png'
-import TwitchImage from '@/assets/images/apps/Twitch.png'
 
 export const apps = [
   {
     image: ChatGPTImage,
     name: 'ChatGPT',
-    type: 'Productivity',
+    type: 'Productivity + AI',
     link: 'https://openai.com/index/chatgpt/',
+  },
+  {
+    image: ClaudeImage,
+    name: 'Claude',
+    type: 'Productivity + AI',
+    link: 'https://claude.ai/',
+  },
+  {
+    image: GeminiImage,
+    name: 'Google Gemini',
+    type: 'Productivity + AI',
+    link: 'https://gemini.google.com/',
   },
   {
     image: DiscordImage,
@@ -42,11 +55,5 @@ export const apps = [
     name: 'Slack',
     type: 'Comunication',
     link: 'https://slack.com/',
-  },
-  {
-    image: TwitchImage,
-    name: 'Twitch',
-    type: 'Entertainment',
-    link: 'https://www.twitch.tv/',
   },
 ]

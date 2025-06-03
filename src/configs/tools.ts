@@ -14,6 +14,7 @@ import VSCodeImage from '@/assets/images/tools/VSCode.png'
 import VercelImage from '@/assets/images/tools/Vercel.png'
 import ZodImage from '@/assets/images/tools/Zod.png'
 import ZustandImage from '@/assets/images/tools/Zustand.png'
+import CursorImage from '@/assets/images/tools/cursor_editor_logo.webp'
 
 export const tools = [
   {
@@ -45,6 +46,12 @@ export const tools = [
     name: 'Vercel',
     type: 'Deployment',
     link: 'https://vercel.com/',
+  },
+  {
+    image: CursorImage,
+    name: 'Cursor',
+    type: 'Editor + AI',
+    link: 'https://www.cursor.com/',
   },
   {
     image: VSCodeImage,
