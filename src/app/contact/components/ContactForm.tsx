@@ -5,26 +5,19 @@ import Separator from '@/components/ui/Separator'
 import { TextField } from '@/components/ui/TextField'
 import { cn } from '@/lib/utils/cn'
 import { useState, useTransition } from 'react'
-import ContactMessageSentOverlay, {
-  type SentStatus,
-} from './ContactMessageSentOverlay'
+import ContactFormMessage from './ContactFormMessage'
 import ContactSubmitButton from './ContactSubmitButton'
 
 export type Errors = {
-  email?: string[] | undefined
-  name?: string[] | undefined
-  subject?: string[] | undefined
-  text?: string[] | undefined
+  email?: string[]
+  name?: string[]
+  subject?: string[]
+  text?: string[]
 }
 
 type ErrorsKeys = keyof Errors
 
-export type ContactNewMessageFormProps = React.ComponentProps<'form'>
-
-const ContactNewMessageForm: React.FC<ContactNewMessageFormProps> = ({
-  className,
-  ...props
-}) => {
+const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<string | undefined>(undefined)
   const [errors, setErrors] = useState<Errors>({})
 
@@ -74,10 +67,8 @@ const ContactNewMessageForm: React.FC<ContactNewMessageFormProps> = ({
         action={submitAction}
         className={cn([
           'flex w-full flex-col gap-6 px-4 pt-6',
-          'mobile:gap-8 mobile:px-8 mobile:py-[0.625rem]',
-          className,
+          'mobile:gap-8 mobile:px-8 mobile:py-2.5',
         ])}
-        {...props}
       >
         <div className='h-fit w-full'>
           <TextField
@@ -144,10 +135,10 @@ const ContactNewMessageForm: React.FC<ContactNewMessageFormProps> = ({
       </form>
 
       {status ? (
-        <ContactMessageSentOverlay status={status as SentStatus} />
+        <ContactFormMessage status={status as 'success' | 'error'} />
       ) : null}
     </>
   )
 }
 
-export default ContactNewMessageForm
+export default ContactForm

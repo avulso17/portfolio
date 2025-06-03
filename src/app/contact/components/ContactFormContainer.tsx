@@ -1,10 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import MacOSControlBar from './ContactMacOSControlBar'
-import Form from './ContactNewMessageForm'
+import ContactControlBar from './ContactControlBar'
+import ContactForm from './ContactForm'
 
-const ContactWindow: React.FC = () => {
+const ContactFormContainer: React.FC = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 70, rotateX: '-35deg' }}
@@ -12,10 +12,10 @@ const ContactWindow: React.FC = () => {
       transition={{ ease: 'easeIn' }}
       className='relative flex w-full flex-col overflow-hidden rounded-xl border border-card-border bg-onyx pb-5'
     >
-      <MacOSControlBar />
-      <Form />
+      <ContactControlBar />
+      <ContactForm />
     </motion.div>
   )
 }
 
-export default ContactWindow
+export default ContactFormContainer
