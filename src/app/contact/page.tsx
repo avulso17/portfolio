@@ -3,7 +3,9 @@ import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import ContactSocialButtonGroup from './components/ContactSocialButtonGroup'
 
-const Form = dynamic(() => import('./components/ContactWindow'))
+const ContactFormContainer = dynamic(
+  () => import('./components/ContactFormContainer')
+)
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -83,7 +85,7 @@ const ContactPage: React.FC = () => {
       />
 
       <div className='mb-20 mt-8 w-full mobile:mt-16'>
-        <Form />
+        <ContactFormContainer />
         <ContactSocialButtonGroup />
       </div>
     </main>
