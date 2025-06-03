@@ -1,14 +1,14 @@
-import HomeHero from '@/components/sections/home/HomeHero'
+import HomeHero from '@/app/(home)/_components/HomeHero'
 import dynamic from 'next/dynamic'
 
 const HomeSelectedWorkSection = dynamic(
-  () => import('@/components/sections/home/HomeSelectedWorkSection')
+  () => import('@/app/(home)/_components/HomeSelectedWorkSection')
 )
 const HomeGetToKnowSection = dynamic(
-  () => import('@/components/sections/home/HomeGetToKnowSection')
+  () => import('@/app/(home)/_components/HomeGetToKnowSection')
 )
 const HomeGetInTouchSection = dynamic(
-  () => import('@/components/sections/home/HomeGetInTouchSection')
+  () => import('@/app/(home)/_components/HomeGetInTouchSection')
 )
 
 const HomePage: React.FC = () => {

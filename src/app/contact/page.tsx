@@ -1,10 +1,10 @@
 import { Header } from '@/components/ui/Header'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import ContactSocialButtonGroup from './components/ContactSocialButtonGroup'
+import ContactSocialButtonGroup from './_components/ContactSocialButtonGroup'
 
 const ContactFormContainer = dynamic(
-  () => import('./components/ContactFormContainer')
+  () => import('./_components/ContactFormContainer')
 )
 
 export const metadata: Metadata = {

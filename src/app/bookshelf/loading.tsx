@@ -1,4 +1,4 @@
-import BookshelfLoading from './components/BookshelfLoading'
+import BookshelfLoading from './_components/BookshelfLoading'
 
 const BookShelfLoadingPage: React.FC = () => {
   return <BookshelfLoading />

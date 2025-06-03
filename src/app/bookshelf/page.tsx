@@ -1,5 +1,5 @@
-import { fetchBookshelf } from './actions/fetchBookshelf'
-import BookshelfItems from './components/BookshelfItems'
+import { fetchBookshelf } from './_actions/fetchBookshelf'
+import BookshelfItems from './_components/BookshelfItems'
 
 const BookshelfPage: React.FC = async () => {
   const { books } = await fetchBookshelf()

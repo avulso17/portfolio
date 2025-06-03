@@ -2,7 +2,7 @@
 
 import { Resend } from 'resend'
 import { z } from 'zod'
-import { ContactEmailTemplate } from '../components/ContactEmailTemplate'
+import { ContactEmailTemplate } from '../_components/ContactEmailTemplate'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -32,9 +32,6 @@ export default async function sendEmail(formData: FormData) {
     text: rawFormData['text'],
   })
 
-  console.log(validatedFields)
-
-  // Return early if the form data is invalid
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
