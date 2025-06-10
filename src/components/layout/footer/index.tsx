@@ -25,10 +25,18 @@ const Footer: React.FC = () => {
       <div className='flex flex-col gap-10 tablet:flex-row tablet:gap-28'>
         <div className='flex w-fit flex-col gap-1'>
           <b className='mb-4 font-bold'>Links</b>
-          <FooterLinkButton href='/about' label='About' />
-          <FooterLinkButton href='/projects' label='Projects' />
-          <FooterLinkButton href='/tech-stack' label='Tech Stack' />
-          <FooterLinkButton href='/contact' label='Contact' />
+          <FooterLinkButton href='/about' label='About'>
+            About
+          </FooterLinkButton>
+          <FooterLinkButton href='/projects' label='Projects'>
+            Projects
+          </FooterLinkButton>
+          <FooterLinkButton href='/tech-stack' label='Tech Stack'>
+            Tech Stack
+          </FooterLinkButton>
+          <FooterLinkButton href='/contact' label='Contact'>
+            Contact
+          </FooterLinkButton>
         </div>
 
         <div className='flex flex-col gap-1'>
@@ -37,28 +45,40 @@ const Footer: React.FC = () => {
             href={SOCIAL_LINKS.email}
             label='Email'
             target='_blank'
-          />
+          >
+            Email
+          </FooterLinkButton>
           <FooterLinkButton
             href={SOCIAL_LINKS.linkedIn}
             label='LinkedIn'
             target='_blank'
-          />
+          >
+            LinkedIn
+          </FooterLinkButton>
           <FooterLinkButton
             href={SOCIAL_LINKS.github}
             label='GitHub'
             target='_blank'
-          />
-          <FooterLinkButton href={SOCIAL_LINKS.x} label='X' target='_blank' />
+          >
+            GitHub
+          </FooterLinkButton>
+          <FooterLinkButton href={SOCIAL_LINKS.x} label='X' target='_blank'>
+            X
+          </FooterLinkButton>
           <FooterLinkButton
             href={SOCIAL_LINKS.discord}
             label='Discord'
             target='_blank'
-          />
+          >
+            Discord
+          </FooterLinkButton>
           <FooterLinkButton
             href={SOCIAL_LINKS.youTube}
             label='YouTube'
             target='_blank'
-          />
+          >
+            YouTube
+          </FooterLinkButton>
         </div>
       </div>
     </footer>

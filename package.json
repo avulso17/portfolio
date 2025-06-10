@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@fontsource/nanum-pen-script": "^5.0.7",
-    "@radix-ui/react-portal": "^1.1.1",
     "@react-email/components": "0.0.17",
     "@react-email/render": "0.0.13",
     "@supabase/ssr": "^0.6.1",
