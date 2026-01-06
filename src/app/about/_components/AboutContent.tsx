@@ -1,4 +1,5 @@
 import SendIcon from '@/components/icons/Send'
+import ShareIcon from '@/components/icons/Share'
 import { Button } from '@/components/ui/Button'
 import { SOCIAL_LINKS } from '@/constants/social'
 import { cn } from '@/lib/utils/cn'
@@ -120,7 +121,7 @@ const AboutContent: React.FC = () => {
             className='text-white underline font-inherit'
             target='_blank'
           >
-            e-mail
+            e-mail <ShareIcon className='inline text-base' />
           </Link>
           , or follow me on{' '}
           <Link
@@ -128,7 +129,7 @@ const AboutContent: React.FC = () => {
             className='text-white underline font-inherit'
             target='_blank'
           >
-            X.
+            X <ShareIcon className='inline text-base' />.
           </Link>{' '}
           Want to see where I&rsquo;ve worked? Check out my <AboutResumeModal />
           , or Connect with me on{' '}
@@ -137,7 +138,7 @@ const AboutContent: React.FC = () => {
             className='text-white underline font-inherit'
             target='_blank'
           >
-            LinkedIn
+            LinkedIn <ShareIcon className='inline text-base' />
           </Link>
           .
         </span>

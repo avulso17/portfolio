@@ -4,7 +4,7 @@ import { tv } from 'tailwind-variants'
 const styles = tv({
   slots: {
     name: ['text-lg font-bold'],
-    topic: ['mb-2 text-lg font-bold'],
+    title: ['mb-2 text-lg font-bold'],
     subtopic: ['text-base leading-normal'],
     content: ['text-base font-normal leading-tight'],
   },
@@ -12,13 +12,13 @@ const styles = tv({
 
 const ResumeItem: React.FC<{
   content: React.ReactNode
-  title: React.ReactNode
+  title?: React.ReactNode
 }> = ({ title, content }) => {
   const classes = styles()
 
   return (
     <div>
-      <h2 className={classes.topic()}>{title}</h2>
+      {title && <h2 className={classes.title()}>{title}</h2>}
       <span className={classes.content()}>{content}</span>
     </div>
   )
@@ -81,14 +81,60 @@ const Resume: React.FC = () => {
         </p>
       </div>
       <ResumeItem
-        title='🔍 Resumo'
-        content='Sou desenvolvedor front-end pleno com mais de 4 anos de experiência, com foco em performance, acessibilidade e interfaces responsivas. Especializado em React.js, Next.js e TypeScript, atuo com integração via APIs REST, SSR, otimização web e boas práticas de UI/UX. Domino o uso de design system, testes automatizados com React Testing Library e Jest, e estratégias de arquiteturas escaláveis. Busco oportunidades onde possa continuar entregando produtos eficientes, visualmente impecáveis e que entreguem real valor para as pessoas/clientes.'
+        title='🔍 Resumo Profissional'
+        content='Desenvolvedor Front-end Sênior com mais de 4 anos de experiência na construção de aplicações web modernas, escaláveis e orientadas a produto. Especialista em React, Next.js e TypeScript, com forte foco em performance, acessibilidade, arquitetura e experiência do usuário.'
       />
 
+      <ResumeItem content='Atuo com alto grau de autonomia, participando de decisões técnicas de ponta a ponta — da concepção visual e definição de arquitetura até a entrega em produção. Possuo vivência prática em integração com sistemas distribuídos, mensageria, cache e automações, compreendendo o front-end como parte estratégica do ecossistema do produto.' />
+
       <ResumeItem
-        title='💼 Experiência'
+        title='💼 Experiência Profissional'
         content={
           <>
+            <div className='mb-6'>
+              <h3 className={subtopic()}>
+                <b>Colmeia Lab</b> — Lead Software Engineer / Front-end
+              </h3>
+              <h4 className={subtopic()}>jun de 2025 - atualmente</h4>
+              <ul className='my-2 list-inside list-disc pl-8'>
+                <li>
+                  Responsável técnico pela concepção, arquitetura e
+                  desenvolvimento de produtos digitais, atuando sozinho em todas
+                  as etapas do projeto.
+                </li>
+                <li>
+                  Desenvolvi do zero a Landing Page da Colmeia Lab, desde a
+                  criação do design até a implementação final, aplicando boas
+                  práticas de UI/UX, acessibilidade, responsividade e
+                  performance web.
+                </li>
+                <li>
+                  Defini stacks, padrões de código e organização de projetos,
+                  garantindo escalabilidade e facilidade de manutenção.
+                </li>
+                <li>
+                  Atuei na integração do front-end com arquiteturas modernas e
+                  fluxos assíncronos, adquirindo experiência prática com Docker,
+                  Redis, RabbitMQ e n8n.
+                </li>
+                <li>
+                  Desenvolvi interfaces conectadas a APIs e automações
+                  complexas, entendendo impactos arquiteturais no desempenho,
+                  confiabilidade e experiência do usuário.
+                </li>
+                <li>
+                  Experiência sólida em autonomia técnica, tomada de decisão e
+                  visão sistêmica, conectando front-end, backend e automações de
+                  negócio.
+                </li>
+              </ul>
+              <span>
+                <b>Stack:</b> React, Next.js, TypeScript, CSS, SCSS, Docker,
+                Redis, RabbitMQ, n8n, REST APIs, Arquitetura de Software, UI/UX,
+                Performance Web, Git
+              </span>
+            </div>
+
             <div className='mb-6'>
               <h3 className={subtopic()}>
                 <b>Pigmo</b> — Frontend Engineer
@@ -271,7 +317,7 @@ const Resume: React.FC = () => {
           <ul className='list-outside list-disc pl-8'>
             <li>
               <b>Bacharel em Engenharia da Computação</b> — Faculdade Pitágoras
-              (2018 - atual)
+              (2018 - 2023)
             </li>
             <li>
               <b className='font-bold'>
@@ -309,7 +355,7 @@ const Resume: React.FC = () => {
               <b>Português:</b> Nativo
             </li>
             <li>
-              <b>Inglês:</b> Avançado
+              <b>Inglês:</b> Fluente
             </li>
             <li>
               <b>Espanhol:</b> Intermediário
