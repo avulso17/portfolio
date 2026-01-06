@@ -10,9 +10,6 @@
     "commit": "cz",
     "postinstall": "husky"
   },
-  "engines": {
-    "node": "v20.x"
-  },
   "dependencies": {
     "@fontsource/nanum-pen-script": "^5.0.7",
     "@next/bundle-analyzer": "^15.5.3",
