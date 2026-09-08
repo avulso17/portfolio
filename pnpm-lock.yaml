@@ -7,9 +7,6 @@ settings:
 importers:
   .:
     dependencies:
-      '@fontsource/nanum-pen-script':
-        specifier: ^5.0.7
-        version: 5.3.0
       '@next/bundle-analyzer':
         specifier: 16.1.1
         version: 16.1.1
@@ -683,12 +680,6 @@ packages:
         integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==,
       }
     engines: { node: ^18.18.0 || ^20.9.0 || >=21.1.0 }
-
-  '@fontsource/nanum-pen-script@5.3.0':
-    resolution:
-      {
-        integrity: sha512-at9MFL8ga0A3Xce1+CO6/56F/SHIlf++D4vVKw3yCNRPKh6JU0UgZ3r9un0qHPVxx0Miq2bGZ35RRRlu/4BIDg==,
-      }
 
   '@humanfs/core@0.19.2':
     resolution:
@@ -6453,8 +6444,6 @@ snapshots:
     dependencies:
       '@eslint/core': 0.17.0
       levn: 0.4.1
-
-  '@fontsource/nanum-pen-script@5.3.0': {}
 
   '@humanfs/core@0.19.2':
     dependencies:

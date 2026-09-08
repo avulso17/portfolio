@@ -1,10 +1,9 @@
 import '@/styles/global.css'
-import '@fontsource/nanum-pen-script'
 
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 
 import RootLayout from '@/components/layout/RootLayout'
+import { fontVariables } from '@/styles/fonts'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -130,17 +129,11 @@ export const metadata: Metadata = {
   },
 }
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
 const Layout: React.FC<{
   children: React.ReactNode
 }> = ({ children }) => {
   return (
-    <html lang='en' className={inter.variable}>
+    <html lang='en' className={fontVariables}>
       <head>
         <link rel='icon' href='/favicon.ico' sizes='any' />
         <link

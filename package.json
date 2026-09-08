@@ -13,7 +13,6 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@fontsource/nanum-pen-script": "^5.0.7",
     "@next/bundle-analyzer": "16.1.1",
     "@react-email/components": "1.0.3",
     "@react-email/render": "0.0.13",
