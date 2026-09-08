@@ -16,3 +16,21 @@ export const SEAL_STAR_POSITIONS = [
 
 export const RING_OUTER = 48
 export const RING_INNER = 44
+
+export const SEAL_RINGS = [
+  { r: RING_OUTER, strokeWidth: 1.5 },
+  { r: RING_INNER, strokeWidth: 1 },
+  { r: SEAL_INNER_RING, strokeWidth: 1 },
+] as const
+
+export const STAR_SCALE = 0.45
+
+export const SEAL_MARK_FIT = { offset: 21, size: 58 } as const
+
+export const sealMarkTransform = (viewBox: string) => {
+  const w = Number(viewBox.split(' ')[2])
+  return `translate(${SEAL_MARK_FIT.offset} ${SEAL_MARK_FIT.offset}) scale(${SEAL_MARK_FIT.size / w})`
+}
+
+export const starTransform = ([x, y]: readonly [number, number] | number[]) =>
+  `translate(${x - STAR_CENTER.x * STAR_SCALE} ${y - STAR_CENTER.y * STAR_SCALE}) scale(${STAR_SCALE})`

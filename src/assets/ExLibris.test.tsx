@@ -47,4 +47,18 @@ describe('ExLibris', () => {
     expect(svg).toHaveClass('h-7', 'w-auto')
     expect(svg).toHaveAttribute('aria-label', 'Felipe Mateus')
   })
+
+  it('is an accessible image when given an aria-label', () => {
+    const { container } = render(<ExLibris aria-label='Felipe Mateus' />)
+    const svg = container.querySelector('svg')!
+    expect(svg).toHaveAttribute('role', 'img')
+    expect(svg).not.toHaveAttribute('aria-hidden')
+  })
+
+  it('is hidden from assistive tech when unlabelled', () => {
+    const { container } = render(<ExLibris />)
+    const svg = container.querySelector('svg')!
+    expect(svg).toHaveAttribute('aria-hidden', 'true')
+    expect(svg).not.toHaveAttribute('role')
+  })
 })

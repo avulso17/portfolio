@@ -5,13 +5,12 @@ import { colors } from '@/styles/colors'
 import type { OgCopy } from '@/configs/og'
 import { FM_HALO } from '@/assets/ex-libris/monogram.generated'
 import {
-  RING_INNER,
-  RING_OUTER,
-  SEAL_INNER_RING,
+  SEAL_RINGS,
   SEAL_STAR_POSITIONS,
-  STAR_CENTER,
   STAR_PATH,
   VIEWBOX,
+  sealMarkTransform,
+  starTransform,
 } from '@/assets/ex-libris/paths'
 
 export const OG_SIZE = { width: 1200, height: 630 }
@@ -40,43 +39,28 @@ async function loadFonts() {
   ]
 }
 
-const fmSize = Number(FM_HALO.viewBox.split(' ')[2])
-
 const Seal = ({ size }: { size: number }) => (
   <svg viewBox={VIEWBOX} width={size} height={size}>
-    <circle
-      cx='50'
-      cy='50'
-      r={RING_OUTER}
-      fill='none'
-      stroke={colors.parchment}
-      strokeWidth='1.5'
-    />
-    <circle
-      cx='50'
-      cy='50'
-      r={RING_INNER}
-      fill='none'
-      stroke={colors.parchment}
-      strokeWidth='1'
-    />
-    <circle
-      cx='50'
-      cy='50'
-      r={SEAL_INNER_RING}
-      fill='none'
-      stroke={colors.parchment}
-      strokeWidth='1'
-    />
+    {SEAL_RINGS.map(({ r, strokeWidth }) => (
+      <circle
+        key={r}
+        cx='50'
+        cy='50'
+        r={r}
+        fill='none'
+        stroke={colors.parchment}
+        strokeWidth={strokeWidth}
+      />
+    ))}
     {SEAL_STAR_POSITIONS.map(([x, y]) => (
       <path
         key={`${x}-${y}`}
         d={STAR_PATH}
         fill={colors.parchment}
-        transform={`translate(${x - STAR_CENTER.x * 0.45} ${y - STAR_CENTER.y * 0.45}) scale(0.45)`}
+        transform={starTransform([x, y])}
       />
     ))}
-    <g transform={`translate(21 21) scale(${58 / fmSize})`}>
+    <g transform={sealMarkTransform(FM_HALO.viewBox)}>
       <path d={FM_HALO.d} fill={colors.parchment} />
     </g>
   </svg>

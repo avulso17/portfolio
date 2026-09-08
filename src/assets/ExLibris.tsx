@@ -1,15 +1,14 @@
 import { useId } from 'react'
 import { FM_HALO, FM_PLAIN } from './ex-libris/monogram.generated'
 import {
-  RING_INNER,
-  RING_OUTER,
-  SEAL_INNER_RING,
+  SEAL_RINGS,
   SEAL_STAR_POSITIONS,
   SEAL_TEXT,
   SEAL_TEXT_RADIUS,
-  STAR_CENTER,
   STAR_PATH,
   VIEWBOX,
+  sealMarkTransform,
+  starTransform,
 } from './ex-libris/paths'
 
 type SVGProps = React.SVGProps<SVGSVGElement>
@@ -20,39 +19,22 @@ type ExLibrisProps = SVGProps & {
   mark?: ExLibrisMark
 }
 
-const viewBoxWidth = (viewBox: string) => Number(viewBox.split(' ')[2])
-
-const haloWidth = viewBoxWidth(FM_HALO.viewBox)
-
 const Seal: React.FC<{ arcId: string }> = ({ arcId }) => {
   const arcD = `M ${50 - SEAL_TEXT_RADIUS} 50 A ${SEAL_TEXT_RADIUS} ${SEAL_TEXT_RADIUS} 0 0 1 ${50 + SEAL_TEXT_RADIUS} 50`
 
   return (
     <>
-      <circle
-        cx='50'
-        cy='50'
-        r={RING_OUTER}
-        fill='none'
-        stroke='currentColor'
-        strokeWidth={1.5}
-      />
-      <circle
-        cx='50'
-        cy='50'
-        r={RING_INNER}
-        fill='none'
-        stroke='currentColor'
-        strokeWidth={1}
-      />
-      <circle
-        cx='50'
-        cy='50'
-        r={SEAL_INNER_RING}
-        fill='none'
-        stroke='currentColor'
-        strokeWidth={1}
-      />
+      {SEAL_RINGS.map(({ r, strokeWidth }) => (
+        <circle
+          key={r}
+          cx='50'
+          cy='50'
+          r={r}
+          fill='none'
+          stroke='currentColor'
+          strokeWidth={strokeWidth}
+        />
+      ))}
       <defs>
         <path id={arcId} d={arcD} />
       </defs>
@@ -67,14 +49,11 @@ const Seal: React.FC<{ arcId: string }> = ({ arcId }) => {
         </textPath>
       </text>
       {SEAL_STAR_POSITIONS.map(([x, y]) => (
-        <g
-          key={`${x}-${y}`}
-          transform={`translate(${x} ${y}) scale(0.45) translate(${-STAR_CENTER.x} ${-STAR_CENTER.y})`}
-        >
+        <g key={`${x}-${y}`} transform={starTransform([x, y])}>
           <path d={STAR_PATH} fill='currentColor' stroke='none' />
         </g>
       ))}
-      <g transform={`translate(21 21) scale(${58 / haloWidth})`}>
+      <g transform={sealMarkTransform(FM_HALO.viewBox)}>
         <path d={FM_HALO.d} fill='currentColor' />
       </g>
     </>
@@ -84,6 +63,7 @@ const Seal: React.FC<{ arcId: string }> = ({ arcId }) => {
 const ExLibris: React.FC<ExLibrisProps> = ({ mark = 'monogram', ...props }) => {
   const arcId = useId()
   const viewBox = mark === 'seal' ? VIEWBOX : FM_PLAIN.viewBox
+  const hasLabel = Boolean(props['aria-label'] || props['aria-labelledby'])
 
   return (
     <svg
@@ -91,6 +71,8 @@ const ExLibris: React.FC<ExLibrisProps> = ({ mark = 'monogram', ...props }) => {
       viewBox={viewBox}
       height='1em'
       width='auto'
+      role={hasLabel ? 'img' : undefined}
+      aria-hidden={hasLabel ? undefined : 'true'}
       {...props}
     >
       {mark === 'seal' ? (

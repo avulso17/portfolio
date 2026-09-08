@@ -15,6 +15,18 @@ const DEFAULT_POTRACE_OPTIONS: PotraceOptions = {
   alphaMax: 1,
 }
 
+/**
+ * The halo variant traces a much busier bitmap (rays + ring), so it needs a
+ * looser fit than the plain monogram to keep FM_HALO.d small (spec: ≤ 12 KB).
+ */
+const HALO_POTRACE_OPTIONS: PotraceOptions = {
+  threshold: 128,
+  blackOnWhite: false,
+  turdSize: 80,
+  optTolerance: 1.4,
+  alphaMax: 1.2,
+}
+
 async function preprocess(inputPath: string, square: boolean) {
   const resized = await sharp(inputPath)
     .resize({
@@ -106,23 +118,17 @@ async function run() {
     DEFAULT_POTRACE_OPTIONS
   )
 
-  let halo = await trace(
+  const halo = await trace(
     'FM_HALO',
     path.join(REPO_ROOT, 'art/mark/fm-halo.png'),
     true,
-    DEFAULT_POTRACE_OPTIONS
+    HALO_POTRACE_OPTIONS
   )
 
   const haloKb = Buffer.byteLength(halo.d) / 1024
-  if (haloKb > 150) {
-    console.log(
-      `FM_HALO exceeded 150 KB (${haloKb.toFixed(1)} KB), retracing with looser tolerance`
-    )
-    halo = await trace(
-      'FM_HALO',
-      path.join(REPO_ROOT, 'art/mark/fm-halo.png'),
-      true,
-      { ...DEFAULT_POTRACE_OPTIONS, turdSize: 40, optTolerance: 0.8 }
+  if (haloKb > 12) {
+    console.warn(
+      `FM_HALO is ${haloKb.toFixed(1)} KB, above the 12 KB target — loosen HALO_POTRACE_OPTIONS`
     )
   }
 
