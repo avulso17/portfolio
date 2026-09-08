@@ -56,6 +56,7 @@ export const CrtWarpCanvas: React.FC<Props> = ({
     let raf = 0
     let disposed = false
     let ready = false
+    let textureLoaded = false
     const asset = scenes[name]
 
     try {
@@ -105,7 +106,7 @@ export const CrtWarpCanvas: React.FC<Props> = ({
       }
 
       const draw = (t: number) => {
-        if (disposed) return
+        if (disposed || !textureLoaded) return
         resize()
         gl.uniform1f(uTime, t / 1000)
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
@@ -121,9 +122,13 @@ export const CrtWarpCanvas: React.FC<Props> = ({
       img.onload = () => {
         if (disposed) return
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img)
+        textureLoaded = true
         raf = requestAnimationFrame(draw)
       }
-      img.onerror = onFail
+      img.onerror = () => {
+        if (disposed) return
+        onFail()
+      }
       img.src = asset.png
 
       const ro = new ResizeObserver(() => !animate && draw(0))

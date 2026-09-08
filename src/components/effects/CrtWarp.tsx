@@ -47,7 +47,7 @@ export const CrtWarp: React.FC<Props> = ({ name, className }) => {
     >
       {!ready ? <Scene name={name} drift={false} scrim='none' /> : null}
       {supported ? (
-        <div className='absolute inset-0'>
+        <div className={cn('absolute inset-0', !ready && 'invisible')}>
           <CrtWarpCanvas
             name={name}
             onFail={fail}
