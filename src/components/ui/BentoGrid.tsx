@@ -25,7 +25,7 @@ const Skeleton = () => (
     className={cn([
       'bg-black bg-dot-white/20',
       'flex h-full min-h-[10rem] w-full flex-1',
-      'rounded-xl border border-white/[0.2]',
+      'border-white/[0.2] rounded-xl border',
       '[mask-image:radial-gradient(ellipse_at_center,white,transparent)]',
       'wide:min-h-[6rem]',
     ])}
@@ -55,7 +55,7 @@ export const BentoGridItem = ({
           [
             'group/bento row-span-1 space-y-4 p-4',
             'flex flex-col justify-between rounded-xl',
-            'border border-card-border bg-black shadow-none',
+            'border-card-border bg-black border shadow-none',
             'transition duration-200 hover:shadow-xl',
           ],
           className
@@ -64,10 +64,10 @@ export const BentoGridItem = ({
         {header ?? <Skeleton />}
         <div className='transition duration-200 group-hover/bento:translate-x-2'>
           {icon}
-          <div className='mb-2 mt-2 font-inter font-bold text-white'>
+          <div className='text-white mb-2 mt-2 font-inter font-bold'>
             {title}
           </div>
-          <div className='text-xs font-normal text-gray-light'>
+          <div className='text-gray-light text-xs font-normal'>
             {description}
           </div>
         </div>
@@ -81,7 +81,7 @@ export const BentoGridItem = ({
         [
           'group/bento row-span-1 cursor-pointer space-y-4 p-4',
           'flex flex-col justify-between rounded-xl',
-          'border border-card-border bg-black shadow-none',
+          'border-card-border bg-black border shadow-none',
           'transition duration-200 hover:shadow-xl',
         ],
         className
@@ -90,8 +90,8 @@ export const BentoGridItem = ({
       {header ?? <Skeleton />}
       <div className='transition duration-200 group-hover/bento:translate-x-2'>
         {icon}
-        <div className='mb-2 mt-2 font-inter font-bold text-white'>{title}</div>
-        <div className='text-xs font-normal text-gray-light'>{description}</div>
+        <div className='text-white mb-2 mt-2 font-inter font-bold'>{title}</div>
+        <div className='text-gray-light text-xs font-normal'>{description}</div>
       </div>
     </div>
   )

@@ -11,8 +11,8 @@ import AboutResumeModal from './AboutResumeModal'
 
 const aboutStyles = tv({
   slots: {
-    title: 'text-base font-semibold uppercase text-gray',
-    text: 'w-full text-lg leading-[158%] text-gray-dark wide:max-w-[37.75rem]',
+    title: 'text-gray text-base font-semibold uppercase',
+    text: 'text-gray-dark w-full text-lg leading-[158%] wide:max-w-[37.75rem]',
   },
 })
 

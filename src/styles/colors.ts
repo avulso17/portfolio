@@ -1,29 +1,21 @@
-import { IColors } from '@/types/colors'
+import { BrandColors } from '@/types/colors'
 
-export const colors: IColors = {
+export const colors: BrandColors = {
   inherit: 'inherit',
   transparent: 'transparent',
   current: 'currentColor',
 
-  // basic colors
-  black: '#0D0D0D',
-  white: '#FFFFFF',
-  onyx: '#181818',
-  gray: {
-    light: '#C5C5C5',
-    DEFAULT: 'rgba(128, 128, 128, 0.5)',
-    dark: '#808080',
-  },
-  blue: 'rgba(63 , 100, 234, 0.43)',
-  red: 'rgba(233, 63, 64, 0.43)',
-  yellow: 'rgba(255, 184, 0, 0.43)',
-  'card-border': '#383737',
-  'card-bg': '#151515',
-  'nav-border': '#27262c',
+  ink: '#0A0A0A',
+  'ink-2': '#141414',
+  line: '#262626',
 
-  // actions
-  success: '#30D158',
-  warning: '#FFD60A',
-  error: '#FF453A',
-  info: '#0A84FF',
+  parchment: '#F2EEE6',
+  'parchment-dim': '#8C8A84',
+  'parchment-mute': '#4A4945',
+
+  amber: '#F5B700',
+  'amber-dim': 'rgba(245,183,0,0.15)',
+
+  ok: '#4ADE80',
+  err: '#F87171',
 }

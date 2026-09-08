@@ -12,12 +12,12 @@ const buttonStyles = tv({
   variants: {
     variant: {
       primary: [
-        'bg-base-gradient px-5 py-4 text-white shadow-button',
+        'text-white bg-base-gradient px-5 py-4 shadow-button',
         'hover:brightness-125',
       ],
-      secondary: ['bg-onyx px-5 py-4 text-gray-dark', 'hover:brightness-125'],
+      secondary: ['bg-onyx text-gray-dark px-5 py-4', 'hover:brightness-125'],
       text: [
-        'h-[1.125rem] text-base leading-normal text-gray-light',
+        'text-gray-light h-[1.125rem] text-base leading-normal',
         'hover:text-white',
       ],
     },

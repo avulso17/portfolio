@@ -17,7 +17,7 @@ const SocialButton: React.FC<SocialButtonProps> = ({
   return (
     <Link
       href={href ?? '/'}
-      className='w-fit text-gray-dark transition-colors hover:text-white'
+      className='text-gray-dark hover:text-white w-fit transition-colors'
       {...props}
     >
       {children}

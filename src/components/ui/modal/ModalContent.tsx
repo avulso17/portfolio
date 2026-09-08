@@ -7,7 +7,7 @@ type ModalContentProps = {
 
 const ModalContent: React.FC<ModalContentProps> = ({ className, children }) => {
   return (
-    <section className={cn('max-h-[90%] rounded-lg bg-onyx', className)}>
+    <section className={cn('bg-onyx max-h-[90%] rounded-lg', className)}>
       {children}
     </section>
   )

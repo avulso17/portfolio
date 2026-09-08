@@ -19,7 +19,7 @@ const HomeHero: React.FC = () => {
         words='A Software Engineer and Front-end Developer helping startups turn their
         visions into a digital reality. I specialize in designing and building
         modern mobile and web-based apps.'
-        className='mb-14 w-full max-w-[45.625rem] font-medium !leading-5 !text-gray-dark hero-text mobile:mb-0 mobile:!leading-[2rem]'
+        className='!text-gray-dark mb-14 w-full max-w-[45.625rem] font-medium !leading-5 hero-text mobile:mb-0 mobile:!leading-[2rem]'
       />
 
       <div className='flex flex-col gap-4 mobile:flex-row mobile:items-center'>

@@ -8,7 +8,7 @@ const TechStackGroupTitle: React.FC<TechStackGroupTitleProps> = ({
   ...props
 }) => {
   return (
-    <h2 className={cn('mb-8 text-white/90 header', className)} {...props}>
+    <h2 className={cn('text-white/90 mb-8 header', className)} {...props}>
       {children}
     </h2>
   )

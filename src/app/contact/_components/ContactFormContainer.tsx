@@ -10,7 +10,7 @@ const ContactFormContainer: React.FC = () => {
       initial={{ opacity: 0, y: 70, rotateX: '-35deg' }}
       animate={{ opacity: 1, y: 0, rotateX: '0deg' }}
       transition={{ ease: 'easeIn' }}
-      className='relative flex w-full flex-col overflow-hidden rounded-xl border border-card-border bg-onyx pb-5'
+      className='border-card-border bg-onyx relative flex w-full flex-col overflow-hidden rounded-xl border pb-5'
     >
       <ContactControlBar />
       <ContactForm />

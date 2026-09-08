@@ -62,7 +62,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, children }) => {
     <dialog
       ref={dialogRef}
       className={cn([
-        'overflow-y-auto bg-onyx absolute-center',
+        'bg-onyx overflow-y-auto absolute-center',
         'mx-auto max-h-full w-full max-w-screen-tablet',
         'pointer-events-none opacity-0 transition-opacity',
         'tablet:max-h-[90%] tablet:rounded-xl',

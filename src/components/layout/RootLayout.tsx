@@ -13,7 +13,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <Container className='pt-8'>
         <div className='mx-auto mb-28 w-fit mobile:hidden'>
           <Link href='/' aria-label='Home'>
-            <LogoSvg className='mx-auto h-8 w-12 text-white opacity-50 transition-opacity hover:opacity-80' />
+            <LogoSvg className='text-white mx-auto h-8 w-12 opacity-50 transition-opacity hover:opacity-80' />
           </Link>
         </div>
 

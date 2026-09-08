@@ -1,23 +1,15 @@
-export interface IColors {
-  black: string
-  blue: string
-  'card-bg': string
-  'card-border': string
-  current: string
-  error: string
-  gray: {
-    DEFAULT: string
-    dark: string
-    light: string
-  }
-  info: string
-  inherit: string
-  'nav-border': string
-  onyx: string
-  red: string
-  success: string
-  transparent: string
-  warning: string
-  white: string
-  yellow: string
+export type BrandColors = {
+  inherit: 'inherit'
+  transparent: 'transparent'
+  current: 'currentColor'
+  ink: string
+  'ink-2': string
+  line: string
+  parchment: string
+  'parchment-dim': string
+  'parchment-mute': string
+  amber: string
+  'amber-dim': string
+  ok: string
+  err: string
 }

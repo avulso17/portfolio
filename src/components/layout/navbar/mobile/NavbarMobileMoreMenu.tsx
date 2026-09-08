@@ -20,12 +20,12 @@ const styles = tv({
   slots: {
     list: [
       'flex w-full flex-col gap-4 px-4 py-6 backdrop-blur-sm blur-performance',
-      'rounded-t-2xl bg-black/80 ring-1 ring-nav-border/60',
+      'bg-black/80 ring-nav-border/60 rounded-t-2xl ring-1',
       'absolute bottom-full left-0 z-10',
     ],
     listItem: [
       'flex h-14 shrink-0 items-center justify-center px-4 py-2',
-      'w-full rounded-lg bg-white/5 text-gray-light outline-none',
+      'bg-white/5 text-gray-light w-full rounded-lg outline-none',
       'transition-colors ease-in-out',
       'data-[active=true]:bg-white/10 data-[active=true]:text-white',
     ],

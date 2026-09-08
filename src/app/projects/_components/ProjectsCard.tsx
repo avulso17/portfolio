@@ -34,7 +34,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
       viewport={{ once: true }}
       className={cn(
         [
-          'flex w-full overflow-hidden rounded-4xl border border-card-border bg-onyx',
+          'border-card-border bg-onyx flex w-full overflow-hidden rounded-4xl border',
           'tablet:h-[35.25rem]',
         ],
         className
@@ -52,7 +52,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
         <h3 className='text-xl font-extrabold leading-normal mobile:text-[2rem]'>
           {title}
         </h3>
-        <p className='text-[0.938rem] leading-normal text-gray-dark mobile:text-base'>
+        <p className='text-gray-dark text-[0.938rem] leading-normal mobile:text-base'>
           {description}
         </p>
 

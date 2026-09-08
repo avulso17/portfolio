@@ -12,7 +12,7 @@ const styles = tv({
       'blur-[7.375rem] blur-performance',
     ],
     box2: [
-      'flex h-[16.5rem] w-[35.625rem] shrink-0  rounded-[35.625rem] bg-red',
+      'bg-red flex h-[16.5rem] w-[35.625rem]  shrink-0 rounded-[35.625rem]',
       'absolute left-[50%] z-10 translate-x-[-50%]',
       'blur-[7.375rem] blur-performance',
     ],
@@ -26,15 +26,15 @@ const styles = tv({
     position: {
       top: {
         wrapper: 'top-0',
-        box1: '-top-[3.875rem] bg-blue',
+        box1: 'bg-blue -top-[3.875rem]',
         box2: '-top-[5.25rem]',
-        box3: '-top-[3.875rem] bg-yellow',
+        box3: 'bg-yellow -top-[3.875rem]',
       },
       bottom: {
         wrapper: 'bottom-0',
-        box1: '-bottom-[5.375rem] bg-yellow',
+        box1: 'bg-yellow -bottom-[5.375rem]',
         box2: '-bottom-[7rem]',
-        box3: '-bottom-[5.375rem] bg-blue',
+        box3: 'bg-blue -bottom-[5.375rem]',
       },
     },
   },

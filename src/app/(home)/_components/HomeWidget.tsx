@@ -9,7 +9,7 @@ import { tv } from 'tailwind-variants'
 const widgetStyles = tv({
   slots: {
     cardStyles: [
-      'rounded-[2rem] border border-card-border bg-card-bg',
+      'border-card-border bg-card-bg rounded-[2rem] border',
       'h-full w-full',
       'mobile:border-0',
     ],
@@ -21,7 +21,7 @@ const widgetStyles = tv({
       'mobile:mt-[3.75rem] mobile:text-[2rem]',
     ],
     subtitleStyles: [
-      'text-center text-[0.938rem] leading-normal text-gray-dark ',
+      'text-gray-dark text-center text-[0.938rem] leading-normal ',
       'my-2 px-6',
       'mobile:mb-0 mobile:mt-4 mobile:text-base',
     ],

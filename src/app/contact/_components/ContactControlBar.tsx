@@ -10,7 +10,7 @@ const ContactControlBar: React.FC = () => {
     <div
       className={cn([
         'flex max-h-[3.375rem] w-full items-center p-4',
-        'rounded-t-xl border-b border-white/[0.03] bg-onyx',
+        'border-white/[0.03] bg-onyx rounded-t-xl border-b',
       ])}
     >
       <div className='flex h-fit w-fit gap-2'>
@@ -33,7 +33,7 @@ const ContactControlBar: React.FC = () => {
         />
       </div>
 
-      <span className='absolute select-none font-medium text-white absolute-center-x'>
+      <span className='text-white absolute select-none font-medium absolute-center-x'>
         New message
       </span>
     </div>

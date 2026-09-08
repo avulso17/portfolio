@@ -117,11 +117,11 @@ const ContactForm: React.FC = () => {
           placeholder='Write your message here'
           className={cn(
             [
-              'h-80 w-full rounded-xl bg-black p-6 text-start',
-              'shadow-text-area placeholder:text-gray focus:outline-none',
+              'bg-black h-80 w-full rounded-xl p-6 text-start',
+              'placeholder:text-gray shadow-text-area focus:outline-none',
             ],
             {
-              'text-red/80 ring-2 ring-red placeholder:text-red': Boolean(
+              'text-red/80 ring-red placeholder:text-red ring-2': Boolean(
                 errors?.text
               ),
             }
