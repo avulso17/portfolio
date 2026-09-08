@@ -9,6 +9,7 @@ import {
   RING_OUTER,
   SEAL_INNER_RING,
   SEAL_STAR_POSITIONS,
+  STAR_CENTER,
   STAR_PATH,
   VIEWBOX,
 } from '@/assets/ex-libris/paths'
@@ -72,7 +73,7 @@ const Seal = ({ size }: { size: number }) => (
         key={`${x}-${y}`}
         d={STAR_PATH}
         fill={colors.parchment}
-        transform={`translate(${x - 50 * 0.45} ${y - 50 * 0.45}) scale(0.45)`}
+        transform={`translate(${x - STAR_CENTER.x * 0.45} ${y - STAR_CENTER.y * 0.45}) scale(0.45)`}
       />
     ))}
     <g transform={`translate(21 21) scale(${58 / fmSize})`}>

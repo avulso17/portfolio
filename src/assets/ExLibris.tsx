@@ -7,6 +7,7 @@ import {
   SEAL_STAR_POSITIONS,
   SEAL_TEXT,
   SEAL_TEXT_RADIUS,
+  STAR_CENTER,
   STAR_PATH,
   VIEWBOX,
 } from './ex-libris/paths'
@@ -68,7 +69,7 @@ const Seal: React.FC<{ arcId: string }> = ({ arcId }) => {
       {SEAL_STAR_POSITIONS.map(([x, y]) => (
         <g
           key={`${x}-${y}`}
-          transform={`translate(${x} ${y}) scale(0.45) translate(-50 -50)`}
+          transform={`translate(${x} ${y}) scale(0.45) translate(${-STAR_CENTER.x} ${-STAR_CENTER.y})`}
         >
           <path d={STAR_PATH} fill='currentColor' stroke='none' />
         </g>
