@@ -1,27 +1,24 @@
 import SendIcon from '@/components/icons/Send'
 import { Button } from '@/components/ui/Button'
+import { Eyebrow } from '@/components/ui/Eyebrow'
+import { SIGN_OFF } from '@/configs/navigation'
 import Link from 'next/link'
 
-const HomeGetInTouchSection: React.FC = () => {
-  return (
-    <div className='mb-28 flex flex-col items-center justify-between gap-8 tablet:flex-row tablet:gap-0'>
-      <div className='flex flex-col gap-2'>
-        <h2 className='text-center display-2 tablet:text-start'>
-          Let&rsquo;s work together
-        </h2>
-        <p className='w-full text-center text-lg text-parchment-mute tablet:max-w-[31rem] tablet:text-start'>
-          Want to discuss an opportunity to create something great? I&rsquo;m
-          ready when you are.
-        </p>
-      </div>
-
-      <Link href='/contact' className='w-full mobile:w-fit'>
-        <Button leftIcon={<SendIcon />} full>
-          Get in touch
-        </Button>
-      </Link>
+const HomeGetInTouchSection: React.FC = () => (
+  <section className='flex flex-col items-start justify-between gap-8 py-16 tablet:flex-row tablet:items-end'>
+    <div className='flex flex-col gap-3'>
+      <Eyebrow index='06'>Contact</Eyebrow>
+      <h2>Tell me what&rsquo;s stuck.</h2>
+      <p className='max-w-[40ch] font-serif text-2xl italic text-parchment-dim'>
+        {SIGN_OFF}
+      </p>
     </div>
-  )
-}
+    <Link href='/contact' className='w-full mobile:w-fit'>
+      <Button leftIcon={<SendIcon />} full>
+        Get in touch
+      </Button>
+    </Link>
+  </section>
+)
 
 export default HomeGetInTouchSection

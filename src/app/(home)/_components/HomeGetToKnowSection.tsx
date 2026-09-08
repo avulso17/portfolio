@@ -1,77 +1,72 @@
-'use client'
-
-import { motion } from 'framer-motion'
+import { Card } from '@/components/ui/Card'
+import { Eyebrow } from '@/components/ui/Eyebrow'
+import { Scene } from '@/components/ui/Scene'
+import { SceneName } from '@/configs/scenes.generated'
 import Link from 'next/link'
-import Widget from './HomeWidget'
 
-const HomeGetToKnowSection: React.FC = () => {
-  return (
-    <>
-      <h2 className='mb-8 display-2'>Get to know me</h2>
-      <ul className='mb-[6.75rem] grid grid-cols-1 gap-4 tablet:grid-cols-2'>
-        <motion.li
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <Link href='/about' className='w-full'>
-            <Widget
-              title='About me'
-              subtitle='Who I am and what I do'
-              imgSrc='/assets/about-me.png'
-              imgClassName='object-contain mobile:object-cover'
-            />
+const cards: {
+  href: string
+  index: string
+  label: string
+  title: string
+  scene: SceneName
+}[] = [
+  {
+    href: '/about',
+    index: '01',
+    label: 'About',
+    title: 'How I decide.',
+    scene: 'about-paladin',
+  },
+  {
+    href: '/notebook',
+    index: '04',
+    label: 'Notebook',
+    title: 'Notes in progress.',
+    scene: 'notebook-desk',
+  },
+  {
+    href: '/bookshelf',
+    index: '03',
+    label: 'Bookshelf',
+    title: 'What I read.',
+    scene: 'bookshelf-library',
+  },
+  {
+    href: '/tech-stack',
+    index: '05',
+    label: 'Tech Stack',
+    title: 'Tools, not headlines.',
+    scene: 'tech-bench',
+  },
+]
+
+const HomeGetToKnowSection: React.FC = () => (
+  <section className='border-b border-line py-16'>
+    <div className='mb-8 flex flex-col gap-3'>
+      <Eyebrow index='02'>Get to know me</Eyebrow>
+      <h2>Who is making the calls.</h2>
+    </div>
+    <ul className='grid grid-cols-1 gap-4 tablet:grid-cols-2'>
+      {cards.map(({ href, index, label, title, scene }) => (
+        <li key={href}>
+          <Link
+            href={href}
+            className='group block'
+            aria-label={`${label} — ${title}`}
+          >
+            <Card className='relative z-0 flex aspect-[4/3] flex-col justify-end overflow-hidden p-6 transition-colors group-hover:border-parchment-dim'>
+              <Scene name={scene} position='top' drift={false} />
+              <Eyebrow index={index}>{label}</Eyebrow>
+              <h3 className='mt-2 text-3xl font-semibold text-parchment'>
+                {title}
+              </h3>
+            </Card>
           </Link>
-        </motion.li>
-
-        <motion.li
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-        >
-          <Widget
-            title='Notebook'
-            subtitle='My thoughts, insights, and reflections'
-            imgSrc='/assets/notebook.png'
-            imgClassName='object-contain mobile:object-cover'
-          />
-        </motion.li>
-
-        <motion.li
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
-          <Link href='/bookshelf'>
-            <Widget
-              title='Bookshelf'
-              subtitle="Books and pieces of wisdom I've enjoyed reading"
-              imgSrc='/assets/bookshelf.png'
-              imgClassName='object-cover'
-            />
-          </Link>
-        </motion.li>
-
-        <motion.li
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-        >
-          <Link href='/tech-stack'>
-            <Widget
-              title='Tech Stack'
-              subtitle='The dev tools, apps, devices, and games I use and play.'
-              imgSrc='/assets/tech-stack.png'
-              imgClassName='object-cover object-left'
-            />
-          </Link>
-        </motion.li>
-      </ul>
-    </>
-  )
-}
+        </li>
+      ))}
+    </ul>
+  </section>
+)
 
 export default HomeGetToKnowSection
