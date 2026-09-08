@@ -1,5 +1,6 @@
 'use client'
 
+import { Eyebrow } from '@/components/ui/Eyebrow'
 import { TextField } from '@/components/ui/TextField'
 import { works } from '@/configs/works'
 import { useCallback, useEffect, useState } from 'react'
@@ -37,13 +38,13 @@ const ProjectsContent: React.FC = () => {
   }, [filterProjects, search])
 
   return (
-    <div className='flex flex-col gap-8 pb-28 pt-16'>
+    <div className='flex flex-col gap-8 pb-28 pt-12'>
+      <Eyebrow index='02'>All projects</Eyebrow>
       <div className='flex grow items-center gap-4'>
         <TextField
           className='grow'
-          label='Search:'
-          placeholder='Search projects...'
-          variant='outlined'
+          label='Search'
+          placeholder='Filter by name…'
           value={search}
           onChange={handleSearch}
         />

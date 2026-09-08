@@ -1,4 +1,4 @@
-import { Header } from '@/components/ui/Header'
+import { PageHero } from '@/components/ui/PageHero'
 import { Metadata } from 'next'
 import Content from './_components/ProjectsContent'
 
@@ -29,16 +29,16 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://felipe-mateus.com'),
-  title: 'Work | Felipe Mateus - Software Engineer',
+  title: 'Projects',
   description:
-    'Discover the main projects I’ve done and work in which I’ve participated...',
+    'Projects by Felipe Mateus — the decision taken on each one and what it moved.',
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    title: 'Work | Felipe Mateus - Software Engineer',
+    title: 'Projects',
     description:
-      'Discover the main projects I’ve done and work in which I’ve participated...',
+      'Projects by Felipe Mateus — the decision taken on each one and what it moved.',
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
     locale: 'en_US',
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Work | Felipe Mateus - Software Engineer',
+    title: 'Projects',
     description:
-      'Discover the main projects I’ve done and work in which I’ve participated...',
+      'Projects by Felipe Mateus — the decision taken on each one and what it moved.',
     creator: 'Felipe Mateus',
   },
 }
@@ -56,7 +56,13 @@ export const metadata: Metadata = {
 const ProjectsPage: React.FC = () => {
   return (
     <main>
-      <Header title='Projects' subtitle="Projects and ideas I've worked on" />
+      <PageHero
+        index='02'
+        label='Projects'
+        title='The call and the result.'
+        subtitle='Every project lists what was decided and what it moved — not only what was built.'
+        scene='projects-wall'
+      />
       <Content />
     </main>
   )
