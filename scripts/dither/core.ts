@@ -31,7 +31,6 @@ export const BAYER_8x8: number[][] = [
 
 const clamp01 = (x: number) => (x < 0 ? 0 : x > 1 ? 1 : x)
 
-/** 0..255 grey → 0..1 luma after contrast, gamma and black point. */
 export function applyCurve(v: number): number {
   let x = v / 255
   x = clamp01((x - 0.5) * CONTRAST + 0.5)
@@ -98,7 +97,6 @@ export function dither(
     : ditherFloydSteinberg(luma, width, height)
 }
 
-/** Nearest-neighbour upscale so each dither pixel becomes a cell×cell block. */
 export function scaleNearest(
   bits: Uint8Array,
   width: number,

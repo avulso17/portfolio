@@ -122,9 +122,7 @@ describe('scaleNearest', () => {
     const bits = new Uint8Array([1, 0, 0, 1])
     const out = scaleNearest(bits, 2, 2, CELL)
     expect(out).toHaveLength(16)
-    // row 0: 1 1 0 0
     expect(Array.from(out.slice(0, 4))).toEqual([1, 1, 0, 0])
-    // row 2: 0 0 1 1
     expect(Array.from(out.slice(8, 12))).toEqual([0, 0, 1, 1])
   })
 })
