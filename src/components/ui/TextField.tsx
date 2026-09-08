@@ -6,30 +6,23 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const textFieldStyles = tv({
   slots: {
-    wrapper: 'flex w-full items-center gap-2',
+    wrapper: 'flex w-full flex-col gap-2',
     input: [
-      'w-full min-w-0 appearance-none text-parchment',
-      'transition-colors placeholder:text-parchment-mute focus:outline-none',
+      'w-full min-w-0 appearance-none bg-transparent font-body text-parchment',
+      'border-b border-line py-3 transition-colors',
+      'placeholder:text-parchment-mute focus:border-amber focus:outline-none',
     ],
-    label: 'inline-block text-base font-medium',
+    label: 'text-parchment-mute eyebrow-text',
   },
   variants: {
     variant: {
-      outlined: {
-        wrapper: [
-          'rounded-4xl border border-line bg-ink-2',
-          'h-[52px] px-6 py-2',
-        ],
-        input: ['bg-transparent'],
-      },
-      standard: {
-        input: ['border-none bg-transparent'],
-      },
+      outlined: {},
+      standard: {},
     },
     error: {
       true: {
-        input: 'border-err text-err/80 placeholder:text-err',
-        label: 'text-err/80',
+        input: 'border-err text-err placeholder:text-err/70',
+        label: 'text-err',
       },
     },
   },
