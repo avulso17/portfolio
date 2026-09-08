@@ -10,7 +10,7 @@ const DevAssetsPage = () => {
       <section className='flex flex-col gap-6 border-t border-line pt-4'>
         <Eyebrow>ex-libris — pick a ring</Eyebrow>
         <div className='flex flex-wrap items-end gap-12 text-parchment'>
-          {(['hatched', 'ticks', 'dotted'] as const).map((ring) => (
+          {(['double', 'double-bold', 'double-inset'] as const).map((ring) => (
             <div key={ring} className='flex flex-col items-center gap-3'>
               <ExLibris mark='seal' ring={ring} className='h-40 w-40' />
               <ExLibris mark='seal' ring={ring} className='h-16 w-16' />

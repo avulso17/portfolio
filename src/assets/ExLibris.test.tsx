@@ -28,7 +28,7 @@ describe('ExLibris', () => {
   })
 
   it('uses currentColor only (no hard-coded fills)', () => {
-    const { container } = render(<ExLibris mark='seal' ring='hatched' />)
+    const { container } = render(<ExLibris mark='seal' ring='double' />)
     const html = container.innerHTML
     expect(html).not.toMatch(/#[0-9a-f]{3,6}/i)
     expect(html).toContain('currentColor')

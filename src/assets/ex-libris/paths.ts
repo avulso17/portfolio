@@ -2,30 +2,19 @@ export const VIEWBOX = '0 0 100 100'
 export const STROKE = 7
 
 /**
- * F — stem at x=30, top bar y=34 (cut around x=46 where M's left stem
- * passes OVER it), mid bar y=52 (passes OVER M's left stem).
+ * F and M interlace at exactly one point: F's mid bar passes OVER M's
+ * left stem, which is drawn with a gap there — that gap is what reads
+ * as the crossing.
  */
-export const F_PATHS = [
-  'M30 34 V72', // stem
-  'M30 34 H41', // top bar, left of the crossing
-  'M51 34 H60', // top bar, right of the crossing
-  'M30 52 H53', // mid bar (over M)
-]
+export const F_PATHS = ['M24 34 V72', 'M24 34 H50', 'M24 52 H60']
 
-/**
- * M — left stem x=46 (cut y 47..57 where F's mid bar passes over),
- * apex at (58,50), right stem x=70. Spans y 28..72.
- */
-export const M_PATHS = [
-  'M46 72 V57', // left stem, lower part
-  'M46 47 V28 L58 50 L70 28 V72', // left stem upper + diagonals + right stem
-]
+export const M_PATHS = ['M54 72 V57', 'M54 47 V26 L66 58 L78 26 V72']
 
 /** Lone F for the favicon. Heavier stroke, fills the square. */
 export const F_SOLO_STROKE = 12
 export const F_SOLO_PATHS = ['M30 18 V82', 'M30 18 H74', 'M30 50 H64']
 
 export const RING_OUTER = 48
-export const RING_INNER = 40
+export const RING_INNER = 43
 
-export type RingStyle = 'hatched' | 'ticks' | 'dotted'
+export type RingStyle = 'double' | 'double-bold' | 'double-inset'

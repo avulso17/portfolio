@@ -1,4 +1,3 @@
-import { useId } from 'react'
 import {
   F_PATHS,
   F_SOLO_PATHS,
@@ -27,66 +26,8 @@ const strokeProps = {
   strokeLinejoin: 'miter',
 } as const
 
-const Ring: React.FC<{ style: RingStyle; patternId: string }> = ({
-  style,
-  patternId,
-}) => {
-  const mid = (RING_OUTER + RING_INNER) / 2
-  const band = RING_OUTER - RING_INNER
-  const circumference = 2 * Math.PI * mid
-
-  if (style === 'hatched') {
-    return (
-      <>
-        <defs>
-          <pattern
-            id={patternId}
-            patternUnits='userSpaceOnUse'
-            width='4'
-            height='4'
-            patternTransform='rotate(45)'
-          >
-            <line
-              x1='0'
-              y1='0'
-              x2='0'
-              y2='4'
-              stroke='currentColor'
-              strokeWidth='1.2'
-            />
-          </pattern>
-        </defs>
-        <circle
-          cx='50'
-          cy='50'
-          r={mid}
-          fill='none'
-          stroke={`url(#${patternId})`}
-          strokeWidth={band}
-        />
-        <circle
-          cx='50'
-          cy='50'
-          r={RING_OUTER}
-          fill='none'
-          stroke='currentColor'
-          strokeWidth='1.5'
-        />
-        <circle
-          cx='50'
-          cy='50'
-          r={RING_INNER}
-          fill='none'
-          stroke='currentColor'
-          strokeWidth='1.5'
-        />
-      </>
-    )
-  }
-
-  if (style === 'ticks') {
-    const ticks = 48
-    const period = circumference / ticks
+const Ring: React.FC<{ style: RingStyle }> = ({ style }) => {
+  if (style === 'double') {
     return (
       <>
         <circle
@@ -95,16 +36,7 @@ const Ring: React.FC<{ style: RingStyle; patternId: string }> = ({
           r={RING_OUTER}
           fill='none'
           stroke='currentColor'
-          strokeWidth='1.5'
-        />
-        <circle
-          cx='50'
-          cy='50'
-          r={mid}
-          fill='none'
-          stroke='currentColor'
-          strokeWidth={band - 3}
-          strokeDasharray={`1.2 ${period - 1.2}`}
+          strokeWidth={1.5}
         />
         <circle
           cx='50'
@@ -112,14 +44,35 @@ const Ring: React.FC<{ style: RingStyle; patternId: string }> = ({
           r={RING_INNER}
           fill='none'
           stroke='currentColor'
-          strokeWidth='1.5'
+          strokeWidth={1.5}
         />
       </>
     )
   }
 
-  const dots = 36
-  const period = circumference / dots
+  if (style === 'double-bold') {
+    return (
+      <>
+        <circle
+          cx='50'
+          cy='50'
+          r={RING_OUTER}
+          fill='none'
+          stroke='currentColor'
+          strokeWidth={3}
+        />
+        <circle
+          cx='50'
+          cy='50'
+          r={42}
+          fill='none'
+          stroke='currentColor'
+          strokeWidth={1.2}
+        />
+      </>
+    )
+  }
+
   return (
     <>
       <circle
@@ -128,17 +81,23 @@ const Ring: React.FC<{ style: RingStyle; patternId: string }> = ({
         r={RING_OUTER}
         fill='none'
         stroke='currentColor'
-        strokeWidth='1.5'
+        strokeWidth={1.2}
       />
       <circle
         cx='50'
         cy='50'
-        r={mid}
+        r={45.5}
         fill='none'
         stroke='currentColor'
-        strokeWidth='3'
-        strokeLinecap='round'
-        strokeDasharray={`0 ${period}`}
+        strokeWidth={1.2}
+      />
+      <circle
+        cx='50'
+        cy='50'
+        r={39}
+        fill='none'
+        stroke='currentColor'
+        strokeWidth={0.8}
       />
     </>
   )
@@ -146,11 +105,9 @@ const Ring: React.FC<{ style: RingStyle; patternId: string }> = ({
 
 const ExLibris: React.FC<ExLibrisProps> = ({
   mark = 'monogram',
-  ring = 'hatched',
+  ring = 'double',
   ...props
 }) => {
-  const patternId = useId()
-
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -159,7 +116,7 @@ const ExLibris: React.FC<ExLibrisProps> = ({
       width='1em'
       {...props}
     >
-      {mark === 'seal' ? <Ring style={ring} patternId={patternId} /> : null}
+      {mark === 'seal' ? <Ring style={ring} /> : null}
       {mark === 'f'
         ? F_SOLO_PATHS.map((d) => (
             <path key={d} d={d} strokeWidth={F_SOLO_STROKE} {...strokeProps} />
