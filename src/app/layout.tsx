@@ -134,15 +134,6 @@ const Layout: React.FC<{
 }> = ({ children }) => {
   return (
     <html lang='en' className={fontVariables}>
-      <head>
-        <link rel='icon' href='/favicon.ico' sizes='any' />
-        <link
-          rel='apple-touch-icon'
-          href='/apple-icon.png'
-          type='image/png'
-          sizes='180x180'
-        />
-      </head>
       <body>
         <RootLayout>{children}</RootLayout>
       </body>
