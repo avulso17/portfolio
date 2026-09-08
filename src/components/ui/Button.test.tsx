@@ -26,7 +26,7 @@ describe('Button', () => {
   it('text variant is mono with underline offset', () => {
     render(<Button variant='text'>Go</Button>)
     expect(screen.getByRole('button')).toHaveClass(
-      'font-mono',
+      'eyebrow-text',
       'underline-offset-4'
     )
   })

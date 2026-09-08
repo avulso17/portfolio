@@ -20,22 +20,11 @@ export const Terminal: React.FC<TerminalProps> = ({
     >
       <header className='flex items-center gap-3 border-b border-line px-4 py-2.5'>
         <span className='flex items-center gap-1.5' aria-hidden='true'>
-          <i
-            data-testid='terminal-dot'
-            className='block h-2 w-2 rounded-full bg-parchment-mute'
-          />
-          <i
-            data-testid='terminal-dot'
-            className='block h-2 w-2 rounded-full bg-parchment-mute'
-          />
-          <i
-            data-testid='terminal-dot'
-            className='block h-2 w-2 rounded-full bg-parchment-mute'
-          />
+          <i className='block h-2 w-2 rounded-full bg-parchment-mute' />
+          <i className='block h-2 w-2 rounded-full bg-parchment-mute' />
+          <i className='block h-2 w-2 rounded-full bg-parchment-mute' />
         </span>
-        <h3 className='font-mono text-xs uppercase tracking-[0.08em] text-parchment'>
-          {title}
-        </h3>
+        <p className='text-parchment eyebrow-text'>{title}</p>
         {path ? (
           <span className='ml-auto font-mono text-xs text-parchment-mute'>
             {path}

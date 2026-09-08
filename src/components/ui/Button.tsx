@@ -16,10 +16,7 @@ const buttonStyles = tv({
         'border border-line bg-transparent px-5 py-3.5 text-parchment',
         'hover:border-parchment-dim',
       ],
-      text: [
-        'rounded-none bg-transparent p-0 font-mono text-xs uppercase tracking-[0.08em]',
-        'text-parchment-dim underline-offset-4 hover:text-parchment hover:underline',
-      ],
+      text: 'rounded-none bg-transparent p-0 text-parchment-dim underline-offset-4 eyebrow-text hover:text-parchment hover:underline',
     },
     icon: {
       true: 'gap-2',

@@ -8,8 +8,7 @@ describe('Terminal', () => {
         <p>body</p>
       </Terminal>
     )
-    const header = screen.getByRole('heading', { name: /tech-stack/ })
-    expect(header).toHaveClass('font-mono')
+    expect(screen.getByText(/tech-stack/)).toHaveClass('eyebrow-text')
     expect(screen.getByText('~/felipe')).toHaveClass(
       'font-mono',
       'text-parchment-mute'
@@ -18,7 +17,7 @@ describe('Terminal', () => {
   })
 
   it('draws three window dots', () => {
-    render(<Terminal title='t'>x</Terminal>)
-    expect(screen.getAllByTestId('terminal-dot')).toHaveLength(3)
+    const { container } = render(<Terminal title='t'>x</Terminal>)
+    expect(container.querySelectorAll('header i')).toHaveLength(3)
   })
 })

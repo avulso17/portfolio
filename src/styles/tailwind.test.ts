@@ -8,6 +8,8 @@ import tailwindcss from 'tailwindcss'
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const jiti = require('jiti')(__filename)
 const tailwindConfig = jiti('../../tailwind.config.js')
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const config = tailwindConfig.rawConfig as Record<string, any>
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const theme = resolveConfig(tailwindConfig).theme as Record<string, any>
@@ -48,6 +50,15 @@ describe('tailwind theme', () => {
     expect(theme.backgroundImage?.['base-gradient']).toBeUndefined()
     expect(theme.boxShadow?.button).toBeUndefined()
     expect(theme.boxShadow?.dropdown).toBeUndefined()
+  })
+
+  it('keeps only the modal fade animations and no legacy radius/shadow/gradient', () => {
+    const ext = config.theme.extend
+    expect(Object.keys(ext.animation).sort()).toEqual(['fadeIn', 'fadeOut'])
+    expect(Object.keys(ext.keyframes).sort()).toEqual(['fadeIn', 'fadeOut'])
+    expect(ext.backgroundImage).toBeUndefined()
+    expect(ext.borderRadius).toBeUndefined()
+    expect(ext.boxShadow).toBeUndefined()
   })
 
   it('emits the typography utilities with spec values', async () => {

@@ -15,19 +15,12 @@ const textFieldStyles = tv({
     label: 'text-parchment-mute eyebrow-text',
   },
   variants: {
-    variant: {
-      outlined: {},
-      standard: {},
-    },
     error: {
       true: {
         input: 'border-err text-err placeholder:text-err/70',
         label: 'text-err',
       },
     },
-  },
-  defaultVariants: {
-    variant: 'standard',
   },
 })
 
@@ -42,23 +35,10 @@ type ITextField = Omit<ComponentProps<'input'>, 'width'> &
 
 const TextField = forwardRef<HTMLInputElement, ITextField>(
   (
-    {
-      id,
-      label,
-      error,
-      className,
-      placeholder,
-      variant,
-      inputClassname,
-      ...props
-    },
+    { id, label, error, className, placeholder, inputClassname, ...props },
     forwardRef
   ) => {
-    const {
-      wrapper,
-      input,
-      label: labelStyles,
-    } = textFieldStyles({ error, variant })
+    const { wrapper, input, label: labelStyles } = textFieldStyles({ error })
 
     return (
       <div className={wrapper({ className })}>
