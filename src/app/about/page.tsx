@@ -1,4 +1,4 @@
-import { Header } from '@/components/ui/Header'
+import { PageHero } from '@/components/ui/PageHero'
 import { Metadata } from 'next'
 import AboutContent from './_components/AboutContent'
 
@@ -46,16 +46,16 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://felipe-mateus.com'),
-  title: 'Felipe Mateus - Software Engineer',
+  title: 'About',
   description:
-    'Here you will find a summary about me where I highlight who I am, what I do and what I have done so far.',
+    "Front-end engineer with a product owner's eye — how I decide, what I've shipped, where I'm useful.",
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    title: 'Felipe Mateus - Software Engineer',
+    title: 'About',
     description:
-      'Here you will find a summary about me where I highlight who I am, what I do and what I have done so far.',
+      "Front-end engineer with a product owner's eye — how I decide, what I've shipped, where I'm useful.",
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
     locale: 'en_US',
@@ -63,19 +63,23 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Felipe Mateus - Software Engineer',
+    title: 'About',
     description:
-      'Here you will find a summary about me where I highlight who I am, what I do and what I have done so far.',
+      "Front-end engineer with a product owner's eye — how I decide, what I've shipped, where I'm useful.",
     creator: 'Felipe Mateus',
   },
 }
 
 const AboutPage: React.FC = () => {
   return (
-    <main className='pb-20'>
-      <Header
-        title='A little bit about me'
-        subtitle='Who I am and what I do.'
+    <main>
+      <PageHero
+        index='01'
+        label='About'
+        title='How I decide.'
+        subtitle='A front-end engineer with an owner’s eye.'
+        scene='about-paladin'
+        sceneClassName='[&_img]:object-right'
       />
       <AboutContent />
     </main>

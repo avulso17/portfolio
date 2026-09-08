@@ -1,30 +1,16 @@
-import { cn } from '@/lib/utils/cn'
 import Image from 'next/image'
 
-type AboutPortraitProps = React.ComponentProps<'div'>
-
-const AboutPortrait: React.FC = ({ className }: AboutPortraitProps) => {
-  return (
-    <div
-      className={cn(
-        [
-          'flex justify-center rounded-xl border border-line bg-ink',
-          'relative z-0 h-[322px] w-[250px] overflow-hidden',
-          'wide:h-[434px] wide:w-[346px]',
-        ],
-        className
-      )}
-    >
-      <Image
-        className='block bg-ink-2 object-cover'
-        src='/assets/me-green-shirt.png'
-        alt='Felipe Mateus Portrait'
-        height={432}
-        width={344}
-        priority
-      />
-    </div>
-  )
-}
+const AboutPortrait: React.FC = () => (
+  <div className='relative aspect-[344/432] w-full overflow-hidden rounded-sm border border-line bg-ink-2'>
+    <Image
+      src='/assets/me-green-shirt.png'
+      alt='Felipe Mateus'
+      fill
+      sizes='(min-width: 1024px) 22rem, 100vw'
+      className='object-cover'
+      priority
+    />
+  </div>
+)
 
 export default AboutPortrait
