@@ -26,7 +26,7 @@ export const TextGenerateEffect = ({
       }
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scope.current])
+  }, [])
 
   const renderWords = () => {
     return (

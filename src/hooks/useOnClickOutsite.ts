@@ -3,12 +3,7 @@ import type { RefObject } from 'react'
 import { useEventListener } from './useEventListener'
 
 type EventType =
-  | 'mousedown'
-  | 'mouseup'
-  | 'touchstart'
-  | 'touchend'
-  | 'focusin'
-  | 'focusout'
+  'mousedown' | 'mouseup' | 'touchstart' | 'touchend' | 'focusin' | 'focusout'
 
 export function useOnClickOutside<T extends HTMLElement = HTMLElement>(
   ref: RefObject<T> | RefObject<T>[],

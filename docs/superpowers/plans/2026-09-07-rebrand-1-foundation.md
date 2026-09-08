@@ -21,8 +21,8 @@
 - Navigation labels stay literal: About, Projects, Bookshelf, Notebook, Tech Stack, Contact.
 - Copy is English. Do not rewrite page copy in this plan (Plan 3 owns copy).
 - Do not add the "avulso" easter egg yet (year unknown — pending input).
-- Commit style: Conventional Commits, one commit per task, no `--no-verify`. The pre-commit hook runs `yarn lint` (must pass) and `lint-staged` (prettier).
-- Package manager: **yarn 1** (`yarn add`, `yarn add -D`). Do not create `package-lock.json`.
+- Commit style: Conventional Commits, one commit per task, no `--no-verify`. The pre-commit hook runs `pnpm lint` (must pass) and `lint-staged` (prettier).
+- Package manager: **pnpm 10** (`pnpm add`, `pnpm add -D`). Lockfile is `pnpm-lock.yaml`; never create `package-lock.json` or `yarn.lock`.
 
 ---
 
@@ -71,17 +71,17 @@
 
 **Interfaces:**
 
-- Produces: `yarn test` (runs `vitest run`), `yarn test:watch`. Every later task's tests run with `yarn test <path>`.
+- Produces: `pnpm test` (runs `vitest run`), `pnpm test:watch`. Every later task's tests run with `pnpm test <path>`.
 
 - [ ] **Step 1: Install dependencies**
 
 Run:
 
 ```bash
-yarn add -D vitest@^3 @vitejs/plugin-react@^4 jsdom@^25 @testing-library/react@^16 @testing-library/jest-dom@^6 @testing-library/user-event@^14
+pnpm add -D vitest@^3 @vitejs/plugin-react@^4 jsdom@^25 @testing-library/react@^16 @testing-library/jest-dom@^6 @testing-library/user-event@^14
 ```
 
-Expected: `yarn.lock` updated, no `package-lock.json` created.
+Expected: `pnpm-lock.yaml` updated, no `package-lock.json` or `yarn.lock` created.
 
 - [ ] **Step 2: Create the Vitest config**
 
@@ -146,18 +146,18 @@ describe('test infrastructure', () => {
 
 - [ ] **Step 6: Run it**
 
-Run: `yarn test src/test/smoke.test.tsx`
+Run: `pnpm test src/test/smoke.test.tsx`
 Expected: `1 passed`.
 
 - [ ] **Step 7: Make sure lint still passes and eslint ignores nothing new**
 
-Run: `yarn lint`
+Run: `pnpm lint`
 Expected: exit 0 (warnings allowed, no errors). If `vitest.config.mts` triggers `@typescript-eslint/no-require-imports` or import errors, add `'vitest.config.mts'` to the `files` list of the last config block in `eslint.config.mjs`.
 
 - [ ] **Step 8: Commit**
 
 ```bash
-git add vitest.config.mts src/test/setup.ts src/test/smoke.test.tsx package.json yarn.lock tsconfig.json eslint.config.mjs
+git add vitest.config.mts src/test/setup.ts src/test/smoke.test.tsx package.json pnpm-lock.yaml tsconfig.json eslint.config.mjs
 git commit -m "test: add vitest and testing-library infrastructure"
 ```
 
@@ -227,7 +227,7 @@ describe('brand color tokens', () => {
 
 - [ ] **Step 2: Run it to verify it fails**
 
-Run: `yarn test src/styles/colors.test.ts`
+Run: `pnpm test src/styles/colors.test.ts`
 Expected: FAIL (old palette present).
 
 - [ ] **Step 3: Rewrite the type**
@@ -282,7 +282,7 @@ export const colors: BrandColors = {
 
 - [ ] **Step 5: Run the test**
 
-Run: `yarn test src/styles/colors.test.ts`
+Run: `pnpm test src/styles/colors.test.ts`
 Expected: PASS (2 tests).
 
 - [ ] **Step 6: Check nothing imports `IColors`**
@@ -385,7 +385,7 @@ In `src/app/layout.tsx`:
 
 - [ ] **Step 4: Remove the Nanum dependency**
 
-Run: `yarn remove @fontsource/nanum-pen-script`
+Run: `pnpm remove @fontsource/nanum-pen-script`
 
 - [ ] **Step 5: Verify nothing else references Nanum or the old variable**
 
@@ -395,7 +395,7 @@ Expected: matches only in `tailwind.config.js` (fixed in Task 4) and possibly `s
 - [ ] **Step 6: Commit**
 
 ```bash
-git add src/styles/fonts.ts src/assets/fonts src/app/layout.tsx package.json yarn.lock
+git add src/styles/fonts.ts src/assets/fonts src/app/layout.tsx package.json pnpm-lock.yaml
 git commit -m "feat(fonts): load Anton, Inter, Instrument Serif and Departure Mono via next/font"
 ```
 
@@ -472,7 +472,7 @@ describe('tailwind theme', () => {
 
 - [ ] **Step 2: Run it to verify it fails**
 
-Run: `yarn test src/styles/tailwind.test.ts`
+Run: `pnpm test src/styles/tailwind.test.ts`
 Expected: FAIL on colors and fontFamily.
 
 - [ ] **Step 3: Update `tailwind.config.js` theme**
@@ -550,7 +550,7 @@ Also remove `addBase` from the plugin's destructured parameters if it is unused 
 
 - [ ] **Step 5: Run the theme test**
 
-Run: `yarn test src/styles/tailwind.test.ts`
+Run: `pnpm test src/styles/tailwind.test.ts`
 Expected: PASS (3 tests).
 
 - [ ] **Step 6: Rewrite `src/styles/global.css`**
@@ -707,12 +707,12 @@ Expected: no output from either command.
 
 - [ ] **Step 8: Build to verify the site compiles**
 
-Run: `yarn build 2>&1 | tail -20`
+Run: `pnpm build 2>&1 | tail -20`
 Expected: build succeeds. Tailwind does not error on unknown classes, so also open `.next` build output for CSS warnings: none expected.
 
 - [ ] **Step 9: Lint**
 
-Run: `yarn lint`
+Run: `pnpm lint`
 Expected: exit 0.
 
 - [ ] **Step 10: Commit**
@@ -770,7 +770,7 @@ describe('Eyebrow', () => {
 
 - [ ] **Step 2: Run it to verify it fails**
 
-Run: `yarn test src/components/ui/Eyebrow.test.tsx`
+Run: `pnpm test src/components/ui/Eyebrow.test.tsx`
 Expected: FAIL — cannot resolve `./Eyebrow`.
 
 - [ ] **Step 3: Implement**
@@ -822,7 +822,7 @@ export const Eyebrow: React.FC<EyebrowProps> = ({
 
 - [ ] **Step 4: Run the test**
 
-Run: `yarn test src/components/ui/Eyebrow.test.tsx`
+Run: `pnpm test src/components/ui/Eyebrow.test.tsx`
 Expected: PASS (3 tests).
 
 - [ ] **Step 5: Commit**
@@ -912,7 +912,7 @@ describe('Button', () => {
 
 - [ ] **Step 2: Run it to verify it fails**
 
-Run: `yarn test src/components/ui/Button.test.tsx`
+Run: `pnpm test src/components/ui/Button.test.tsx`
 Expected: FAIL (old classes `bg-base-gradient`, `rounded-lg`).
 
 - [ ] **Step 3: Rewrite the component**
@@ -992,7 +992,7 @@ export { Button }
 
 - [ ] **Step 4: Run the test**
 
-Run: `yarn test src/components/ui/Button.test.tsx`
+Run: `pnpm test src/components/ui/Button.test.tsx`
 Expected: PASS (6 tests).
 
 - [ ] **Step 5: Fix callers that used removed props**
@@ -1000,12 +1000,12 @@ Expected: PASS (6 tests).
 Run: `grep -rn "radii=\|emphasis=" src`
 For each hit, delete the `radii` / `emphasis` prop from the JSX. Then:
 
-Run: `yarn tsc --noEmit -p tsconfig.json 2>&1 | grep -i "button" | head`
+Run: `pnpm exec tsc --noEmit -p tsconfig.json 2>&1 | grep -i "button" | head`
 Expected: no errors mentioning Button props.
 
 - [ ] **Step 6: Lint + commit**
 
-Run: `yarn lint` — expected exit 0.
+Run: `pnpm lint` — expected exit 0.
 
 ```bash
 git add src/components/ui/Button.tsx src/components/ui/Button.test.tsx src
@@ -1086,7 +1086,7 @@ describe('Terminal', () => {
 
 - [ ] **Step 2: Run them to verify they fail**
 
-Run: `yarn test src/components/ui/Card.test.tsx src/components/ui/Terminal.test.tsx`
+Run: `pnpm test src/components/ui/Card.test.tsx src/components/ui/Terminal.test.tsx`
 Expected: FAIL — modules not found.
 
 - [ ] **Step 3: Implement Card**
@@ -1179,7 +1179,7 @@ export const Terminal: React.FC<TerminalProps> = ({
 
 - [ ] **Step 5: Run the tests**
 
-Run: `yarn test src/components/ui/Card.test.tsx src/components/ui/Terminal.test.tsx`
+Run: `pnpm test src/components/ui/Card.test.tsx src/components/ui/Terminal.test.tsx`
 Expected: PASS (4 tests).
 
 - [ ] **Step 6: Commit**
@@ -1236,7 +1236,7 @@ describe('Input', () => {
 
 - [ ] **Step 2: Run it to verify it fails**
 
-Run: `yarn test src/components/ui/Input.test.tsx`
+Run: `pnpm test src/components/ui/Input.test.tsx`
 Expected: FAIL.
 
 - [ ] **Step 3: Rewrite Input**
@@ -1330,9 +1330,9 @@ In `src/components/ui/Separator.tsx`, change `` `bg-white data-[alpha=true]:opac
 
 - [ ] **Step 6: Run tests, typecheck, lint**
 
-Run: `yarn test src/components/ui/Input.test.tsx` — expected PASS (2 tests).
-Run: `yarn tsc --noEmit -p tsconfig.json 2>&1 | tail -5` — expected no errors.
-Run: `yarn lint` — expected exit 0.
+Run: `pnpm test src/components/ui/Input.test.tsx` — expected PASS (2 tests).
+Run: `pnpm exec tsc --noEmit -p tsconfig.json 2>&1 | tail -5` — expected no errors.
+Run: `pnpm lint` — expected exit 0.
 
 - [ ] **Step 7: Commit**
 
@@ -1394,7 +1394,7 @@ describe('Container', () => {
 
 - [ ] **Step 2: Run it to verify it fails**
 
-Run: `yarn test src/components/layout/Container.test.tsx`
+Run: `pnpm test src/components/layout/Container.test.tsx`
 Expected: FAIL.
 
 - [ ] **Step 3: Rewrite Container**
@@ -1453,7 +1453,7 @@ export default Container
 
 - [ ] **Step 4: Run the Container test**
 
-Run: `yarn test src/components/layout/Container.test.tsx`
+Run: `pnpm test src/components/layout/Container.test.tsx`
 Expected: PASS (2 tests).
 
 - [ ] **Step 5: Remove Gradient from RootLayout and delete it**
@@ -1613,9 +1613,9 @@ Expected: no output.
 
 - [ ] **Step 12: Build, test, lint**
 
-Run: `yarn build 2>&1 | tail -15` — expected success.
-Run: `yarn test` — expected all green.
-Run: `yarn lint` — expected exit 0.
+Run: `pnpm build 2>&1 | tail -15` — expected success.
+Run: `pnpm test` — expected all green.
+Run: `pnpm lint` — expected exit 0.
 
 - [ ] **Step 13: Commit**
 
@@ -1648,7 +1648,7 @@ Append to `.gitignore`:
 
 - [ ] **Step 2: Run the dev server and capture desktop + mobile**
 
-Run in background: `yarn dev`
+Run in background: `pnpm dev`
 Then, using the Chrome MCP tools (`mcp__claude-in-chrome__*`) or the `run` skill, open `http://localhost:3000`, `/about`, `/projects`, `/contact` at 1440px and at 390px width and save screenshots to `.impeccable/screens/foundation-<route>-<width>.png`.
 
 What to look for (fix in this task if it's a foundation bug, otherwise note it for Plan 3):
