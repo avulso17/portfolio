@@ -14,13 +14,13 @@ export type SceneEntry = {
  */
 export const scenes: SceneEntry[] = [
   {
-    name: 'home-scribe',
-    source: 'art/source/home-scribe.png',
+    name: 'home-paladin',
+    source: 'art/source/home-paladin.png',
     algorithm: 'bayer',
   },
   {
-    name: 'about-scribe',
-    source: 'art/source/about-scribe.png',
+    name: 'about-paladin',
+    source: 'art/source/about-paladin.png',
     algorithm: 'bayer',
   },
   { name: 'avatar', source: 'art/source/avatar.png', algorithm: 'bayer' },
