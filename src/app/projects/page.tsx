@@ -41,19 +41,6 @@ export const metadata: Metadata = {
       'Discover the main projects I’ve done and work in which I’ve participated...',
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
-    images: [
-      {
-        url: '/og/og-work.jpg',
-        width: 800,
-        height: 600,
-      },
-      {
-        url: '/og/og-work.jpg',
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
-      },
-    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -63,7 +50,6 @@ export const metadata: Metadata = {
     description:
       'Discover the main projects I’ve done and work in which I’ve participated...',
     creator: 'Felipe Mateus',
-    images: ['/og/og-work.jpg'],
   },
 }
 

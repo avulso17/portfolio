@@ -43,19 +43,6 @@ export const metadata: Metadata = {
       'On this page you will find the main technologies I use, which I use to work, be productive, projects I have done and more...',
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
-    images: [
-      {
-        url: '/og/og-tech-stack.jpg',
-        width: 800,
-        height: 600,
-      },
-      {
-        url: '/og/og-tech-stack.jpg',
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
-      },
-    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -65,7 +52,6 @@ export const metadata: Metadata = {
     description:
       'On this page you will find the main technologies I use, which I use to work, be productive, projects I have done and more...',
     creator: 'Felipe Mateus',
-    images: ['/og/og-tech-stack.jpg'],
   },
 }
 

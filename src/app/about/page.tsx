@@ -58,19 +58,6 @@ export const metadata: Metadata = {
       'Here you will find a summary about me where I highlight who I am, what I do and what I have done so far.',
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
-    images: [
-      {
-        url: '/og/og-about.jpg',
-        width: 800,
-        height: 600,
-      },
-      {
-        url: '/og/og-about.jpg',
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
-      },
-    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -80,7 +67,6 @@ export const metadata: Metadata = {
     description:
       'Here you will find a summary about me where I highlight who I am, what I do and what I have done so far.',
     creator: 'Felipe Mateus',
-    images: ['/og/og-about.jpg'],
   },
 }
 

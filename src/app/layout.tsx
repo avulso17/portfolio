@@ -84,20 +84,6 @@ export const metadata: Metadata = {
       "I'm Felipe Mateus a multi-disciplinary Software Engineer and Front-end Software Developer based in Uberlândia, Brazil 🇧🇷.",
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
-    images: [
-      {
-        url: '/og/og-home.jpg',
-        width: 800,
-        height: 600,
-        alt: 'Felipe Mateus - Software Engineer Portfolio',
-      },
-      {
-        url: '/og/og-home.jpg',
-        width: 1800,
-        height: 1600,
-        alt: 'Felipe Mateus - Software Engineer Portfolio',
-      },
-    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -109,12 +95,6 @@ export const metadata: Metadata = {
     siteId: '1467726470533754880',
     creator: '@seuhandletwitter',
     creatorId: '1467726470533754880',
-    images: [
-      {
-        url: '/og/og-home.jpg',
-        alt: 'Felipe Mateus - Software Engineer Portfolio',
-      },
-    ],
   },
   verification: {
     google: 'seu-codigo-de-verificacao-do-google',

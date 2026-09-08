@@ -50,19 +50,6 @@ export const metadata: Metadata = {
       'Contact me by message, email or social media. Let’s build something awesome.',
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
-    images: [
-      {
-        url: '/og/og-contact.jpg',
-        width: 800,
-        height: 600,
-      },
-      {
-        url: '/og/og-contact.jpg',
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
-      },
-    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -72,7 +59,6 @@ export const metadata: Metadata = {
     description:
       'Contact me by message, email or social media. Let’s build something awesome.',
     creator: 'Felipe Mateus',
-    images: ['/og/og-contact.jpg'],
   },
 }
 
