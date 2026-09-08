@@ -15,7 +15,7 @@ const BookshelfBook: React.FC<BookshelfBookProps> = ({
   return (
     <div
       className={cn(
-        'relative z-0 w-full overflow-hidden rounded-md',
+        'relative z-0 w-full overflow-hidden rounded-sm border border-line',
         className
       )}
       {...props}
