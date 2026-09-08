@@ -82,7 +82,7 @@ const Resume: React.FC = () => {
       </div>
       <ResumeItem
         title='🔍 Resumo Profissional'
-        content='Desenvolvedor Front-end Sênior com mais de 4 anos de experiência na construção de aplicações web modernas, escaláveis e orientadas a produto. Especialista em React, Next.js e TypeScript, com forte foco em performance, acessibilidade, arquitetura e experiência do usuário.'
+        content='Desenvolvedor Front-end Sênior com mais de 5 anos de experiência na construção de aplicações web modernas, escaláveis e orientadas a produto. Especialista em React, Next.js e TypeScript, com forte foco em performance, acessibilidade, arquitetura e experiência do usuário.'
       />
 
       <ResumeItem content='Atuo com alto grau de autonomia, participando de decisões técnicas de ponta a ponta — da concepção visual e definição de arquitetura até a entrega em produção. Possuo vivência prática em integração com sistemas distribuídos, mensageria, cache e automações, compreendendo o front-end como parte estratégica do ecossistema do produto.' />

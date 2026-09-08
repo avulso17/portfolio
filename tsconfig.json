@@ -12,7 +12,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -34,7 +34,8 @@
     "postcss.config.js",
     "prettier.config.js",
     "tailwind.config.js",
-    "svgo.config.js"
+    "svgo.config.js",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
