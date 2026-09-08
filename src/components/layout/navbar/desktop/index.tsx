@@ -29,7 +29,7 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
     >
       <div className='relative flex items-center gap-10'>
         <Link href='/' className='shrink-0'>
-          <LogoSvg className='h-7 w-10 text-parchment transition-colors hover:text-parchment' />
+          <LogoSvg className='h-7 w-10 text-parchment transition-colors hover:text-parchment-dim' />
         </Link>
 
         <Link href='/about'>

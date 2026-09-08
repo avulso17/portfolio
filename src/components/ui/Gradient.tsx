@@ -28,11 +28,11 @@ const styles = tv({
         wrapper: 'top-0',
         box1: '-top-[3.875rem] bg-ok',
         box2: '-top-[5.25rem]',
-        box3: '-top-[3.875rem] bg-amber',
+        box3: '-top-[3.875rem] bg-ink-2',
       },
       bottom: {
         wrapper: 'bottom-0',
-        box1: '-bottom-[5.375rem] bg-amber',
+        box1: '-bottom-[5.375rem] bg-ink-2',
         box2: '-bottom-[7rem]',
         box3: '-bottom-[5.375rem] bg-ok',
       },

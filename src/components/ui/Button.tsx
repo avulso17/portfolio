@@ -11,13 +11,13 @@ const buttonStyles = tv({
   ],
   variants: {
     variant: {
-      primary: ['bg-amber px-5 py-4 text-ink', 'hover:brightness-125'],
+      primary: ['bg-parchment px-5 py-4 text-ink', 'hover:bg-parchment-dim'],
       secondary: [
         'bg-ink-2 px-5 py-4 text-parchment-dim',
         'hover:brightness-125',
       ],
       text: [
-        'h-[1.125rem] text-base leading-normal text-parchment',
+        'h-[1.125rem] text-base leading-normal text-parchment-dim',
         'hover:text-parchment',
       ],
     },

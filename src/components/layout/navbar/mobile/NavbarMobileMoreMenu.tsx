@@ -25,7 +25,7 @@ const styles = tv({
     ],
     listItem: [
       'flex h-14 shrink-0 items-center justify-center px-4 py-2',
-      'w-full rounded-lg bg-parchment/5 text-parchment outline-none',
+      'w-full rounded-lg bg-parchment/5 text-parchment-dim outline-none',
       'transition-colors ease-in-out',
       'data-[active=true]:bg-parchment/10 data-[active=true]:text-parchment',
     ],

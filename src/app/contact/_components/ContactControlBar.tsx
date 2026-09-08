@@ -10,7 +10,7 @@ const ContactControlBar: React.FC = () => {
     <div
       className={cn([
         'flex max-h-[3.375rem] w-full items-center p-4',
-        'border-white/[0.03] rounded-t-xl border-b bg-ink-2',
+        'rounded-t-xl border-b border-line bg-ink-2',
       ])}
     >
       <div className='flex h-fit w-fit gap-2'>

@@ -48,7 +48,7 @@ const navbarMobileStyles = tv({
     ],
     item: [
       'flex h-10 shrink-0 items-center px-4',
-      'rounded-lg text-parchment outline-none',
+      'rounded-lg text-parchment-dim outline-none',
       'transition-colors ease-in-out',
       'data-[active=true]:bg-parchment/10 data-[active=true]:text-parchment',
     ],

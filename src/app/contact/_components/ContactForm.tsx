@@ -121,7 +121,7 @@ const ContactForm: React.FC = () => {
               'shadow-text-area placeholder:text-parchment-mute focus:outline-none',
             ],
             {
-              'ring-red text-err/80 ring-2 placeholder:text-err': Boolean(
+              'text-err/80 ring-2 ring-err placeholder:text-err': Boolean(
                 errors?.text
               ),
             }
