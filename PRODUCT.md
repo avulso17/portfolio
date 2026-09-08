@@ -31,6 +31,7 @@ Felipe solves problems, finds bottlenecks, and makes decisions looking at the pr
 - Site is a Next.js 16 / React 19 app deployed on Vercel. Contact form sends via Resend; Bookshelf reads a Supabase table.
 - Routes: Home, About, Projects, Contact, Bookshelf, Tech Stack, Notebook. Information architecture is not changing in the rebrand.
 - Language: English. Bilingual (`/pt`) is declared in metadata but not implemented — backlog, not part of current work.
+- Assets: `art/**` is Git LFS (`brew install git-lfs`, `git lfs pull`).
 
 ## Capabilities and Constraints
 
@@ -46,8 +47,9 @@ Felipe solves problems, finds bottlenecks, and makes decisions looking at the pr
 - Brand name is **Felipe Mateus**. "Avulso" (nickname since technical school) and the old `[f]` monogram survive only as easter eggs, never as brand.
 - Voice: outcomes and decisions over stack; judgment verbs (_decide, cut, prioritize, measure, unblock_); numbers wherever real; no startup clichés; first person, opinionated. Two registers: monospace "system voice" labels and display/serif "human voice".
 - Personality gate: **critical, curious, direct.**
-- Binding visual direction (approved spec, `docs/superpowers/specs/2026-09-07-brand-identity-design.md`): 1-bit dithered engraving universe with a fictional alter-ego (the Scribe), monochrome + single amber accent, FM ex-libris mark, CRT effect on the home hero only. References in `docs/references/`.
+- Binding visual direction (approved spec, `docs/superpowers/specs/2026-09-07-brand-identity-design.md`): 1-bit dithered engraving universe with a fictional alter-ego (the Paladin), monochrome + single amber accent, FM ex-libris mark, CRT effect on the home hero only. References in `docs/references/`.
 - Illustrations are AI-generated (Higgsfield) and processed through a code dither pipeline; commissioned art may replace them later.
+- The FM mark is AI-generated and vectorized; the seal rings/arc text were rejected.
 
 ## Evidence on Hand
 
@@ -68,7 +70,7 @@ Felipe solves problems, finds bottlenecks, and makes decisions looking at the pr
 2. **A number beats an adjective.** Where a real figure exists, it replaces the claim. Where none exists, the claim stays qualitative and honest.
 3. **One click to the résumé, always.** The secondary audience is served without diluting the primary message.
 4. **Facts are fixed; framing is free.** Résumé, project list, and contact behavior are truth; tone, hierarchy, and visual world can change around them.
-5. **The character is atmosphere, not allegory.** The Scribe carries the visual identity; positioning lives in the copy.
+5. **The character is atmosphere, not allegory.** The Paladin carries the visual identity; positioning lives in the copy.
 
 ## Accessibility & Inclusion
 

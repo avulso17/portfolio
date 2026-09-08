@@ -61,24 +61,26 @@ The About body and résumé keep their factual content; only tone and framing ch
 
 ## 3. The character and the universe
 
-### 3.1 The Scribe (alter-ego)
+### 3.1 The Paladin (alter-ego)
 
-A medieval copyist in a scriptorium. **Not Felipe** — deliberately. The character is atmosphere and visual universe, not an allegory of the job; positioning lives in the copy (§2), not in the character.
+A hooded paladin — plain cloak over engraved plate armor, a longsword held point-down, an open book of code, a single candle as the only light, a thin halo with a four-pointed star (hero only). **Not Felipe** — the character is atmosphere, not allegory.
 
 **Character sheet** — fixed elements that identify him in every scene:
 
-- Hood and simple cloak. No armor.
-- Quill in the right hand, always.
-- A **candle** nearby — the only source of amber light in the universe.
-- An open book/parchment whose "text" subtly reads as code (braces, indentation).
-- Face partly in shadow.
-- Optional thin halo, **hero only**.
+- Hood and cloak over plate armor with rounded pauldrons.
+- Face in the shadow of the hood.
+- Sword point-down, hands on the pommel.
+- Open book whose text reads as code.
+- Candle nearby.
+- Halo with star, hero only.
 
 Style: black-and-white engraving (Doré / woodcut), high contrast, black background, rendered to 1-bit dither (see §5).
 
 ### 3.2 Exploration before commitment
 
 At generation time, produce four archetype variants from the same base prompt for side-by-side comparison: **Scribe** (primary), **Cartographer**, **Knight**, **Astronomer**. The Scribe is the working direction; the final call is Felipe's after seeing all four.
+
+Outcome (2026-09-08): the four archetypes were generated; Felipe chose a fifth direction he supplied — the Paladin. Job ids in `art/PROMPTS.md`.
 
 ### 3.3 Scenes (one per page)
 
@@ -137,11 +139,11 @@ The display family is decided visually during Phase B comps; the spec fixes the 
 An ex-libris is the mark an owner stamps in their books; it fits the Scribe/bookshelf universe and is a monogram (professional) dressed as a symbol (creative).
 
 - "F" and "M" interlaced inside a circular seal, drawn as engraving (hatching, no gradients).
-- Vector SVG, drawn by hand — not AI-generated.
+- The FM letterforms are an AI-generated blackletter silhouette (Higgsfield, reference in `docs/references/exemple-logo.png`) vectorized with potrace (`pnpm vectorize`); two variants: with halo (footer, OG) and without (navbar, favicon). No ring, no text around the mark.
 - Three sizes:
-  1. **Full seal** — hero, contact scene (wax seal), OG image.
-  2. **Monogram without ring** — navbar (28px).
-  3. **Lone "F"** — favicon (16px).
+  1. **Full mark with halo** — hero, contact scene (wax seal), OG image.
+  2. **Monogram without halo** — navbar (32px).
+  3. **The same monogram** — favicon.
 - Always monochrome (`parchment` on `ink`). Amber version exists only inside the Contact scene's wax seal.
 - Phase B produces 2–3 variants for choice.
 
@@ -199,6 +201,8 @@ Derived from the Alethe components reference:
 ### 6.2 Scene generation
 
 Base prompt + scene description (§3.3), width ≥ 2048px, black background. Scenes that don't include the character (Bookshelf, Notebook, Tech Stack, Projects, Contact) are generated without him.
+
+Sources with a model-drawn frame border may be cropped by luminance bounds instead of regenerated.
 
 ### 6.3 Dither script
 
@@ -266,3 +270,5 @@ Impeccable usage in Phase B: `new-work` in **redesign** mode (old look = anti-re
 | Production  | Higgsfield + code dither pipeline                           | Commissioned; hybrid                                                                           |
 | Theme       | Dark-only                                                   | Dark + "paper" light                                                                           |
 | Copy        | English, voice rewritten to dev+owner positioning           | Keep current voice; bilingual                                                                  |
+| Character   | Paladin (user-supplied concept)                             | Scribe (generated), Cartographer, Knight, Astronomer                                           |
+| Mark        | AI-generated blackletter FM + sword, vectorized             | hand-drawn FM interlace, double-fillet seal, rune                                              |
