@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react'
 import ExLibris from './ExLibris'
 import { FM_HALO, FM_PLAIN } from './ex-libris/monogram.generated'
-import { SEAL_TEXT } from './ex-libris/paths'
 
 describe('ExLibris', () => {
   it('renders the plain monogram by default and no ring', () => {
@@ -16,24 +15,21 @@ describe('ExLibris', () => {
     expect(svg.querySelector('circle')).toBeNull()
   })
 
-  it('seal renders the ring, the arc text, and the halo monogram', () => {
-    const { container } = render(<ExLibris mark='seal' />)
-    expect(container.querySelectorAll('circle').length).toBeGreaterThanOrEqual(
-      3
-    )
+  it('halo renders only the FM halo mark, no rings or arc text', () => {
+    const { container } = render(<ExLibris mark='halo' />)
+    const svg = container.querySelector('svg')!
+    expect(svg).toHaveAttribute('viewBox', FM_HALO.viewBox)
 
-    const textPath = container.querySelector('textPath')
-    expect(textPath).not.toBeNull()
-    expect(textPath?.textContent).toBe(SEAL_TEXT)
+    const paths = svg.querySelectorAll('path')
+    expect(paths.length).toBe(1)
+    expect(paths[0].getAttribute('d')).toBe(FM_HALO.d)
 
-    const d = Array.from(container.querySelectorAll('path')).map((p) =>
-      p.getAttribute('d')
-    )
-    expect(d).toContain(FM_HALO.d)
+    expect(container.querySelector('circle')).toBeNull()
+    expect(container.querySelector('textPath')).toBeNull()
   })
 
   it('uses currentColor only (no hard-coded fills)', () => {
-    const { container } = render(<ExLibris mark='seal' />)
+    const { container } = render(<ExLibris mark='halo' />)
     const html = container.innerHTML
     expect(html).not.toMatch(/#[0-9a-f]{3,6}/i)
     expect(html).toContain('currentColor')

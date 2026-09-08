@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
 
       <div className='flex flex-col gap-4'>
         <ExLibris
-          mark='seal'
+          mark='halo'
           aria-label='Felipe Mateus ex-libris'
           className='h-16 w-16 text-parchment'
         />

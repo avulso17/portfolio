@@ -4,14 +4,6 @@ import path from 'node:path'
 import { colors } from '@/styles/colors'
 import type { OgCopy } from '@/configs/og'
 import { FM_HALO } from '@/assets/ex-libris/monogram.generated'
-import {
-  SEAL_RINGS,
-  SEAL_STAR_POSITIONS,
-  STAR_PATH,
-  VIEWBOX,
-  sealMarkTransform,
-  starTransform,
-} from '@/assets/ex-libris/paths'
 
 export const OG_SIZE = { width: 1200, height: 630 }
 export const OG_CONTENT_TYPE = 'image/png'
@@ -40,29 +32,8 @@ async function loadFonts() {
 }
 
 const Seal = ({ size }: { size: number }) => (
-  <svg viewBox={VIEWBOX} width={size} height={size}>
-    {SEAL_RINGS.map(({ r, strokeWidth }) => (
-      <circle
-        key={r}
-        cx='50'
-        cy='50'
-        r={r}
-        fill='none'
-        stroke={colors.parchment}
-        strokeWidth={strokeWidth}
-      />
-    ))}
-    {SEAL_STAR_POSITIONS.map(([x, y]) => (
-      <path
-        key={`${x}-${y}`}
-        d={STAR_PATH}
-        fill={colors.parchment}
-        transform={starTransform([x, y])}
-      />
-    ))}
-    <g transform={sealMarkTransform(FM_HALO.viewBox)}>
-      <path d={FM_HALO.d} fill={colors.parchment} />
-    </g>
+  <svg viewBox={FM_HALO.viewBox} width={size} height={size}>
+    <path d={FM_HALO.d} fill={colors.parchment} />
   </svg>
 )
 
