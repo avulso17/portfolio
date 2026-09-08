@@ -87,3 +87,20 @@
     @apply bg-parchment text-ink;
   }
 }
+
+@layer utilities {
+  @media (prefers-reduced-motion: no-preference) {
+    .scene-drift {
+      animation: scene-drift 14s ease-in-out infinite alternate;
+    }
+  }
+}
+
+@keyframes scene-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
