@@ -576,7 +576,7 @@ Replace the file with:
 
   html,
   body {
-    @apply bg-ink font-body text-parchment overflow-x-hidden scroll-smooth text-body;
+    @apply overflow-x-hidden scroll-smooth bg-ink font-body text-parchment text-body;
   }
 
   body {
@@ -627,7 +627,7 @@ Replace the file with:
   }
 
   :focus-visible {
-    @apply outline-amber outline outline-1 outline-offset-2;
+    @apply outline outline-1 outline-offset-2 outline-amber;
   }
 
   input[type='number']::-webkit-inner-spin-button,
@@ -783,8 +783,8 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const eyebrowStyles = tv({
   slots: {
-    root: 'eyebrow-text text-parchment-mute inline-flex items-center gap-2',
-    square: 'bg-parchment-mute inline-block h-1.5 w-1.5 shrink-0',
+    root: 'inline-flex items-center gap-2 text-parchment-mute eyebrow-text',
+    square: 'inline-block h-1.5 w-1.5 shrink-0 bg-parchment-mute',
   },
   variants: {
     active: {
@@ -926,21 +926,21 @@ import { tv, type VariantProps } from 'tailwind-variants'
 const buttonStyles = tv({
   base: [
     'inline-flex h-fit shrink-0 items-center justify-center',
-    'font-body whitespace-nowrap rounded-sm text-base font-medium leading-none',
+    'whitespace-nowrap rounded-sm font-body text-base font-medium leading-none',
     'transition-colors duration-150 ease-out',
     'disabled:cursor-default disabled:opacity-50',
   ],
   variants: {
     variant: {
-      primary: 'bg-parchment text-ink hover:bg-parchment-dim px-5 py-3.5',
-      accent: 'bg-amber text-ink px-5 py-3.5 hover:brightness-95',
+      primary: 'bg-parchment px-5 py-3.5 text-ink hover:bg-parchment-dim',
+      accent: 'bg-amber px-5 py-3.5 text-ink hover:brightness-95',
       secondary: [
-        'border-line text-parchment border bg-transparent px-5 py-3.5',
+        'border border-line bg-transparent px-5 py-3.5 text-parchment',
         'hover:border-parchment-dim',
       ],
       text: [
-        'font-mono rounded-none bg-transparent p-0 text-xs uppercase tracking-[0.08em]',
-        'text-parchment-dim hover:text-parchment underline-offset-4 hover:underline',
+        'rounded-none bg-transparent p-0 font-mono text-xs uppercase tracking-[0.08em]',
+        'text-parchment-dim underline-offset-4 hover:text-parchment hover:underline',
       ],
     },
     icon: {
@@ -1140,34 +1140,34 @@ export const Terminal: React.FC<TerminalProps> = ({
 }) => {
   return (
     <section
-      className={cn('border-line bg-ink-2 rounded-sm border', className)}
+      className={cn('rounded-sm border border-line bg-ink-2', className)}
       {...props}
     >
-      <header className='border-line flex items-center gap-3 border-b px-4 py-2.5'>
+      <header className='flex items-center gap-3 border-b border-line px-4 py-2.5'>
         <span className='flex items-center gap-1.5' aria-hidden='true'>
           <i
             data-testid='terminal-dot'
-            className='bg-parchment-mute block h-2 w-2 rounded-full'
+            className='block h-2 w-2 rounded-full bg-parchment-mute'
           />
           <i
             data-testid='terminal-dot'
-            className='bg-parchment-mute block h-2 w-2 rounded-full'
+            className='block h-2 w-2 rounded-full bg-parchment-mute'
           />
           <i
             data-testid='terminal-dot'
-            className='bg-parchment-mute block h-2 w-2 rounded-full'
+            className='block h-2 w-2 rounded-full bg-parchment-mute'
           />
         </span>
-        <h3 className='font-mono text-parchment text-xs uppercase tracking-[0.08em]'>
+        <h3 className='font-mono text-xs uppercase tracking-[0.08em] text-parchment'>
           {title}
         </h3>
         {path ? (
-          <span className='font-mono text-parchment-mute ml-auto text-xs'>
+          <span className='ml-auto font-mono text-xs text-parchment-mute'>
             {path}
           </span>
         ) : null}
       </header>
-      <div className='font-mono text-parchment-dim p-4 text-sm leading-relaxed'>
+      <div className='p-4 font-mono text-sm leading-relaxed text-parchment-dim'>
         {children}
       </div>
     </section>
@@ -1249,13 +1249,13 @@ import { VariantProps, tv } from 'tailwind-variants'
 
 const styles = tv({
   base: [
-    'font-body text-parchment relative min-w-0 appearance-none bg-transparent',
+    'relative min-w-0 appearance-none bg-transparent font-body text-parchment',
     'placeholder:text-parchment-mute focus-visible:outline-none',
     'transition-colors',
   ],
   variants: {
     variant: {
-      line: 'border-line focus:border-amber border-b px-0 py-3',
+      line: 'border-b border-line px-0 py-3 focus:border-amber',
       unstyled: 'border-none',
     },
     error: {
@@ -1298,11 +1298,11 @@ const textFieldStyles = tv({
   slots: {
     wrapper: 'flex w-full flex-col gap-2',
     input: [
-      'font-body text-parchment w-full min-w-0 appearance-none bg-transparent',
-      'border-line border-b py-3 transition-colors',
+      'w-full min-w-0 appearance-none bg-transparent font-body text-parchment',
+      'border-b border-line py-3 transition-colors',
       'placeholder:text-parchment-mute focus:border-amber focus:outline-none',
     ],
-    label: 'eyebrow-text text-parchment-mute',
+    label: 'text-parchment-mute eyebrow-text',
   },
   variants: {
     variant: {
@@ -1428,7 +1428,7 @@ const Container: React.FC<ContainerProps> = ({
     <div
       className={cn(
         'relative mx-auto max-w-screen-wide',
-        grid && 'border-line border-x',
+        grid && 'border-x border-line',
         className
       )}
       {...props}
@@ -1474,7 +1474,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <Container className='px-4 pt-8 mobile:px-8'>
         <div className='mx-auto mb-28 w-fit mobile:hidden'>
           <Link href='/' aria-label='Home'>
-            <LogoSvg className='text-parchment-dim hover:text-parchment mx-auto h-8 w-12 transition-colors' />
+            <LogoSvg className='mx-auto h-8 w-12 text-parchment-dim transition-colors hover:text-parchment' />
           </Link>
         </div>
 
@@ -1509,8 +1509,8 @@ Replace the `iconButtonStyles` base with:
 const iconButtonStyles = tv({
   base: [
     'flex h-10 w-10 items-center justify-center',
-    'text-parchment-dim cursor-pointer rounded-sm text-xl',
-    'hover:bg-ink-2 hover:text-parchment transition-colors',
+    'cursor-pointer rounded-sm text-xl text-parchment-dim',
+    'transition-colors hover:bg-ink-2 hover:text-parchment',
   ],
 })
 ```
@@ -1686,3 +1686,36 @@ git commit -m "chore(rebrand): foundation visual check and detector fixes"
 
 - **Plan 2 — Assets:** `scripts/dither.ts` (sharp, Bayer 8×8, F–S option, fixed params, tests on a synthetic gradient), Higgsfield base prompt + 4 archetype variants + user choice, character poses, 7 scenes, `src/assets/ExLibris.tsx` (SVG, 3 sizes), OG/favicon/apple-icon regeneration.
 - **Plan 3 — Pages:** direction contract comment in root layout, display font comps, home hero with `crt-warp`, each page redesigned on the new components, new copy (needs Felipe's project numbers and the "avulso" year), metadata, removal of 3DCard/BentoGrid/TextGeneratorEffect/Sun/Moon/unused keyframes/old utilities, Impeccable finish review + documenter → `DESIGN.md`.
+
+---
+
+## Execution status (2026-09-08) — handoff for Plan 2
+
+**Plan 1 is complete** on `feature/rebrand` (base `dev`, not pushed). Range `715ab8b..323feb7`, 19 commits. All gates green: `pnpm test` 24/24, `pnpm lint` 0 errors, `pnpm exec tsc --noEmit` 0 errors, `pnpm build` clean. Final whole-branch review approved after one fix wave.
+
+### Facts a fresh session needs
+
+- Package manager is **pnpm 10** (`pnpm-lock.yaml`, husky hook runs `pnpm lint` + `lint-staged`; no `--no-verify`).
+- Test runner: Vitest (`pnpm test <path>`), jsdom, `@/` alias, includes `scripts/**/*.test.ts` — so `scripts/dither.ts` tests slot in directly.
+- Tokens: `src/styles/colors.ts` (13 keys) → Tailwind → CSS vars. Fonts: `src/styles/fonts.ts` (Anton display, Inter body, Instrument Serif, Departure Mono local at `src/assets/fonts/`, **OFL 1.1** — spec §4.2 is correct). Typography utilities: `.display-1/.display-2/.eyebrow-text/.text-outline` (guarded by `src/styles/tailwind.test.ts`).
+- Shell/base components in place: `Container` (line grid + reg marks), `Eyebrow`, `Button` (`primary|accent|secondary|text`), `Card`, `Terminal`, `Input`/`TextField`/`Separator`, blur-free navbar/footer/modal. `Gradient.tsx` deleted.
+- Logo: navbar/footer still use `src/assets/Logo.tsx` (`[f]`); Plan 2 delivers `src/assets/ExLibris.tsx` with the same `React.SVGProps<SVGSVGElement>` contract.
+- `sharp` is already a dependency (approved build script in `pnpm.onlyBuiltDependencies`).
+- Higgsfield is available via MCP in Claude Code (`mcp__claude_ai_higgsfield__*`; load with ToolSearch; read `get_workflow_instructions` and the `character-sheet` workflow before generating the Scribe).
+- Chrome MCP screenshots were unavailable in the executing session (extension unresponsive); the foundation's **visual pass is still owed** — run `pnpm dev` at 390/768/1440px on `/`, `/about`, `/contact` before merging into `dev`.
+
+### Deferred to Plan 3 (from reviews)
+
+- Hand-rolled `font-mono text-xs uppercase tracking-[0.08em]` copies in `Terminal.tsx`, `Button.tsx` (text variant), `modal/Modal.tsx`, `footer/index.tsx` → use `.eyebrow-text`.
+- Dead config: `.blur-performance`, `backgroundImage['portrait-radient']` in `tailwind.config.js`; `borderRadius['4xl'|50]`, `boxShadow['text-area']` still used by pages.
+- Dead API kept for compatibility: `Separator alpha` (no-op), `TextField outlined|standard` (empty), `Input unstyled` and `Input` itself (no production consumer).
+- Unused eslint devDeps after flat-config migration: `eslint-config-prettier`, `eslint-plugin-import`, `eslint-plugin-promise`, `eslint-plugin-react`; `package.json` top-level `overrides` is npm-only (pnpm ignores it).
+- Legacy components still imported by pages: `3DCard`, `BentoGrid` (keeps `hover:shadow-xl`), `TextGeneratorEffect`, Sun/Moon icons; unused keyframes; `rounded-xl/4xl`, `shadow-text-area` in `src/app/**`.
+- `Terminal` hardcodes `<h3>` and ships `data-testid="terminal-dot"`; `Resume.tsx` modal headings now inherit Anton uppercase (eyeball); `ContactFormMessage.tsx` uses `animate-bounce` (impeccable hook flags it); `Notebook` content is placeholder; Equals* project URLs in `src/configs/works.ts` are wrong.
+- Old `.eslintrc.js` rules not carried over: `typescript-sort-keys`, type-aware `parserOptions.project`.
+
+### Still pending from Felipe (Plan 3 inputs)
+
+- Real project numbers (decision → result) for the copy.
+- Year of the technical course, for the "avulso" easter egg.
+- Handle to consolidate social accounts under (`felipemateus` vs `felipe-mateus`).
