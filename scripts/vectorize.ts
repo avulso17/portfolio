@@ -15,7 +15,7 @@ const DEFAULT_POTRACE_OPTIONS: PotraceOptions = {
   alphaMax: 1,
 }
 
-async function preprocess(inputPath: string) {
+async function preprocess(inputPath: string, square: boolean) {
   const resized = await sharp(inputPath)
     .resize({
       width: MAX_DIMENSION,
@@ -29,14 +29,26 @@ async function preprocess(inputPath: string) {
     .toBuffer({ resolveWithObject: true })
 
   const { width: tw, height: th } = trimmedInfo
-  const side = Math.max(tw, th)
-  const pad = Math.round(side * PADDING_RATIO)
-  const squareSide = side + pad * 2
 
-  const left = Math.floor((squareSide - tw) / 2)
-  const right = squareSide - tw - left
-  const top = Math.floor((squareSide - th) / 2)
-  const bottom = squareSide - th - top
+  let left: number, right: number, top: number, bottom: number
+  let width: number, height: number
+
+  if (square) {
+    const side = Math.max(tw, th)
+    const pad = Math.round(side * PADDING_RATIO)
+    width = height = side + pad * 2
+    left = Math.floor((width - tw) / 2)
+    right = width - tw - left
+    top = Math.floor((height - th) / 2)
+    bottom = height - th - top
+  } else {
+    const padX = Math.round(tw * PADDING_RATIO)
+    const padY = Math.round(th * PADDING_RATIO)
+    left = right = padX
+    top = bottom = padY
+    width = tw + padX * 2
+    height = th + padY * 2
+  }
 
   const buffer = await sharp(trimmed)
     .extend({
@@ -51,7 +63,7 @@ async function preprocess(inputPath: string) {
     .png()
     .toBuffer()
 
-  return { buffer, size: squareSide }
+  return { buffer, width, height }
 }
 
 function vectorize(buffer: Buffer, options: PotraceOptions): Promise<string> {
@@ -73,24 +85,31 @@ function vectorize(buffer: Buffer, options: PotraceOptions): Promise<string> {
   })
 }
 
-async function trace(name: string, inputPath: string, options: PotraceOptions) {
-  const { buffer, size } = await preprocess(inputPath)
+async function trace(
+  name: string,
+  inputPath: string,
+  square: boolean,
+  options: PotraceOptions
+) {
+  const { buffer, width, height } = await preprocess(inputPath, square)
   const d = await vectorize(buffer, options)
   const kb = (Buffer.byteLength(d) / 1024).toFixed(1)
-  console.log(`${name}: viewBox 0 0 ${size} ${size}, d = ${kb} KB`)
-  return { viewBox: `0 0 ${size} ${size}`, d }
+  console.log(`${name}: viewBox 0 0 ${width} ${height}, d = ${kb} KB`)
+  return { viewBox: `0 0 ${width} ${height}`, d }
 }
 
 async function run() {
   const nohalo = await trace(
     'FM_PLAIN',
     path.join(REPO_ROOT, 'art/mark/fm-nohalo.png'),
+    false,
     DEFAULT_POTRACE_OPTIONS
   )
 
   let halo = await trace(
     'FM_HALO',
     path.join(REPO_ROOT, 'art/mark/fm-halo.png'),
+    true,
     DEFAULT_POTRACE_OPTIONS
   )
 
@@ -102,6 +121,7 @@ async function run() {
     halo = await trace(
       'FM_HALO',
       path.join(REPO_ROOT, 'art/mark/fm-halo.png'),
+      true,
       { ...DEFAULT_POTRACE_OPTIONS, turdSize: 40, optTolerance: 0.8 }
     )
   }

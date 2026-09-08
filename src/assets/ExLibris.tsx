@@ -21,14 +21,7 @@ type ExLibrisProps = SVGProps & {
 
 const viewBoxWidth = (viewBox: string) => Number(viewBox.split(' ')[2])
 
-const plainWidth = viewBoxWidth(FM_PLAIN.viewBox)
 const haloWidth = viewBoxWidth(FM_HALO.viewBox)
-
-const Monogram = () => (
-  <g transform={`scale(${100 / plainWidth})`}>
-    <path d={FM_PLAIN.d} fill='currentColor' />
-  </g>
-)
 
 const Seal: React.FC<{ arcId: string }> = ({ arcId }) => {
   const arcD = `M ${50 - SEAL_TEXT_RADIUS} 50 A ${SEAL_TEXT_RADIUS} ${SEAL_TEXT_RADIUS} 0 0 1 ${50 + SEAL_TEXT_RADIUS} 50`
@@ -89,16 +82,21 @@ const Seal: React.FC<{ arcId: string }> = ({ arcId }) => {
 
 const ExLibris: React.FC<ExLibrisProps> = ({ mark = 'monogram', ...props }) => {
   const arcId = useId()
+  const viewBox = mark === 'seal' ? VIEWBOX : FM_PLAIN.viewBox
 
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      viewBox={VIEWBOX}
+      viewBox={viewBox}
       height='1em'
-      width='1em'
+      width='auto'
       {...props}
     >
-      {mark === 'seal' ? <Seal arcId={arcId} /> : <Monogram />}
+      {mark === 'seal' ? (
+        <Seal arcId={arcId} />
+      ) : (
+        <path d={FM_PLAIN.d} fill='currentColor' />
+      )}
     </svg>
   )
 }

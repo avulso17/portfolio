@@ -13,7 +13,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <Link href='/' aria-label='Home'>
             <ExLibris
               mark='monogram'
-              className='mx-auto h-8 w-8 text-parchment-dim transition-colors hover:text-parchment'
+              className='mx-auto h-9 w-auto text-parchment-dim transition-colors hover:text-parchment'
             />
           </Link>
         </div>

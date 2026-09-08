@@ -32,7 +32,7 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
           <ExLibris
             mark='monogram'
             aria-label='Felipe Mateus'
-            className='h-7 w-7 text-parchment transition-colors hover:text-parchment-dim'
+            className='h-8 w-auto text-parchment transition-colors hover:text-parchment-dim'
           />
         </Link>
 

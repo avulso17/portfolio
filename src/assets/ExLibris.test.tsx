@@ -7,7 +7,7 @@ describe('ExLibris', () => {
   it('renders the plain monogram by default and no ring', () => {
     const { container } = render(<ExLibris data-testid='mark' />)
     const svg = container.querySelector('svg')!
-    expect(svg).toHaveAttribute('viewBox', '0 0 100 100')
+    expect(svg).toHaveAttribute('viewBox', FM_PLAIN.viewBox)
 
     const paths = svg.querySelectorAll('path')
     expect(paths.length).toBe(1)
@@ -41,10 +41,10 @@ describe('ExLibris', () => {
 
   it('forwards svg props and className', () => {
     const { container } = render(
-      <ExLibris className='h-7 w-7' aria-label='Felipe Mateus' />
+      <ExLibris className='h-7 w-auto' aria-label='Felipe Mateus' />
     )
     const svg = container.querySelector('svg')!
-    expect(svg).toHaveClass('h-7', 'w-7')
+    expect(svg).toHaveClass('h-7', 'w-auto')
     expect(svg).toHaveAttribute('aria-label', 'Felipe Mateus')
   })
 })

@@ -19,9 +19,9 @@ const DevAssetsPage = () => {
             </span>
           </div>
           <div className='flex flex-col items-center gap-3'>
-            <ExLibris mark='monogram' className='h-[200px] w-[200px]' />
-            <ExLibris mark='monogram' className='h-7 w-7' />
-            <ExLibris mark='monogram' className='h-4 w-4' />
+            <ExLibris mark='monogram' className='h-[200px] w-auto' />
+            <ExLibris mark='monogram' className='h-7 w-auto' />
+            <ExLibris mark='monogram' className='h-4 w-auto' />
             <span className='text-parchment-mute eyebrow-text'>
               monogram / 200 · 28 · 16
             </span>
