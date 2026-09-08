@@ -67,7 +67,7 @@ const AboutContent: React.FC = () => (
           roadmaps that need someone to push back, and interfaces that have to
           convert rather than just render.
         </p>
-        <p>
+        <div>
           Based in <Strong>Uberlândia, Brazil</Strong>, working with teams
           anywhere. My résumé is one click away: <AboutResumeModal />. Or reach
           me on{' '}
@@ -79,7 +79,7 @@ const AboutContent: React.FC = () => (
             LinkedIn
           </Link>
           .
-        </p>
+        </div>
       </Block>
     </div>
 
