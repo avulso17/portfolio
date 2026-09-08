@@ -31,7 +31,7 @@ async function loadFonts() {
   ]
 }
 
-const Seal = ({ size }: { size: number }) => (
+const HaloMark = ({ size }: { size: number }) => (
   <svg viewBox={FM_HALO.viewBox} width={size} height={size}>
     <path d={FM_HALO.d} fill={colors.parchment} />
   </svg>
@@ -99,7 +99,7 @@ export async function renderOg(copy: OgCopy): Promise<ImageResponse> {
           >
             {copy.title}
           </div>
-          <Seal size={180} />
+          <HaloMark size={180} />
         </div>
 
         <span
