@@ -4,6 +4,7 @@ import HomeIcon from '@/components/icons/Home'
 import MessageFillIcon from '@/components/icons/MessageFill'
 import MoreOutlineIcon from '@/components/icons/MoreOutline'
 import UserFillIcon from '@/components/icons/UserFill'
+import { NAV_PRIMARY } from '@/configs/navigation'
 import { useOnClickOutside } from '@/hooks/useOnClickOutsite'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -12,30 +13,15 @@ import { tv } from 'tailwind-variants'
 import NavbarMobileMoreMenu from './NavbarMobileMoreMenu'
 
 const routes = [
+  { name: 'Home', path: '/', icon: HomeIcon },
+  { name: NAV_PRIMARY[0].label, path: NAV_PRIMARY[0].href, icon: UserFillIcon },
+  { name: NAV_PRIMARY[1].label, path: NAV_PRIMARY[1].href, icon: BagFillIcon },
   {
-    name: 'home',
-    path: '/',
-    icon: HomeIcon,
-  },
-  {
-    name: 'about',
-    path: '/about',
-    icon: UserFillIcon,
-  },
-  {
-    name: 'work',
-    path: '/projects',
-    icon: BagFillIcon,
-  },
-  {
-    name: 'contact',
-    path: '/contact',
+    name: NAV_PRIMARY[2].label,
+    path: NAV_PRIMARY[2].href,
     icon: MessageFillIcon,
   },
-  {
-    name: 'more',
-    icon: MoreOutlineIcon,
-  },
+  { name: 'More', icon: MoreOutlineIcon },
 ]
 
 const navbarMobileStyles = tv({

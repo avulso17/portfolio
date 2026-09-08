@@ -3,6 +3,7 @@ import GitHubIcon from '@/components/icons/GitHub'
 import LinkedInIcon from '@/components/icons/LinkedIn'
 import YouTubeIcon from '@/components/icons/YouTube'
 import { Button } from '@/components/ui/Button'
+import { NAV_PRIMARY } from '@/configs/navigation'
 import { SOCIAL_LINKS } from '@/constants/social'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
@@ -22,31 +23,29 @@ export type NavbarProps = React.ComponentProps<'nav'>
 const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
   return (
     <nav
+      aria-label='Primary'
       className={twMerge(
-        'mb-44 hidden h-fit w-full items-center justify-between border-b border-line py-4 mobile:flex',
+        'hidden h-fit w-full items-center justify-between border-b border-line py-4 mobile:flex',
         className
       )}
     >
       <div className='relative flex items-center gap-10'>
-        <Link href='/' className='shrink-0'>
+        <Link href='/' className='shrink-0' aria-label='Home'>
           <ExLibris
             mark='monogram'
-            aria-label='Felipe Mateus'
             className='h-8 w-auto text-parchment transition-colors hover:text-parchment-dim'
           />
         </Link>
 
-        <Link href='/about'>
-          <Button variant='text'>About</Button>
-        </Link>
-
-        <Link href='/projects'>
-          <Button variant='text'>Projects</Button>
-        </Link>
-
-        <Link href='/contact' className='hidden tablet:block'>
-          <Button variant='text'>Contact</Button>
-        </Link>
+        {NAV_PRIMARY.map(({ href, label }) => (
+          <Link
+            key={href}
+            href={href}
+            className={label === 'Contact' ? 'hidden tablet:block' : undefined}
+          >
+            <Button variant='text'>{label}</Button>
+          </Link>
+        ))}
 
         <NavbarDesktopDropdownMenu />
       </div>
@@ -56,6 +55,7 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
           href={SOCIAL_LINKS.linkedIn}
           className={iconButtonStyles()}
           target='_blank'
+          aria-label='LinkedIn'
         >
           <LinkedInIcon />
         </Link>
@@ -63,6 +63,7 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
           href={SOCIAL_LINKS.youTube}
           className={iconButtonStyles()}
           target='_blank'
+          aria-label='YouTube'
         >
           <YouTubeIcon />
         </Link>
@@ -70,13 +71,10 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
           href={SOCIAL_LINKS.github}
           className={iconButtonStyles()}
           target='_blank'
+          aria-label='GitHub'
         >
           <GitHubIcon />
         </Link>
-
-        {/* <Separator orientation='vertical' className='mx-1 opacity-25' /> */}
-
-        {/* <ChangeLocaleMenu /> */}
       </div>
     </nav>
   )

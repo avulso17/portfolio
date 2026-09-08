@@ -1,73 +1,49 @@
 'use client'
 
-import { AnimatePresence, motion } from 'framer-motion'
+import { NAV_MORE } from '@/configs/navigation'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { tv } from 'tailwind-variants'
 
-const items = [
-  {
-    name: 'Tech Stack',
-    path: '/tech-stack',
-  },
-  {
-    name: 'Bookshelf',
-    path: '/bookshelf',
-  },
-]
-
 const styles = tv({
   slots: {
     list: [
-      'flex w-full flex-col gap-4 px-4 py-6',
+      'flex w-full flex-col gap-2 px-4 py-4',
       'rounded-t-sm border border-line bg-ink-2',
       'absolute bottom-full left-0 z-10',
     ],
     listItem: [
-      'flex h-14 shrink-0 items-center justify-center px-4 py-2',
-      'w-full rounded-sm bg-parchment/5 text-parchment-dim',
-      'transition-colors ease-in-out',
-      'data-[active=true]:bg-parchment/10 data-[active=true]:text-parchment',
+      'flex h-12 w-full shrink-0 items-center px-4',
+      'rounded-sm text-parchment-dim eyebrow-text',
+      'transition-colors ease-in-out hover:text-parchment',
+      'data-[active=true]:bg-ink data-[active=true]:text-parchment',
     ],
   },
 })
 
-export type NavbarMobileMoreMenuProps = {
-  isOpen: boolean
-  onClose: () => void
-}
+export type NavbarMobileMoreMenuProps = { isOpen: boolean; onClose: () => void }
 
 const NavbarMobileMoreMenu: React.FC<NavbarMobileMoreMenuProps> = ({
   isOpen,
   onClose,
 }) => {
   const pathname = usePathname()
-
   const { list, listItem } = styles()
 
   return (
-    <AnimatePresence initial={false}>
-      {isOpen ? (
-        <motion.div
-          initial={{ y: 2, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 2, opacity: 0 }}
-          className={list()}
+    <div id='navbar-mobile-more' hidden={!isOpen} className={list()}>
+      {NAV_MORE.map(({ href, label }) => (
+        <Link
+          key={href}
+          href={href}
+          data-active={pathname === href}
+          className={listItem()}
+          onClick={onClose}
         >
-          {items.map(({ path, name }, index) => (
-            <Link key={index} href={path}>
-              <button
-                data-active={path === pathname}
-                className={listItem()}
-                onClick={onClose}
-              >
-                {name}
-              </button>
-            </Link>
-          ))}
-        </motion.div>
-      ) : null}
-    </AnimatePresence>
+          {label}
+        </Link>
+      ))}
+    </div>
   )
 }
 
