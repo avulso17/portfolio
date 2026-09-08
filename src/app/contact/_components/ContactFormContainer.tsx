@@ -1,21 +1,14 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import ContactControlBar from './ContactControlBar'
+import { Terminal } from '@/components/ui/Terminal'
 import ContactForm from './ContactForm'
 
-const ContactFormContainer: React.FC = () => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 70, rotateX: '-35deg' }}
-      animate={{ opacity: 1, y: 0, rotateX: '0deg' }}
-      transition={{ ease: 'easeIn' }}
-      className='relative flex w-full flex-col overflow-hidden rounded-xl border border-line bg-ink-2 pb-5'
-    >
-      <ContactControlBar />
-      <ContactForm />
-    </motion.div>
-  )
-}
+const ContactFormContainer: React.FC = () => (
+  <Terminal
+    title='new message'
+    path='~/inbox'
+    className='relative overflow-hidden'
+  >
+    <ContactForm />
+  </Terminal>
+)
 
 export default ContactFormContainer

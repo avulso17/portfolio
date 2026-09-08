@@ -1,11 +1,9 @@
-import { Header } from '@/components/ui/Header'
+import { Eyebrow } from '@/components/ui/Eyebrow'
+import { PageHero } from '@/components/ui/PageHero'
 import { Metadata } from 'next'
-import dynamic from 'next/dynamic'
+import ContactFormContainer from './_components/ContactFormContainer'
+import ContactSeal from './_components/ContactSeal'
 import ContactSocialButtonGroup from './_components/ContactSocialButtonGroup'
-
-const ContactFormContainer = dynamic(
-  () => import('./_components/ContactFormContainer')
-)
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -38,16 +36,16 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://felipe-mateus.com'),
-  title: 'Contact | Felipe Mateus - Software Engineer',
+  title: 'Contact',
   description:
-    'Contact me by message, email or social media. Let’s build something awesome.',
+    "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    title: 'Contact | Felipe Mateus - Software Engineer',
+    title: 'Contact',
     description:
-      'Contact me by message, email or social media. Let’s build something awesome.',
+      "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
     locale: 'en_US',
@@ -55,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact | Felipe Mateus - Software Engineer',
+    title: 'Contact',
     description:
-      'Contact me by message, email or social media. Let’s build something awesome.',
+      "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
     creator: 'Felipe Mateus',
   },
 }
@@ -65,14 +63,27 @@ export const metadata: Metadata = {
 const ContactPage: React.FC = () => {
   return (
     <main>
-      <Header
-        title='Get in touch'
-        subtitle='Let&rsquo;s build something awesome.'
-      />
+      <div className='relative'>
+        <PageHero
+          index='06'
+          label='Contact'
+          title="Tell me what's stuck."
+          subtitle='A bottleneck, a roadmap that doesn’t add up, a front-end that isn’t paying for itself — write it down.'
+          scene='contact-letter'
+          sceneClassName='[&_img]:object-center'
+        />
+        <ContactSeal />
+      </div>
 
-      <div className='mb-20 mt-8 w-full mobile:mt-16'>
+      <div className='grid gap-12 py-16 wide:grid-cols-[1fr_20rem]'>
         <ContactFormContainer />
-        <ContactSocialButtonGroup />
+        <aside className='flex flex-col gap-6'>
+          <Eyebrow index='06'>Elsewhere</Eyebrow>
+          <ContactSocialButtonGroup />
+          <p className='font-serif text-xl italic text-parchment-dim'>
+            I read everything. I answer what I can help with.
+          </p>
+        </aside>
       </div>
     </main>
   )

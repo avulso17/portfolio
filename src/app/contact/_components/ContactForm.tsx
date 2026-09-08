@@ -1,7 +1,6 @@
 'use client'
 
 import sendEmail from '@/app/contact/_actions/sendEmail'
-import Separator from '@/components/ui/Separator'
 import { TextField } from '@/components/ui/TextField'
 import { cn } from '@/lib/utils/cn'
 import { useState, useTransition } from 'react'
@@ -63,73 +62,68 @@ const ContactForm: React.FC = () => {
 
   return (
     <>
-      <form
-        action={submitAction}
-        className={cn([
-          'flex w-full flex-col gap-6 px-4 pt-6',
-          'mobile:gap-8 mobile:px-8 mobile:py-2.5',
-        ])}
-      >
+      <form action={submitAction} className='flex w-full flex-col gap-6'>
         <div className='h-fit w-full'>
           <TextField
             id='email'
             type='email'
             name='email'
-            placeholder='Enter your email address'
-            label='Email:'
+            placeholder='you@company.com'
+            label='Email'
             disabled={isPending}
             onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             error={Boolean(errors?.email)}
           />
 
-          <Separator alpha className='my-4' />
-
           <TextField
             id='name'
             type='text'
             name='name'
-            placeholder='Enter your name'
-            label='Name:'
+            placeholder='Your name'
+            label='Name'
             disabled={isPending}
             onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             error={Boolean(errors?.name)}
           />
 
-          <Separator alpha className='my-4' />
-
           <TextField
             type='text'
             id='subject'
             name='subject'
-            placeholder='Enter subject'
-            label='Subject:'
+            placeholder='What is this about?'
+            label='Subject'
             disabled={isPending}
             onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             error={Boolean(errors?.subject)}
           />
         </div>
 
-        <Separator alpha />
-
-        <textarea
-          id='text'
-          name='text'
-          placeholder='Write your message here'
-          className={cn(
-            [
-              'h-80 w-full rounded-xl bg-ink p-6 text-start',
-              'shadow-text-area placeholder:text-parchment-mute focus:outline-none',
-            ],
-            {
-              'text-err/80 ring-2 ring-err placeholder:text-err': Boolean(
-                errors?.text
-              ),
-            }
-          )}
-          disabled={isPending}
-          onChange={(e) => clearError(e.target.name as ErrorsKeys)}
-          onKeyDown={handleKeyDown}
-        />
+        <div className='flex flex-col gap-2'>
+          <label htmlFor='text' className='text-parchment-mute eyebrow-text'>
+            Message
+          </label>
+          <textarea
+            id='text'
+            name='text'
+            maxLength={1500}
+            placeholder="What's stuck? Context, what you tried, what it costs you."
+            className={cn(
+              'min-h-56 w-full resize-y border-b border-line bg-transparent py-3 font-body text-parchment',
+              'placeholder:text-parchment-mute focus:border-amber focus:outline-none',
+              {
+                'border-err text-err placeholder:text-err/70': Boolean(
+                  errors?.text
+                ),
+              }
+            )}
+            disabled={isPending}
+            onChange={(e) => clearError(e.target.name as ErrorsKeys)}
+            onKeyDown={handleKeyDown}
+          />
+          <span className='text-parchment-mute eyebrow-text'>
+            ⌘/Ctrl + Enter to send · max 1500
+          </span>
+        </div>
 
         <ContactSubmitButton />
       </form>
