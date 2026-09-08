@@ -1,7 +1,0 @@
-node_modules
-dist
-.next/
-build/
-.github
-README.md
-yarn.lock

@@ -29,7 +29,7 @@ const ProjectsContent: React.FC = () => {
   }, [search])
 
   useEffect(() => {
-    let interval = setTimeout(() => filterProjects(), 500)
+    const interval = setTimeout(() => filterProjects(), 500)
 
     return () => {
       clearTimeout(interval)

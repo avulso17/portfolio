@@ -2,7 +2,7 @@ const { withTV } = require('tailwind-variants/transformer')
 const plugin = require('tailwindcss/plugin')
 
 const { colors: systemColors } = require('./src/styles/colors')
-const { keyframes } = require('./src/styles/keyframes')
+const { keyframes } = require('./src/styles/keyframes.ts')
 
 const svgToDataUri = require('mini-svg-data-uri')
 
@@ -112,7 +112,7 @@ module.exports = withTV({
       matchVariant,
       matchUtilities,
     }) {
-      addUtilities({
+      ;(addUtilities({
         '.mask-geist': {
           maskImage: 'url(/assets/geist.svg)',
           maskSize: 'cover',
@@ -250,7 +250,7 @@ module.exports = withTV({
           perspective: (value) => ({
             perspective: value,
           }),
-        })
+        }))
     }),
   ],
 })
