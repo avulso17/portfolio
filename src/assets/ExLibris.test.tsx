@@ -1,36 +1,22 @@
 import { render } from '@testing-library/react'
 import ExLibris from './ExLibris'
-import {
-  RUNE_STEM_PATHS,
-  RUNE_F_BAR,
-  RUNE_GUARD,
-  RUNE_BLADE,
-  RUNE_BLADE_TIP,
-  STAR_PATH,
-  SEAL_TEXT,
-} from './ex-libris/paths'
+import { FM_HALO, FM_PLAIN } from './ex-libris/monogram.generated'
+import { SEAL_TEXT } from './ex-libris/paths'
 
 describe('ExLibris', () => {
-  it('renders the rune monogram by default and no ring', () => {
+  it('renders the plain monogram by default and no ring', () => {
     const { container } = render(<ExLibris data-testid='mark' />)
     const svg = container.querySelector('svg')!
     expect(svg).toHaveAttribute('viewBox', '0 0 100 100')
-    const d = Array.from(svg.querySelectorAll('path')).map((p) =>
-      p.getAttribute('d')
-    )
-    for (const p of [
-      ...RUNE_STEM_PATHS,
-      RUNE_F_BAR,
-      RUNE_GUARD,
-      RUNE_BLADE,
-      RUNE_BLADE_TIP,
-      STAR_PATH,
-    ])
-      expect(d).toContain(p)
+
+    const paths = svg.querySelectorAll('path')
+    expect(paths.length).toBe(1)
+    expect(paths[0].getAttribute('d')).toBe(FM_PLAIN.d)
+
     expect(svg.querySelector('circle')).toBeNull()
   })
 
-  it('seal renders the ring, the arc text, and the rune', () => {
+  it('seal renders the ring, the arc text, and the halo monogram', () => {
     const { container } = render(<ExLibris mark='seal' />)
     expect(container.querySelectorAll('circle').length).toBeGreaterThanOrEqual(
       3
@@ -43,8 +29,7 @@ describe('ExLibris', () => {
     const d = Array.from(container.querySelectorAll('path')).map((p) =>
       p.getAttribute('d')
     )
-    for (const p of [...RUNE_STEM_PATHS, RUNE_F_BAR, RUNE_GUARD, RUNE_BLADE])
-      expect(d).toContain(p)
+    expect(d).toContain(FM_HALO.d)
   })
 
   it('uses currentColor only (no hard-coded fills)', () => {

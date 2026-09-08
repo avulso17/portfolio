@@ -1,20 +1,13 @@
 import { useId } from 'react'
+import { FM_HALO, FM_PLAIN } from './ex-libris/monogram.generated'
 import {
-  BLADE_STROKE,
-  GUARD_STROKE,
   RING_INNER,
   RING_OUTER,
-  RUNE_BLADE,
-  RUNE_BLADE_TIP,
-  RUNE_F_BAR,
-  RUNE_GUARD,
-  RUNE_STEM_PATHS,
   SEAL_INNER_RING,
   SEAL_STAR_POSITIONS,
   SEAL_TEXT,
   SEAL_TEXT_RADIUS,
   STAR_PATH,
-  STROKE,
   VIEWBOX,
 } from './ex-libris/paths'
 
@@ -26,24 +19,15 @@ type ExLibrisProps = SVGProps & {
   mark?: ExLibrisMark
 }
 
-const strokeProps = {
-  fill: 'none',
-  stroke: 'currentColor',
-  strokeLinecap: 'square',
-  strokeLinejoin: 'miter',
-} as const
+const viewBoxWidth = (viewBox: string) => Number(viewBox.split(' ')[2])
 
-const Rune = () => (
-  <>
-    {RUNE_STEM_PATHS.map((d) => (
-      <path key={d} d={d} strokeWidth={STROKE} {...strokeProps} />
-    ))}
-    <path d={RUNE_F_BAR} strokeWidth={STROKE} {...strokeProps} />
-    <path d={RUNE_GUARD} strokeWidth={GUARD_STROKE} {...strokeProps} />
-    <path d={RUNE_BLADE} strokeWidth={BLADE_STROKE} {...strokeProps} />
-    <path d={RUNE_BLADE_TIP} fill='currentColor' stroke='none' />
-    <path d={STAR_PATH} fill='currentColor' stroke='none' />
-  </>
+const plainWidth = viewBoxWidth(FM_PLAIN.viewBox)
+const haloWidth = viewBoxWidth(FM_HALO.viewBox)
+
+const Monogram = () => (
+  <g transform={`scale(${100 / plainWidth})`}>
+    <path d={FM_PLAIN.d} fill='currentColor' />
+  </g>
 )
 
 const Seal: React.FC<{ arcId: string }> = ({ arcId }) => {
@@ -96,8 +80,8 @@ const Seal: React.FC<{ arcId: string }> = ({ arcId }) => {
           <path d={STAR_PATH} fill='currentColor' stroke='none' />
         </g>
       ))}
-      <g transform='translate(50 50) scale(0.52) translate(-50 -50)'>
-        <Rune />
+      <g transform={`translate(21 21) scale(${58 / haloWidth})`}>
+        <path d={FM_HALO.d} fill='currentColor' />
       </g>
     </>
   )
@@ -114,7 +98,7 @@ const ExLibris: React.FC<ExLibrisProps> = ({ mark = 'monogram', ...props }) => {
       width='1em'
       {...props}
     >
-      {mark === 'seal' ? <Seal arcId={arcId} /> : <Rune />}
+      {mark === 'seal' ? <Seal arcId={arcId} /> : <Monogram />}
     </svg>
   )
 }

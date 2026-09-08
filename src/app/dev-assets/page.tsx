@@ -23,7 +23,7 @@ const DevAssetsPage = () => {
             <ExLibris mark='monogram' className='h-7 w-7' />
             <ExLibris mark='monogram' className='h-4 w-4' />
             <span className='text-parchment-mute eyebrow-text'>
-              rune / 200 · 28 · 16
+              monogram / 200 · 28 · 16
             </span>
           </div>
         </div>
