@@ -1,6 +1,6 @@
-import { Header } from '@/components/ui/Header'
+import { PageHero } from '@/components/ui/PageHero'
 import { Metadata } from 'next'
-import NotebookPageWrapper from './_components/NotebookPageWrapper'
+import NotebookInProgress from './_components/NotebookInProgress'
 
 export const metadata: Metadata = {
   generator: 'Next.js',
@@ -28,16 +28,14 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://felipe-mateus.com'),
-  title: 'Felipe Mateus - Software Engineer',
-  description:
-    'Read, study and see the main thoughts and insights made by me. Curiosities and more...',
+  title: 'Notebook',
+  description: 'Notes in progress — decisions, not tutorials.',
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    title: 'Felipe Mateus - Software Engineer',
-    description:
-      'Read, study and see the main thoughts and insights made by me. Curiosities and more...',
+    title: 'Notebook',
+    description: 'Notes in progress — decisions, not tutorials.',
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
     locale: 'en_US',
@@ -45,9 +43,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Felipe Mateus - Software Engineer',
-    description:
-      'Read, study and see the main thoughts and insights made by me. Curiosities and more...',
+    title: 'Notebook',
+    description: 'Notes in progress — decisions, not tutorials.',
     creator: 'Felipe Mateus',
   },
 }
@@ -55,11 +52,14 @@ export const metadata: Metadata = {
 const NotebookPage: React.FC = () => {
   return (
     <main>
-      <Header
-        title='Notebook'
-        subtitle='My thoughts, insights, and reflections.'
+      <PageHero
+        index='04'
+        label='Notebook'
+        title='Notes in progress.'
+        subtitle='Nothing published yet. The first notes land here.'
+        scene='notebook-desk'
       />
-      <NotebookPageWrapper />
+      <NotebookInProgress />
     </main>
   )
 }
