@@ -1,4 +1,4 @@
-import { Header } from '@/components/ui/Header'
+import { PageHero } from '@/components/ui/PageHero'
 import { Metadata } from 'next'
 import TechStackAppsList from './_components/TechStackAppsList'
 import TechStackGamesList from './_components/TechStackGamesList'
@@ -31,16 +31,14 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://felipe-mateus.com'),
-  title: 'Felipe Mateus - Software Engineer',
-  description:
-    'On this page you will find the main technologies I use, which I use to work, be productive, projects I have done and more...',
+  title: 'Tech Stack',
+  description: 'What I use to ship — the stack is a means, never the pitch.',
   appleWebApp: {
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    title: 'Felipe Mateus - Software Engineer',
-    description:
-      'On this page you will find the main technologies I use, which I use to work, be productive, projects I have done and more...',
+    title: 'Tech Stack',
+    description: 'What I use to ship — the stack is a means, never the pitch.',
     url: 'https://felipe-mateus.com',
     siteName: 'Felipe Mateus',
     locale: 'en_US',
@@ -48,9 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Felipe Mateus - Software Engineer',
-    description:
-      'On this page you will find the main technologies I use, which I use to work, be productive, projects I have done and more...',
+    title: 'Tech Stack',
+    description: 'What I use to ship — the stack is a means, never the pitch.',
     creator: 'Felipe Mateus',
   },
 }
@@ -58,12 +55,15 @@ export const metadata: Metadata = {
 const TechStacksPage: React.FC = () => {
   return (
     <main className='w-full'>
-      <Header
-        title='Tech Stack'
-        subtitle='The dev tools, apps, devices, and games I use and play.'
+      <PageHero
+        index='05'
+        label='Tech Stack'
+        title='Tools, not headlines.'
+        subtitle='What I use to ship. The stack is a means, never the pitch.'
+        scene='tech-bench'
       />
 
-      <div className='mb-28 mt-12'>
+      <div className='pb-16'>
         <TechStackToolsList />
 
         <TechStackAppsList />

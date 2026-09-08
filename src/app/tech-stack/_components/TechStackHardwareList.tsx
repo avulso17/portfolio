@@ -7,7 +7,7 @@ import TechStackGroupTitle from './TechStackGroupTitle'
 const TechStackHardwareList: React.FC = () => {
   return (
     <>
-      <TechStackGroupTitle>Hardware</TechStackGroupTitle>
+      <TechStackGroupTitle index='03'>Hardware</TechStackGroupTitle>
       <TechStackGroup>
         {hardware.map((item) => {
           const { image, name, link } = item
