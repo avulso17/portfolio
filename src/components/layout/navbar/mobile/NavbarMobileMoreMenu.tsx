@@ -19,13 +19,13 @@ const items = [
 const styles = tv({
   slots: {
     list: [
-      'flex w-full flex-col gap-4 px-4 py-6 backdrop-blur-sm blur-performance',
-      'rounded-t-2xl bg-ink/80 ring-1 ring-line/60',
+      'flex w-full flex-col gap-4 px-4 py-6',
+      'rounded-t-sm border border-line bg-ink-2',
       'absolute bottom-full left-0 z-10',
     ],
     listItem: [
       'flex h-14 shrink-0 items-center justify-center px-4 py-2',
-      'w-full rounded-lg bg-parchment/5 text-parchment-dim outline-none',
+      'w-full rounded-sm bg-parchment/5 text-parchment-dim outline-none',
       'transition-colors ease-in-out',
       'data-[active=true]:bg-parchment/10 data-[active=true]:text-parchment',
     ],

@@ -41,7 +41,7 @@ const NavbarDesktopDropdownMenu: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -2 }}
             transition={{ duration: 0.1 }}
-            className='absolute right-0 top-[calc(100%+1rem)] flex flex-col gap-4 rounded-b-xl bg-ink-2/50 p-4'
+            className='absolute right-0 top-[calc(100%+0.5rem)] z-20 flex min-w-40 flex-col gap-3 rounded-sm border border-line bg-ink-2 p-4'
           >
             <Link href='/contact' className='flex tablet:hidden'>
               <Button variant='text' onClick={onCloseMenu}>
@@ -52,6 +52,12 @@ const NavbarDesktopDropdownMenu: React.FC = () => {
             <Link href='/bookshelf'>
               <Button variant='text' onClick={onCloseMenu}>
                 Bookshelf
+              </Button>
+            </Link>
+
+            <Link href='/notebook'>
+              <Button variant='text' onClick={onCloseMenu}>
+                Notebook
               </Button>
             </Link>
 

@@ -25,7 +25,7 @@ const Skeleton = () => (
     className={cn([
       'bg-ink bg-dot-parchment/20',
       'flex h-full min-h-[10rem] w-full flex-1',
-      'rounded-xl border border-line',
+      'rounded-sm border border-line',
       '[mask-image:radial-gradient(ellipse_at_center,white,transparent)]',
       'wide:min-h-[6rem]',
     ])}
@@ -54,7 +54,7 @@ export const BentoGridItem = ({
         className={cn(
           [
             'group/bento row-span-1 space-y-4 p-4',
-            'flex flex-col justify-between rounded-xl',
+            'flex flex-col justify-between rounded-sm',
             'border border-line bg-ink shadow-none',
             'transition duration-200 hover:shadow-xl',
           ],
@@ -80,7 +80,7 @@ export const BentoGridItem = ({
       className={cn(
         [
           'group/bento row-span-1 cursor-pointer space-y-4 p-4',
-          'flex flex-col justify-between rounded-xl',
+          'flex flex-col justify-between rounded-sm',
           'border border-line bg-ink shadow-none',
           'transition duration-200 hover:shadow-xl',
         ],
