@@ -15,15 +15,11 @@ const HomeResumeModalButton: React.FC = () => {
   return (
     <>
       <Button
-        className='group/modal-btn w-full overflow-hidden mobile:w-fit'
+        variant='secondary'
+        className='w-full mobile:w-fit'
         onClick={handleClick}
       >
-        <span className='text-center transition duration-500 group-hover/modal-btn:translate-x-[400%]'>
-          See my resume
-        </span>
-        <div className='absolute inset-0 z-20 flex -translate-x-full items-center justify-center text-parchment transition duration-500 group-hover/modal-btn:translate-x-0'>
-          📄
-        </div>
+        See my résumé
       </Button>
 
       <Modal open={open} onClose={() => setOpen(false)}>
