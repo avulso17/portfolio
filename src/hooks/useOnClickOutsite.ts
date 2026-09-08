@@ -6,7 +6,7 @@ type EventType =
   'mousedown' | 'mouseup' | 'touchstart' | 'touchend' | 'focusin' | 'focusout'
 
 export function useOnClickOutside<T extends HTMLElement = HTMLElement>(
-  ref: RefObject<T> | RefObject<T>[],
+  ref: RefObject<T | null> | RefObject<T | null>[],
   handler: (event: MouseEvent | TouchEvent | FocusEvent) => void,
   eventType: EventType = 'mousedown',
   eventListenerOptions: AddEventListenerOptions = {}
