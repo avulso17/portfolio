@@ -6,7 +6,7 @@ import ResumeModalButton from './HomeResumeModalButton'
 const HomeHero: React.FC = () => {
   return (
     <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-14 mobile:mb-[20.625rem] mobile:gap-10 mobile:pt-0'>
-      <h1 className='mb-4 w-fit whitespace-nowrap font-extrabold mobile:mb-0'>
+      <h1 className='mb-4 w-fit mobile:mb-0'>
         <b className='block mobile:hidden'>Hi 👋🏻</b>
         <b>I&rsquo;m</b> Felipe M
         <p className='hidden font-extrabold text-inherit font-inherit tablet:inline-block'>

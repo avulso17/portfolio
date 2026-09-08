@@ -73,6 +73,7 @@ const TextField = forwardRef<HTMLInputElement, ITextField>(
           id={id}
           className={input({ className: inputClassname })}
           placeholder={placeholder}
+          aria-invalid={error || undefined}
           {...props}
         />
       </div>

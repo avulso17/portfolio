@@ -51,7 +51,7 @@ const ContactFormMessage: React.FC<ContactFormMessageProps> = ({ status }) => {
           In the meantime, follow me on these platforms below
         </p>
 
-        <HandArrowDownSvg className='h-[98px] w-[56px] animate-bounce text-parchment delay-100 dark:text-parchment-dim' />
+        <HandArrowDownSvg className='h-[98px] w-[56px] animate-bounce text-parchment delay-100' />
       </div>
     </div>
   )

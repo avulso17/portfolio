@@ -76,7 +76,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, children }) => {
           type='reset'
           onClick={closeModal}
           className='font-mono text-xs uppercase tracking-[0.08em] text-parchment-dim hover:text-parchment'
-          aria-label='Close'
+          aria-label='Close (esc)'
         >
           esc
         </button>

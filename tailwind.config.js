@@ -1,7 +1,7 @@
 const { withTV } = require('tailwind-variants/transformer')
 const plugin = require('tailwindcss/plugin')
 
-const { colors: systemColors } = require('./src/styles/colors')
+const { colors: systemColors } = require('./src/styles/colors.ts')
 const { keyframes } = require('./src/styles/keyframes.ts')
 
 const svgToDataUri = require('mini-svg-data-uri')

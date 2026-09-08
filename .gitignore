@@ -42,3 +42,6 @@ next-env.d.ts
 # impeccable / serena
 .impeccable/screens/
 .serena/
+
+# bundle analyzer output
+analyze/

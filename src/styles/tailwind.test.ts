@@ -1,4 +1,6 @@
+import postcss from 'postcss'
 import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindcss from 'tailwindcss'
 
 // tailwind.config.js `require()`s TypeScript files (colors.ts, keyframes.ts).
 // Tailwind itself loads the config through jiti; do the same here so the
@@ -46,5 +48,32 @@ describe('tailwind theme', () => {
     expect(theme.backgroundImage?.['base-gradient']).toBeUndefined()
     expect(theme.boxShadow?.button).toBeUndefined()
     expect(theme.boxShadow?.dropdown).toBeUndefined()
+  })
+
+  it('emits the typography utilities with spec values', async () => {
+    const css = '@tailwind utilities;'
+    const result = await postcss([
+      tailwindcss({
+        ...tailwindConfig,
+        content: [
+          {
+            raw: '<div class="display-1 display-2 eyebrow-text text-outline"></div>',
+            extension: 'html',
+          },
+        ],
+      }),
+    ]).process(css, { from: undefined })
+    expect(result.css).toMatch(/\.display-1\s*{[^}]*font-size:\s*7rem/)
+    expect(result.css).toMatch(
+      /\.display-1\s*{[^}]*text-transform:\s*uppercase/
+    )
+    expect(result.css).toMatch(/\.display-2\s*{[^}]*font-size:\s*4rem/)
+    expect(result.css).toMatch(/\.eyebrow-text\s*{[^}]*font-size:\s*0\.75rem/)
+    expect(result.css).toMatch(
+      /\.eyebrow-text\s*{[^}]*letter-spacing:\s*0\.08em/
+    )
+    expect(result.css).toMatch(
+      /\.text-outline\s*{[^}]*-webkit-text-stroke:\s*1\.5px/
+    )
   })
 })

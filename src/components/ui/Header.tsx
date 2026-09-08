@@ -13,7 +13,7 @@ export const Header = ({ title, subtitle }: HeaderProps) => {
         {subtitle ?? 'Here goes a subtitle for the header'}
       </p>
 
-      <Separator className='absolute bottom-0 !w-screen opacity-[0.06] absolute-center-x' />
+      <Separator className='absolute bottom-0 !w-screen absolute-center-x' />
     </div>
   )
 }
