@@ -8,26 +8,23 @@ const DevAssetsPage = () => {
   return (
     <main className='flex flex-col gap-12 py-12'>
       <section className='flex flex-col gap-6 border-t border-line pt-4'>
-        <Eyebrow>ex-libris — pick a ring</Eyebrow>
+        <Eyebrow>ex-libris</Eyebrow>
         <div className='flex flex-wrap items-end gap-12 text-parchment'>
-          {(['double', 'double-bold', 'double-inset'] as const).map((ring) => (
-            <div key={ring} className='flex flex-col items-center gap-3'>
-              <ExLibris mark='seal' ring={ring} className='h-40 w-40' />
-              <ExLibris mark='seal' ring={ring} className='h-16 w-16' />
-              <span className='text-parchment-mute eyebrow-text'>{ring}</span>
-            </div>
-          ))}
           <div className='flex flex-col items-center gap-3'>
-            <ExLibris mark='monogram' className='h-40 w-40' />
-            <ExLibris mark='monogram' className='h-7 w-7' />
+            <ExLibris mark='seal' className='h-[200px] w-[200px]' />
+            <ExLibris mark='seal' className='h-16 w-16' />
+            <ExLibris mark='seal' className='h-8 w-8' />
             <span className='text-parchment-mute eyebrow-text'>
-              monogram / 28px
+              seal / 200 · 64 · 32
             </span>
           </div>
           <div className='flex flex-col items-center gap-3'>
-            <ExLibris mark='f' className='h-40 w-40' />
-            <ExLibris mark='f' className='h-4 w-4' />
-            <span className='text-parchment-mute eyebrow-text'>f / 16px</span>
+            <ExLibris mark='monogram' className='h-[200px] w-[200px]' />
+            <ExLibris mark='monogram' className='h-7 w-7' />
+            <ExLibris mark='monogram' className='h-4 w-4' />
+            <span className='text-parchment-mute eyebrow-text'>
+              rune / 200 · 28 · 16
+            </span>
           </div>
         </div>
       </section>
