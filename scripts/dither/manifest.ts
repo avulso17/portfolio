@@ -12,7 +12,7 @@ export type SceneEntry = {
  * constant in core.ts. Switch a portrait-like scene to 'floyd-steinberg'
  * only after the visual check in Task 7.
  */
-export const scenes: SceneEntry[] = [
+export const scenes: ReadonlyArray<SceneEntry> = [
   {
     name: 'home-paladin',
     source: 'art/source/home-paladin.png',

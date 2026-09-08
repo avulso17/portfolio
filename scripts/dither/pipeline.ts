@@ -30,6 +30,12 @@ export async function renderScene(
     .raw()
     .toBuffer({ resolveWithObject: true })
 
+  if (info.channels !== 1) {
+    throw new Error(
+      `expected a single-channel grayscale buffer, got ${info.channels} channels`
+    )
+  }
+
   const luma = toLuma(new Uint8Array(data.buffer, data.byteOffset, data.length))
   const bits = dither(algorithm, luma, info.width, info.height)
   const scaled = scaleNearest(bits, info.width, info.height, CELL)

@@ -1,7 +1,8 @@
 import { existsSync } from 'node:fs'
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
-import { Algorithm, CELL } from './dither/core'
+import { CELL } from './dither/core'
+import type { Algorithm } from './dither/core'
 import { scenes } from './dither/manifest'
 import { renderScene } from './dither/pipeline'
 
@@ -89,9 +90,22 @@ async function runAdHoc(input: string, outputBase: string, algorithm: string) {
   await writeOutputs(path.resolve(outputBase), algorithm, path.resolve(input))
 }
 
-const [, , input, outputBase, algorithm = 'bayer'] = process.argv
-if (input && outputBase) {
-  runAdHoc(input, outputBase, algorithm)
-} else {
-  runManifest()
+async function run() {
+  const [, , input, outputBase, algorithm = 'bayer'] = process.argv
+  if (input && !outputBase) {
+    console.error(
+      'usage: pnpm dither [<input> <outputBase> [bayer|floyd-steinberg]]'
+    )
+    process.exit(1)
+  }
+  if (input && outputBase) {
+    await runAdHoc(input, outputBase, algorithm)
+  } else {
+    await runManifest()
+  }
 }
+
+run().catch((err) => {
+  console.error(err)
+  process.exit(1)
+})

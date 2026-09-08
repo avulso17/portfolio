@@ -18,7 +18,7 @@ export const PARCHMENT = { r: 242, g: 238, b: 230 } as const // #F2EEE6
 
 export type Algorithm = 'bayer' | 'floyd-steinberg'
 
-export const BAYER_8x8: number[][] = [
+export const BAYER_8x8: ReadonlyArray<ReadonlyArray<number>> = [
   [0, 32, 8, 40, 2, 34, 10, 42],
   [48, 16, 56, 24, 50, 18, 58, 26],
   [12, 44, 4, 36, 14, 46, 6, 38],
