@@ -1,4 +1,4 @@
-import LogoSvg from '@/assets/Logo'
+import ExLibris from '@/assets/ExLibris'
 import Link from 'next/link'
 import Container from './Container'
 import Footer from './footer'
@@ -11,7 +11,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <Container className='px-4 pt-8 mobile:px-8'>
         <div className='mx-auto mb-28 w-fit mobile:hidden'>
           <Link href='/' aria-label='Home'>
-            <LogoSvg className='mx-auto h-8 w-12 text-parchment-dim transition-colors hover:text-parchment' />
+            <ExLibris
+              mark='monogram'
+              className='mx-auto h-8 w-8 text-parchment-dim transition-colors hover:text-parchment'
+            />
           </Link>
         </div>
 

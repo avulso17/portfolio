@@ -1,4 +1,4 @@
-import LogoSvg from '@/assets/Logo'
+import ExLibris from '@/assets/ExLibris'
 import Separator from '@/components/ui/Separator'
 import { Eyebrow } from '@/components/ui/Eyebrow'
 import { SOCIAL_LINKS } from '@/constants/social'
@@ -13,7 +13,11 @@ const Footer: React.FC = () => {
       <Separator alpha screen />
 
       <div className='flex flex-col gap-4'>
-        <LogoSvg className='h-[60px] w-[92px] text-parchment' />
+        <ExLibris
+          mark='seal'
+          aria-label='Felipe Mateus ex-libris'
+          className='h-16 w-16 text-parchment'
+        />
         <p className='font-serif text-xl italic text-parchment-dim'>
           Thanks for stopping by ッ
         </p>

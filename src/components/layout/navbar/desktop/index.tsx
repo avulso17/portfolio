@@ -1,4 +1,4 @@
-import LogoSvg from '@/assets/Logo'
+import ExLibris from '@/assets/ExLibris'
 import GitHubIcon from '@/components/icons/GitHub'
 import LinkedInIcon from '@/components/icons/LinkedIn'
 import YouTubeIcon from '@/components/icons/YouTube'
@@ -29,7 +29,11 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
     >
       <div className='relative flex items-center gap-10'>
         <Link href='/' className='shrink-0'>
-          <LogoSvg className='h-7 w-10 text-parchment transition-colors hover:text-parchment-dim' />
+          <ExLibris
+            mark='monogram'
+            aria-label='Felipe Mateus'
+            className='h-7 w-7 text-parchment transition-colors hover:text-parchment-dim'
+          />
         </Link>
 
         <Link href='/about'>
