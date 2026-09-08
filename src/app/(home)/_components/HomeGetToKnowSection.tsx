@@ -7,7 +7,7 @@ import Widget from './HomeWidget'
 const HomeGetToKnowSection: React.FC = () => {
   return (
     <>
-      <h2 className='mb-8 header'>Get to know me</h2>
+      <h2 className='mb-8 display-2'>Get to know me</h2>
       <ul className='mb-[6.75rem] grid grid-cols-1 gap-4 tablet:grid-cols-2'>
         <motion.li
           initial={{ opacity: 0 }}

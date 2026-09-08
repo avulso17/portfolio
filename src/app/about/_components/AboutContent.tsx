@@ -11,8 +11,8 @@ import AboutResumeModal from './AboutResumeModal'
 
 const aboutStyles = tv({
   slots: {
-    title: 'text-gray text-base font-semibold uppercase',
-    text: 'text-gray-dark w-full text-lg leading-[158%] wide:max-w-[37.75rem]',
+    title: 'text-base font-semibold uppercase text-parchment-mute',
+    text: 'w-full text-lg leading-[158%] text-parchment-dim wide:max-w-[37.75rem]',
   },
 })
 
@@ -26,8 +26,9 @@ const AboutContent: React.FC = () => {
           <div className='flex flex-col gap-2'>
             <h2 className={title}>Who I am</h2>
             <p className={text}>
-              I&rsquo;m <b className='text-white font-inherit'>Felipe Mateus</b>{' '}
-              a multidisciplinary front-end engineer based in Uberlândia, Brazil
+              I&rsquo;m{' '}
+              <b className='text-parchment font-inherit'>Felipe Mateus</b> a
+              multidisciplinary front-end engineer based in Uberlândia, Brazil
               🇧🇷.
             </p>
 
@@ -68,11 +69,11 @@ const AboutContent: React.FC = () => {
               With four years of experience as a software developer, I had the
               privilege of contributing to innovative projects, where I acquired
               and improved my skills in:{' '}
-              <b className='text-white font-inherit'>React.js</b>,{' '}
-              <b className='text-white font-inherit'>Next.js</b>,{' '}
-              <b className='text-white font-inherit'>TailwindCSS</b>,{' '}
-              <b className='text-white font-inherit'>JavaScript</b> and{' '}
-              <b className='text-white font-inherit'>TypeScript</b>, etc.
+              <b className='text-parchment font-inherit'>React.js</b>,{' '}
+              <b className='text-parchment font-inherit'>Next.js</b>,{' '}
+              <b className='text-parchment font-inherit'>TailwindCSS</b>,{' '}
+              <b className='text-parchment font-inherit'>JavaScript</b> and{' '}
+              <b className='text-parchment font-inherit'>TypeScript</b>, etc.
               Allowing me to craft seamless and interactive user experiences.
             </p>
 
@@ -118,7 +119,7 @@ const AboutContent: React.FC = () => {
           Feel free to reach out via{' '}
           <Link
             href={SOCIAL_LINKS.email}
-            className='text-white underline font-inherit'
+            className='text-parchment underline font-inherit'
             target='_blank'
           >
             e-mail <ShareIcon className='inline text-base' />
@@ -126,7 +127,7 @@ const AboutContent: React.FC = () => {
           , or follow me on{' '}
           <Link
             href={SOCIAL_LINKS.x}
-            className='text-white underline font-inherit'
+            className='text-parchment underline font-inherit'
             target='_blank'
           >
             X <ShareIcon className='inline text-base' />.
@@ -135,7 +136,7 @@ const AboutContent: React.FC = () => {
           , or Connect with me on{' '}
           <Link
             href={SOCIAL_LINKS.linkedIn}
-            className='text-white underline font-inherit'
+            className='text-parchment underline font-inherit'
             target='_blank'
           >
             LinkedIn <ShareIcon className='inline text-base' />

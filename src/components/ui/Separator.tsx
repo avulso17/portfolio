@@ -20,7 +20,7 @@ const Separator: React.FC<SeparatorTypes> = ({
       role='separator'
       className={cn(
         [
-          `bg-white data-[alpha=true]:opacity-10`,
+          `bg-parchment data-[alpha=true]:opacity-10`,
           'data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full',
           'data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px',
           'data-[screen=true]:absolute data-[screen=true]:top-0 data-[screen=true]:w-screen data-[screen=true]:absolute-center-x',

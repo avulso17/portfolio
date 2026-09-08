@@ -23,7 +23,7 @@ export const BentoGrid = ({
 const Skeleton = () => (
   <div
     className={cn([
-      'bg-black bg-dot-white/20',
+      'bg-dot-white/20 bg-ink',
       'flex h-full min-h-[10rem] w-full flex-1',
       'border-white/[0.2] rounded-xl border',
       '[mask-image:radial-gradient(ellipse_at_center,white,transparent)]',
@@ -55,7 +55,7 @@ export const BentoGridItem = ({
           [
             'group/bento row-span-1 space-y-4 p-4',
             'flex flex-col justify-between rounded-xl',
-            'border-card-border bg-black border shadow-none',
+            'border border-line bg-ink shadow-none',
             'transition duration-200 hover:shadow-xl',
           ],
           className
@@ -64,10 +64,10 @@ export const BentoGridItem = ({
         {header ?? <Skeleton />}
         <div className='transition duration-200 group-hover/bento:translate-x-2'>
           {icon}
-          <div className='text-white mb-2 mt-2 font-inter font-bold'>
+          <div className='mb-2 mt-2 font-body font-bold text-parchment'>
             {title}
           </div>
-          <div className='text-gray-light text-xs font-normal'>
+          <div className='text-xs font-normal text-parchment'>
             {description}
           </div>
         </div>
@@ -81,7 +81,7 @@ export const BentoGridItem = ({
         [
           'group/bento row-span-1 cursor-pointer space-y-4 p-4',
           'flex flex-col justify-between rounded-xl',
-          'border-card-border bg-black border shadow-none',
+          'border border-line bg-ink shadow-none',
           'transition duration-200 hover:shadow-xl',
         ],
         className
@@ -90,8 +90,10 @@ export const BentoGridItem = ({
       {header ?? <Skeleton />}
       <div className='transition duration-200 group-hover/bento:translate-x-2'>
         {icon}
-        <div className='text-white mb-2 mt-2 font-inter font-bold'>{title}</div>
-        <div className='text-gray-light text-xs font-normal'>{description}</div>
+        <div className='mb-2 mt-2 font-body font-bold text-parchment'>
+          {title}
+        </div>
+        <div className='text-xs font-normal text-parchment'>{description}</div>
       </div>
     </div>
   )

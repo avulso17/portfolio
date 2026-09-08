@@ -9,7 +9,10 @@ const AboutResumeModal: React.FC = () => {
 
   return (
     <>
-      <button className='text-white underline' onClick={() => setOpen(true)}>
+      <button
+        className='text-parchment underline'
+        onClick={() => setOpen(true)}
+      >
         Resume
       </button>
 

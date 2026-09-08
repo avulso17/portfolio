@@ -8,7 +8,7 @@ const AboutPortrait: React.FC = ({ className }: AboutPortraitProps) => {
     <div
       className={cn(
         [
-          'border-card-border bg-black flex justify-center rounded-xl border',
+          'flex justify-center rounded-xl border border-line bg-ink',
           'relative z-0 h-[322px] w-[250px] overflow-hidden',
           'wide:h-[434px] wide:w-[346px]',
         ],
@@ -16,7 +16,7 @@ const AboutPortrait: React.FC = ({ className }: AboutPortraitProps) => {
       )}
     >
       <Image
-        className='bg-onyx block object-cover'
+        className='block bg-ink-2 object-cover'
         src='/assets/me-green-shirt.png'
         alt='Felipe Mateus Portrait'
         height={432}

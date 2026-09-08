@@ -14,17 +14,17 @@ const ProjectsPlaceholderCard: React.FC<ProjectsPlaceholderCardProps> = ({
       className={cn(
         [
           'flex w-full flex-col items-center justify-center',
-          'bg-onyx/50 rounded-4xl py-16 custom-border-dashed-mobile',
-          'mobile:custom-border-dashed tablet:h-[35.25rem]',
+          'rounded-4xl border border-dashed border-line bg-ink-2/50 py-16',
+          'tablet:h-[35.25rem]',
         ],
         className
       )}
     >
-      <StarsIcon className='text-gray-light mb-8 text-7xl' />
+      <StarsIcon className='mb-8 text-7xl text-parchment' />
       <h3 className='mb-4 text-xl font-extrabold mobile:text-3xl'>
         YOUR PROJECT GOES HERE
       </h3>
-      <p className='text-gray-dark mb-20 text-sm mobile:text-base'>
+      <p className='mb-20 text-sm text-parchment-dim mobile:text-base'>
         Let’s turn your idea into a visual reality
       </p>
 

@@ -9,7 +9,7 @@ export const Header = ({ title, subtitle }: HeaderProps) => {
   return (
     <div className='relative flex w-full flex-col gap-2 pb-14'>
       <h1>{title ?? 'Header'}</h1>
-      <p className='hero-text'>
+      <p className='text-xl text-parchment-dim'>
         {subtitle ?? 'Here goes a subtitle for the header'}
       </p>
 

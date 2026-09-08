@@ -10,11 +10,11 @@ export const UnderConstruction = (): React.ReactElement => {
         className='mx-auto aspect-square w-[500px]'
         alt='under_construction'
       />
-      <p className='text-white/50 mt-12 text-center text-2xl'>
+      <p className='mt-12 text-center text-2xl text-parchment/50'>
         This page is currently{' '}
         <b className='italic font-inherit'>under construction.</b>
       </p>
-      <p className='text-white/50 text-center text-xl'>
+      <p className='text-center text-xl text-parchment/50'>
         Please check back later.
       </p>
 

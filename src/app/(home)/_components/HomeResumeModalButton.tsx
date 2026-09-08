@@ -21,7 +21,7 @@ const HomeResumeModalButton: React.FC = () => {
         <span className='text-center transition duration-500 group-hover/modal-btn:translate-x-[400%]'>
           See my resume
         </span>
-        <div className='text-white absolute inset-0 z-20 flex -translate-x-full items-center justify-center transition duration-500 group-hover/modal-btn:translate-x-0'>
+        <div className='absolute inset-0 z-20 flex -translate-x-full items-center justify-center text-parchment transition duration-500 group-hover/modal-btn:translate-x-0'>
           📄
         </div>
       </Button>

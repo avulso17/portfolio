@@ -9,9 +9,9 @@ const cardStyles = tv({
   slots: {
     container: [
       'group flex items-center justify-end gap-4 p-3.5',
-      'border-card-border bg-onyx rounded-2xl border',
+      'rounded-2xl border border-line bg-ink-2',
       'relative max-h-[300px] w-full',
-      'hover:bg-card-border transition-colors duration-300',
+      'transition-colors duration-300 hover:bg-line',
       'mobile:aspect-square mobile:rounded-3xl',
       'mobile:flex-col mobile:justify-between mobile:gap-10 mobile:p-6',
     ],
@@ -29,8 +29,8 @@ const cardStyles = tv({
     title: 'text-base font-semibold !leading-none mobile:text-lg',
     label: [
       'flex h-fit w-fit items-center justify-center',
-      'border-card-border rounded-3xl border',
-      'text-gray-dark px-2.5 py-1 text-xs leading-normal',
+      'rounded-3xl border border-line',
+      'px-2.5 py-1 text-xs leading-normal text-parchment-dim',
     ],
   },
 })

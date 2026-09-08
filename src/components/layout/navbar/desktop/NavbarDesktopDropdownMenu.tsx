@@ -41,7 +41,7 @@ const NavbarDesktopDropdownMenu: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -2 }}
             transition={{ duration: 0.1 }}
-            className='bg-onyx/50 absolute right-0 top-[calc(100%+1rem)] flex flex-col gap-4 rounded-b-xl p-4'
+            className='absolute right-0 top-[calc(100%+1rem)] flex flex-col gap-4 rounded-b-xl bg-ink-2/50 p-4'
           >
             <Link href='/contact' className='flex tablet:hidden'>
               <Button variant='text' onClick={onCloseMenu}>

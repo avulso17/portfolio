@@ -5,20 +5,20 @@ import { tv, type VariantProps } from 'tailwind-variants'
 const buttonStyles = tv({
   base: [
     'inline-flex h-fit shrink-0 items-center justify-center',
-    'whitespace-nowrap font-inter font-medium leading-normal',
+    'whitespace-nowrap font-body font-medium leading-normal',
     'relative transition-all duration-200 ease-in-out',
     'disabled:cursor-default disabled:opacity-50 disabled:grayscale',
   ],
   variants: {
     variant: {
-      primary: [
-        'text-white bg-base-gradient px-5 py-4 shadow-button',
+      primary: ['bg-amber px-5 py-4 text-ink', 'hover:brightness-125'],
+      secondary: [
+        'bg-ink-2 px-5 py-4 text-parchment-dim',
         'hover:brightness-125',
       ],
-      secondary: ['bg-onyx text-gray-dark px-5 py-4', 'hover:brightness-125'],
       text: [
-        'text-gray-light h-[1.125rem] text-base leading-normal',
-        'hover:text-white',
+        'h-[1.125rem] text-base leading-normal text-parchment',
+        'hover:text-parchment',
       ],
     },
     icon: {

@@ -12,8 +12,8 @@ import NavbarDesktopDropdownMenu from './NavbarDesktopDropdownMenu'
 const iconButtonStyles = tv({
   base: [
     'flex h-11 w-11 items-center justify-center p-[0.625rem]',
-    'text-gray-light cursor-pointer rounded-md text-2xl font-medium leading-normal',
-    'hover:bg-white/10 transition-all ease-in-out',
+    'cursor-pointer rounded-md text-2xl font-medium leading-normal text-parchment',
+    'transition-all ease-in-out hover:bg-parchment/10',
   ],
 })
 
@@ -23,13 +23,13 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
   return (
     <nav
       className={twMerge(
-        'bg-onyx/30 mb-44 hidden h-fit max-h-[3.75rem] w-full justify-between rounded-xl p-4 backdrop-blur-sm mobile:flex',
+        'mb-44 hidden h-fit max-h-[3.75rem] w-full justify-between rounded-xl bg-ink-2/30 p-4 backdrop-blur-sm mobile:flex',
         className
       )}
     >
       <div className='relative flex items-center gap-10'>
         <Link href='/' className='shrink-0'>
-          <LogoSvg className='text-white hover:text-gray-light h-7 w-10 transition-colors' />
+          <LogoSvg className='h-7 w-10 text-parchment transition-colors hover:text-parchment' />
         </Link>
 
         <Link href='/about'>

@@ -5,7 +5,7 @@ const notes = [
   {
     title: 'The Spirit of Adventure',
     description: 'Embark on exciting journeys and thrilling discoveries.',
-    icon: <StarsIcon className='text-gray-dark h-4 w-4' />,
+    icon: <StarsIcon className='h-4 w-4 text-parchment-dim' />,
   },
 ]
 

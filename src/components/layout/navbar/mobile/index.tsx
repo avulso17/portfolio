@@ -42,15 +42,15 @@ const navbarMobileStyles = tv({
   slots: {
     container: ['fixed bottom-4 left-4 right-4 z-30 mobile:hidden'],
     nav: [
-      'bg-onyx/80 ring-nav-border/60 ring-1 backdrop-blur-sm blur-performance',
+      'bg-ink-2/80 ring-1 ring-line/60 backdrop-blur-sm blur-performance',
       'flex h-[3.75rem] items-center justify-between rounded-2xl px-2.5 py-2',
       'transition-all duration-200 ease-in-out',
     ],
     item: [
       'flex h-10 shrink-0 items-center px-4',
-      'text-gray-light rounded-lg outline-none',
+      'rounded-lg text-parchment outline-none',
       'transition-colors ease-in-out',
-      'data-[active=true]:bg-white/10 data-[active=true]:text-white',
+      'data-[active=true]:bg-parchment/10 data-[active=true]:text-parchment',
     ],
   },
   variants: {

@@ -16,10 +16,12 @@ const NotebookCategoryStack: React.FC<NotebookCategoryStack> = ({
     <div className={twMerge(['flex flex-col gap-8'], className)}>
       {/* HEADER */}
       <div className='flex items-center justify-between gap-4'>
-        <h2 className='text-gray-dark text-2xl font-bold mobile:text-5xl'>
+        <h2 className='text-2xl font-bold text-parchment-dim mobile:text-5xl'>
           {category}
         </h2>
-        <span className='text-gray-dark text-xl'>{notes.length ?? 0} note</span>
+        <span className='text-xl text-parchment-dim'>
+          {notes.length ?? 0} note
+        </span>
       </div>
 
       <BentoGrid className='max-w-none'>

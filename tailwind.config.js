@@ -18,9 +18,10 @@ module.exports = withTV({
       ...systemColors,
     },
     fontFamily: {
-      inter: ['var(--font-inter)'],
-      nanum: ['"Nanum Pen Script"', 'sans-serif'],
-      calibri: ['"Calibri"', '"Arial"', 'sans-serif'],
+      display: ['var(--font-display)', 'Impact', 'sans-serif'],
+      body: ['var(--font-body)', 'system-ui', 'sans-serif'],
+      mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
+      serif: ['var(--font-serif)', 'Georgia', 'serif'],
     },
     screens: {
       'm-xs': '480px',
@@ -51,7 +52,6 @@ module.exports = withTV({
       backgroundImage: {
         'portrait-radient':
           'radial-gradient(48.31% 55.24% at 50.54% 40.52%, hsla(0, 0%, 98%, 0) 0, #0d0d0d 100%)',
-        'base-gradient': 'linear-gradient(180deg, #1A1A1A 0%, #131313 100%)',
         'radial-gradient':
           'radial-gradient(37.02% 75.07% at 54.91% 36.48%, rgba(13, 13, 13, 0.00) 0%, #0D0D0D 100%)',
       },
@@ -61,10 +61,6 @@ module.exports = withTV({
       },
       boxShadow: {
         'text-area': '0px 19px 30px 0px rgba(0,0,0,0.2)',
-        button:
-          '0px 7px 4px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(255, 255, 255, 0.08) inset, 0px 1px 2px 0px rgba(255, 255, 255, 0.02) inset',
-        dropdown:
-          '0px 5px 7px 0px rgba(0, 0, 0, 0.11), 0px 8px 5px 0px rgba(0, 0, 0, 0.07) inset',
       },
       lineHeight: {
         normal: 'normal',
@@ -105,21 +101,8 @@ module.exports = withTV({
         { values: flattenColorPalette(theme('backgroundColor')), type: 'color' }
       )
     },
-    plugin(function ({
-      addBase,
-      addUtilities,
-      theme,
-      matchVariant,
-      matchUtilities,
-    }) {
+    plugin(function ({ addUtilities, theme, matchVariant, matchUtilities }) {
       ;(addUtilities({
-        '.mask-geist': {
-          maskImage: 'url(/assets/geist.svg)',
-          maskSize: 'cover',
-          maskRepeat: 'no-repeat',
-          maskPosition: 'center',
-        },
-
         '.blur-performance': {
           willChange: 'filter',
           WebkitBackfaceVisibility: 'hidden',
@@ -128,71 +111,36 @@ module.exports = withTV({
           perspective: '1000',
         },
 
-        '.custom-border-dashed': {
-          backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='32' ry='32' stroke='%23383737FF' stroke-width='5' stroke-dasharray='20' stroke-dashoffset='10' stroke-linecap='round'/%3e%3c/svg%3e")`,
-        },
-
-        '.custom-border-dashed-mobile': {
-          backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='32' ry='32' stroke='%23383737FF' stroke-width='4' stroke-dasharray='14' stroke-dashoffset='10' stroke-linecap='round'/%3e%3c/svg%3e")`,
-        },
-
-        // base dialog
-        '.dialog': {
-          borderRadius: '20px',
-          position: 'fixed',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-          backdropFilter: 'blur(25px)',
-          maxHeight: '85vh',
-          maxWidth: '500px',
-          width: '90vw',
-          zIndex: 1000,
-        },
-
-        // typography
-        '.hero-title': {
-          fontSize: '5rem',
-          fontWeight: theme('fontWeight.bold'),
-          lineHeight: 'normal',
-
-          b: {
-            color: theme('colors.gray.dark'),
-            fontSize: 'inherit',
-            fontWeight: 'inherit',
-            lineHeight: 'inherit',
-          },
-
+        // typography roles
+        '.display-1': {
+          fontFamily: theme('fontFamily.display'),
+          fontSize: '7rem',
+          lineHeight: '0.9',
+          textTransform: 'uppercase',
+          letterSpacing: '-0.01em',
           '@media (max-width: 620px)': {
-            fontSize: theme('fontSize.5xl'),
+            fontSize: '3.5rem',
           },
         },
-        '.hero-text': {
-          color: theme('colors.gray.DEFAULT'),
-          fontSize: theme('fontSize.2xl'),
-          lineHeight: 'normal',
-
+        '.display-2': {
+          fontFamily: theme('fontFamily.display'),
+          fontSize: '4rem',
+          lineHeight: '0.95',
+          textTransform: 'uppercase',
           '@media (max-width: 620px)': {
-            fontSize: theme('fontSize.base'),
+            fontSize: '2.25rem',
           },
         },
-        '.header': {
-          fontSize: theme('fontSize.5xl'),
-          fontWeight: theme('fontWeight.bold'),
-          lineHeight: 'normal',
-
-          '@media (max-width: 620px)': {
-            fontSize: '2rem',
-          },
+        '.text-outline': {
+          color: 'transparent',
+          '-webkit-text-stroke': `1.5px ${theme('colors.parchment')}`,
         },
-        '.header-text': {
-          color: 'rgba(128, 128, 128, 0.5)',
-          fontSize: theme('fontSize.xl'),
-          lineHeight: 'normal',
-
-          '@media (max-width: 620px)': {
-            fontSize: '1rem',
-          },
+        '.eyebrow-text': {
+          fontFamily: theme('fontFamily.mono'),
+          fontSize: '0.75rem',
+          lineHeight: '1',
+          textTransform: 'uppercase',
+          letterSpacing: '0.08em',
         },
         '.text-body': {
           fontSize: theme('fontSize.base'),

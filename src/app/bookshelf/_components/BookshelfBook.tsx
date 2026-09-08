@@ -118,7 +118,7 @@ const BookshelfBook: React.FC<BookshelfBookProps> = ({
       </svg>
 
       <Image
-        className='bg-onyx -z-10 object-cover'
+        className='-z-10 bg-ink-2 object-cover'
         src={cover}
         alt={name}
         fill

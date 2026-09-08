@@ -16,7 +16,7 @@
 
   html,
   body {
-    @apply overflow-x-hidden scroll-smooth bg-black font-inter text-white text-body;
+    @apply overflow-x-hidden scroll-smooth bg-ink font-body text-parchment text-body;
   }
 
   body {
@@ -42,7 +42,7 @@
   }
 
   button {
-    @apply select-none text-lg outline-none focus:underline;
+    @apply select-none outline-none;
   }
 
   h1,
@@ -59,7 +59,15 @@
   }
 
   h1 {
-    @apply hero-title;
+    @apply display-1;
+  }
+
+  h2 {
+    @apply display-2;
+  }
+
+  :focus-visible {
+    @apply outline outline-1 outline-offset-2 outline-amber;
   }
 
   input[type='number']::-webkit-inner-spin-button,
@@ -76,7 +84,6 @@
   }
 
   ::selection {
-    -webkit-text-fill-color: #ffffff;
-    @apply bg-red;
+    @apply bg-parchment text-ink;
   }
 }

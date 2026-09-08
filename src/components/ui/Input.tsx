@@ -3,12 +3,12 @@ import { VariantProps, tv } from 'tailwind-variants'
 
 const styles = tv({
   base: [
-    'text-white relative min-w-0 appearance-none',
-    'placeholder:text-gray focus-visible:outline-none',
+    'relative min-w-0 appearance-none text-parchment',
+    'placeholder:text-parchment-mute focus-visible:outline-none',
   ],
   variants: {
     variant: {
-      outlined: ['border-card-border bg-onyx rounded-4xl border'],
+      outlined: ['rounded-4xl border border-line bg-ink-2'],
       unstyled: ['border-none bg-transparent'],
     },
     size: {

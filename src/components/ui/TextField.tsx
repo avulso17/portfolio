@@ -8,8 +8,8 @@ const textFieldStyles = tv({
   slots: {
     wrapper: 'flex w-full items-center gap-2',
     input: [
-      'text-gray-light w-full min-w-0 appearance-none',
-      'placeholder:text-gray transition-colors focus:outline-none',
+      'w-full min-w-0 appearance-none text-parchment',
+      'transition-colors placeholder:text-parchment-mute focus:outline-none',
     ],
     label: 'inline-block text-base font-medium',
   },
@@ -17,7 +17,7 @@ const textFieldStyles = tv({
     variant: {
       outlined: {
         wrapper: [
-          'border-card-border bg-onyx rounded-4xl border',
+          'rounded-4xl border border-line bg-ink-2',
           'h-[52px] px-6 py-2',
         ],
         input: ['bg-transparent'],
@@ -28,8 +28,8 @@ const textFieldStyles = tv({
     },
     error: {
       true: {
-        input: 'border-red text-red/80 placeholder:text-red',
-        label: 'text-red/80',
+        input: 'border-err text-err/80 placeholder:text-err',
+        label: 'text-err/80',
       },
     },
   },
