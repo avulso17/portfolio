@@ -6,57 +6,18 @@ import ContactSeal from './_components/ContactSeal'
 import ContactSocialButtonGroup from './_components/ContactSocialButtonGroup'
 
 export const metadata: Metadata = {
-  generator: 'Next.js',
-  applicationName: 'Felipe Mateus - Software Engineer',
-  referrer: 'origin-when-cross-origin',
-  keywords: [
-    'Next.js',
-    'React',
-    'JavaScript',
-    'TypeScript',
-    'Software Engineer',
-    'Front-end',
-    'Developer',
-    'contact',
-    'email',
-    'socials',
-    'instagram',
-    'twitter',
-    'linkedIn',
-    'message',
-    'gitHub',
-    'discord',
-  ],
-  authors: [{ name: 'Felipe', url: 'https://felipe-mateus.com' }],
-  creator: 'Felipe Mateus',
-  publisher: 'Felipe Mateus',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://felipe-mateus.com'),
   title: 'Contact',
   description:
     "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
-  appleWebApp: {
-    statusBarStyle: 'black-translucent',
-  },
   openGraph: {
     title: 'Contact',
     description:
       "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
-    url: 'https://felipe-mateus.com',
-    siteName: 'Felipe Mateus',
-    locale: 'en_US',
-    type: 'website',
   },
   twitter: {
-    card: 'summary_large_image',
     title: 'Contact',
     description:
       "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
-    creator: 'Felipe Mateus',
   },
 }
 
