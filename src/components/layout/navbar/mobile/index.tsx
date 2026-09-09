@@ -30,12 +30,11 @@ const navbarMobileStyles = tv({
     nav: [
       'border border-line bg-ink-2',
       'flex h-[3.75rem] items-center justify-between rounded-sm px-2.5 py-2',
-      'transition-all duration-200 ease-in-out',
     ],
     item: [
       'flex h-10 shrink-0 items-center px-4',
       'rounded-sm text-parchment-dim',
-      'transition-colors ease-in-out',
+      'transition-colors duration-150 ease-out',
       'data-[active=true]:bg-ink data-[active=true]:text-parchment',
     ],
   },

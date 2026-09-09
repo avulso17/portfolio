@@ -16,7 +16,7 @@ const styles = tv({
     listItem: [
       'flex h-12 w-full shrink-0 items-center px-4',
       'rounded-sm text-parchment-dim eyebrow-text',
-      'transition-colors ease-in-out hover:text-parchment',
+      'transition-colors duration-150 ease-out hover:text-parchment',
       'data-[active=true]:bg-ink data-[active=true]:text-parchment',
     ],
   },

@@ -97,7 +97,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
               variant='text'
               className='group'
               rightIcon={
-                <ArrowRightIcon className='text-base transition-transform ease-in-out group-hover:translate-x-1' />
+                <ArrowRightIcon className='text-base transition-transform duration-150 ease-out group-hover:translate-x-1' />
               }
             >
               Visit site
