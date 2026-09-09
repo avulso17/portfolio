@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import postcss from 'postcss'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindcss from 'tailwindcss'
@@ -59,6 +61,31 @@ describe('tailwind theme', () => {
     expect(ext.backgroundImage).toBeUndefined()
     expect(ext.borderRadius).toBeUndefined()
     expect(ext.boxShadow).toBeUndefined()
+  })
+
+  it('clips horizontal overflow on html only, so body never becomes a scroll container', async () => {
+    const css = readFileSync(join(__dirname, 'global.css'), 'utf8')
+    const result = await postcss([
+      tailwindcss({
+        ...tailwindConfig,
+        content: [{ raw: '', extension: 'html' }],
+      }),
+    ]).process(css, { from: undefined })
+    const rules = Array.from(
+      result.css.matchAll(/([^{}]+)\{([^}]*)\}/g),
+      ([, selector, body]) => ({ selector: selector.trim(), body })
+    )
+    const targets = (
+      rules: { selector: string; body: string }[],
+      tag: string
+    ) =>
+      rules.filter((r) =>
+        r.selector.split(',').some((s: string) => s.trim() === tag)
+      )
+    const forHtml = targets(rules, 'html')
+    const forBody = targets(rules, 'body')
+    expect(forHtml.some((r) => /overflow-x:\s*hidden/.test(r.body))).toBe(true)
+    expect(forBody.some((r) => /overflow/.test(r.body))).toBe(false)
   })
 
   it('emits the typography utilities with spec values', async () => {

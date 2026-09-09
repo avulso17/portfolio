@@ -10,13 +10,13 @@
   }
 
   html {
-    @apply h-full text-body;
+    @apply h-full overflow-x-hidden text-body;
     color-scheme: dark;
   }
 
   html,
   body {
-    @apply overflow-x-hidden scroll-smooth bg-ink font-body text-parchment text-body;
+    @apply scroll-smooth bg-ink font-body text-parchment text-body;
   }
 
   body {
