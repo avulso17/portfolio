@@ -7,6 +7,7 @@ export type SceneProps = {
   position?: 'center' | 'top' | 'bottom'
   scrim?: 'bottom' | 'both' | 'none'
   drift?: boolean
+  priority?: boolean
 }
 
 const positions = {
@@ -21,6 +22,7 @@ export const Scene: React.FC<SceneProps> = ({
   position = 'center',
   scrim = 'bottom',
   drift = true,
+  priority = false,
 }) => {
   const asset = scenes[name]
 
@@ -41,7 +43,8 @@ export const Scene: React.FC<SceneProps> = ({
           alt=''
           aria-hidden='true'
           decoding='async'
-          loading='lazy'
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : undefined}
           className={cn('h-full w-full object-cover', positions[position])}
           style={{ imageRendering: 'pixelated' }}
         />

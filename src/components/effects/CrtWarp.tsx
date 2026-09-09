@@ -31,7 +31,9 @@ export const CrtWarp: React.FC<Props> = ({ name, className }) => {
     const reduced = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     ).matches
-    if (canvas.getContext('webgl2')) {
+    const probe = canvas.getContext('webgl2')
+    if (probe) {
+      probe.getExtension('WEBGL_lose_context')?.loseContext()
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setCapability({ supported: true, animate: !reduced })
     }
@@ -45,7 +47,9 @@ export const CrtWarp: React.FC<Props> = ({ name, className }) => {
         className
       )}
     >
-      {!ready ? <Scene name={name} drift={false} scrim='none' /> : null}
+      {!ready ? (
+        <Scene name={name} drift={false} scrim='none' priority />
+      ) : null}
       {supported ? (
         <div className={cn('absolute inset-0', !ready && 'invisible')}>
           <CrtWarpCanvas

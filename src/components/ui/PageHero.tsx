@@ -32,7 +32,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
       )}
     >
       {scene ? (
-        <Scene name={scene} className={sceneClassName} scrim='both' />
+        <Scene name={scene} className={sceneClassName} scrim='both' priority />
       ) : null}
       <Eyebrow index={index} active={false}>
         {label}

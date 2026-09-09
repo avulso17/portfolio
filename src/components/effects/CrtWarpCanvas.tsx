@@ -59,6 +59,14 @@ export const CrtWarpCanvas: React.FC<Props> = ({
     let textureLoaded = false
     const asset = scenes[name]
 
+    const onContextLost = (event: Event) => {
+      event.preventDefault()
+      disposed = true
+      cancelAnimationFrame(raf)
+      onFail()
+    }
+    canvas.addEventListener('webglcontextlost', onContextLost)
+
     try {
       const program = gl.createProgram()!
       gl.attachShader(program, compile(gl, gl.VERTEX_SHADER, VERT))
@@ -138,9 +146,13 @@ export const CrtWarpCanvas: React.FC<Props> = ({
         disposed = true
         cancelAnimationFrame(raf)
         ro.disconnect()
-        gl.getExtension('WEBGL_lose_context')?.loseContext()
+        canvas.removeEventListener('webglcontextlost', onContextLost)
+        gl.deleteTexture(tex)
+        gl.deleteBuffer(buf)
+        gl.deleteProgram(program)
       }
     } catch {
+      canvas.removeEventListener('webglcontextlost', onContextLost)
       onFail()
     }
   }, [name, onFail, onReady, animate])
