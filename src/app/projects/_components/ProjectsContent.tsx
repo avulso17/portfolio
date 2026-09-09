@@ -39,7 +39,9 @@ const ProjectsContent: React.FC = () => {
 
   return (
     <div className='flex flex-col gap-8 pb-28 pt-12'>
-      <Eyebrow index='02'>All projects</Eyebrow>
+      <Eyebrow as='h2' index='02'>
+        All projects
+      </Eyebrow>
       <div className='flex grow items-center gap-4'>
         <TextField
           className='grow'

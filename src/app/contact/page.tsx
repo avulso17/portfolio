@@ -40,7 +40,7 @@ const ContactPage: React.FC = () => {
       <div className='grid gap-12 py-16 wide:grid-cols-[1fr_20rem]'>
         <ContactFormContainer />
         <aside className='flex flex-col gap-6'>
-          <Eyebrow index='06'>Elsewhere</Eyebrow>
+          <Eyebrow as='h2'>Elsewhere</Eyebrow>
           <ContactSocialButtonGroup />
           <p className='font-serif text-xl italic text-parchment-dim'>
             I read everything. I answer what I can help with.

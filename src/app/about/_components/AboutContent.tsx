@@ -11,7 +11,9 @@ const Block: React.FC<{
   children: React.ReactNode
 }> = ({ index, label, children }) => (
   <section className='grid gap-6 border-t border-line py-10 wide:grid-cols-[16rem_1fr]'>
-    <Eyebrow index={index}>{label}</Eyebrow>
+    <Eyebrow as='h2' index={index}>
+      {label}
+    </Eyebrow>
     <div className='flex max-w-[60ch] flex-col gap-4 text-lg leading-relaxed text-parchment-dim'>
       {children}
     </div>

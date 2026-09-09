@@ -18,10 +18,12 @@ const eyebrowStyles = tv({
 
 export type EyebrowProps = ComponentProps<'p'> &
   VariantProps<typeof eyebrowStyles> & {
+    as?: 'p' | 'h2' | 'h3'
     index?: string
   }
 
 export const Eyebrow: React.FC<EyebrowProps> = ({
+  as: Tag = 'p',
   active,
   index,
   children,
@@ -31,10 +33,10 @@ export const Eyebrow: React.FC<EyebrowProps> = ({
   const { root, square } = eyebrowStyles({ active })
 
   return (
-    <p className={root({ className })} {...props}>
+    <Tag className={root({ className })} {...props}>
       <span aria-hidden='true' data-square className={square()} />
       {index ? `${index} — ` : null}
       {children}
-    </p>
+    </Tag>
   )
 }

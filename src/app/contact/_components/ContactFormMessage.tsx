@@ -8,7 +8,7 @@ const ContactFormMessage: React.FC<Props> = ({ status, onRetry }) => {
   const ok = status === 'success'
   return (
     <div
-      role='status'
+      role={ok ? 'status' : 'alert'}
       className='absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-ink-2 p-6 text-center'
     >
       {ok ? (

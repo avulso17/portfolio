@@ -17,6 +17,15 @@ describe('Eyebrow', () => {
     expect(screen.getByText(/04 — Bookshelf/)).toBeInTheDocument()
   })
 
+  it('renders a level-2 heading when asked to', () => {
+    render(<Eyebrow as='h2'>All projects</Eyebrow>)
+    const heading = screen.getByRole('heading', {
+      level: 2,
+      name: 'All projects',
+    })
+    expect(heading).toHaveClass('eyebrow-text')
+  })
+
   it('turns the square amber when active', () => {
     render(<Eyebrow active>Now</Eyebrow>)
     expect(screen.getByText('Now').querySelector('[data-square]')).toHaveClass(

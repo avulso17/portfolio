@@ -62,7 +62,7 @@
     @apply display-1;
   }
 
-  h2 {
+  h2:not(.eyebrow-text) {
     @apply display-2;
   }
 

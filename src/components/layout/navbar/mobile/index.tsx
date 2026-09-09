@@ -80,6 +80,8 @@ const NavbarMobile: React.FC<NavbarMobileProps> = ({ className }) => {
                 onClick={handleToggle}
                 name={name}
                 aria-label={name}
+                aria-expanded={isMenuOpen}
+                aria-controls='navbar-mobile-more'
               >
                 <Icon className='text-2xl' />
               </button>
