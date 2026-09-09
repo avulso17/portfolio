@@ -4,7 +4,16 @@ import BookshelfItems from './_components/BookshelfItems'
 
 export const metadata: Metadata = {
   title: 'Bookshelf',
+  alternates: { canonical: '/bookshelf' },
   description: 'Books that changed how I decide.',
+  openGraph: {
+    title: 'Bookshelf',
+    description: 'Books that changed how I decide.',
+  },
+  twitter: {
+    title: 'Bookshelf',
+    description: 'Books that changed how I decide.',
+  },
 }
 
 const BookshelfPage: React.FC = async () => {

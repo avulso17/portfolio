@@ -4,6 +4,7 @@ import AboutContent from './_components/AboutContent'
 
 export const metadata: Metadata = {
   title: 'About',
+  alternates: { canonical: '/about' },
   description:
     "Front-end engineer with a product owner's eye — how I decide, what I've shipped, where I'm useful.",
   openGraph: {

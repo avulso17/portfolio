@@ -4,6 +4,7 @@ import Content from './_components/ProjectsContent'
 
 export const metadata: Metadata = {
   title: 'Projects',
+  alternates: { canonical: '/projects' },
   description:
     'Projects by Felipe Mateus — the decision taken on each one and what it moved.',
   openGraph: {

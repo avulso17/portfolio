@@ -4,6 +4,7 @@ import NotebookInProgress from './_components/NotebookInProgress'
 
 export const metadata: Metadata = {
   title: 'Notebook',
+  alternates: { canonical: '/notebook' },
   description: 'Notes in progress — decisions, not tutorials.',
   openGraph: {
     title: 'Notebook',

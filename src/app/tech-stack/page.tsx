@@ -7,6 +7,7 @@ import TechStackToolsList from './_components/TechStackToolsList'
 
 export const metadata: Metadata = {
   title: 'Tech Stack',
+  alternates: { canonical: '/tech-stack' },
   description: 'What I use to ship — the stack is a means, never the pitch.',
   openGraph: {
     title: 'Tech Stack',

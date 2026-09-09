@@ -7,6 +7,7 @@ import ContactSocialButtonGroup from './_components/ContactSocialButtonGroup'
 
 export const metadata: Metadata = {
   title: 'Contact',
+  alternates: { canonical: '/contact' },
   description:
     "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
   openGraph: {
