@@ -30,7 +30,7 @@ Felipe solves problems, finds bottlenecks, and makes decisions looking at the pr
 - Works with early-stage startups, frequently alongside founders, often owning the front-end foundation from zero (e.g. Pigmo, 2023–present).
 - Site is a Next.js 16 / React 19 app deployed on Vercel. Contact form sends via Resend; Bookshelf reads a Supabase table.
 - Routes: Home, About, Projects, Contact, Bookshelf, Tech Stack, Notebook. Information architecture is not changing in the rebrand.
-- Language: English. Bilingual (`/pt`) is declared in metadata but not implemented — backlog, not part of current work.
+- Language: English. Metadata declares English only — there is no `/pt` route or alternate; a bilingual site is backlog, not part of current work.
 - Assets: `art/**` is Git LFS (`brew install git-lfs`, `git lfs pull`).
 
 ## Capabilities and Constraints
@@ -57,7 +57,7 @@ Felipe solves problems, finds bottlenecks, and makes decisions looking at the pr
 - **Felipe has real project numbers (metrics, revenue impact, time saved) not yet in the repo** — he will supply them; copy must use only these, never invented figures.
 - Projects listed in `src/configs/works.ts`: Pigmo, Zeus Agrotech portal, Redux Store, Pepy The Platypus, EqualsVenue, EqualsSport, Equals9. Note: the three Equals entries currently point at a wrong URL (`flow-ai-oficial.vercel.app`) — fix during Phase B, do not ship.
 - Screenshots of projects in `public/assets/*-screenshot.*`.
-- Photos of Felipe in `public/assets/felipe_*.jpg`, `me*.jpg/png`; signature `white_signature.png`. Not used as brand imagery in the rebrand (the character is fictional), but available for About/résumé.
+- Photos of Felipe in `public/assets/felipe_*.jpg`, `me*.jpg/png`. Not used as brand imagery in the rebrand (the character is fictional), but available for About/résumé.
 - Bookshelf: real reading list (10 books, covers in `public/books/`) served from Supabase.
 - Tech Stack: 17 tools in `src/configs/tools.ts`, plus hardware/apps/games lists.
 - **Notebook content is placeholder** (generic titles like "The Dawn of Innovation"). No real notes exist yet; do not present placeholder notes as real.

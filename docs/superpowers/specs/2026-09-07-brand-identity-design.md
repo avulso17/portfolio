@@ -84,15 +84,15 @@ Outcome (2026-09-08): the four archetypes were generated; Felipe chose a fifth d
 
 ### 3.3 Scenes (one per page)
 
-| Page        | Scene                                                                            |
-| ----------- | -------------------------------------------------------------------------------- |
-| Home (hero) | The Scribe frontal at his desk, candle lit, figure overlapping the display title |
-| About       | The Scribe in profile, writing                                                   |
-| Projects    | Wall of framed manuscripts / shelf of finished works                             |
-| Bookshelf   | Tall monastic library shelves                                                    |
-| Notebook    | Desk from above: parchment, inkwell, quill                                       |
-| Tech Stack  | Scriptorium tool bench: quills, rulers, inks, knives                             |
-| Contact     | Sealed letter; the wax seal carries the FM ex-libris                             |
+| Page        | Scene                                                                             |
+| ----------- | --------------------------------------------------------------------------------- |
+| Home (hero) | The Paladin frontal at his desk, candle lit, figure overlapping the display title |
+| About       | The Paladin in profile, writing                                                   |
+| Projects    | Wall of framed manuscripts / shelf of finished works                              |
+| Bookshelf   | Tall monastic library shelves                                                     |
+| Notebook    | Desk from above: parchment, inkwell, quill                                        |
+| Tech Stack  | Scriptorium tool bench: quills, rulers, inks, knives                              |
+| Contact     | Sealed letter; the wax seal carries the FM ex-libris                              |
 
 Scenes sit behind headlines/hero only — never behind body text (see §5.3).
 
@@ -136,7 +136,7 @@ The display family is decided visually during Phase B comps; the spec fixes the 
 
 ### 4.3 Brand mark — the FM ex-libris
 
-An ex-libris is the mark an owner stamps in their books; it fits the Scribe/bookshelf universe and is a monogram (professional) dressed as a symbol (creative).
+An ex-libris is the mark an owner stamps in their books; it fits the Paladin/bookshelf universe and is a monogram (professional) dressed as a symbol (creative).
 
 - "F" and "M" interlaced inside a circular seal, drawn as engraving (hatching, no gradients).
 - The FM letterforms are an AI-generated blackletter silhouette (Higgsfield, reference in `docs/references/exemple-logo.png`) vectorized with potrace (`pnpm vectorize`); two variants: with halo (footer, OG) and without (navbar, favicon). No ring, no text around the mark.
