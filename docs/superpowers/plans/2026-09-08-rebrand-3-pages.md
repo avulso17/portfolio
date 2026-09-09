@@ -2462,3 +2462,31 @@ Ran in the main session on `feature/rebrand` from `d7fa804`. Six commits: `71e2d
 - `.husky/pre-push` runs `git lfs pre-push "$@"`.
 - `art/**` is Git LFS-tracked.
 - Run `git gc --prune=now` after the first push.
+
+### Final review — fix wave (2026-09-08)
+
+Whole-branch review from `6c9c24f`: **ready with fixes** — 7 Important findings plus minors, no blockers to the architecture. One wave, six commits, one fixer:
+
+- `7938e74` `fix(seo): per-page canonical, bookshelf OG blocks` — items 1, 5.
+- `5c8e1d7` `fix(a11y): eyebrow headings for the section outline, mobile More menu ARIA + test, alert role on failure` — items 2, 6, 13, 15.
+- `5751911` `fix(effects): keep the WebGL context across StrictMode remounts, recover from context loss, eager hero scenes` — items 3, 4, 8.
+- `1603806` `fix(contact): length ceilings on name, email and subject` — item 7.
+- `58d236b` `style(copy): typographic apostrophes everywhere` — item 9.
+- `b5b93c5` `chore(rebrand): drop orphaned assets and the unused Input, log bookshelf errors, hide the placeholder card on empty search, fix doc drift` — items 10, 11, 12, 14.
+
+**Re-review: 15/15 addressed, none skipped, 4 deviations accepted** — (a) deleting `white_signature.png` also dropped its clause from `PRODUCT.md:60`, which was its only reference; (b) the canonical test mocks `resend` and the Supabase client so all six pages can be asserted, not just one; (c) `HomeHero.test.tsx` moved to `getAllByText(/owner’s eye/)` with a count of 2, since both the eyebrow and the serif sub now carry `’`; (d) the CRT cleanup deletes texture/buffer/program but not the two shaders, which are collected with the program.
+
+**Rulings.** R13 (the real-browser CRT defect) and R14–R16 were issued with the findings list; R17 below.
+
+**Gates.** `pnpm test` 107 passed (33 files, up from 91/31), `pnpm lint` 0 errors / 43 pre-existing warnings, `pnpm exec tsc --noEmit` clean before every commit; `pnpm build` clean (26 routes) after the last. Per-page canonicals verified in the built HTML.
+
+**Real-browser verification** (Chrome, `pnpm dev`, HEAD `b5b93c5`). The R13 regression is **fixed**: `webgl2` is available, the hero `<canvas>` mounts and is still mounted at 0 s / 2 s / 5 s / 10 s (958×814), `supported` never flips false, so the StrictMode double-effect run no longer kills the context. **0 console errors/warnings** and no hydration mismatch on `/` or `/about`. Fallback `<img>` priorities confirmed: hero and `/about` `PageHero` `loading='eager'` + `fetchpriority='high'`, all four home cards `lazy`. `/about` shows the three section eyebrows as `<h2 class='eyebrow-text'>`.
+
+- **Not verified:** the `ready` → canvas-visible swap. The automated tab was permanently backgrounded (`document.hidden === true`), which suspends `requestAnimationFrame` — a raw rAF counter stayed at 0 over 6 s — and `CrtWarpCanvas` only flips `ready` from inside a rAF callback. So the static `<picture>` never cleared in that session. Harness limitation, not a defect. **Felipe should eyeball the warp once in a normal foreground tab.**
+
+**Parked / open for Felipe**
+
+- **Ruling R17 (parked, one-line fix).** `CrtWarp` restores the static `Scene` only while `!ready`, so a context loss _after_ the first frame leaves a blank hero until reload. Fix: gate the fallback on `!ready || !supported` (or reset `ready` in `fail()`) in `src/components/effects/CrtWarp.tsx`, with a `CrtWarp.test.tsx` for post-ready loss. Edge case (GPU reset mid-session); no second fix wave per process.
+- **Two `<h1>` in the DOM on `/about`.** `Resume.tsx:33` renders the name as an `<h1>` inside `AboutResumeModal`'s always-mounted `<dialog>`. The closed dialog is `display: none`, so it is out of the a11y tree and the real-world impact is low, but it trips any "exactly one h1" check. Make it a `<p>`/`<h2>` scoped under the modal.
+- **Ruling R16 (parked, unchanged).** Equals period strings (`equals9` `2021`; the other two `2021 — 2022`, R8 stands); `NotebookInProgress`'s `$ ls` terminal device; `(home)/page.tsx`'s `next/dynamic` wrappers (pre-existing); `ProjectsContent`'s 500 ms search `setTimeout` and `Modal`'s 200 ms fade timer (pre-existing); `CrtWarp` reading reduced-motion once with no `change` listener; `NAV_ALL` positional coupling; the desktop nav's Contact label/href coupling; `tailwind.config.js`'s `rawConfig` export.
+- **`parchment-mute` AA contrast** stays the top open decision — see the Task 14 note above. Spec-pinned token, owner's call.
