@@ -10,7 +10,7 @@ const TechStackGroup: React.FC<TechStackGroupProps> = ({
   return (
     <div
       className={cn(
-        'mb-16 grid w-full gap-4 mobile:grid-cols-2 tablet:grid-cols-3',
+        'mb-12 grid w-full gap-4 mobile:grid-cols-2 tablet:grid-cols-3 wide:grid-cols-4',
         className
       )}
       {...props}

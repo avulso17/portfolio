@@ -1,92 +1,51 @@
-import { Header } from '@/components/ui/Header'
+import { Eyebrow } from '@/components/ui/Eyebrow'
+import { PageHero } from '@/components/ui/PageHero'
 import { Metadata } from 'next'
-import dynamic from 'next/dynamic'
+import ContactFormContainer from './_components/ContactFormContainer'
+import ContactSeal from './_components/ContactSeal'
 import ContactSocialButtonGroup from './_components/ContactSocialButtonGroup'
 
-const ContactFormContainer = dynamic(
-  () => import('./_components/ContactFormContainer')
-)
-
 export const metadata: Metadata = {
-  generator: 'Next.js',
-  applicationName: 'Felipe Mateus - Software Engineer',
-  referrer: 'origin-when-cross-origin',
-  keywords: [
-    'Next.js',
-    'React',
-    'JavaScript',
-    'TypeScript',
-    'Software Engineer',
-    'Front-end',
-    'Developer',
-    'contact',
-    'email',
-    'socials',
-    'instagram',
-    'twitter',
-    'linkedIn',
-    'message',
-    'gitHub',
-    'discord',
-  ],
-  authors: [{ name: 'Felipe', url: 'https://felipe-mateus.com' }],
-  creator: 'Felipe Mateus',
-  publisher: 'Felipe Mateus',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://felipe-mateus.com'),
-  title: 'Contact | Felipe Mateus - Software Engineer',
+  title: 'Contact',
+  alternates: { canonical: '/contact' },
   description:
-    'Contact me by message, email or social media. Let’s build something awesome.',
-  appleWebApp: {
-    statusBarStyle: 'black-translucent',
-  },
+    'Tell me what’s stuck — a bottleneck, a roadmap that doesn’t add up, a front-end that isn’t paying for itself.',
   openGraph: {
-    title: 'Contact | Felipe Mateus - Software Engineer',
+    title: 'Contact',
     description:
-      'Contact me by message, email or social media. Let’s build something awesome.',
-    url: 'https://felipe-mateus.com',
-    siteName: 'Felipe Mateus',
-    images: [
-      {
-        url: '/og/og-contact.jpg',
-        width: 800,
-        height: 600,
-      },
-      {
-        url: '/og/og-contact.jpg',
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
+      'Tell me what’s stuck — a bottleneck, a roadmap that doesn’t add up, a front-end that isn’t paying for itself.',
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Contact | Felipe Mateus - Software Engineer',
+    title: 'Contact',
     description:
-      'Contact me by message, email or social media. Let’s build something awesome.',
-    creator: 'Felipe Mateus',
-    images: ['/og/og-contact.jpg'],
+      'Tell me what’s stuck — a bottleneck, a roadmap that doesn’t add up, a front-end that isn’t paying for itself.',
   },
 }
 
 const ContactPage: React.FC = () => {
   return (
     <main>
-      <Header
-        title='Get in touch'
-        subtitle='Let&rsquo;s build something awesome.'
-      />
+      <div className='relative'>
+        <PageHero
+          index='06'
+          label='Contact'
+          title='Tell me what’s stuck.'
+          subtitle='A bottleneck, a roadmap that doesn’t add up, a front-end that isn’t paying for itself — write it down.'
+          scene='contact-letter'
+          sceneClassName='[&_img]:object-center'
+        />
+        <ContactSeal />
+      </div>
 
-      <div className='mb-20 mt-8 w-full mobile:mt-16'>
+      <div className='grid gap-12 py-16 wide:grid-cols-[1fr_20rem]'>
         <ContactFormContainer />
-        <ContactSocialButtonGroup />
+        <aside className='flex flex-col gap-6'>
+          <Eyebrow as='h2'>Elsewhere</Eyebrow>
+          <ContactSocialButtonGroup />
+          <p className='font-serif text-xl italic text-parchment-dim'>
+            I read everything. I answer what I can help with.
+          </p>
+        </aside>
       </div>
     </main>
   )

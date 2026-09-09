@@ -8,30 +8,17 @@ import { tv } from 'tailwind-variants'
 const cardStyles = tv({
   slots: {
     container: [
-      'group flex items-center justify-end gap-4 p-3.5',
-      'rounded-2xl border border-card-border bg-onyx',
-      'relative max-h-[300px] w-full',
-      'transition-colors duration-300 hover:bg-card-border',
-      'mobile:aspect-square mobile:rounded-3xl',
-      'mobile:flex-col mobile:justify-between mobile:gap-10 mobile:p-6',
+      'group flex items-center gap-4 p-4',
+      'rounded-sm border border-line bg-ink-2',
+      'relative w-full transition-colors hover:border-parchment-dim',
+      'mobile:aspect-square mobile:flex-col mobile:items-start mobile:justify-between mobile:p-6',
     ],
     icon: [
-      'hidden mobile:flex',
-      'absolute right-5 top-5 text-2xl opacity-0',
-      '-translate-x-1 translate-y-1 -rotate-45 transition-all duration-300',
-      'group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100',
+      'absolute right-4 top-4 hidden text-xl text-parchment-mute mobile:block',
     ],
-    image: [
-      'aspect-square w-16 min-w-[3.75rem] shrink-0 object-contain',
-      'overflow-hidden rounded-xl transition-transform duration-300',
-      'mobile:w-[35%] mobile:group-hover:-translate-y-1 wide:w-28',
-    ],
-    title: 'text-base font-semibold !leading-none mobile:text-lg',
-    label: [
-      'flex h-fit w-fit items-center justify-center',
-      'rounded-3xl border border-card-border',
-      'px-2.5 py-1 text-xs leading-normal text-gray-dark',
-    ],
+    image: ['aspect-square w-14 shrink-0 object-contain mobile:w-20'],
+    title: 'text-base font-medium text-parchment',
+    label: 'text-parchment-mute eyebrow-text',
   },
 })
 
@@ -51,27 +38,21 @@ const TechStackCard: React.FC<TechStackCardProps> = ({
 
   return (
     <div className={classes.container({ className })}>
-      <div className='hidden min-h-7 mobile:flex' />
-
       <ArrowRightIcon className={classes.icon()} />
 
       <Image
         src={src}
-        alt='stack_icon'
+        alt=''
         className={classes.image()}
-        quality={100}
         height={112}
         width={112}
         loading='lazy'
-        placeholder='blur'
       />
 
-      <div className='flex w-full items-center justify-between gap-2'>
+      <div className='flex w-full flex-col gap-1'>
         <p className={classes.title()}>{name}</p>
 
-        {category !== undefined ? (
-          <span className={classes.label()}>{category}</span>
-        ) : null}
+        {category ? <span className={classes.label()}>{category}</span> : null}
       </div>
     </div>
   )

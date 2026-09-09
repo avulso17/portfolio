@@ -1,17 +1,19 @@
-import { cn } from '@/lib/utils/cn'
+import { Eyebrow } from '@/components/ui/Eyebrow'
 
-export type TechStackGroupTitleProps = React.ComponentProps<'h2'>
+export type TechStackGroupTitleProps = {
+  index: string
+  children: React.ReactNode
+}
 
 const TechStackGroupTitle: React.FC<TechStackGroupTitleProps> = ({
+  index,
   children,
-  className,
-  ...props
-}) => {
-  return (
-    <h2 className={cn('mb-8 text-white/90 header', className)} {...props}>
+}) => (
+  <div className='mb-6 flex flex-col gap-3 border-t border-line pt-8'>
+    <Eyebrow as='h2' index={index}>
       {children}
-    </h2>
-  )
-}
+    </Eyebrow>
+  </div>
+)
 
 export default TechStackGroupTitle

@@ -7,7 +7,7 @@ import TechStackGroupTitle from './TechStackGroupTitle'
 const TechStackToolsList: React.FC = () => {
   return (
     <>
-      <TechStackGroupTitle>Dev & Design</TechStackGroupTitle>
+      <TechStackGroupTitle index='01'>Dev & Design</TechStackGroupTitle>
       <TechStackGroup>
         {tools.map((tool) => {
           const { image, name, type, link } = tool

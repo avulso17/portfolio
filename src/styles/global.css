@@ -10,13 +10,13 @@
   }
 
   html {
-    @apply h-full text-body;
+    @apply h-full overflow-x-hidden text-body;
     color-scheme: dark;
   }
 
   html,
   body {
-    @apply overflow-x-hidden scroll-smooth bg-black font-inter text-white text-body;
+    @apply scroll-smooth bg-ink font-body text-parchment text-body;
   }
 
   body {
@@ -42,7 +42,7 @@
   }
 
   button {
-    @apply select-none text-lg outline-none focus:underline;
+    @apply select-none outline-none;
   }
 
   h1,
@@ -59,7 +59,15 @@
   }
 
   h1 {
-    @apply hero-title;
+    @apply display-1;
+  }
+
+  h2:not(.eyebrow-text) {
+    @apply display-2;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-amber;
   }
 
   input[type='number']::-webkit-inner-spin-button,
@@ -76,7 +84,23 @@
   }
 
   ::selection {
-    -webkit-text-fill-color: #ffffff;
-    @apply bg-red;
+    @apply bg-parchment text-ink;
+  }
+}
+
+@layer utilities {
+  @media (prefers-reduced-motion: no-preference) {
+    .scene-drift {
+      animation: scene-drift 14s ease-in-out infinite alternate;
+    }
+  }
+}
+
+@keyframes scene-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
   }
 }

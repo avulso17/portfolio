@@ -6,35 +6,22 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const textFieldStyles = tv({
   slots: {
-    wrapper: 'flex w-full items-center gap-2',
+    wrapper: 'flex w-full flex-col gap-2',
     input: [
-      'w-full min-w-0 appearance-none text-gray-light',
-      'transition-colors placeholder:text-gray focus:outline-none',
+      'w-full min-w-0 appearance-none bg-transparent font-body text-parchment',
+      'border-b border-line py-3 transition-colors',
+      'placeholder:text-parchment-mute focus:border-amber focus:outline-none',
     ],
-    label: 'inline-block text-base font-medium',
+    label: 'text-parchment-mute eyebrow-text',
+    message: 'text-err eyebrow-text',
   },
   variants: {
-    variant: {
-      outlined: {
-        wrapper: [
-          'rounded-4xl border border-card-border bg-onyx',
-          'h-[52px] px-6 py-2',
-        ],
-        input: ['bg-transparent'],
-      },
-      standard: {
-        input: ['border-none bg-transparent'],
-      },
-    },
     error: {
       true: {
-        input: 'border-red text-red/80 placeholder:text-red',
-        label: 'text-red/80',
+        input: 'border-err text-err placeholder:text-err/70',
+        label: 'text-err',
       },
     },
-  },
-  defaultVariants: {
-    variant: 'standard',
   },
 })
 
@@ -42,6 +29,7 @@ type TextFieldVariants = VariantProps<typeof textFieldStyles>
 
 type ITextField = Omit<ComponentProps<'input'>, 'width'> &
   TextFieldVariants & {
+    errorMessage?: string
     icon?: string
     inputClassname?: string
     label?: string
@@ -53,9 +41,9 @@ const TextField = forwardRef<HTMLInputElement, ITextField>(
       id,
       label,
       error,
+      errorMessage,
       className,
       placeholder,
-      variant,
       inputClassname,
       ...props
     },
@@ -65,7 +53,8 @@ const TextField = forwardRef<HTMLInputElement, ITextField>(
       wrapper,
       input,
       label: labelStyles,
-    } = textFieldStyles({ error, variant })
+      message,
+    } = textFieldStyles({ error })
 
     return (
       <div className={wrapper({ className })}>
@@ -80,8 +69,16 @@ const TextField = forwardRef<HTMLInputElement, ITextField>(
           id={id}
           className={input({ className: inputClassname })}
           placeholder={placeholder}
+          aria-invalid={error || undefined}
+          aria-describedby={errorMessage ? `${id}-error` : undefined}
           {...props}
         />
+
+        {errorMessage ? (
+          <p id={`${id}-error`} role='alert' className={message()}>
+            {errorMessage}
+          </p>
+        ) : null}
       </div>
     )
   }

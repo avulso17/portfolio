@@ -28,7 +28,7 @@ const Resume: React.FC = () => {
   const { content, subtopic, name } = styles()
 
   return (
-    <div className='flex flex-col gap-6 font-calibri mobile:p-8'>
+    <div className='flex flex-col gap-6 font-body mobile:p-8'>
       <div className='flex flex-col'>
         <h1 className={name()}>FELIPE MATEUS GONÇALVES CRUZEIRO</h1>
         <p className={content()}>Uberlândia/MG, Brasil</p>
@@ -82,7 +82,7 @@ const Resume: React.FC = () => {
       </div>
       <ResumeItem
         title='🔍 Resumo Profissional'
-        content='Desenvolvedor Front-end Sênior com mais de 4 anos de experiência na construção de aplicações web modernas, escaláveis e orientadas a produto. Especialista em React, Next.js e TypeScript, com forte foco em performance, acessibilidade, arquitetura e experiência do usuário.'
+        content='Desenvolvedor Front-end Sênior com mais de 5 anos de experiência na construção de aplicações web modernas, escaláveis e orientadas a produto. Especialista em React, Next.js e TypeScript, com forte foco em performance, acessibilidade, arquitetura e experiência do usuário.'
       />
 
       <ResumeItem content='Atuo com alto grau de autonomia, participando de decisões técnicas de ponta a ponta — da concepção visual e definição de arquitetura até a entrega em produção. Possuo vivência prática em integração com sistemas distribuídos, mensageria, cache e automações, compreendendo o front-end como parte estratégica do ecossistema do produto.' />

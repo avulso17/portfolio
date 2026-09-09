@@ -1,170 +1,97 @@
-import SendIcon from '@/components/icons/Send'
-import ShareIcon from '@/components/icons/Share'
 import { Button } from '@/components/ui/Button'
+import { Eyebrow } from '@/components/ui/Eyebrow'
 import { SOCIAL_LINKS } from '@/constants/social'
-import { cn } from '@/lib/utils/cn'
-import Image from 'next/image'
 import Link from 'next/link'
-import { tv } from 'tailwind-variants'
 import AboutPortrait from './AboutPortrait'
 import AboutResumeModal from './AboutResumeModal'
 
-const aboutStyles = tv({
-  slots: {
-    title: 'text-base font-semibold uppercase text-gray',
-    text: 'w-full text-lg leading-[158%] text-gray-dark wide:max-w-[37.75rem]',
-  },
-})
+const Block: React.FC<{
+  index: string
+  label: string
+  children: React.ReactNode
+}> = ({ index, label, children }) => (
+  <section className='grid gap-6 border-t border-line py-10 wide:grid-cols-[16rem_1fr]'>
+    <Eyebrow as='h2' index={index}>
+      {label}
+    </Eyebrow>
+    <div className='flex max-w-[60ch] flex-col gap-4 text-lg leading-relaxed text-parchment-dim'>
+      {children}
+    </div>
+  </section>
+)
 
-const AboutContent: React.FC = () => {
-  const { title, text } = aboutStyles.slots
+const Strong: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <b className='font-medium text-parchment'>{children}</b>
+)
 
-  return (
-    <>
-      <div className='flex flex-col justify-between pt-16 wide:flex-row'>
-        <div className='order-2 flex w-full flex-col gap-8 pr-4 wide:order-1'>
-          <div className='flex flex-col gap-2'>
-            <h2 className={title}>Who I am</h2>
-            <p className={text}>
-              I&rsquo;m <b className='text-white font-inherit'>Felipe Mateus</b>{' '}
-              a multidisciplinary front-end engineer based in Uberlândia, Brazil
-              🇧🇷.
-            </p>
+const AboutContent: React.FC = () => (
+  <div className='flex flex-col gap-0 pb-20 wide:flex-row wide:gap-16'>
+    <div className='order-2 grow wide:order-1'>
+      <Block index='01' label='How I decide'>
+        <p>
+          I look at the product, the company and where the company is right now
+          before I look at the code. Curious by default, critical on purpose,
+          direct when it saves everyone time.
+        </p>
+        <p>
+          Ten years in technology — <Strong>five years in IT</Strong>, then five
+          on the front-end — taught me that the cheapest bug is the feature you
+          cut early, and that the front-end is where the business finds out
+          whether the roadmap was right.
+        </p>
+      </Block>
 
-            <p className={text}>
-              I have always been a very curious and creative person, working
-              with front-end today, for me, significantly expresses my passion
-              for visual arts and technology.
-            </p>
-          </div>
-
-          <div className='flex flex-col gap-2'>
-            <h2 className={title}>What I Do</h2>
-
-            <p className={text}>
-              Currently, I am a software developer specializing in front-end and
-              UI, helping and contributing to startups transforming their dreams
-              into technology.
-            </p>
-
-            <p className={text}>
-              Some of my skills are: the ability to faithfully reproduce
-              designs, vast knowledge about UI and responsive/mobile and
-              building custom landing pages.
-            </p>
-
-            <p className={text}>
-              I am enthusiastic about exploring new opportunities where I can
-              collaborate with talented teams, tackle complex challenges, and
-              contribute to building the next generation of innovative
-              solutions.
-            </p>
-          </div>
-
-          <div className='flex flex-col gap-2'>
-            <h2 className={title}>What I Did</h2>
-
-            <p className={text}>
-              With four years of experience as a software developer, I had the
-              privilege of contributing to innovative projects, where I acquired
-              and improved my skills in:{' '}
-              <b className='text-white font-inherit'>React.js</b>,{' '}
-              <b className='text-white font-inherit'>Next.js</b>,{' '}
-              <b className='text-white font-inherit'>TailwindCSS</b>,{' '}
-              <b className='text-white font-inherit'>JavaScript</b> and{' '}
-              <b className='text-white font-inherit'>TypeScript</b>, etc.
-              Allowing me to craft seamless and interactive user experiences.
-            </p>
-
-            <p className={text}>
-              Before specializing in front-end engineering, I worked in IT for
-              five years. This experience provided me with comprehensive
-              knowledge in various areas of technology, allowing me to:
-            </p>
-
-            <ul className={cn(text, 'list-inside list-disc')}>
-              <li>Understand software development holistically;</li>
-              <li>Identify more efficient solutions to complex challenges;</li>
-              <li>
-                Facilitate collaboration with other professionals and teams;
-              </li>
-              <li>Promote more effective communication;</li>
-              <li>
-                Adapt quickly to new technologies and changes in the
-                technological landscape;
-              </li>
-            </ul>
-
-            <p className={text}>
-              This solid foundation prepared me to face challenges and seize
-              opportunities in front-end engineering.
-            </p>
-          </div>
-        </div>
-
-        <div className='order-1 mb-16 flex flex-col wide:order-2 wide:mb-0 wide:items-center'>
-          <AboutPortrait />
-
-          <Link href='/contact' className='hidden wide:block'>
-            <Button className='mt-20' leftIcon={<SendIcon />}>
-              Get in touch
-            </Button>
-          </Link>
-        </div>
-      </div>
-
-      <div className='my-16'>
-        <span className={cn(text, 'inline-block')}>
-          Feel free to reach out via{' '}
+      <Block index='02' label='What I’ve shipped'>
+        <p>
+          Front-end foundations for early-stage startups, usually from zero and
+          usually next to the founder: <Strong>Pigmo</Strong> from the first
+          commit (2023 — present), the <Strong>Zeus Agrotech</Strong> portal
+          rebuilt out of a legacy app, and the <Strong>Equals9</Strong> apps
+          where I started as a developer.
+        </p>
+        <p>
+          React, Next.js, TypeScript and Tailwind are the tools. The deliverable
+          is a product that moves a number — the full list, with the call and
+          the result on each, is on the{' '}
           <Link
-            href={SOCIAL_LINKS.email}
-            className='text-white underline font-inherit'
-            target='_blank'
+            href='/projects'
+            className='text-parchment underline underline-offset-4'
           >
-            e-mail <ShareIcon className='inline text-base' />
-          </Link>
-          , or follow me on{' '}
-          <Link
-            href={SOCIAL_LINKS.x}
-            className='text-white underline font-inherit'
-            target='_blank'
-          >
-            X <ShareIcon className='inline text-base' />.
-          </Link>{' '}
-          Want to see where I&rsquo;ve worked? Check out my <AboutResumeModal />
-          , or Connect with me on{' '}
-          <Link
-            href={SOCIAL_LINKS.linkedIn}
-            className='text-white underline font-inherit'
-            target='_blank'
-          >
-            LinkedIn <ShareIcon className='inline text-base' />
+            projects page
           </Link>
           .
-        </span>
-      </div>
+        </p>
+      </Block>
 
-      <p className={text}>Let&rsquo;s build something great,</p>
+      <Block index='03' label='Where I’m useful'>
+        <p>
+          Early-stage teams that need the front-end done right the first time,
+          roadmaps that need someone to push back, and interfaces that have to
+          convert rather than just render.
+        </p>
+        <div>
+          Based in <Strong>Uberlândia, Brazil</Strong>, working with teams
+          anywhere. My résumé is one click away: <AboutResumeModal />. Or reach
+          me on{' '}
+          <Link
+            href={SOCIAL_LINKS.linkedIn}
+            target='_blank'
+            className='text-parchment underline underline-offset-4'
+          >
+            LinkedIn
+          </Link>
+          .
+        </div>
+      </Block>
+    </div>
 
-      <Image
-        className='mt-4'
-        src='/assets/white_signature.png'
-        alt='Felipe Mateus'
-        height={86}
-        width={300}
-      />
-
-      <Link href='/contact' className='wide:hidden'>
-        <Button
-          className='mt-28 max-w-none tablet:max-w-[400px] '
-          leftIcon={<SendIcon className='text-2xl' />}
-          full
-        >
-          Get in touch
-        </Button>
+    <div className='order-1 flex flex-col gap-8 pt-10 wide:order-2 wide:w-[22rem] wide:shrink-0'>
+      <AboutPortrait />
+      <Link href='/contact' className='w-full'>
+        <Button full>Tell me what&rsquo;s stuck</Button>
       </Link>
-    </>
-  )
-}
+    </div>
+  </div>
+)
 
 export default AboutContent

@@ -7,6 +7,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['jsx', 'tsx', 'mdx', 'ts', 'js'],
+  outputFileTracingIncludes: {
+    '/**/opengraph-image': ['./src/assets/fonts/**'],
+    '/**/twitter-image': ['./src/assets/fonts/**'],
+  },
   images: {
     remotePatterns: [
       {

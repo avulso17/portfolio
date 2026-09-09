@@ -13,12 +13,12 @@ const HomeGetInTouchSection = dynamic(
 
 const HomePage: React.FC = () => {
   return (
-    <div>
+    <main>
       <HomeHero />
       <HomeSelectedWorkSection />
       <HomeGetToKnowSection />
       <HomeGetInTouchSection />
-    </div>
+    </main>
   )
 }
 

@@ -1,37 +1,37 @@
+import { CrtWarp } from '@/components/effects/CrtWarp'
 import { Button } from '@/components/ui/Button'
-import { TextGenerateEffect } from '@/components/ui/TextGeneratorEffect'
+import { Eyebrow } from '@/components/ui/Eyebrow'
 import Link from 'next/link'
 import ResumeModalButton from './HomeResumeModalButton'
 
 const HomeHero: React.FC = () => {
   return (
-    <div className='relative z-0 mb-[8.5rem] flex w-full flex-col pt-14 mobile:mb-[20.625rem] mobile:gap-10 mobile:pt-0'>
-      <h1 className='mb-4 w-fit whitespace-nowrap font-extrabold mobile:mb-0'>
-        <b className='block mobile:hidden'>Hi 👋🏻</b>
-        <b>I&rsquo;m</b> Felipe M
-        <p className='hidden font-extrabold text-inherit font-inherit tablet:inline-block'>
-          ateus
-        </p>
+    <section className='relative z-0 flex min-h-[38rem] flex-col justify-end gap-8 border-b border-line pb-16 pt-40 mobile:min-h-[46rem] mobile:pt-56'>
+      <CrtWarp name='home-paladin' className='[&_canvas]:object-cover' />
+
+      <Eyebrow index='00'>
+        Felipe Mateus — front-end engineer with a product owner&rsquo;s eye
+      </Eyebrow>
+
+      <h1 className='flex flex-col'>
+        <span>I build the front-end</span>{' '}
+        <span className='text-outline'>and question the roadmap.</span>
       </h1>
 
-      <TextGenerateEffect
-        speed={0.1}
-        words='A Software Engineer and Front-end Developer helping startups turn their
-        visions into a digital reality. I specialize in designing and building
-        modern mobile and web-based apps.'
-        className='mb-14 w-full max-w-[45.625rem] font-medium !leading-5 !text-gray-dark hero-text mobile:mb-0 mobile:!leading-[2rem]'
-      />
+      <p className='max-w-[48ch] font-serif text-2xl italic text-parchment-dim'>
+        Front-end engineer with an owner&rsquo;s eye — I find the bottleneck,
+        make the call, and ship what moves the number.
+      </p>
 
       <div className='flex flex-col gap-4 mobile:flex-row mobile:items-center'>
-        <ResumeModalButton />
-
-        <Link href='/contact'>
-          <Button className='w-full mobile:w-fit' variant='secondary'>
-            Get in touch
+        <Link href='/contact' className='w-full mobile:w-fit'>
+          <Button variant='accent' full>
+            Tell me what&rsquo;s stuck
           </Button>
         </Link>
+        <ResumeModalButton />
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -62,18 +62,23 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, children }) => {
     <dialog
       ref={dialogRef}
       className={cn([
-        'overflow-y-auto bg-onyx absolute-center',
+        'overflow-y-auto bg-ink-2 absolute-center',
         'mx-auto max-h-full w-full max-w-screen-tablet',
         'pointer-events-none opacity-0 transition-opacity',
-        'tablet:max-h-[90%] tablet:rounded-xl',
-        'backdrop:bg-black/25 backdrop:backdrop-blur-sm',
+        'border border-line tablet:max-h-[90%] tablet:rounded-sm',
+        'backdrop:bg-ink/80',
         'open:pointer-events-auto open:opacity-100',
       ])}
       onClick={closeModal}
     >
       <form method='dialog' className='absolute right-4 top-4'>
-        <button type='reset' onClick={closeModal}>
-          x
+        <button
+          type='reset'
+          onClick={closeModal}
+          className='text-parchment-dim eyebrow-text hover:text-parchment'
+          aria-label='Close (esc)'
+        >
+          esc
         </button>
       </form>
       <div className='h-full w-full' onClick={(e) => e.stopPropagation()}>
