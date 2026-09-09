@@ -10,9 +10,16 @@ const SendEmailSchema = z.object({
   email: z
     .string({ invalid_type_error: 'Add your email so I can answer.' })
     .min(1, 'Add your email so I can answer.')
+    .max(254, 'Keep the email under 254 characters.')
     .email('That email doesn’t look right.'),
-  name: z.string().min(1, 'Add your name.'),
-  subject: z.string().min(1, 'Add a subject.'),
+  name: z
+    .string()
+    .min(1, 'Add your name.')
+    .max(120, 'Keep the name under 120 characters.'),
+  subject: z
+    .string()
+    .min(1, 'Add a subject.')
+    .max(200, 'Keep the subject under 200 characters.'),
   text: z
     .string()
     .min(1, 'Write a message.')
