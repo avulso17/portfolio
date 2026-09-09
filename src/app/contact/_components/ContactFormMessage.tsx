@@ -1,9 +1,10 @@
 import MessageErrorIcon from '@/components/icons/MessageError'
 import MessageSentIcon from '@/components/icons/MessageSent'
+import { Button } from '@/components/ui/Button'
 
-type Props = { status: 'error' | 'success' }
+type Props = { status: 'error' | 'success'; onRetry?: () => void }
 
-const ContactFormMessage: React.FC<Props> = ({ status }) => {
+const ContactFormMessage: React.FC<Props> = ({ status, onRetry }) => {
   const ok = status === 'success'
   return (
     <div
@@ -21,8 +22,13 @@ const ContactFormMessage: React.FC<Props> = ({ status }) => {
       <p className='max-w-[40ch] text-parchment-dim'>
         {ok
           ? 'I read everything and answer what I can help with — usually within a couple of days.'
-          : 'Something failed on my side. Email me directly or try again in a minute.'}
+          : 'Something failed on my side. Your message is still in the form — send it again, or email me directly.'}
       </p>
+      {!ok && onRetry ? (
+        <Button variant='secondary' onClick={onRetry}>
+          Back to the message
+        </Button>
+      ) : null}
     </div>
   )
 }

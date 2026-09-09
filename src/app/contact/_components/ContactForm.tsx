@@ -73,6 +73,7 @@ const ContactForm: React.FC = () => {
             disabled={isPending}
             onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             error={Boolean(errors?.email)}
+            errorMessage={errors?.email?.[0]}
           />
 
           <TextField
@@ -84,6 +85,7 @@ const ContactForm: React.FC = () => {
             disabled={isPending}
             onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             error={Boolean(errors?.name)}
+            errorMessage={errors?.name?.[0]}
           />
 
           <TextField
@@ -95,6 +97,7 @@ const ContactForm: React.FC = () => {
             disabled={isPending}
             onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             error={Boolean(errors?.subject)}
+            errorMessage={errors?.subject?.[0]}
           />
         </div>
 
@@ -119,7 +122,14 @@ const ContactForm: React.FC = () => {
             disabled={isPending}
             onChange={(e) => clearError(e.target.name as ErrorsKeys)}
             onKeyDown={handleKeyDown}
+            aria-invalid={Boolean(errors?.text) || undefined}
+            aria-describedby={errors?.text ? 'text-error' : undefined}
           />
+          {errors?.text ? (
+            <p id='text-error' role='alert' className='text-err eyebrow-text'>
+              {errors.text[0]}
+            </p>
+          ) : null}
           <span className='text-parchment-mute eyebrow-text'>
             ⌘/Ctrl + Enter to send · max 1500
           </span>
@@ -129,7 +139,10 @@ const ContactForm: React.FC = () => {
       </form>
 
       {status ? (
-        <ContactFormMessage status={status as 'success' | 'error'} />
+        <ContactFormMessage
+          status={status as 'success' | 'error'}
+          onRetry={() => setStatus(undefined)}
+        />
       ) : null}
     </>
   )

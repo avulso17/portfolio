@@ -13,6 +13,7 @@ const textFieldStyles = tv({
       'placeholder:text-parchment-mute focus:border-amber focus:outline-none',
     ],
     label: 'text-parchment-mute eyebrow-text',
+    message: 'text-err eyebrow-text',
   },
   variants: {
     error: {
@@ -28,6 +29,7 @@ type TextFieldVariants = VariantProps<typeof textFieldStyles>
 
 type ITextField = Omit<ComponentProps<'input'>, 'width'> &
   TextFieldVariants & {
+    errorMessage?: string
     icon?: string
     inputClassname?: string
     label?: string
@@ -35,10 +37,24 @@ type ITextField = Omit<ComponentProps<'input'>, 'width'> &
 
 const TextField = forwardRef<HTMLInputElement, ITextField>(
   (
-    { id, label, error, className, placeholder, inputClassname, ...props },
+    {
+      id,
+      label,
+      error,
+      errorMessage,
+      className,
+      placeholder,
+      inputClassname,
+      ...props
+    },
     forwardRef
   ) => {
-    const { wrapper, input, label: labelStyles } = textFieldStyles({ error })
+    const {
+      wrapper,
+      input,
+      label: labelStyles,
+      message,
+    } = textFieldStyles({ error })
 
     return (
       <div className={wrapper({ className })}>
@@ -54,8 +70,15 @@ const TextField = forwardRef<HTMLInputElement, ITextField>(
           className={input({ className: inputClassname })}
           placeholder={placeholder}
           aria-invalid={error || undefined}
+          aria-describedby={errorMessage ? `${id}-error` : undefined}
           {...props}
         />
+
+        {errorMessage ? (
+          <p id={`${id}-error`} role='alert' className={message()}>
+            {errorMessage}
+          </p>
+        ) : null}
       </div>
     )
   }

@@ -8,4 +8,12 @@ describe('ContactFormMessage', () => {
     expect(screen.getByText('Message sent.')).toBeInTheDocument()
     expect(screen.getByText(/I read everything/)).toBeInTheDocument()
   })
+
+  it('offers a way back to the message when sending failed', () => {
+    render(<ContactFormMessage status='error' onRetry={() => {}} />)
+    expect(screen.getByText('Not sent.')).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Back to the message' })
+    ).toBeInTheDocument()
+  })
 })

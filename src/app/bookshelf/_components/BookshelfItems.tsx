@@ -10,6 +10,13 @@ const BookshelfItems: React.FC<{ books: IBook[] | null }> = ({ books }) => {
       </p>
     )
 
+  if (books.length === 0)
+    return (
+      <p className='max-w-[60ch] py-16 text-parchment-dim'>
+        Nothing on the shelf yet. I add books here once I finish them.
+      </p>
+    )
+
   return (
     <BookshelfGrid>
       {books.map((book, index) => (
