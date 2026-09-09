@@ -15,7 +15,7 @@ describe('Footer', () => {
       expect(screen.getByRole('link', { name: label })).toBeInTheDocument()
     }
     expect(
-      screen.getByText("Let's build something that pays for itself.")
+      screen.getByText('Let’s build something that pays for itself.')
     ).toBeInTheDocument()
     expect(screen.getByText('// avulso, since 2015')).toBeInTheDocument()
     expect(

@@ -20,8 +20,8 @@ describe('HomeHero', () => {
     expect(h1.querySelector('.text-outline')).toHaveTextContent(
       'and question the roadmap.'
     )
-    expect(screen.getByText(/owner's eye/)).toBeInTheDocument()
-    const cta = screen.getByRole('link', { name: "Tell me what's stuck" })
+    expect(screen.getAllByText(/owner’s eye/)).toHaveLength(2)
+    const cta = screen.getByRole('link', { name: 'Tell me what’s stuck' })
     expect(cta).toHaveAttribute('href', '/contact')
     expect(cta.querySelector('button')).toHaveClass('bg-amber')
     expect(screen.getByTestId('crt')).toHaveAttribute(

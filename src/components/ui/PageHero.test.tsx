@@ -7,7 +7,7 @@ describe('PageHero', () => {
       <PageHero
         index='06'
         label='Contact'
-        title="Tell me what's stuck."
+        title='Tell me what’s stuck.'
         subtitle='Write it down.'
         scene='contact-letter'
       >
@@ -16,7 +16,7 @@ describe('PageHero', () => {
     )
     expect(screen.getByText(/06 —/)).toBeInTheDocument()
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      "Tell me what's stuck."
+      'Tell me what’s stuck.'
     )
     expect(screen.getByText('Write it down.')).toHaveClass(
       'font-serif',

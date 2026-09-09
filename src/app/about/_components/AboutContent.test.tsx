@@ -10,8 +10,8 @@ describe('AboutContent', () => {
     render(<AboutContent />)
     for (const label of [
       /How I decide/,
-      /What I've shipped/,
-      /Where I'm useful/,
+      /What I’ve shipped/,
+      /Where I’m useful/,
     ]) {
       expect(screen.getByText(label)).toBeInTheDocument()
     }

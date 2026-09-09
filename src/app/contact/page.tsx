@@ -9,16 +9,16 @@ export const metadata: Metadata = {
   title: 'Contact',
   alternates: { canonical: '/contact' },
   description:
-    "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
+    'Tell me what’s stuck — a bottleneck, a roadmap that doesn’t add up, a front-end that isn’t paying for itself.',
   openGraph: {
     title: 'Contact',
     description:
-      "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
+      'Tell me what’s stuck — a bottleneck, a roadmap that doesn’t add up, a front-end that isn’t paying for itself.',
   },
   twitter: {
     title: 'Contact',
     description:
-      "Tell me what's stuck — a bottleneck, a roadmap that doesn't add up, a front-end that isn't paying for itself.",
+      'Tell me what’s stuck — a bottleneck, a roadmap that doesn’t add up, a front-end that isn’t paying for itself.',
   },
 }
 
@@ -29,7 +29,7 @@ const ContactPage: React.FC = () => {
         <PageHero
           index='06'
           label='Contact'
-          title="Tell me what's stuck."
+          title='Tell me what’s stuck.'
           subtitle='A bottleneck, a roadmap that doesn’t add up, a front-end that isn’t paying for itself — write it down.'
           scene='contact-letter'
           sceneClassName='[&_img]:object-center'

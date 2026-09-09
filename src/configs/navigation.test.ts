@@ -30,6 +30,6 @@ describe('navigation config', () => {
 
   it('carries the easter-egg year and the sign-off', () => {
     expect(AVULSO_SINCE).toBe(2015)
-    expect(SIGN_OFF).toBe("Let's build something that pays for itself.")
+    expect(SIGN_OFF).toBe('Let’s build something that pays for itself.')
   })
 })

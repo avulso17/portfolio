@@ -10,7 +10,7 @@ const HomeHero: React.FC = () => {
       <CrtWarp name='home-paladin' className='[&_canvas]:object-cover' />
 
       <Eyebrow index='00'>
-        Felipe Mateus — front-end engineer with a product owner&apos;s eye
+        Felipe Mateus — front-end engineer with a product owner&rsquo;s eye
       </Eyebrow>
 
       <h1 className='flex flex-col'>
@@ -26,7 +26,7 @@ const HomeHero: React.FC = () => {
       <div className='flex flex-col gap-4 mobile:flex-row mobile:items-center'>
         <Link href='/contact' className='w-full mobile:w-fit'>
           <Button variant='accent' full>
-            Tell me what&apos;s stuck
+            Tell me what&rsquo;s stuck
           </Button>
         </Link>
         <ResumeModalButton />

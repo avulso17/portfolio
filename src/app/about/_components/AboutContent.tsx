@@ -41,7 +41,7 @@ const AboutContent: React.FC = () => (
         </p>
       </Block>
 
-      <Block index='02' label="What I've shipped">
+      <Block index='02' label='What I’ve shipped'>
         <p>
           Front-end foundations for early-stage startups, usually from zero and
           usually next to the founder: <Strong>Pigmo</Strong> from the first
@@ -63,7 +63,7 @@ const AboutContent: React.FC = () => (
         </p>
       </Block>
 
-      <Block index='03' label="Where I'm useful">
+      <Block index='03' label='Where I’m useful'>
         <p>
           Early-stage teams that need the front-end done right the first time,
           roadmaps that need someone to push back, and interfaces that have to

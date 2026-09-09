@@ -6,16 +6,16 @@ export const metadata: Metadata = {
   title: 'About',
   alternates: { canonical: '/about' },
   description:
-    "Front-end engineer with a product owner's eye — how I decide, what I've shipped, where I'm useful.",
+    'Front-end engineer with a product owner’s eye — how I decide, what I’ve shipped, where I’m useful.',
   openGraph: {
     title: 'About',
     description:
-      "Front-end engineer with a product owner's eye — how I decide, what I've shipped, where I'm useful.",
+      'Front-end engineer with a product owner’s eye — how I decide, what I’ve shipped, where I’m useful.',
   },
   twitter: {
     title: 'About',
     description:
-      "Front-end engineer with a product owner's eye — how I decide, what I've shipped, where I'm useful.",
+      'Front-end engineer with a product owner’s eye — how I decide, what I’ve shipped, where I’m useful.',
   },
 }
 

@@ -109,7 +109,7 @@ const ContactForm: React.FC = () => {
             id='text'
             name='text'
             maxLength={1500}
-            placeholder="What's stuck? Context, what you tried, what it costs you."
+            placeholder='What’s stuck? Context, what you tried, what it costs you.'
             className={cn(
               'min-h-56 w-full resize-y border-b border-line bg-transparent py-3 font-body text-parchment',
               'placeholder:text-parchment-mute focus:border-amber focus:outline-none',

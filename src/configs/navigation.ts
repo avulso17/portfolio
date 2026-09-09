@@ -24,4 +24,4 @@ export const NAV_ALL: NavLink[] = [
 // Nickname from the technical course where the career started (spec §2.1).
 export const AVULSO_SINCE = 2015
 
-export const SIGN_OFF = "Let's build something that pays for itself."
+export const SIGN_OFF = 'Let’s build something that pays for itself.'
