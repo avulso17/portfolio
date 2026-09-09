@@ -9,7 +9,7 @@ const HomeGetInTouchSection: React.FC = () => (
     <div className='flex flex-col gap-3'>
       <Eyebrow index='06'>Contact</Eyebrow>
       <h2>Tell me what&rsquo;s stuck.</h2>
-      <p className='max-w-[40ch] font-serif text-2xl italic text-parchment-dim'>
+      <p className='max-w-[48ch] font-serif text-2xl italic text-parchment-dim'>
         {SIGN_OFF}
       </p>
     </div>

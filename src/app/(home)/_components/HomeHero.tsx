@@ -18,7 +18,7 @@ const HomeHero: React.FC = () => {
         <span className='text-outline'>and question the roadmap.</span>
       </h1>
 
-      <p className='max-w-[44ch] font-serif text-2xl italic text-parchment-dim'>
+      <p className='max-w-[48ch] font-serif text-2xl italic text-parchment-dim'>
         Front-end engineer with an owner&rsquo;s eye — I find the bottleneck,
         make the call, and ship what moves the number.
       </p>

@@ -18,7 +18,7 @@ const NotebookInProgress: React.FC = () => (
         The first notes are about decisions, not tutorials: what I cut, what I
         measured, what I would decide again.
       </p>
-      <p className='text-parchment-dim'>
+      <p className='max-w-[60ch] text-parchment-dim'>
         Until they land, the same thinking is visible on the projects page —
         each one shows the call and the result.
       </p>
