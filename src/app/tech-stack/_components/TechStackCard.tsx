@@ -42,7 +42,7 @@ const TechStackCard: React.FC<TechStackCardProps> = ({
 
       <Image
         src={src}
-        alt='stack_icon'
+        alt=''
         className={classes.image()}
         height={112}
         width={112}

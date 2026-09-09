@@ -69,7 +69,7 @@ const NavbarMobile: React.FC<NavbarMobileProps> = ({ className }) => {
 
   return (
     <div ref={ref} className={container()}>
-      <nav className={nav({ className })}>
+      <nav aria-label='Primary' className={nav({ className })}>
         {routes.map(({ name, path, icon: Icon }, index) => {
           if (!path) {
             return (
