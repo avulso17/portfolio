@@ -2378,7 +2378,49 @@ Tasks 1–12 shipped on `feature/rebrand`, each reviewed clean:
 - Task 11 (`ec5752b`): metadata, positioning in titles/descriptions.
 - Task 12 (`32e33da`): removal pass — legacy components, keyframes, utilities, deps and dead assets.
 
-Task 14 (Impeccable passes + the visual/screenshot pass) is still to run — it will update this section.
+### Task 14 — visual pass
+
+Ran in the main session on `feature/rebrand` from `d7fa804`. Six commits: `71e2d91`, `7b0b9c5`, `cfc992b`, `57344a6`, `c079c66`, `41678c3`.
+
+**Screenshot-harness correction (read this first).** Headless Chrome on macOS clamps its window to a **500px minimum width**, so `--window-size=390` renders the page at `innerWidth: 500` and crops the capture to 390. Every "390" screenshot taken before this note — including Step 1's — is a 500px render, and the horizontal clipping it appeared to show is the crop, not a layout bug. Real 390 captures go through `scratchpad/frame.html`, a 390-wide `<iframe>` on a 520px page. Use it for any future mobile check.
+
+**Blocking findings**
+
+- _Both more-menus rendered permanently open._ `hidden={!isOpen}` sat on the same element as a static `flex` utility; the utility wins the cascade over preflight's `[hidden]{display:none}` at equal specificity. Added the `[&[hidden]]:hidden` guard to `NavbarDesktopDropdownMenu.tsx` and the `list` slot of `NavbarMobileMoreMenu.tsx`, keeping the attribute (and its a11y semantics) as the single source of state, plus `NavbarDesktopDropdownMenu.test.tsx` asserting closed-by-default. (`71e2d91`)
+- _Outlined H1 line unreadable over the Paladin._ Raised the `CrtWarp` bottom scrim from `h-1/2 via-ink/60` to `h-[85%] from-ink from-20% via-ink/85 via-75%`, still ink→transparent. The stroke width and the hero's layout were left alone. Confirmed at 390/768/1440. (`71e2d91`)
+
+**Polish findings**
+
+- Terminal traffic-light dots: `rounded-full` → `rounded-sm` (`Terminal.tsx`). (`71e2d91`)
+- Contact seal: `top-[53%]` → `top-[56%]`; a pixel-scan of the 1440 capture puts the mark on the wax. (`71e2d91`)
+- Bookshelf "Couldn't load the shelf": the sandbox has no Supabase egress, so the null branch renders. The branch itself is correct; the `harden` pass added the missing empty-shelf branch beside it. **Still unverified against a live shelf.**
+- Home hero eyebrow over the hood: improved by the wider scrim but still the weakest text on the page — see the contrast note below.
+
+**Impeccable passes**
+
+- `typeset` (`7b0b9c5`) — `.eyebrow-text` had `line-height: 1`, so eyebrows that wrap at 390 collided; now `1.5`. Serif lede measure unified at `48ch` (home hero, get-in-touch, `PageHero`); notebook body given the `60ch` measure About already used.
+- `animate` (`cfc992b`) — motion is now only scene drift, the CRT warp, hover transitions and the modal fade. Removed the bookshelf skeleton's `animate-pulse` (an indefinite loop that ignored `prefers-reduced-motion`) and the mobile nav's `transition-all` on a border change nothing else animates; hover transitions settled on `ease-out`. Verified reduced-motion: `.scene-drift` is inside `@media (prefers-reduced-motion: no-preference)`, and `CrtWarpCanvas` only re-arms `requestAnimationFrame` when `animate` is true, so it draws one frame and stops.
+- `harden` (`57344a6`) — validation errors reached the form as booleans only, so a rejected field turned red without saying why. `TextField` now renders the message with `role='alert'` and `aria-describedby`; the textarea got the same; the zod copy moved into the site's voice and gained a real email-format check. A failed send was a dead end (the overlay never cleared) — it now offers "Back to the message", returning to the still-filled form. Added the bookshelf empty-shelf state. Tests: `TextField.test.tsx`, plus a retry case in `ContactFormMessage.test.tsx`.
+- `audit` (`c079c66`) — Home was the only route without a `<main>` landmark and the mobile `<nav>` the only nav without a name; focus ring `outline-1` → `outline-2` (amber, the permitted exception); `TechStackCard` icon `alt='stack_icon'` → `alt=''`.
+
+**Follow-up from the final pass** (`41678c3`) — at a real 390 viewport the contact letter sat straight behind the display line and the amber ex-libris landed on the headline. `Scene`'s bottom scrim deepened to `h-2/3 from-15% via-ink/80 via-70%` (matching the hero's treatment, still ink→transparent) and `ContactSeal` is now `hidden mobile:block`, so mobile contact carries zero amber, which "at most once per viewport" allows.
+
+**Rejected / left alone**
+
+- `parchment-mute` (`#4A4945`) as text is **2.18:1 on `ink` and 1.95:1 on `ink-2` — it fails WCAG AA everywhere it carries text**: eyebrows, form placeholders and labels, the terminal path, the footer meta and the avulso egg. Spec §4.1 pins both the hex and those exact roles, and `colors.test.ts` asserts the hex, so fixing it is a spec amendment, not a finishing pass. **This is the top open item for Felipe** — either darken the roles' background, move the text roles to `parchment-dim` (5.74:1) and keep `parchment-mute` for the square/dots/rules, or raise the token toward `#7E7C77` (≈4.7:1) and accept that it closes the gap to `parchment-dim`.
+- Craft-floor bans on eyebrows and `01/02/03` section numbers: rejected — spec §4.4 mandates both, and the skill's own rule is that the committed world wins.
+- Detector's `bounce-easing` hit on `ContactFormMessage.test.tsx:7`: false positive; the line is the assertion that `animate-bounce` is _absent_.
+- `BookshelfBook.tsx` still carries Figma-export SVG `feGaussianBlur` inner shadows and an `rx='6'` clip. Both are invisible under the component's own `rounded-sm` + `overflow-hidden`, so nothing renders out of spec, but the markup is legacy and worth deleting in a later cleanup.
+
+**WebGL observation.** Unchanged from Step 1 and confirmed after the fix: headless Chrome launched with `--disable-gpu` never gets a `webgl2` context, so `CrtWarp` stays on the static dithered `Scene` fallback and no capture in this task shows the warped canvas. The warp path is untested visually — check it in a real browser.
+
+**Gates.** `pnpm test` 91 passed (31 files), `pnpm lint` 0 errors / 43 pre-existing warnings, `pnpm exec tsc --noEmit` clean, `pnpm build` clean (26 static routes). Against `pnpm start`: `/opengraph-image`, `/about/opengraph-image`, `/contact/opengraph-image` and `/twitter-image` all 200, as did all seven routes. Server stopped with `pkill -f next-server`.
+
+**Still open for Felipe**
+
+- The `parchment-mute` contrast decision above.
+- Whether the contact seal should reappear at 390 in some other position, or stay desktop-only.
+- The bookshelf loading/error/empty states have never been seen against a live Supabase shelf.
 
 ### Rulings
 
