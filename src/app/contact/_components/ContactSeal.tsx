@@ -5,7 +5,7 @@ const ContactSeal: React.FC = () => (
   <ExLibris
     mark='halo'
     aria-hidden='true'
-    className='pointer-events-none absolute left-[49%] top-[53%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 text-amber mobile:h-24 mobile:w-24'
+    className='pointer-events-none absolute left-[49%] top-[56%] h-16 w-16 -translate-x-1/2 -translate-y-1/2 text-amber mobile:h-24 mobile:w-24'
   />
 )
 

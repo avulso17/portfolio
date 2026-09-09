@@ -11,6 +11,7 @@ const styles = tv({
       'flex w-full flex-col gap-2 px-4 py-4',
       'rounded-t-sm border border-line bg-ink-2',
       'absolute bottom-full left-0 z-10',
+      '[&[hidden]]:hidden',
     ],
     listItem: [
       'flex h-12 w-full shrink-0 items-center px-4',

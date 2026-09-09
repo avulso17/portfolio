@@ -33,7 +33,7 @@ const NavbarDesktopDropdownMenu: React.FC = () => {
       <div
         id='navbar-more'
         hidden={!isMenuOpen}
-        className='absolute left-0 top-[calc(100%+0.5rem)] z-20 flex min-w-40 flex-col gap-3 rounded-sm border border-line bg-ink-2 p-4'
+        className='absolute left-0 top-[calc(100%+0.5rem)] z-20 flex min-w-40 flex-col gap-3 rounded-sm border border-line bg-ink-2 p-4 [&[hidden]]:hidden'
       >
         {contact ? (
           <Link href={contact.href} className='flex tablet:hidden'>
