@@ -63,7 +63,7 @@ const ContactForm: React.FC = () => {
   return (
     <>
       <form action={submitAction} className='flex w-full flex-col gap-6'>
-        <div className='h-fit w-full'>
+        <div className='flex w-full flex-col gap-6'>
           <TextField
             id='email'
             type='email'
