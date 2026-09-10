@@ -120,11 +120,11 @@
     animation-delay: 900ms;
   }
 
-  .print-in {
+  .print-in > * {
     transition: clip-path 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
     transition-delay: calc(var(--reveal-i, 0) * 80ms);
   }
-  html[data-js] .print-in:not([data-revealed]) {
+  html[data-js] .print-in:not([data-revealed]) > * {
     clip-path: inset(100% 0 0 0);
   }
 
@@ -163,6 +163,7 @@
     .rule-b::after,
     .reg-mark,
     .print-in,
+    .print-in > *,
     .scene-reveal,
     .scene-drift,
     .typewriter,

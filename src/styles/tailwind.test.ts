@@ -142,6 +142,23 @@ describe('tailwind theme', () => {
     expect(result.css).toMatch(/\.rule-b::after[^}]*width:\s*100vw/)
   })
 
+  it('clips the print-in reveal on its children, not the observed element', async () => {
+    const css = readFileSync(join(__dirname, 'global.css'), 'utf8')
+    const result = await postcss([
+      tailwindcss({
+        ...tailwindConfig,
+        content: [{ raw: '<div class="print-in"></div>', extension: 'html' }],
+      }),
+    ]).process(css, { from: undefined })
+    expect(result.css).toMatch(/\.print-in\s*>\s*\*[^}]*transition/)
+    expect(result.css).toMatch(
+      /html\[data-js\] \.print-in:not\(\[data-revealed\]\)\s*>\s*\*[^}]*clip-path:\s*inset\(100% 0 0 0\)/
+    )
+    expect(result.css).not.toMatch(
+      /html\[data-js\] \.print-in:not\(\[data-revealed\]\)\s*\{/
+    )
+  })
+
   it('kills every motion class under prefers-reduced-motion', async () => {
     const css = readFileSync(join(__dirname, 'global.css'), 'utf8')
     const result = await postcss([
