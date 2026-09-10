@@ -72,7 +72,7 @@ export async function renderOg(copy: OgCopy): Promise<ImageResponse> {
               fontFamily: 'Departure Mono',
               fontSize: 22,
               letterSpacing: '0.08em',
-              color: colors['parchment-mute'],
+              color: colors['parchment-dim'],
             }}
           >
             {copy.eyebrow}

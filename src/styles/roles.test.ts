@@ -11,16 +11,16 @@ export const tsxFiles = (dir: string): string[] =>
   })
 
 const MUTE_TEXT = /(?<![:\w-])text-parchment-mute\b/
+const MUTE_COLOR_PROP = /color:\s*[`$\{]*colors\[['"]parchment-mute['"]\]/
 
 describe('color roles', () => {
   it('never uses parchment-mute as a text color', () => {
     const offenders = tsxFiles(SRC).filter((file) => {
       const source = readFileSync(file, 'utf8')
-      return source
-        .split('\n')
-        .some(
-          (line) => MUTE_TEXT.test(line) && !/placeholder:|disabled:/.test(line)
-        )
+      return source.split('\n').some((line) => {
+        if (/placeholder:|disabled:/.test(line)) return false
+        return MUTE_TEXT.test(line) || MUTE_COLOR_PROP.test(line)
+      })
     })
     expect(offenders.map((f) => f.replace(SRC, 'src'))).toEqual([])
   })
