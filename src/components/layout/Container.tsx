@@ -5,7 +5,7 @@ type ContainerProps = ComponentProps<'div'> & {
   grid?: boolean
 }
 
-const markBase = 'pointer-events-none absolute h-3 w-3 border-line'
+const markBase = 'reg-mark pointer-events-none absolute h-3 w-3 border-line'
 
 const marks = [
   'left-0 top-0 border-l border-t -translate-x-px -translate-y-px',

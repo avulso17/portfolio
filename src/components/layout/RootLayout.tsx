@@ -1,3 +1,4 @@
+import { PrintFrame } from '@/components/effects/PrintFrame'
 import ExLibris from '@/assets/ExLibris'
 import Link from 'next/link'
 import Container from './Container'
@@ -8,6 +9,7 @@ import NavbarMobile from './navbar/mobile'
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className='relative z-0 px-4 pb-20 mobile:pb-0'>
+      <PrintFrame />
       <Container className='px-4 pt-8 mobile:px-8'>
         <div className='mx-auto mb-28 w-fit mobile:hidden'>
           <Link href='/' aria-label='Home'>

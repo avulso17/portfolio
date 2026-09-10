@@ -109,6 +109,16 @@
   .rule-b::after {
     bottom: 0;
   }
+  html[data-print] .rule-t::before,
+  html[data-print] .rule-b::after {
+    transform-origin: left;
+    animation: rule-draw 400ms ease-out both;
+    animation-delay: calc(var(--rule-i, 0) * 60ms);
+  }
+  html[data-print] .reg-mark {
+    animation: mark-in 200ms ease-out both;
+    animation-delay: 900ms;
+  }
 
   @media (prefers-reduced-motion: no-preference) {
     .scene-drift {
@@ -123,5 +133,23 @@
   }
   to {
     transform: translateY(-4px);
+  }
+}
+
+@keyframes rule-draw {
+  from {
+    transform: translateX(-50%) scaleX(0);
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+@keyframes mark-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
