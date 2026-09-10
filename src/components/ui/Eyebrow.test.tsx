@@ -13,8 +13,11 @@ describe('Eyebrow', () => {
   })
 
   it('prefixes an index when given', () => {
-    render(<Eyebrow index='04'>Bookshelf</Eyebrow>)
-    expect(screen.getByText(/04 — Bookshelf/)).toBeInTheDocument()
+    const { container } = render(<Eyebrow index='04'>Bookshelf</Eyebrow>)
+    expect(container).toHaveTextContent('04 — Bookshelf')
+    expect(screen.getByText('04 —', { exact: false })).toHaveClass(
+      'whitespace-nowrap'
+    )
   })
 
   it('renders a level-2 heading when asked to', () => {

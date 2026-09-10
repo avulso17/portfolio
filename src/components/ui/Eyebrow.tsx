@@ -44,7 +44,7 @@ export const Eyebrow: React.FC<EyebrowProps> = ({
   return (
     <Tag className={root({ className })} {...props}>
       <span aria-hidden='true' data-square className={square()} />
-      {index ? `${index} — ` : null}
+      {index ? <span className='whitespace-nowrap'>{index} — </span> : null}
       {label}
     </Tag>
   )
