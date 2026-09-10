@@ -134,7 +134,7 @@
 
   .typewriter {
     display: inline-block;
-    white-space: pre;
+    white-space: pre-wrap;
   }
   html[data-js] .typewriter {
     animation: type calc(var(--chars, 1) * 25ms) steps(var(--chars, 1), end)
