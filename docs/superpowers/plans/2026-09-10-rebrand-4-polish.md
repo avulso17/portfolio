@@ -1514,3 +1514,17 @@ Waits on Felipe (a foreground tab):
 - Watch the motion once live: rules draw, marks fade in, eyebrow types, Paladin resolves, blocks print in on scroll — the pass verified computed styles, not the animation as seen.
 - The brightest ~1–10 % of the Home eyebrow's background still measures ≈4.1–4.2:1; going further would leave the §1.2 scrim value.
 - At 390 the eyebrow prefix stacks `00` / `—` on two lines before the typed span.
+
+### Final whole-branch review and fix wave (2026-09-10)
+
+The final review approved the architecture (CSS-first motion, nothing hidden before hydration, one kill switch, tests that assert compiled CSS and on-disk assets) and found four Important defects a computed-style pass cannot see. Fixed in one wave, each verified over CDP afterwards:
+
+- `34a9472` — `InkImage` owns its transitions and composes `imageClassName` first: `twMerge` was dropping the ink layer's `transition-opacity` in favour of the card's `transition-transform`, so the ink→colour fade snapped. Fade 250 ms (spec §4.2), scale 400 ms (§4.3).
+- `99cb0b2` + `6a4e13e` — under `prefers-reduced-motion: reduce` the typing cursor `▮` stayed on screen (its removal was an animation); the reduce block now sets `content: none !important` on `.typewriter::after`.
+- `f2a7946` — `.print-in` reveals with a `print-in` keyframe instead of a transition: `inset()` → `none` is a discrete transition (a pop at 50 %), and the `.print-in > *` transition rule outranked children's own `transition-*` utilities (the project card's border hover). Spec §3.3 amended to the keyframe form.
+- `efe60f5` — the OG card eyebrow used `parchment-mute` as text (`src/lib/og.tsx`); now `parchment-dim`, and `roles.test.ts` also scans inline `color: colors['parchment-mute']`.
+- `8a60746` — the eyebrow prefix `00 —` stays on one line at 390; `Scene.test` tidy; `TechStackGroup` props narrowed.
+
+Probe after the wave (headless Chrome 151): on `/projects` the revealed child runs the `print-in` animation to `inset(0%)`, the ink layer transitions `opacity 0.25s, transform 0.4s`, the colour layer `transform 0.4s`, the card keeps `transition-colors`; under reduced motion no animations, `clip-path: none`, ink transition `none`, cursor `content: none` on `/` and on the Terminal title.
+
+Still deferred (final review's triage): the ~1.1 s navigation window replay, Strict-Mode `data-print` in dev, `steps(0)` for an empty Typewriter, the `::after` cursor for screen readers, the duplicated render loops in `scripts/dither.ts`, the `slug as DitherName` cast (guarded by `dither.generated.test.ts`), the brightest 1–10 % of the Home eyebrow background at ≈4.1:1, `roles.test.ts`'s variant-prefix lookbehind, `InkImage` being a client component in hover mode. Felipe still owes one live pass in a foreground tab — normal and reduced motion.
