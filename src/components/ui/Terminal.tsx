@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils/cn'
 import { ComponentProps } from 'react'
+import { Typewriter } from './Typewriter'
 
 export type TerminalProps = ComponentProps<'section'> & {
   path?: string
@@ -24,7 +25,9 @@ export const Terminal: React.FC<TerminalProps> = ({
           <i className='block h-2 w-2 rounded-sm bg-parchment-mute' />
           <i className='block h-2 w-2 rounded-sm bg-parchment-mute' />
         </span>
-        <p className='text-parchment eyebrow-text'>{title}</p>
+        <p className='text-parchment eyebrow-text'>
+          <Typewriter text={title} />
+        </p>
         {path ? (
           <span className='ml-auto font-mono text-xs text-parchment-dim'>
             {path}

@@ -9,7 +9,7 @@ const HomeHero: React.FC = () => {
     <section className='rule-b relative z-0 flex min-h-[38rem] flex-col justify-end gap-8 pb-16 pt-40 mobile:min-h-[46rem] mobile:pt-56'>
       <CrtWarp name='home-paladin' className='[&_canvas]:object-cover' />
 
-      <Eyebrow index='00'>
+      <Eyebrow index='00' typing>
         Felipe Mateus — front-end engineer with a product owner&rsquo;s eye
       </Eyebrow>
 

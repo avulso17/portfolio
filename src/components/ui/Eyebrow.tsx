@@ -1,5 +1,6 @@
 import { ComponentProps } from 'react'
 import { tv, type VariantProps } from 'tailwind-variants'
+import { Typewriter } from './Typewriter'
 
 const eyebrowStyles = tv({
   slots: {
@@ -20,23 +21,31 @@ export type EyebrowProps = ComponentProps<'p'> &
   VariantProps<typeof eyebrowStyles> & {
     as?: 'p' | 'h2' | 'h3'
     index?: string
+    typing?: boolean
   }
 
 export const Eyebrow: React.FC<EyebrowProps> = ({
   as: Tag = 'p',
   active,
   index,
+  typing,
   children,
   className,
   ...props
 }) => {
   const { root, square } = eyebrowStyles({ active })
+  const label =
+    typing && typeof children === 'string' ? (
+      <Typewriter text={children} />
+    ) : (
+      children
+    )
 
   return (
     <Tag className={root({ className })} {...props}>
       <span aria-hidden='true' data-square className={square()} />
       {index ? `${index} — ` : null}
-      {children}
+      {label}
     </Tag>
   )
 }

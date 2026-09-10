@@ -132,6 +132,22 @@
     animation: scene-resolve 450ms steps(3, end) both;
   }
 
+  .typewriter {
+    display: inline-block;
+    white-space: pre;
+  }
+  html[data-js] .typewriter {
+    animation: type calc(var(--chars, 1) * 25ms) steps(var(--chars, 1), end)
+      both;
+  }
+  html[data-js] .typewriter::after {
+    content: '▮';
+    color: theme('colors.parchment-dim');
+    animation:
+      blink 1s steps(2, start) infinite,
+      cursor-out 1ms linear calc(var(--chars, 1) * 25ms + 900ms) forwards;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .scene-drift {
       animation: scene-drift 14s ease-in-out infinite alternate;
@@ -195,5 +211,26 @@
   }
   to {
     transform: scale(1);
+  }
+}
+
+@keyframes type {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes cursor-out {
+  to {
+    visibility: hidden;
   }
 }

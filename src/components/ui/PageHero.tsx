@@ -34,7 +34,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
       {scene ? (
         <Scene name={scene} className={sceneClassName} scrim='both' priority />
       ) : null}
-      <Eyebrow index={index} active={false}>
+      <Eyebrow index={index} active={false} typing>
         {label}
       </Eyebrow>
       <h1 className='max-w-[14ch]'>{title}</h1>

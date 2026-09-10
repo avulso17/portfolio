@@ -8,7 +8,9 @@ describe('Terminal', () => {
         <p>body</p>
       </Terminal>
     )
-    expect(screen.getByText(/tech-stack/)).toHaveClass('eyebrow-text')
+    expect(screen.getByText(/tech-stack/).closest('p')).toHaveClass(
+      'eyebrow-text'
+    )
     expect(screen.getByText('~/felipe')).toHaveClass(
       'font-mono',
       'text-parchment-dim'

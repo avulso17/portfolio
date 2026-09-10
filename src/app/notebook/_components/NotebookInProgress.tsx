@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { Terminal } from '@/components/ui/Terminal'
+import { Typewriter } from '@/components/ui/Typewriter'
 import Link from 'next/link'
 
 const categories = ['dev', 'design', 'philosophy']
@@ -8,10 +9,18 @@ const categories = ['dev', 'design', 'philosophy']
 const NotebookInProgress: React.FC = () => (
   <Reveal className='grid gap-8 py-16 pb-28 wide:grid-cols-2'>
     <Terminal title='notebook' path='~/notes'>
-      <p>$ ls</p>
-      <p>{categories.map((c) => `${c}/`).join('  ')}</p>
-      <p className='mt-4'>$ wc -l */*.md</p>
-      <p>0 published · drafts in progress</p>
+      <p>
+        <Typewriter text='$ ls' />
+      </p>
+      <p>
+        <Typewriter text={categories.map((c) => `${c}/`).join('  ')} />
+      </p>
+      <p className='mt-4'>
+        <Typewriter text='$ wc -l */*.md' />
+      </p>
+      <p>
+        <Typewriter text='0 published · drafts in progress' />
+      </p>
     </Terminal>
 
     <div className='flex flex-col gap-4'>
