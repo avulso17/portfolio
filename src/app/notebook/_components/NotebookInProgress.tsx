@@ -1,11 +1,12 @@
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 import { Terminal } from '@/components/ui/Terminal'
 import Link from 'next/link'
 
 const categories = ['dev', 'design', 'philosophy']
 
 const NotebookInProgress: React.FC = () => (
-  <div className='grid gap-8 py-16 pb-28 wide:grid-cols-2'>
+  <Reveal className='grid gap-8 py-16 pb-28 wide:grid-cols-2'>
     <Terminal title='notebook' path='~/notes'>
       <p>$ ls</p>
       <p>{categories.map((c) => `${c}/`).join('  ')}</p>
@@ -26,7 +27,7 @@ const NotebookInProgress: React.FC = () => (
         <Button variant='secondary'>See the projects</Button>
       </Link>
     </div>
-  </div>
+  </Reveal>
 )
 
 export default NotebookInProgress

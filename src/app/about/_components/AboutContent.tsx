@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/Button'
 import { Eyebrow } from '@/components/ui/Eyebrow'
+import { Reveal } from '@/components/ui/Reveal'
 import { SOCIAL_LINKS } from '@/constants/social'
 import Link from 'next/link'
 import AboutPortrait from './AboutPortrait'
@@ -10,14 +11,17 @@ const Block: React.FC<{
   label: string
   children: React.ReactNode
 }> = ({ index, label, children }) => (
-  <section className='rule-t grid gap-6 py-10 wide:grid-cols-[16rem_1fr]'>
+  <Reveal
+    as='section'
+    className='rule-t grid gap-6 py-10 wide:grid-cols-[16rem_1fr]'
+  >
     <Eyebrow as='h2' index={index}>
       {label}
     </Eyebrow>
     <div className='flex max-w-[60ch] flex-col gap-4 text-lg leading-relaxed text-parchment-dim'>
       {children}
     </div>
-  </section>
+  </Reveal>
 )
 
 const Strong: React.FC<{ children: React.ReactNode }> = ({ children }) => (

@@ -1,5 +1,6 @@
 import { Card } from '@/components/ui/Card'
 import { Eyebrow } from '@/components/ui/Eyebrow'
+import { Reveal } from '@/components/ui/Reveal'
 import { Scene } from '@/components/ui/Scene'
 import { SceneName } from '@/configs/scenes.generated'
 import Link from 'next/link'
@@ -48,8 +49,8 @@ const HomeGetToKnowSection: React.FC = () => (
       <h2>Who is making the calls.</h2>
     </div>
     <ul className='grid grid-cols-1 gap-4 tablet:grid-cols-2'>
-      {cards.map(({ href, index, label, title, scene }) => (
-        <li key={href}>
+      {cards.map(({ href, index, label, title, scene }, i) => (
+        <Reveal as='li' key={href} index={i}>
           <Link
             href={href}
             className='group block'
@@ -63,7 +64,7 @@ const HomeGetToKnowSection: React.FC = () => (
               </h3>
             </Card>
           </Link>
-        </li>
+        </Reveal>
       ))}
     </ul>
   </section>
