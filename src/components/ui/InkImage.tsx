@@ -51,7 +51,7 @@ export const InkImage: React.FC<InkImageProps> = ({
           decoding='async'
           loading={priority ? 'eager' : 'lazy'}
           className={cn(
-            'absolute inset-0 h-full w-full object-cover transition-opacity duration-300',
+            'absolute inset-0 h-full w-full object-cover transition-opacity duration-300 motion-reduce:transition-none',
             imageClassName,
             mode === 'hover' &&
               'group-focus-within:opacity-0 group-hover:opacity-0',

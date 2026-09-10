@@ -100,9 +100,9 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
             >
               <Button
                 variant='text'
-                className='group'
+                className='group/link'
                 rightIcon={
-                  <ArrowRightIcon className='text-base transition-transform duration-150 ease-out group-hover:translate-x-1' />
+                  <ArrowRightIcon className='text-base transition-transform duration-150 ease-out group-hover/link:translate-x-1' />
                 }
               >
                 Visit site
@@ -119,7 +119,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
           sizes='(min-width: 768px) 28rem, 0px'
           className='hidden max-w-[28rem] shrink-0 grow border-l border-line tablet:block'
           imageClassName={cn(
-            'object-left transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]',
+            'object-left transition-transform duration-[400ms] ease-out motion-reduce:transition-none group-hover:scale-[1.04]',
             { 'object-top': screenshotView === 'tablet' }
           )}
         />
