@@ -50,3 +50,49 @@ export const scenes: ReadonlyArray<SceneEntry> = [
     algorithm: 'bayer',
   },
 ]
+
+export type DitherEntry = SceneEntry
+
+/** Ink versions of the color images that InkImage layers over (spec §4). */
+export const dithered: ReadonlyArray<DitherEntry> = [
+  {
+    name: 'pigmo',
+    source: 'public/assets/pigmo-screenshot.png',
+    algorithm: 'floyd-steinberg',
+  },
+  {
+    name: 'zeus-agrotech',
+    source: 'public/assets/zeus-screenshot.svg',
+    algorithm: 'floyd-steinberg',
+  },
+  {
+    name: 'redux-store',
+    source: 'public/assets/redux-store-screenshot.png',
+    algorithm: 'floyd-steinberg',
+  },
+  {
+    name: 'pepy-the-platypus',
+    source: 'public/assets/pepy-screenshot.svg',
+    algorithm: 'floyd-steinberg',
+  },
+  {
+    name: 'equals-venue',
+    source: 'public/assets/equalsVenue-screenshot.svg',
+    algorithm: 'floyd-steinberg',
+  },
+  {
+    name: 'equals-sport',
+    source: 'public/assets/equalsSport-screenshot.svg',
+    algorithm: 'floyd-steinberg',
+  },
+  {
+    name: 'equals9',
+    source: 'public/assets/equals9-screenshot.svg',
+    algorithm: 'floyd-steinberg',
+  },
+  {
+    name: 'portrait',
+    source: 'public/assets/me-green-shirt.png',
+    algorithm: 'floyd-steinberg',
+  },
+]
