@@ -8,6 +8,7 @@ export type SceneName =
   | 'notebook-desk'
   | 'tech-bench'
   | 'contact-letter'
+  | 'bookshelf-empty'
 
 export type SceneAsset = {
   png: string
@@ -82,5 +83,13 @@ export const scenes: Record<SceneName, SceneAsset> = {
     height: 1608,
     cssWidth: 1440,
     cssHeight: 804,
+  },
+  'bookshelf-empty': {
+    png: '/scenes/bookshelf-empty.png',
+    webp: '/scenes/bookshelf-empty.webp',
+    width: 2880,
+    height: 1932,
+    cssWidth: 1440,
+    cssHeight: 966,
   },
 }

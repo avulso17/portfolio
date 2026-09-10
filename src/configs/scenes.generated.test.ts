@@ -11,6 +11,7 @@ const EXPECTED_NAMES = [
   'notebook-desk',
   'tech-bench',
   'contact-letter',
+  'bookshelf-empty',
 ]
 
 const isPositiveInt = (n: number) => Number.isInteger(n) && n > 0

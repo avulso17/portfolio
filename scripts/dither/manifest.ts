@@ -49,6 +49,11 @@ export const scenes: ReadonlyArray<SceneEntry> = [
     source: 'art/source/contact-letter.png',
     algorithm: 'bayer',
   },
+  {
+    name: 'bookshelf-empty',
+    source: 'art/source/bookshelf-empty.png',
+    algorithm: 'bayer',
+  },
 ]
 
 export type DitherEntry = SceneEntry
