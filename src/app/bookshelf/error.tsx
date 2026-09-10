@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/Button'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import BookshelfState from './_components/BookshelfState'
 
 const BookshelfErrorPage: React.FC<{
   error: Error & { digest?: string }
@@ -13,19 +14,14 @@ const BookshelfErrorPage: React.FC<{
   }, [error])
 
   return (
-    <div className='flex flex-col items-start gap-6 py-16'>
-      <p className='text-parchment-dim'>
-        The shelf didn&rsquo;t load. It&rsquo;s on my side, not yours.
-      </p>
-      <div className='flex gap-4'>
-        <Button variant='secondary' onClick={reset}>
-          Try again
-        </Button>
-        <Link href='/'>
-          <Button variant='text'>Back home</Button>
-        </Link>
-      </div>
-    </div>
+    <BookshelfState variant='error'>
+      <Button variant='secondary' onClick={reset}>
+        Try again
+      </Button>
+      <Link href='/'>
+        <Button variant='text'>Back home</Button>
+      </Link>
+    </BookshelfState>
   )
 }
 
