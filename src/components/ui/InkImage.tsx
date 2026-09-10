@@ -38,7 +38,11 @@ export const InkImage: React.FC<InkImageProps> = ({
         fill
         sizes={sizes}
         priority={priority}
-        className={cn('object-cover', imageClassName)}
+        className={cn(
+          'object-cover',
+          imageClassName,
+          'transition-transform duration-[400ms] ease-out motion-reduce:transition-none'
+        )}
       />
       <picture>
         <source srcSet={ink.webp} type='image/webp' />
@@ -51,8 +55,9 @@ export const InkImage: React.FC<InkImageProps> = ({
           decoding='async'
           loading={priority ? 'eager' : 'lazy'}
           className={cn(
-            'absolute inset-0 h-full w-full object-cover transition-opacity duration-300 motion-reduce:transition-none',
+            'absolute inset-0 h-full w-full object-cover',
             imageClassName,
+            'transition-[opacity,transform] ease-out [transition-duration:250ms,400ms] motion-reduce:transition-none',
             mode === 'hover' &&
               'group-focus-within:opacity-0 group-hover:opacity-0',
             mode === 'toggle' && color && 'opacity-0'

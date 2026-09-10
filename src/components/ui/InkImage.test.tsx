@@ -10,6 +10,7 @@ describe('InkImage', () => {
         alt='Pigmo'
         mode='hover'
         sizes='28rem'
+        imageClassName='transition-transform duration-[400ms]'
       />
     )
     const ink = container.querySelector(
@@ -19,6 +20,7 @@ describe('InkImage', () => {
     expect(ink.style.imageRendering).toBe('pixelated')
     expect(screen.getByAltText('Pigmo')).toBeInTheDocument()
     expect(ink).toHaveClass('group-hover:opacity-0')
+    expect(ink).toHaveClass('transition-[opacity,transform]')
     expect(screen.queryByRole('button')).toBeNull()
   })
 

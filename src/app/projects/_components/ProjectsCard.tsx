@@ -118,10 +118,9 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
           mode='hover'
           sizes='(min-width: 768px) 28rem, 0px'
           className='hidden max-w-[28rem] shrink-0 grow border-l border-line tablet:block'
-          imageClassName={cn(
-            'object-left transition-transform duration-[400ms] ease-out motion-reduce:transition-none group-hover:scale-[1.04]',
-            { 'object-top': screenshotView === 'tablet' }
-          )}
+          imageClassName={cn('object-left group-hover:scale-[1.04]', {
+            'object-top': screenshotView === 'tablet',
+          })}
         />
       </Card>
     </Reveal>
