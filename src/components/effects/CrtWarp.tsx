@@ -61,7 +61,7 @@ export const CrtWarp: React.FC<Props> = ({ name, className }) => {
         </div>
       ) : null}
       <div className='absolute inset-x-0 bottom-0 h-[85%] bg-gradient-to-t from-ink from-20% via-ink/85 via-75% to-transparent' />
-      <div className='absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-ink to-transparent' />
+      <div className='absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-ink via-ink/80 via-50% to-transparent' />
     </div>
   )
 }
