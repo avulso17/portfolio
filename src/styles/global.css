@@ -172,6 +172,9 @@
       transition: none !important;
       clip-path: none !important;
     }
+    .typewriter::after {
+      content: none;
+    }
     html[data-print] .rule-t::before,
     html[data-print] .rule-b::after {
       transform: translateX(-50%);
