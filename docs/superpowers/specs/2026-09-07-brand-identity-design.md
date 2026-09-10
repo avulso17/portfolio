@@ -189,19 +189,16 @@ Derived from the Alethe components reference:
 
 ### 5.4 Motion
 
-- Scenes: slow parallax (≤ 4px) or slow dither drift. Nothing faster.
-- `prefers-reduced-motion` disables all dither/warp animation.
-- WebGL effects load lazily; fallback is the static dithered PNG/WebP.
-- Existing keyframes that don't serve this system (bounce-in, text-generate effect) are removed.
+WebGL effects load lazily; fallback is the static dithered PNG/WebP.
 
 Four motion primitives (Plan 4):
 
 - **The frame prints, once per session.** Structural rules and registration marks draw in on the first page of a session only; a returning navigation within the same session does not replay them.
 - **Content prints in on intersection.** Cards, blocks and other content units reveal as they enter the viewport, on every page.
-- **Scenes resolve in three steps.** A scene's dithered image resolves in discrete steps rather than fading, echoing the dither computation itself.
+- **Scenes resolve in three steps.** A scene's dithered image resolves in discrete steps rather than fading, echoing the dither computation itself; the existing ≤ 4px scene drift is unchanged and continues after.
 - **Eyebrows and terminal titles type.** Hero eyebrows and terminal titles animate as if typed, once per mount.
 
-`prefers-reduced-motion: reduce` disables the whole system in one switch — nothing prints, reveals, resolves or types; the page renders complete immediately.
+`prefers-reduced-motion: reduce` disables the whole system in one switch — nothing prints, reveals, resolves, drifts or types; the page renders complete immediately.
 
 No page transitions — `<ViewTransition>` is not in stable React 19.2 (spike 2026-09-09).
 

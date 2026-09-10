@@ -1446,7 +1446,7 @@ git commit -m "feat(bookshelf): empty and error states on the empty-shelf scene"
 - **Task 8 — `InkImage`.** `46d69e5 feat(ui): InkImage — ink at rest, color on hover for screenshots and on toggle for the portrait`, `0f4514d fix(ui): scope the card hover and honour reduced motion in InkImage`. Shipped: `InkImage` (`hover`/`toggle` modes), used by `ProjectsCard` and `AboutPortrait`; the nested-group leak fixed with a named `group/link` (Ruling R13); `motion-reduce:transition-none` added per Ruling R14.
 - **Task 9 — The `bookshelf-empty` scene.** `6334bcd feat(assets): bookshelf-empty scene for the shelf's empty and error states`. Shipped: the scene asset and its `scenes.generated.ts` entry, with `'bookshelf-empty'` appended to `scenes.generated.test.ts`'s `EXPECTED_NAMES` (Ruling R12).
 - **Task 10 — `BookshelfState` and the wiring.** `afcdada feat(bookshelf): empty and error states on the empty-shelf scene`. Shipped: `BookshelfState`, `src/app/bookshelf/error.tsx`, and `BookshelfItems`' empty/`null` branches.
-- **Task 11 — Documents.** This commit: brand spec §3.3/§4.1/§4.2/§4.4/§5.3/§5.4/§6/§9, `PRODUCT.md` Brand Commitments, and this handoff section.
+- **Task 11 — Documents.** This commit: brand spec §3.3/§4.1/§4.2/§4.4/§5.3/§5.4/§6.3/§9, `PRODUCT.md` Brand Commitments, and this handoff section.
 - **Task 12 — Visual and motion verification.** Not yet run; see below.
 
 ### Deferred minors
