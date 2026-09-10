@@ -128,9 +128,36 @@
     clip-path: inset(100% 0 0 0);
   }
 
+  html[data-js] .scene-reveal {
+    animation: scene-resolve 450ms steps(3, end) both;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .scene-drift {
       animation: scene-drift 14s ease-in-out infinite alternate;
+    }
+    html[data-js] .scene-reveal.scene-drift {
+      animation:
+        scene-resolve 450ms steps(3, end) both,
+        scene-drift 14s ease-in-out 450ms infinite alternate;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rule-t::before,
+    .rule-b::after,
+    .reg-mark,
+    .print-in,
+    .scene-reveal,
+    .scene-drift,
+    .typewriter,
+    .typewriter::after {
+      animation: none;
+      transition: none;
+      clip-path: none;
+    }
+    html[data-print] .rule-t::before,
+    html[data-print] .rule-b::after {
+      transform: translateX(-50%);
     }
   }
 }
@@ -159,5 +186,14 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes scene-resolve {
+  from {
+    transform: scale(4);
+  }
+  to {
+    transform: scale(1);
   }
 }

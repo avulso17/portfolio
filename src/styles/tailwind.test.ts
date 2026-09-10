@@ -141,4 +141,34 @@ describe('tailwind theme', () => {
     expect(result.css).toMatch(/\.rule-t::before[^}]*width:\s*100vw/)
     expect(result.css).toMatch(/\.rule-b::after[^}]*width:\s*100vw/)
   })
+
+  it('kills every motion class under prefers-reduced-motion', async () => {
+    const css = readFileSync(join(__dirname, 'global.css'), 'utf8')
+    const result = await postcss([
+      tailwindcss({
+        ...tailwindConfig,
+        content: [
+          {
+            raw: '<div class="print-in scene-reveal scene-drift rule-t rule-b reg-mark typewriter"></div>',
+            extension: 'html',
+          },
+        ],
+      }),
+    ]).process(css, { from: undefined })
+    const reduced = result.css.match(
+      /@media \(prefers-reduced-motion: reduce\)\s*\{([\s\S]*?)\n\}/
+    )
+    expect(reduced).not.toBeNull()
+    for (const cls of [
+      '.print-in',
+      '.scene-reveal',
+      '.rule-t::before',
+      '.reg-mark',
+      '.typewriter',
+    ]) {
+      expect(reduced![1]).toContain(cls)
+    }
+    expect(reduced![1]).toMatch(/animation:\s*none/)
+    expect(reduced![1]).toMatch(/clip-path:\s*none/)
+  })
 })

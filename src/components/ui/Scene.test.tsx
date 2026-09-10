@@ -38,3 +38,10 @@ describe('Scene', () => {
     expect(container.querySelector('.scene-drift')).toBeNull()
   })
 })
+
+it('resolves on mount unless reveal is off', () => {
+  const { container, rerender } = render(<Scene name='contact-letter' />)
+  expect(container.querySelector('picture')).toHaveClass('scene-reveal')
+  rerender(<Scene name='contact-letter' reveal={false} />)
+  expect(container.querySelector('picture')).not.toHaveClass('scene-reveal')
+})

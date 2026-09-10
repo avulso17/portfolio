@@ -7,6 +7,7 @@ export type SceneProps = {
   position?: 'center' | 'top' | 'bottom'
   scrim?: 'bottom' | 'both' | 'none'
   drift?: boolean
+  reveal?: boolean
   priority?: boolean
 }
 
@@ -22,6 +23,7 @@ export const Scene: React.FC<SceneProps> = ({
   position = 'center',
   scrim = 'bottom',
   drift = true,
+  reveal = true,
   priority = false,
 }) => {
   const asset = scenes[name]
@@ -34,7 +36,13 @@ export const Scene: React.FC<SceneProps> = ({
         className
       )}
     >
-      <picture className={cn('block h-full w-full', drift && 'scene-drift')}>
+      <picture
+        className={cn(
+          'block h-full w-full',
+          drift && 'scene-drift',
+          reveal && 'scene-reveal'
+        )}
+      >
         <source srcSet={asset.webp} type='image/webp' />
         <img
           src={asset.png}

@@ -57,7 +57,7 @@ const HomeGetToKnowSection: React.FC = () => (
             aria-label={`${label} — ${title}`}
           >
             <Card className='relative z-0 flex aspect-[4/3] flex-col justify-end overflow-hidden p-6 transition-colors group-hover:border-parchment-dim'>
-              <Scene name={scene} position='top' drift={false} />
+              <Scene name={scene} position='top' drift={false} reveal={false} />
               <Eyebrow index={index}>{label}</Eyebrow>
               <h3 className='mt-2 text-3xl font-semibold text-parchment'>
                 {title}
