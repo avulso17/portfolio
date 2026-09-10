@@ -9,7 +9,7 @@ const TechStackGroupTitle: React.FC<TechStackGroupTitleProps> = ({
   index,
   children,
 }) => (
-  <div className='mb-6 flex flex-col gap-3 border-t border-line pt-8'>
+  <div className='rule-t mb-6 flex flex-col gap-3 pt-8'>
     <Eyebrow as='h2' index={index}>
       {children}
     </Eyebrow>

@@ -25,7 +25,7 @@ const NavbarDesktop: React.FC<NavbarProps> = ({ className }) => {
     <nav
       aria-label='Primary'
       className={twMerge(
-        'hidden h-fit w-full items-center justify-between border-b border-line py-4 mobile:flex',
+        'rule-b hidden h-fit w-full items-center justify-between py-4 mobile:flex',
         className
       )}
     >

@@ -6,7 +6,7 @@ import ResumeModalButton from './HomeResumeModalButton'
 
 const HomeHero: React.FC = () => {
   return (
-    <section className='relative z-0 flex min-h-[38rem] flex-col justify-end gap-8 border-b border-line pb-16 pt-40 mobile:min-h-[46rem] mobile:pt-56'>
+    <section className='rule-b relative z-0 flex min-h-[38rem] flex-col justify-end gap-8 pb-16 pt-40 mobile:min-h-[46rem] mobile:pt-56'>
       <CrtWarp name='home-paladin' className='[&_canvas]:object-cover' />
 
       <Eyebrow index='00'>

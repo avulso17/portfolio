@@ -25,3 +25,24 @@ describe('color roles', () => {
     expect(offenders.map((f) => f.replace(SRC, 'src'))).toEqual([])
   })
 })
+
+const STRUCTURAL = [
+  'components/layout/navbar/desktop/index.tsx',
+  'components/ui/PageHero.tsx',
+  'app/(home)/_components/HomeHero.tsx',
+  'app/(home)/_components/HomeSelectedWorkSection.tsx',
+  'app/(home)/_components/HomeGetToKnowSection.tsx',
+  'app/(home)/_components/HomeGetInTouchSection.tsx',
+  'app/about/_components/AboutContent.tsx',
+  'app/tech-stack/_components/TechStackGroupTitle.tsx',
+  'components/layout/footer/index.tsx',
+]
+
+describe('structural lines', () => {
+  it('are full-bleed rules, not element borders', () => {
+    const offenders = STRUCTURAL.filter((rel) =>
+      /border-[tb] border-line/.test(readFileSync(join(SRC, rel), 'utf8'))
+    )
+    expect(offenders).toEqual([])
+  })
+})

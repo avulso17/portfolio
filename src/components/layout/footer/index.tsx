@@ -1,5 +1,4 @@
 import ExLibris from '@/assets/ExLibris'
-import Separator from '@/components/ui/Separator'
 import { Eyebrow } from '@/components/ui/Eyebrow'
 import { AVULSO_SINCE, NAV_ALL, SIGN_OFF } from '@/configs/navigation'
 import { SOCIAL_LINKS } from '@/constants/social'
@@ -20,10 +19,8 @@ const Footer: React.FC = () => {
   return (
     <footer
       id='footer'
-      className='relative flex w-full flex-col-reverse justify-between gap-12 py-8 tablet:flex-row tablet:gap-0 tablet:pb-10 tablet:pt-[4.625rem]'
+      className='rule-t relative flex w-full flex-col-reverse justify-between gap-12 py-8 tablet:flex-row tablet:gap-0 tablet:pb-10 tablet:pt-[4.625rem]'
     >
-      <Separator screen />
-
       <div className='flex flex-col gap-4'>
         <ExLibris
           mark='halo'

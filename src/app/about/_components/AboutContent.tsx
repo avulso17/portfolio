@@ -10,7 +10,7 @@ const Block: React.FC<{
   label: string
   children: React.ReactNode
 }> = ({ index, label, children }) => (
-  <section className='grid gap-6 border-t border-line py-10 wide:grid-cols-[16rem_1fr]'>
+  <section className='rule-t grid gap-6 py-10 wide:grid-cols-[16rem_1fr]'>
     <Eyebrow as='h2' index={index}>
       {label}
     </Eyebrow>

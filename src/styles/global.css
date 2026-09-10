@@ -89,6 +89,27 @@
 }
 
 @layer utilities {
+  .rule-t,
+  .rule-b {
+    position: relative;
+  }
+  .rule-t::before,
+  .rule-b::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 100vw;
+    height: 1px;
+    transform: translateX(-50%);
+    background: theme('colors.line');
+  }
+  .rule-t::before {
+    top: 0;
+  }
+  .rule-b::after {
+    bottom: 0;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .scene-drift {
       animation: scene-drift 14s ease-in-out infinite alternate;

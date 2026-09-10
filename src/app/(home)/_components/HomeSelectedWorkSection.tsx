@@ -7,7 +7,7 @@ import Link from 'next/link'
 const selected = works.slice(0, 3)
 
 const HomeSelectedWorkSection: React.FC = () => (
-  <section className='border-b border-line py-16'>
+  <section className='rule-b py-16'>
     <div className='mb-8 flex items-end justify-between'>
       <div className='flex flex-col gap-3'>
         <Eyebrow index='01'>Selected work</Eyebrow>

@@ -27,7 +27,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
   return (
     <section
       className={cn(
-        'relative z-0 flex min-h-[24rem] flex-col justify-end gap-6 border-b border-line pb-12 pt-32 mobile:min-h-[32rem] mobile:pt-40',
+        'rule-b relative z-0 flex min-h-[24rem] flex-col justify-end gap-6 pb-12 pt-32 mobile:min-h-[32rem] mobile:pt-40',
         className
       )}
     >

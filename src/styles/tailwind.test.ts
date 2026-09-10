@@ -127,4 +127,18 @@ describe('tailwind theme', () => {
     expect(result.css).toMatch(/h2:not\(\.eyebrow-text\):not\(dialog \*\)\s*\{/)
     expect(result.css).not.toMatch(/(^|\n)h1\s*\{/)
   })
+
+  it('emits full-bleed rule utilities', async () => {
+    const css = readFileSync(join(__dirname, 'global.css'), 'utf8')
+    const result = await postcss([
+      tailwindcss({
+        ...tailwindConfig,
+        content: [
+          { raw: '<div class="rule-t rule-b"></div>', extension: 'html' },
+        ],
+      }),
+    ]).process(css, { from: undefined })
+    expect(result.css).toMatch(/\.rule-t::before[^}]*width:\s*100vw/)
+    expect(result.css).toMatch(/\.rule-b::after[^}]*width:\s*100vw/)
+  })
 })

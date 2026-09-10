@@ -42,7 +42,7 @@ const cards: {
 ]
 
 const HomeGetToKnowSection: React.FC = () => (
-  <section className='border-b border-line py-16'>
+  <section className='rule-b py-16'>
     <div className='mb-8 flex flex-col gap-3'>
       <Eyebrow index='02'>Get to know me</Eyebrow>
       <h2>Who is making the calls.</h2>
