@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { act, render } from '@testing-library/react'
 import { PrintFrame } from './PrintFrame'
 
 const html = () => document.documentElement
@@ -37,5 +37,16 @@ describe('PrintFrame', () => {
     expect(html().dataset.js).toBe('')
     expect(html().dataset.print).toBeUndefined()
     vi.restoreAllMocks()
+  })
+
+  it('clears the print attribute once the print finishes', () => {
+    vi.useFakeTimers()
+    render(<PrintFrame />)
+    expect(html().dataset.print).toBe('')
+    act(() => {
+      vi.advanceTimersByTime(1100)
+    })
+    expect(html().dataset.print).toBeUndefined()
+    vi.useRealTimers()
   })
 })
