@@ -1488,3 +1488,29 @@ git commit -m "feat(bookshelf): empty and error states on the empty-shelf scene"
 - **Social handle** — `src/constants/social.ts`: confirm `SOCIAL_LINKS.x` (and the others) point at real profiles, so `src/app/layout.tsx`'s `twitter` block can gain a real `creator` handle.
 
 Task 12 (visual and motion verification) updates this section.
+
+### Task 12 — Visual and motion verification (2026-09-10)
+
+Harness: real Chrome's automated tab was permanently backgrounded (`document.hidden === true`), which suspends IntersectionObserver and screenshots, so the motion pass ran in headless Chrome 151 driven over CDP (a 60-line dependency-free script in the session scratchpad: `Page.navigate`, `Emulation.setEmulatedMedia`, `Input.dispatchMouseEvent`, `Runtime.evaluate`, `Page.captureScreenshot`). Screenshots at 1440, 768 and 390 (iframe harness) on all seven routes.
+
+Verified:
+
+- Full-bleed rules cross the container verticals on every page; one amber element on `/` (hero CTA) and one on `/contact` (the seal), none elsewhere (computed colours on every element of every route).
+- First page of a session: `data-js` set, `sessionStorage.printed = 1`, `data-print` present during the print and removed after it; second page (`/about`): no `data-print`, `.rule-t::before` at full width, no rule animation.
+- `prefers-reduced-motion: reduce`: every animation `none`, every clip `none`, all text visible. `sessionStorage` blocked: page renders, no `data-print`, no console errors.
+- Typewriter: `--chars` set, `type` animation on, cursor hidden at `chars × 25 ms + 900 ms`. Scenes: `scene-resolve` on, `scale(1)` at rest.
+- `/projects` hover: ink layer → opacity 0, card border → `parchment-dim`, image scale 1.04×, the "Visit site" arrow does not move. `/about`: the toggle flips `aria-pressed` and hides the ink layer. Résumé dialog: heading 18 px Inter, body 16 px, no amber.
+- No horizontal overflow at 390 on any route (`scrollWidth === innerWidth`).
+- LCP/CLS at 390×844 (PerformanceObserver, warm dev servers, two runs): before (`origin/dev`) `/` 228/140 ms, `/projects` 112/116 ms; after `/` 148/112 ms, `/projects` 180/140 ms; CLS 0 throughout. No regression beyond noise.
+
+Fixed (one commit per concern):
+
+- `684c12f` — typed eyebrows wrap on narrow screens (`.typewriter` `white-space: pre-wrap`; the 61-character Home eyebrow was cut at 390).
+- `5060c92` — **Critical**: `.print-in` content never revealed in Chrome because `clip-path: inset(100% 0 0 0)` on the observed element zeroes its IntersectionObserver ratio; the clip and its transition moved to the element's children.
+- `21e3ea0` — Home eyebrow contrast over the Paladin: `CrtWarp`'s top scrim now matches the `Scene` value (spec §1.2). Background-only contrast at the eyebrow line went from 1.04:1 (p99) to 4.1:1, median 5.8:1.
+
+Waits on Felipe (a foreground tab):
+
+- Watch the motion once live: rules draw, marks fade in, eyebrow types, Paladin resolves, blocks print in on scroll — the pass verified computed styles, not the animation as seen.
+- The brightest ~1–10 % of the Home eyebrow's background still measures ≈4.1–4.2:1; going further would leave the §1.2 scrim value.
+- At 390 the eyebrow prefix stacks `00` / `—` on two lines before the typed span.
