@@ -11,7 +11,7 @@ describe('Terminal', () => {
     expect(screen.getByText(/tech-stack/)).toHaveClass('eyebrow-text')
     expect(screen.getByText('~/felipe')).toHaveClass(
       'font-mono',
-      'text-parchment-mute'
+      'text-parchment-dim'
     )
     expect(screen.getByText('body')).toBeInTheDocument()
   })

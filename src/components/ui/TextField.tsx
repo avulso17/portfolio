@@ -12,7 +12,7 @@ const textFieldStyles = tv({
       'border-b border-line py-3 transition-colors',
       'placeholder:text-parchment-mute focus:border-amber focus:outline-none',
     ],
-    label: 'text-parchment-mute eyebrow-text',
+    label: 'text-parchment-dim eyebrow-text',
     message: 'text-err eyebrow-text',
   },
   variants: {

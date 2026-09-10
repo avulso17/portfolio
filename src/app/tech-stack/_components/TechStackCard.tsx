@@ -14,11 +14,11 @@ const cardStyles = tv({
       'mobile:aspect-square mobile:flex-col mobile:items-start mobile:justify-between mobile:p-6',
     ],
     icon: [
-      'absolute right-4 top-4 hidden text-xl text-parchment-mute mobile:block',
+      'absolute right-4 top-4 hidden text-xl text-parchment-dim mobile:block',
     ],
     image: ['aspect-square w-14 shrink-0 object-contain mobile:w-20'],
     title: 'text-base font-medium text-parchment',
-    label: 'text-parchment-mute eyebrow-text',
+    label: 'text-parchment-dim eyebrow-text',
   },
 })
 

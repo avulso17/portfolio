@@ -114,4 +114,17 @@ describe('tailwind theme', () => {
       /\.text-outline\s*{[^}]*-webkit-text-stroke:\s*1\.5px/
     )
   })
+
+  it('applies display headings outside dialogs only', async () => {
+    const css = readFileSync(join(__dirname, 'global.css'), 'utf8')
+    const result = await postcss([
+      tailwindcss({
+        ...tailwindConfig,
+        content: [{ raw: '', extension: 'html' }],
+      }),
+    ]).process(css, { from: undefined })
+    expect(result.css).toMatch(/h1:not\(dialog \*\)\s*\{/)
+    expect(result.css).toMatch(/h2:not\(\.eyebrow-text\):not\(dialog \*\)\s*\{/)
+    expect(result.css).not.toMatch(/(^|\n)h1\s*\{/)
+  })
 })

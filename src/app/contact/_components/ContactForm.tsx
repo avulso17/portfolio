@@ -102,7 +102,7 @@ const ContactForm: React.FC = () => {
         </div>
 
         <div className='flex flex-col gap-2'>
-          <label htmlFor='text' className='text-parchment-mute eyebrow-text'>
+          <label htmlFor='text' className='text-parchment-dim eyebrow-text'>
             Message
           </label>
           <textarea
@@ -130,7 +130,7 @@ const ContactForm: React.FC = () => {
               {errors.text[0]}
             </p>
           ) : null}
-          <span className='text-parchment-mute eyebrow-text'>
+          <span className='text-parchment-dim eyebrow-text'>
             ⌘/Ctrl + Enter to send · max 1500
           </span>
         </div>

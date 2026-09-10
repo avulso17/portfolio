@@ -30,7 +30,7 @@ const Resume: React.FC = () => {
   return (
     <div className='flex flex-col gap-6 font-body mobile:p-8'>
       <div className='flex flex-col'>
-        <h1 className={name()}>FELIPE MATEUS GONÇALVES CRUZEIRO</h1>
+        <h2 className={name()}>FELIPE MATEUS GONÇALVES CRUZEIRO</h2>
         <p className={content()}>Uberlândia/MG, Brasil</p>
         <p className={content()}>
           E-mail:{' '}

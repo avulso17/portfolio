@@ -18,7 +18,7 @@ const Row: React.FC<{ label: string; children: React.ReactNode }> = ({
   children,
 }) => (
   <div className='grid gap-1 border-t border-line py-4 mobile:grid-cols-[8rem_1fr] mobile:gap-6'>
-    <span className='text-parchment-mute eyebrow-text'>{label}</span>
+    <span className='text-parchment-dim eyebrow-text'>{label}</span>
     <p className='text-base text-parchment'>{children}</p>
   </div>
 )

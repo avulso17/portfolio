@@ -58,11 +58,11 @@
     @apply font-normal;
   }
 
-  h1 {
+  h1:not(dialog *) {
     @apply display-1;
   }
 
-  h2:not(.eyebrow-text) {
+  h2:not(.eyebrow-text):not(dialog *) {
     @apply display-2;
   }
 

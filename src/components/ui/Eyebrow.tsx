@@ -3,7 +3,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const eyebrowStyles = tv({
   slots: {
-    root: 'inline-flex items-center gap-2 text-parchment-mute eyebrow-text',
+    root: 'inline-flex items-center gap-2 text-parchment-dim eyebrow-text',
     square: 'inline-block h-1.5 w-1.5 shrink-0 bg-parchment-mute',
   },
   variants: {

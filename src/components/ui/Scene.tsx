@@ -58,7 +58,7 @@ export const Scene: React.FC<SceneProps> = ({
       {scrim === 'both' ? (
         <div
           data-scrim
-          className='absolute inset-x-0 top-0 h-2/5 bg-gradient-to-b from-ink to-transparent'
+          className='absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-ink via-ink/80 via-50% to-transparent'
         />
       ) : null}
     </div>

@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           {SIGN_OFF}
         </p>
 
-        <div className='mt-auto flex select-none flex-col gap-1 text-parchment-mute eyebrow-text'>
+        <div className='mt-auto flex select-none flex-col gap-1 text-parchment-dim eyebrow-text'>
           <small className='font-inherit'>{`© ${year} Felipe Mateus`}</small>
           <small className='normal-case font-inherit'>{`// avulso, since ${AVULSO_SINCE}`}</small>
         </div>

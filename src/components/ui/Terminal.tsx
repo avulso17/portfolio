@@ -26,7 +26,7 @@ export const Terminal: React.FC<TerminalProps> = ({
         </span>
         <p className='text-parchment eyebrow-text'>{title}</p>
         {path ? (
-          <span className='ml-auto font-mono text-xs text-parchment-mute'>
+          <span className='ml-auto font-mono text-xs text-parchment-dim'>
             {path}
           </span>
         ) : null}
