@@ -50,6 +50,7 @@ Felipe solves problems, finds bottlenecks, and makes decisions looking at the pr
 - Binding visual direction (approved spec, `docs/superpowers/specs/2026-09-07-brand-identity-design.md`): 1-bit dithered engraving universe with a fictional alter-ego (the Paladin), monochrome + single amber accent, FM ex-libris mark, CRT effect on the home hero only. References in `docs/references/`.
 - Illustrations are AI-generated (Higgsfield) and processed through a code dither pipeline; commissioned art may replace them later.
 - The FM mark is AI-generated and vectorized; the seal rings/arc text were rejected.
+- The About page layout is redesigned in Plan 5; Plan 4 shipped the portrait toggle and the motion system.
 
 ## Evidence on Hand
 

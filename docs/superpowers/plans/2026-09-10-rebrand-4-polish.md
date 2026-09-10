@@ -1429,3 +1429,62 @@ git commit -m "feat(bookshelf): empty and error states on the empty-shelf scene"
 - **Spec coverage:** §1.1 → Task 1 (roles table); §1.2 → Task 1 Step 3 (+ Task 12 for `CrtWarp`); §1.3–1.4 → Task 1; §2.1–2.4 → Task 2; §3.1 → Task 5 (reduced-motion block covers rules, marks, print-in, scene-reveal, typewriter, drift); §3.2 → Task 3; §3.3 → Task 4; §3.4 → Task 5; §3.5 → Task 6; §4.1 → Task 7; §4.2–4.4 → Task 8; §5.1 → Task 9; §5.2–5.3 → Task 10; §6.2 → Task 12; §6.3 → Task 11 (the follow-ups plan note was committed with the spec).
 - **Placeholders:** none; every code step is written out. Two explicit conditionals are data-dependent by design: the portrait source (precondition 3) and the Bookshelf screenshot (Supabase env).
 - **Type consistency:** `Reveal` props (`as`, `index`, `className`, `children`) match between Task 4 (definition), Task 4 uses, and Task 10; `Scene.reveal` (Task 5) is passed as `reveal={false}` in Task 5's Home edit; `Typewriter` `{ text, className }` matches Task 6's `Eyebrow`/`Terminal` uses; `DitherName`/`dithered` (Task 7) match `InkImage` (Task 8); `.rule-t/.rule-b`, `.reg-mark`, `.print-in`, `.scene-reveal`, `.typewriter` class names are identical across Tasks 2–6 and the reduced-motion block; `BookshelfState` `{ variant, children }` matches Task 10's wiring.
+
+---
+
+## Execution status (2026-09-10) — handoff
+
+### Per task
+
+- **Task 1 — Text color roles, scrim, and dialog-scoped display headings.** `2487b13 fix(brand): parchment-mute is decorative only, display headings stay out of dialogs`. Shipped: `parchment-mute` reserved for decorative/inactive use, `parchment-dim` for tertiary text; base `h1`/`h2` display rules scoped `:not(dialog *)`; `Resume.tsx`'s name is an `<h2>`.
+- **Task 2 — Full-bleed structural lines.** `52bd965 feat(grid): full-bleed horizontal rules across navbar, heroes, sections and footer`. Shipped: `.rule-t`/`.rule-b` utilities and their use across navbar, heroes, section dividers, About `Block`s, `TechStackGroupTitle`, footer. The `Separator` `screen` variant became orphaned by this change; its removal was deferred (Ruling R7) and later closed by `152c9ad chore(ui): remove the orphaned Separator`.
+- **Task 3 — The frame prints once per session.** `6d2a97d feat(motion): the grid draws itself on the first page of a session`, `7798d45 fix(motion): the frame prints once, not on every navigation`. Shipped: `PrintFrame`, `data-js`/`data-print` on `<html>`, rule/mark draw-in gated to the first page of a session, with the `data-print` removal timeout (Ruling R9) so later navigations don't replay it.
+- **Task 4 — Content prints on every page.** `f88effa feat(motion): content blocks print in as they enter the viewport`. Shipped: `useReveal` + `.print-in`, applied to Home "get to know" cards, `ProjectsCard`, About `Block`s, Tech Stack groups, `NotebookInProgress`, the Contact `Terminal`, `BookshelfState`.
+- **Task 5 — Scenes resolve, and the reduced-motion kill switch.** `9d60015 feat(motion): scenes resolve in three steps; one reduced-motion switch for the whole system`, `6c6225b fix(motion): the reduced-motion switch outranks every motion rule`. Shipped: `Scene`'s `reveal` prop and `.scene-reveal` three-step resolve; the single `@media (prefers-reduced-motion: reduce)` block, hardened to `!important` per Ruling R10 so it outranks rules written after it.
+- **Task 6 — Terminal typing.** `6f02cfd feat(motion): eyebrows and terminal titles type themselves`. Shipped: `Typewriter`, wrapping hero eyebrow text and `Terminal` lines, with the cursor removed via a `visibility` keyframe (Ruling R4).
+- **Task 7 — Dithered screenshots and portrait.** `b2d070f feat(assets): ink versions of the project screenshots and the portrait`. Shipped: the second `scripts/dither.ts` manifest and `src/configs/dither.generated.ts`, covering project screenshots and the portrait — the portrait entry uses the fallback source `public/assets/me-green-shirt.png` (Ruling R11) since `art/source/portrait.png` does not exist yet.
+- **Task 8 — `InkImage`.** `46d69e5 feat(ui): InkImage — ink at rest, color on hover for screenshots and on toggle for the portrait`, `0f4514d fix(ui): scope the card hover and honour reduced motion in InkImage`. Shipped: `InkImage` (`hover`/`toggle` modes), used by `ProjectsCard` and `AboutPortrait`; the nested-group leak fixed with a named `group/link` (Ruling R13); `motion-reduce:transition-none` added per Ruling R14.
+- **Task 9 — The `bookshelf-empty` scene.** `6334bcd feat(assets): bookshelf-empty scene for the shelf's empty and error states`. Shipped: the scene asset and its `scenes.generated.ts` entry, with `'bookshelf-empty'` appended to `scenes.generated.test.ts`'s `EXPECTED_NAMES` (Ruling R12).
+- **Task 10 — `BookshelfState` and the wiring.** `afcdada feat(bookshelf): empty and error states on the empty-shelf scene`. Shipped: `BookshelfState`, `src/app/bookshelf/error.tsx`, and `BookshelfItems`' empty/`null` branches.
+- **Task 11 — Documents.** This commit: brand spec §3.3/§4.1/§4.2/§4.4/§5.3/§5.4/§6/§9, `PRODUCT.md` Brand Commitments, and this handoff section.
+- **Task 12 — Visual and motion verification.** Not yet run; see below.
+
+### Deferred minors
+
+- `src/components/app/TechStackGroup.tsx` (Task 4) is typed `React.ComponentProps<'div'>` and spreads `{...props}` onto `Reveal`, which only accepts `as`/`index`/`className`/`children` — arbitrary props are silently dropped; narrow the prop type or forward rest props.
+- `src/test/setup.ts` (Task 4) gained a global `IntersectionObserver` mock, not in the Task 4 brief's file list — needed for jsdom.
+- `Scene.test.tsx` (Task 5): the new `it` sits outside the `describe('Scene')` block.
+- `scripts/dither.ts` (Task 7): the scenes/dithered render loops are structurally duplicated — extract `renderManifest(list, outDir)` if a third manifest appears.
+- `scripts/dither.ts` (Task 7): redundant `mkdir(DITHER_DIR)` — `writeOutputs` already `mkdir`s per file.
+- `InkImage` (Task 8): fade is `duration-300` per the brief vs. spec §4.2's 250 ms — brief/spec inconsistency, flagged for final review to triage.
+- `InkImage`/`ProjectsCard` (Task 8): `slug as DitherName` cast bypasses type safety; a new `works.ts` slug without a dither entry fails only at runtime.
+- `Typewriter` (Task 6): `steps(var(--chars, 1), end)` becomes `steps(0)` for an empty text (no current caller passes one).
+- `Typewriter` (Task 6): the `::after` cursor glyph may be announced by some screen readers (pseudo-element, inherent to the spec's CSS).
+- `PrintFrame` (Task 3): under React Strict Mode (dev only) the double-invoked effect sets `data-print`, clears its own removal timer, then early-returns — `data-print` persists in dev and the print replays per navigation in dev; production unaffected. Final review to triage.
+- `PrintFrame` (Task 3): navigation inside the ~1.1 s print window still replays rule-draw on the new page (inherent to the Ruling R9 timeout approach).
+
+### Rulings worth knowing
+
+- **R1** — Task 5's combined rule is `html[data-js] .scene-reveal.scene-drift { animation: scene-resolve …, scene-drift … }` inside the `no-preference` media query; otherwise `html[data-js] .scene-reveal` out-specifies it and heroes lose the drift.
+- **R2** — Task 5's reduced-motion test passes a `raw:` content string carrying the classes under test, so Tailwind doesn't purge them.
+- **R3** — Task 6's `Terminal.test.tsx`: the title text lives in the `Typewriter` span; the test asserts `eyebrow-text` on `screen.getByText(/tech-stack/).closest('p')`.
+- **R4** — Task 6's cursor removal animates `visibility` (`cursor-out { to { visibility: hidden } }`), not `content`; the `::after` animation list is `blink …, cursor-out 1ms linear <delay> forwards` (last wins after its delay).
+- **R5** — Task 8's `InkImage` toggle test uses `fireEvent.click(button)`, not `button.click()`.
+- **R6** — the plan branch is cut from the local `docs/rebrand-plan-4-spec` (`dd5a6d5`), identical to the unpushed `origin/` name the plan cites.
+- **R7** — Task 2's `Separator` `screen`-variant removal was blocked by the auto-mode classifier (it refuses a subagent prompt that instructs a file deletion); deferred to Task 11/final review. **Resolved**: removed by the controller in `152c9ad` (tsc + 130 tests green after removal).
+- **R8** — the Task 3 review finding "rule-draw/mark-in not gated by `prefers-reduced-motion`" isn't a Task 3 gap: spec §3 mandates one reduced-motion block disabling everything, delivered in Task 5. The extended ruling closes the same finding for Task 4's `.print-in`.
+- **R9** — the Task 3 review finding "print replays on every client navigation" is real; fix is `PrintFrame` removing `data-print` from `<html>` on a timeout (`rules.length * 60 + 400` ms, floor 1100 ms) after mount, cleared on unmount. Cost if wrong: an animation cut short if the estimate undershoots.
+- **R10** — the Task 5 review finding "reduced-motion block loses on specificity" is real; the three neutralising declarations became `animation: none !important; transition: none !important; clip-path: none !important;` so a kill switch beats rules not yet written.
+- **R11** — `art/source/portrait.png` doesn't exist, so Task 7's `portrait` manifest entry uses the brief's fallback `source: 'public/assets/me-green-shirt.png'`; one manifest line and a `pnpm dither` re-run when the real portrait lands.
+- **R12** — Task 9's `scenes.generated.test.ts` holds a fixed `EXPECTED_NAMES` list rather than auto-discovering entries; `'bookshelf-empty'` was appended to that list.
+- **R13** — Task 8's nested-`group` leak (Tailwind's unnamed `group-hover:` is a descendant selector) is fixed by naming the inner "Visit site" `Button` group `group/link` in `ProjectsCard.tsx`, with `group-hover/link:translate-x-1` on its arrow; the `Card` keeps the plan's bare `group`.
+- **R14** — spec §4.2 binds `InkImage`: reduced motion removes the fade duration only, so `motion-reduce:transition-none` was added to the ink `<img>` transition classes in `InkImage.tsx` and to `imageClassName` in `ProjectsCard.tsx`.
+
+### Waits on Felipe
+
+- **Portrait file** — `art/source/portrait.png` is still absent; Task 7's dither manifest uses `me-green-shirt.png` as a fallback (Ruling R11) until the real portrait lands, then one manifest line changes and `pnpm dither` re-runs.
+- **Project metrics** — `src/configs/works.ts`: `call`/`result` on each project with a measured outcome, plus the corresponding `works.test.ts` update (currently only `zeus-agrotech` has a `result`).
+- **Equals URLs** — `src/configs/works.ts`: real `url`s for `equals-venue`, `equals-sport`, `equals9`.
+- **Social handle** — `src/constants/social.ts`: confirm `SOCIAL_LINKS.x` (and the others) point at real profiles, so `src/app/layout.tsx`'s `twitter` block can gain a real `creator` handle.
+
+Task 12 (visual and motion verification) updates this section.

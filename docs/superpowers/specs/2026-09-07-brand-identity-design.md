@@ -94,6 +94,8 @@ Outcome (2026-09-08): the four archetypes were generated; Felipe chose a fifth d
 | Tech Stack  | Scriptorium tool bench: quills, rulers, inks, knives                              |
 | Contact     | Sealed letter; the wax seal carries the FM ex-libris                              |
 
+Bookshelf also has an empty/error scene: `bookshelf-empty` — an empty shelf with one candle; used for the Bookshelf's empty and error states (Plan 4).
+
 Scenes sit behind headlines/hero only — never behind body text (see §5.3).
 
 ---
@@ -119,6 +121,8 @@ Dark-only. `color-scheme: dark`. Sun/Moon icons and any theme toggle are removed
 
 **Hard rule:** amber appears **at most once per viewport**. If two elements compete for amber, one becomes `parchment`.
 
+`parchment-mute` is never a text color; tertiary text (eyebrows, labels, meta) is `parchment-dim` (Plan 4).
+
 Removed: all current translucent accents (`blue`, `red`, `yellow` at 43%), `onyx`, `card-border`, `card-bg`, `nav-border`, `info`, `warning`. `colors.ts` is replaced wholesale.
 
 ### 4.2 Typography
@@ -133,6 +137,8 @@ Three families, three roles (plus one accent face). Nanum Pen Script and Calibri
 | **Serif (voice)** | _Instrument Serif_, italic                                                                                             | Quotes, sign-off line, Notebook note titles. Sparingly.                                                                                               |
 
 The display family is decided visually during Phase B comps; the spec fixes the role and rules, not the file.
+
+Display headings apply to `h1`/`h2` outside `<dialog>` only — content inside a `<dialog>` is a document, not a page title (Plan 4).
 
 ### 4.3 Brand mark — the FM ex-libris
 
@@ -151,7 +157,7 @@ An ex-libris is the mark an owner stamps in their books; it fits the Paladin/boo
 
 Derived from the Alethe components reference:
 
-- **Line grid.** Central container with 1px `line` vertical borders. Sections separated by horizontal lines, not whitespace. Registration marks (`⌐ ¬`) at corners of major sections.
+- **Line grid.** Central container with 1px `line` vertical borders. Sections separated by horizontal lines, not whitespace. Registration marks (`⌐ ¬`) at corners of major sections. Horizontal structural lines are full-bleed (`.rule-t`/`.rule-b`); vertical lines are the `Container`; box borders (cards, terminal, form fields) stay in their boxes (Plan 4).
 - **Eyebrow.** Every block opens with `■ LABEL` in Departure Mono: 6px square (`parchment-mute`; `amber` when active) + uppercase text. Replaces the current `.header-text`.
 - **Cards.** Radius ≤ 2px. No shadow. Background `ink-2`. Separated by lines. Bento grid and 3D card are removed; straight grids only.
 - **Buttons.** Primary: solid `parchment` with `ink` text (the solid-white button of the references). Amber only on the page's single main CTA. Secondary: `line` outline. Tertiary: text with mono underline.
@@ -179,7 +185,7 @@ Derived from the Alethe components reference:
 ### 5.3 Placement and contrast
 
 - Scenes live behind headlines/hero, never behind running text.
-- A scrim `ink → transparent` guarantees WCAG AA contrast on any text over a scene.
+- A scrim `ink → transparent` guarantees WCAG AA contrast on any text over a scene. On `PageHero`s the top scrim is `h-1/2 from-ink via-ink/80 via-50%` (Plan 4).
 
 ### 5.4 Motion
 
@@ -187,6 +193,17 @@ Derived from the Alethe components reference:
 - `prefers-reduced-motion` disables all dither/warp animation.
 - WebGL effects load lazily; fallback is the static dithered PNG/WebP.
 - Existing keyframes that don't serve this system (bounce-in, text-generate effect) are removed.
+
+Four motion primitives (Plan 4):
+
+- **The frame prints, once per session.** Structural rules and registration marks draw in on the first page of a session only; a returning navigation within the same session does not replay them.
+- **Content prints in on intersection.** Cards, blocks and other content units reveal as they enter the viewport, on every page.
+- **Scenes resolve in three steps.** A scene's dithered image resolves in discrete steps rather than fading, echoing the dither computation itself.
+- **Eyebrows and terminal titles type.** Hero eyebrows and terminal titles animate as if typed, once per mount.
+
+`prefers-reduced-motion: reduce` disables the whole system in one switch — nothing prints, reveals, resolves or types; the page renders complete immediately.
+
+No page transitions — `<ViewTransition>` is not in stable React 19.2 (spike 2026-09-09).
 
 ---
 
@@ -209,6 +226,8 @@ Sources with a model-drawn frame border may be cropped by luminance bounds inste
 `scripts/dither.ts` (sharp):
 `input → grayscale → contrast curve → Bayer 8×8 (or F–S) → 1-bit PNG + WebP`.
 Parameters (threshold, curve, cell size) are constants in the script, not CLI flags, so every scene is processed identically. Committed to the repo; re-runnable when illustrations are swapped.
+
+`pnpm dither` also renders `public/dither/*` from the `dithered` manifest (screenshots, portrait; Floyd–Steinberg) (Plan 4).
 
 ### 6.4 Mark and meta
 
@@ -258,17 +277,24 @@ Impeccable usage in Phase B: `new-work` in **redesign** mode (old look = anti-re
 
 ## 9. Decisions log
 
-| Decision    | Chosen                                                      | Alternatives considered                                                                        |
-| ----------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Deliverable | Identity spec first, then site                              | Site-as-brand; both at once                                                                    |
-| Brand name  | Felipe Mateus                                               | Avulso; hybrid                                                                                 |
-| Character   | Fictional alter-ego (Scribe)                                | Self-portrait 1-bit; self-as-character; scenery only; Master Builder; Cartographer; Chronicler |
-| Color       | Mono + single amber accent                                  | Absolute mono; per-section accents; phosphor green; ink red                                    |
-| Typography  | Display grotesk + Inter + Departure Mono + Instrument Serif | Pure Alethe trio; full pixel type                                                              |
-| Effects     | Dithered scene per section, CRT hero-only                   | Hero-only; global CRT overlay                                                                  |
-| Mark        | FM ex-libris seal                                           | Wordmark only; evolved `[f]`; character head                                                   |
-| Production  | Higgsfield + code dither pipeline                           | Commissioned; hybrid                                                                           |
-| Theme       | Dark-only                                                   | Dark + "paper" light                                                                           |
-| Copy        | English, voice rewritten to dev+owner positioning           | Keep current voice; bilingual                                                                  |
-| Character   | Paladin (user-supplied concept)                             | Scribe (generated), Cartographer, Knight, Astronomer                                           |
-| Mark        | AI-generated blackletter FM + sword, vectorized             | hand-drawn FM interlace, double-fillet seal, rune                                              |
+| Decision                           | Chosen                                                                                                                                           | Alternatives considered                                                                                                           |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| Deliverable                        | Identity spec first, then site                                                                                                                   | Site-as-brand; both at once                                                                                                       |
+| Brand name                         | Felipe Mateus                                                                                                                                    | Avulso; hybrid                                                                                                                    |
+| Character                          | Fictional alter-ego (Scribe)                                                                                                                     | Self-portrait 1-bit; self-as-character; scenery only; Master Builder; Cartographer; Chronicler                                    |
+| Color                              | Mono + single amber accent                                                                                                                       | Absolute mono; per-section accents; phosphor green; ink red                                                                       |
+| Typography                         | Display grotesk + Inter + Departure Mono + Instrument Serif                                                                                      | Pure Alethe trio; full pixel type                                                                                                 |
+| Effects                            | Dithered scene per section, CRT hero-only                                                                                                        | Hero-only; global CRT overlay                                                                                                     |
+| Mark                               | FM ex-libris seal                                                                                                                                | Wordmark only; evolved `[f]`; character head                                                                                      |
+| Production                         | Higgsfield + code dither pipeline                                                                                                                | Commissioned; hybrid                                                                                                              |
+| Theme                              | Dark-only                                                                                                                                        | Dark + "paper" light                                                                                                              |
+| Copy                               | English, voice rewritten to dev+owner positioning                                                                                                | Keep current voice; bilingual                                                                                                     |
+| Character                          | Paladin (user-supplied concept)                                                                                                                  | Scribe (generated), Cartographer, Knight, Astronomer                                                                              |
+| Mark                               | AI-generated blackletter FM + sword, vectorized                                                                                                  | hand-drawn FM interlace, double-fillet seal, rune                                                                                 |
+| Scope split (Plan 4)               | Plan 4 = polish (this spec); Plan 5 = About page redesign (own brainstorm); motion stays inside Plan 4, may spin out to a Plan 6 if unsatisfying | One plan for everything                                                                                                           |
+| `parchment-mute` contrast (Plan 4) | Token becomes decorative/inactive only; tertiary text uses `parchment-dim`; scrims guarantee the background over scenes                          | Raise the token value; contextual eyebrow color per page                                                                          |
+| Structural lines (Plan 4)          | Horizontal rules are full-bleed via a CSS utility; verticals stay the `Container`                                                                | Only navbar + footer full-bleed                                                                                                   |
+| Motion (Plan 4)                    | "The page prints" + ink↔color + terminal typing; no page transitions                                                                             | Page transitions via React `<ViewTransition>` (spike 2026-09-09: not in stable React 19.2.3, Next flag is a client no-op → no-go) |
+| Motion frequency (Plan 4)          | Frame prints once per session; content reveals on every page                                                                                     | Everything on every visit; everything once per session                                                                            |
+| Bookshelf empty/error (Plan 4)     | One new dithered scene, copy differentiates the states                                                                                           | Two scenes; reuse the hero scene                                                                                                  |
+| Résumé modal type (Plan 4)         | Display heading styles scoped out of `<dialog>`                                                                                                  | Per-component overrides                                                                                                           |
