@@ -2,7 +2,9 @@ import ArrowRightIcon from '@/components/icons/ArrowRight'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { Eyebrow } from '@/components/ui/Eyebrow'
+import { InkImage } from '@/components/ui/InkImage'
 import { Reveal } from '@/components/ui/Reveal'
+import { DitherName } from '@/configs/dither.generated'
 import { Project } from '@/configs/works'
 import { cn } from '@/lib/utils/cn'
 import Image from 'next/image'
@@ -30,6 +32,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
   className,
 }) => {
   const {
+    slug,
     title,
     role,
     period,
@@ -49,7 +52,7 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
       <Card
         as='article'
         className={cn(
-          'flex w-full flex-col overflow-hidden tablet:flex-row',
+          'group flex w-full flex-col overflow-hidden transition-colors hover:border-parchment-dim tablet:flex-row',
           className
         )}
       >
@@ -108,17 +111,18 @@ const ProjectsCard: React.FC<ProjectsCardProps> = ({
           ) : null}
         </div>
 
-        <div className='relative hidden max-w-[28rem] shrink-0 grow border-l border-line tablet:flex'>
-          <Image
-            className={cn('object-cover object-left', {
-              'object-top': screenshotView === 'tablet',
-            })}
-            src={image}
-            alt={`${title} screenshot`}
-            fill
-            sizes='(min-width: 768px) 28rem, 0px'
-          />
-        </div>
+        <InkImage
+          name={slug as DitherName}
+          src={image}
+          alt={`${title} screenshot`}
+          mode='hover'
+          sizes='(min-width: 768px) 28rem, 0px'
+          className='hidden max-w-[28rem] shrink-0 grow border-l border-line tablet:block'
+          imageClassName={cn(
+            'object-left transition-transform duration-[400ms] ease-out group-hover:scale-[1.04]',
+            { 'object-top': screenshotView === 'tablet' }
+          )}
+        />
       </Card>
     </Reveal>
   )
