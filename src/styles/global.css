@@ -120,12 +120,12 @@
     animation-delay: 900ms;
   }
 
-  .print-in > * {
-    transition: clip-path 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
-    transition-delay: calc(var(--reveal-i, 0) * 80ms);
-  }
   html[data-js] .print-in:not([data-revealed]) > * {
     clip-path: inset(100% 0 0 0);
+  }
+  html[data-js] .print-in[data-revealed] > * {
+    animation: print-in 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--reveal-i, 0) * 80ms);
   }
 
   html[data-js] .scene-reveal {
@@ -236,5 +236,14 @@
 @keyframes cursor-out {
   to {
     visibility: hidden;
+  }
+}
+
+@keyframes print-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
   }
 }

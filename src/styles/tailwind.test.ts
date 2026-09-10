@@ -150,12 +150,17 @@ describe('tailwind theme', () => {
         content: [{ raw: '<div class="print-in"></div>', extension: 'html' }],
       }),
     ]).process(css, { from: undefined })
-    expect(result.css).toMatch(/\.print-in\s*>\s*\*[^}]*transition/)
+    expect(result.css).toMatch(
+      /html\[data-js\] \.print-in\[data-revealed\]\s*>\s*\*[^}]*animation:\s*print-in/
+    )
     expect(result.css).toMatch(
       /html\[data-js\] \.print-in:not\(\[data-revealed\]\)\s*>\s*\*[^}]*clip-path:\s*inset\(100% 0 0 0\)/
     )
     expect(result.css).not.toMatch(
       /html\[data-js\] \.print-in:not\(\[data-revealed\]\)\s*\{/
+    )
+    expect(result.css).toMatch(
+      /@keyframes print-in[\s\S]*?to\s*\{[^}]*clip-path:\s*inset\(0 0 0 0\)/
     )
   })
 

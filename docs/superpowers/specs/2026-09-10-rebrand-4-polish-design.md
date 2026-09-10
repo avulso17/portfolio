@@ -115,18 +115,28 @@ Navbar desktop bottom (`border-b` → `rule-b`); the bottom of every `PageHero` 
 
 ### 3.3 Content prints — every page
 
-Hook `useReveal<T extends HTMLElement>(): RefObject<T>` — IntersectionObserver, `threshold: 0.2`, `rootMargin: '0px 0px -10% 0px'`, fires once, sets `data-revealed` on the element, disconnects. Class `.print-in`:
+Hook `useReveal<T extends HTMLElement>(): RefObject<T>` — IntersectionObserver, `threshold: 0.2`, `rootMargin: '0px 0px -10% 0px'`, fires once, sets `data-revealed` on the element, disconnects. Class `.print-in` wipes its children in with a keyframe rather than transitioning the discrete `clip-path: inset()` end state, so it never pops:
 
 ```css
-html[data-js] .print-in:not([data-revealed]) {
+html[data-js] .print-in:not([data-revealed]) > * {
   clip-path: inset(100% 0 0 0);
 }
-.print-in {
-  transition: clip-path 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+html[data-js] .print-in[data-revealed] > * {
+  animation: print-in 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--reveal-i, 0) * 80ms);
+}
+
+@keyframes print-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 ```
 
-Applied to: the four Home "get to know" cards (staggered by `transition-delay: calc(var(--reveal-i, 0) * 80ms)`, with `--reveal-i` set inline from the map index), each `ProjectsCard`, the About `Block`s, the Tech Stack groups, `NotebookInProgress`, the Contact `Terminal`, `BookshelfState`.
+Applied to: the four Home "get to know" cards (staggered by `animation-delay: calc(var(--reveal-i, 0) * 80ms)`, with `--reveal-i` set inline from the map index), each `ProjectsCard`, the About `Block`s, the Tech Stack groups, `NotebookInProgress`, the Contact `Terminal`, `BookshelfState`.
 
 ### 3.4 Scenes resolve
 
