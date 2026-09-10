@@ -151,9 +151,9 @@
     .scene-drift,
     .typewriter,
     .typewriter::after {
-      animation: none;
-      transition: none;
-      clip-path: none;
+      animation: none !important;
+      transition: none !important;
+      clip-path: none !important;
     }
     html[data-print] .rule-t::before,
     html[data-print] .rule-b::after {

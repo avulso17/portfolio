@@ -168,7 +168,7 @@ describe('tailwind theme', () => {
     ]) {
       expect(reduced![1]).toContain(cls)
     }
-    expect(reduced![1]).toMatch(/animation:\s*none/)
-    expect(reduced![1]).toMatch(/clip-path:\s*none/)
+    expect(reduced![1]).toMatch(/animation:\s*none\s*!important/)
+    expect(reduced![1]).toMatch(/clip-path:\s*none\s*!important/)
   })
 })
