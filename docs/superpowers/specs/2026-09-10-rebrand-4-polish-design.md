@@ -106,12 +106,7 @@ Navbar desktop bottom (`border-b` → `rule-b`); the bottom of every `PageHero` 
 
 ### 3.2 The frame prints — once per session
 
-`PrintFrame` (client component, rendered once in `RootLayout`): on mount, sets `data-js` on `<html>`; reads `sessionStorage.getItem('printed')` inside `try/catch` (private mode / blocked storage → treat as already printed); if absent, sets `data-print` on `<html>` and stores the key. Only under `html[data-print]`:
-
-- `.rule-t::before` / `.rule-b::after` animate `scaleX(0) → scaleX(1)`, `transform-origin: left`, 400 ms `ease-out`, delayed by `calc(var(--rule-i, 0) * 60ms)`. `PrintFrame`'s mount effect queries `document.querySelectorAll('.rule-t, .rule-b')` in DOM order and sets `--rule-i` on each (`style.setProperty`) before adding `data-print`, so components never carry the index themselves.
-- The `Container` registration marks fade in (opacity 0 → 1, 200 ms) after the last rule.
-
-`scaleX` never affects layout, so there is no shift.
+Removed on 2026-09-12 at Felipe's request. The structural rules and the `Container` registration marks are static; `JsFlag` (client component, rendered once in `RootLayout`) only sets `data-js` on `<html>` on mount, which the rest of the motion system still keys off.
 
 ### 3.3 Content prints — every page
 

@@ -171,7 +171,7 @@ describe('tailwind theme', () => {
         ...tailwindConfig,
         content: [
           {
-            raw: '<div class="print-in scene-reveal scene-drift rule-t rule-b reg-mark typewriter"></div>',
+            raw: '<div class="print-in scene-reveal scene-drift rule-t rule-b typewriter"></div>',
             extension: 'html',
           },
         ],
@@ -185,7 +185,6 @@ describe('tailwind theme', () => {
       '.print-in',
       '.scene-reveal',
       '.rule-t::before',
-      '.reg-mark',
       '.typewriter',
     ]) {
       expect(reduced![1]).toContain(cls)
@@ -195,5 +194,6 @@ describe('tailwind theme', () => {
     expect(reduced![1]).toMatch(
       /\.typewriter::after[^}]*content:\s*none\s*!important/
     )
+    expect(result.css).not.toMatch(/data-print|rule-draw|mark-in/)
   })
 })

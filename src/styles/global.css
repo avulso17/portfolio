@@ -109,16 +109,6 @@
   .rule-b::after {
     bottom: 0;
   }
-  html[data-print] .rule-t::before,
-  html[data-print] .rule-b::after {
-    transform-origin: left;
-    animation: rule-draw 400ms ease-out both;
-    animation-delay: calc(var(--rule-i, 0) * 60ms);
-  }
-  html[data-print] .reg-mark {
-    animation: mark-in 200ms ease-out both;
-    animation-delay: 900ms;
-  }
 
   html[data-js] .print-in:not([data-revealed]) > * {
     clip-path: inset(100% 0 0 0);
@@ -161,7 +151,6 @@
   @media (prefers-reduced-motion: reduce) {
     .rule-t::before,
     .rule-b::after,
-    .reg-mark,
     .print-in,
     .print-in > *,
     .scene-reveal,
@@ -175,10 +164,6 @@
     .typewriter::after {
       content: none !important;
     }
-    html[data-print] .rule-t::before,
-    html[data-print] .rule-b::after {
-      transform: translateX(-50%);
-    }
   }
 }
 
@@ -188,24 +173,6 @@
   }
   to {
     transform: translateY(-4px);
-  }
-}
-
-@keyframes rule-draw {
-  from {
-    transform: translateX(-50%) scaleX(0);
-  }
-  to {
-    transform: translateX(-50%) scaleX(1);
-  }
-}
-
-@keyframes mark-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 

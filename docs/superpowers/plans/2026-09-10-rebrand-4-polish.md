@@ -1528,3 +1528,7 @@ The final review approved the architecture (CSS-first motion, nothing hidden bef
 Probe after the wave (headless Chrome 151): on `/projects` the revealed child runs the `print-in` animation to `inset(0%)`, the ink layer transitions `opacity 0.25s, transform 0.4s`, the colour layer `transform 0.4s`, the card keeps `transition-colors`; under reduced motion no animations, `clip-path: none`, ink transition `none`, cursor `content: none` on `/` and on the Terminal title.
 
 Still deferred (final review's triage): the ~1.1 s navigation window replay, Strict-Mode `data-print` in dev, `steps(0)` for an empty Typewriter, the `::after` cursor for screen readers, the duplicated render loops in `scripts/dither.ts`, the `slug as DitherName` cast (guarded by `dither.generated.test.ts`), the brightest 1–10 % of the Home eyebrow background at ≈4.1:1, `roles.test.ts`'s variant-prefix lookbehind, `InkImage` being a client component in hover mode. Felipe still owes one live pass in a foreground tab — normal and reduced motion.
+
+### Frame-print animation removed (2026-09-12)
+
+The frame-print animation (Task 3: `.rule-t`/`.rule-b` drawing in and the `Container` registration marks fading in, once per session) was removed at Felipe's request. The rules and marks are now static; `PrintFrame` was renamed to `JsFlag`, which only sets `data-js` on `<html>`. Everything else in the motion system (content print-in, scene resolve, typewriter, the reduced-motion switch) is unchanged. Commit: `refactor(motion): drop the frame-print animation, keep the js flag`.

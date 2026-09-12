@@ -191,9 +191,8 @@ Derived from the Alethe components reference:
 
 WebGL effects load lazily; fallback is the static dithered PNG/WebP.
 
-Four motion primitives (Plan 4):
+Three motion primitives (Plan 4):
 
-- **The frame prints, once per session.** Structural rules and registration marks draw in on the first page of a session only; a returning navigation within the same session does not replay them.
 - **Content prints in on intersection.** Cards, blocks and other content units reveal as they enter the viewport, on every page.
 - **Scenes resolve in three steps.** A scene's dithered image resolves in discrete steps rather than fading, echoing the dither computation itself; the existing ≤ 4px scene drift is unchanged and continues after.
 - **Eyebrows and terminal titles type.** Hero eyebrows and terminal titles animate as if typed, once per mount.
