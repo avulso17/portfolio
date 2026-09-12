@@ -99,7 +99,7 @@ Navbar desktop bottom (`border-b` → `rule-b`); the bottom of every `PageHero` 
 
 ### 3.1 Principles
 
-- CSS first; JS only to _observe_ (IntersectionObserver, `sessionStorage`) and to add data attributes.
+- CSS first; JS only to _observe_ (IntersectionObserver) and to add data attributes.
 - Nothing is hidden before hydration: every "before" state is gated on `html[data-js]`, which the first client effect sets. Without JS, or before it, the page is complete.
 - `@media (prefers-reduced-motion: reduce)` disables the whole system in one block: `.rule-t::before, .rule-b::after, .print-in, .scene-reveal, .typewriter { animation: none; transition: none; clip-path: none; transform: none; }` — plus the existing drift and CRT rules.
 - No infinite loops except the 4 px scene drift and the typewriter cursor while typing. No 3D tilt, no generic fades, no hover motion beyond §4.
@@ -159,7 +159,7 @@ Three discrete steps, `image-rendering: pixelated` throughout — the image reso
 
 ### 3.6 Tests
 
-Vitest with IntersectionObserver stubbed: `useReveal` sets `data-revealed` on intersection; `PrintFrame` sets `data-js`, sets `data-print` only when the key is absent, and does not throw when `sessionStorage` throws; `Typewriter` renders the full text on first render and sets `--chars`. Visual verification in the final pass (Chrome real, once with reduced motion emulated in DevTools: nothing moves).
+Vitest with IntersectionObserver stubbed: `useReveal` sets `data-revealed` on intersection; `JsFlag` sets `data-js`; `Typewriter` renders the full text on first render and sets `--chars`. Visual verification in the final pass (Chrome real, once with reduced motion emulated in DevTools: nothing moves).
 
 ## 4. Ink ↔ color
 
@@ -212,7 +212,7 @@ Ten tokens only; amber at most once per viewport (Home = hero CTA, Contact = wax
 
 ### 6.2 Verification
 
-Per-section unit tests above; screenshot pass at 390 (iframe harness from Plan 3 — headless Chrome clamps windows to 500 px), 768 and 1440 on all seven routes; real Chrome twice for motion — normal, and with `prefers-reduced-motion` emulated in DevTools (nothing moves); `sessionStorage` blocked (private window) does not break `PrintFrame`; Lighthouse on Home and Projects before/after — LCP and CLS must not regress (clip-path and scale do not shift layout; dithered screenshot layers are lazy outside the hero).
+Per-section unit tests above; screenshot pass at 390 (iframe harness from Plan 3 — headless Chrome clamps windows to 500 px), 768 and 1440 on all seven routes; real Chrome twice for motion — normal, and with `prefers-reduced-motion` emulated in DevTools (nothing moves); Lighthouse on Home and Projects before/after — LCP and CLS must not regress (clip-path and scale do not shift layout; dithered screenshot layers are lazy outside the hero).
 
 ### 6.3 Document changes
 
