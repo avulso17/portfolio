@@ -47,7 +47,7 @@ export const CrtWarp: React.FC<Props> = ({ name, className }) => {
         className
       )}
     >
-      {!ready ? (
+      {!ready || !supported ? (
         <Scene name={name} drift={false} scrim='none' priority />
       ) : null}
       {supported ? (
