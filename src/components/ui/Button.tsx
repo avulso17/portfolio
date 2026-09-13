@@ -1,36 +1,25 @@
 import React, { ComponentProps, forwardRef } from 'react'
-
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const buttonStyles = tv({
   base: [
     'inline-flex h-fit shrink-0 items-center justify-center',
-    'whitespace-nowrap font-inter font-medium leading-normal',
-    'relative transition-all duration-200 ease-in-out',
-    'disabled:cursor-default disabled:opacity-50 disabled:grayscale',
+    'whitespace-nowrap rounded-sm font-body text-base font-medium leading-none',
+    'transition-colors duration-150 ease-out',
+    'disabled:cursor-default disabled:opacity-50',
   ],
   variants: {
     variant: {
-      primary: [
-        'bg-base-gradient px-5 py-4 text-white shadow-button',
-        'hover:brightness-125',
+      primary: 'bg-parchment px-5 py-3.5 text-ink hover:bg-parchment-dim',
+      accent: 'bg-amber px-5 py-3.5 text-ink hover:brightness-95',
+      secondary: [
+        'border border-line bg-transparent px-5 py-3.5 text-parchment',
+        'hover:border-parchment-dim',
       ],
-      secondary: ['bg-onyx px-5 py-4 text-gray-dark', 'hover:brightness-125'],
-      text: [
-        'h-[1.125rem] text-base leading-normal text-gray-light',
-        'hover:text-white',
-      ],
+      text: 'rounded-none bg-transparent p-0 text-parchment-dim underline-offset-4 eyebrow-text hover:text-parchment hover:underline',
     },
     icon: {
       true: 'gap-2',
-    },
-    emphasis: {
-      true: 'font-display-medium',
-      false: 'font-display font-normal',
-    },
-    radii: {
-      pill: 'rounded-[2.5rem]',
-      rounded: 'rounded-lg',
     },
     full: {
       true: 'w-full',
@@ -38,9 +27,7 @@ const buttonStyles = tv({
     },
   },
   defaultVariants: {
-    emphasis: true,
     variant: 'primary',
-    radii: 'rounded',
     full: false,
   },
 })
@@ -54,26 +41,14 @@ export type ButtonProps = ComponentProps<'button'> &
   }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  {
-    children,
-    className,
-    emphasis,
-    radii,
-    variant,
-    full,
-    leftIcon,
-    rightIcon,
-    ...props
-  },
-  forwardRef
+  { children, className, variant, full, leftIcon, rightIcon, ...props },
+  ref
 ) {
   return (
     <button
-      ref={forwardRef}
+      ref={ref}
       className={buttonStyles({
         className,
-        emphasis,
-        radii,
         variant,
         icon: leftIcon !== undefined || rightIcon !== undefined,
         full,

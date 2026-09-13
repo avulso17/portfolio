@@ -17,7 +17,7 @@ const SocialButton: React.FC<SocialButtonProps> = ({
   return (
     <Link
       href={href ?? '/'}
-      className='w-fit text-gray-dark transition-colors hover:text-white'
+      className='w-fit text-parchment-dim transition-colors hover:text-parchment'
       {...props}
     >
       {children}
@@ -27,34 +27,38 @@ const SocialButton: React.FC<SocialButtonProps> = ({
 
 const ContactSocialButtonGroup: React.FC = () => {
   return (
-    <div className='mx-auto mt-16 flex w-fit max-w-[12.75rem] flex-wrap items-center gap-y-11 px-4 mobile:max-w-none mobile:gap-x-11'>
-      <div className='flex w-fit items-center gap-11'>
-        <SocialButton href={SOCIAL_LINKS.youTube}>
-          <YouTubeIcon className='text-3xl' />
-        </SocialButton>
+    <div className='flex flex-wrap gap-6'>
+      <SocialButton href={SOCIAL_LINKS.youTube} aria-label='YouTube'>
+        <YouTubeIcon className='text-2xl' />
+      </SocialButton>
 
-        <SocialButton href={SOCIAL_LINKS.linkedIn}>
-          <LinkedInIcon className='text-3xl' />
-        </SocialButton>
+      <SocialButton href={SOCIAL_LINKS.linkedIn} aria-label='LinkedIn'>
+        <LinkedInIcon className='text-2xl' />
+      </SocialButton>
 
-        <SocialButton href={SOCIAL_LINKS.instagram}>
-          <InstagramIcon className='text-3xl' />
-        </SocialButton>
-      </div>
+      <SocialButton href={SOCIAL_LINKS.instagram} aria-label='Instagram'>
+        <InstagramIcon className='text-2xl' />
+      </SocialButton>
 
-      <div className='flex w-fit items-center gap-11'>
-        <SocialButton href={SOCIAL_LINKS.x} target='_blank'>
-          <TwitterIcon className='text-3xl' />
-        </SocialButton>
+      <SocialButton href={SOCIAL_LINKS.x} target='_blank' aria-label='X'>
+        <TwitterIcon className='text-2xl' />
+      </SocialButton>
 
-        <SocialButton href={SOCIAL_LINKS.github} target='_blank'>
-          <GitHubIcon className='text-3xl' />
-        </SocialButton>
+      <SocialButton
+        href={SOCIAL_LINKS.github}
+        target='_blank'
+        aria-label='GitHub'
+      >
+        <GitHubIcon className='text-2xl' />
+      </SocialButton>
 
-        <SocialButton href={SOCIAL_LINKS.discord} target='_blank'>
-          <DiscordIcon className='text-3xl' />
-        </SocialButton>
-      </div>
+      <SocialButton
+        href={SOCIAL_LINKS.discord}
+        target='_blank'
+        aria-label='Discord'
+      >
+        <DiscordIcon className='text-2xl' />
+      </SocialButton>
     </div>
   )
 }

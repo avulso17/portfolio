@@ -15,7 +15,7 @@ const BookshelfBook: React.FC<BookshelfBookProps> = ({
   return (
     <div
       className={cn(
-        'relative z-0 w-full overflow-hidden rounded-md',
+        'relative z-0 w-full overflow-hidden rounded-sm border border-line',
         className
       )}
       {...props}
@@ -118,7 +118,7 @@ const BookshelfBook: React.FC<BookshelfBookProps> = ({
       </svg>
 
       <Image
-        className='-z-10 bg-onyx object-cover'
+        className='-z-10 bg-ink-2 object-cover'
         src={cover}
         alt={name}
         fill

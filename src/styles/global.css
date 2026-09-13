@@ -10,13 +10,13 @@
   }
 
   html {
-    @apply h-full text-body;
+    @apply h-full overflow-x-hidden text-body;
     color-scheme: dark;
   }
 
   html,
   body {
-    @apply overflow-x-hidden scroll-smooth bg-black font-inter text-white text-body;
+    @apply scroll-smooth bg-ink font-body text-parchment text-body;
   }
 
   body {
@@ -42,7 +42,7 @@
   }
 
   button {
-    @apply select-none text-lg outline-none focus:underline;
+    @apply select-none outline-none;
   }
 
   h1,
@@ -58,8 +58,16 @@
     @apply font-normal;
   }
 
-  h1 {
-    @apply hero-title;
+  h1:not(dialog *) {
+    @apply display-1;
+  }
+
+  h2:not(.eyebrow-text):not(dialog *) {
+    @apply display-2;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-amber;
   }
 
   input[type='number']::-webkit-inner-spin-button,
@@ -76,7 +84,133 @@
   }
 
   ::selection {
-    -webkit-text-fill-color: #ffffff;
-    @apply bg-red;
+    @apply bg-parchment text-ink;
+  }
+}
+
+@layer utilities {
+  .rule-t,
+  .rule-b {
+    position: relative;
+  }
+  .rule-t::before,
+  .rule-b::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 100vw;
+    height: 1px;
+    transform: translateX(-50%);
+    background: theme('colors.line');
+  }
+  .rule-t::before {
+    top: 0;
+  }
+  .rule-b::after {
+    bottom: 0;
+  }
+
+  html[data-js] .print-in:not([data-revealed]) > * {
+    clip-path: inset(100% 0 0 0);
+  }
+  html[data-js] .print-in[data-revealed] > * {
+    animation: print-in 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--reveal-i, 0) * 80ms);
+  }
+
+  html[data-js] .scene-reveal {
+    animation: scene-resolve 450ms steps(3, end) both;
+  }
+
+  .typewriter {
+    display: inline-block;
+    white-space: pre-wrap;
+  }
+  html[data-js] .typewriter {
+    animation: type calc(var(--chars, 1) * 25ms) steps(var(--chars, 1), end)
+      both;
+  }
+  html[data-js] .typewriter::after {
+    content: '▮';
+    color: theme('colors.parchment-dim');
+    animation:
+      blink 1s steps(2, start) infinite,
+      cursor-out 1ms linear calc(var(--chars, 1) * 25ms + 900ms) forwards;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .scene-drift {
+      animation: scene-drift 14s ease-in-out infinite alternate;
+    }
+    html[data-js] .scene-reveal.scene-drift {
+      animation:
+        scene-resolve 450ms steps(3, end) both,
+        scene-drift 14s ease-in-out 450ms infinite alternate;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rule-t::before,
+    .rule-b::after,
+    .print-in,
+    .print-in > *,
+    .scene-reveal,
+    .scene-drift,
+    .typewriter,
+    .typewriter::after {
+      animation: none !important;
+      transition: none !important;
+      clip-path: none !important;
+    }
+    .typewriter::after {
+      content: none !important;
+    }
+  }
+}
+
+@keyframes scene-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes scene-resolve {
+  from {
+    transform: scale(4);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes type {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes cursor-out {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes print-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
   }
 }

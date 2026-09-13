@@ -1,13 +1,16 @@
-import { Header } from '@/components/ui/Header'
+import { PageHero } from '@/components/ui/PageHero'
 
 const BookshelfTemplate: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   return (
     <main>
-      <Header
-        title='Bookshelf'
-        subtitle='Books and pieces of wisdom I&rsquo;ve enjoyed reading.'
+      <PageHero
+        index='03'
+        label='Bookshelf'
+        title='What I read.'
+        subtitle='Books that changed how I decide.'
+        scene='bookshelf-library'
       />
       {children}
     </main>

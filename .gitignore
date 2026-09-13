@@ -38,3 +38,10 @@ next-env.d.ts
 .env
 .env.dev
 .env.development
+
+# impeccable / serena
+.impeccable/screens/
+.serena/
+
+# bundle analyzer output
+analyze/

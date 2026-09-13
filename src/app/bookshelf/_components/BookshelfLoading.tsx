@@ -8,7 +8,7 @@ const BookshelfLoading: React.FC = () => {
         .map((_, index) => (
           <div
             key={index}
-            className='aspect-[244/325] w-full animate-pulse rounded-md bg-onyx'
+            className='aspect-[244/325] w-full rounded-sm border border-line bg-ink-2'
           />
         ))}
     </BookshelfGrid>

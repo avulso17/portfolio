@@ -1,68 +1,104 @@
-export const works = [
+export type Project = {
+  slug: string
+  title: string
+  role: string
+  period: string
+  summary: string
+  call?: string
+  result?: string
+  stack: string[]
+  url?: string
+  icon: string
+  image: string
+  screenshotView?: 'mobile' | 'tablet'
+}
+
+// `call` / `result` are filled only from Felipe's metrics document. The Zeus
+// figure is the one number already on the résumé (src/constants/resume.ts).
+export const works: Project[] = [
   {
-    title: 'Pigmo  - Games Online',
-    description:
-      'Pigmo is a web3 based online gaming app that offers a wide range of games, including slots, table games, etc. I was responsible for the development of the website, which was built with Nextjs and Chakra UI (in the future we switched to PandaCSS + ParkUI). I also worked on the integration of the payment gateway, the implementation of the affiliate/rewards system and translating the app into 16 languages using next-intl.',
+    slug: 'pigmo',
+    title: 'Pigmo',
+    role: 'Front-end foundation, from zero',
+    period: '2023 — present',
+    summary:
+      'Web3 gaming product. I own the front-end: the app itself, the payment-gateway integration, the affiliate and rewards system, and the move from Chakra UI to Panda CSS + Park UI once the design system outgrew the first stack. Shipped in 16 languages.',
+    stack: ['Next.js', 'TypeScript', 'Panda CSS', 'Park UI', 'next-intl'],
     url: 'https://app.pigmo.com',
     icon: '/logos/pigmo-logo.svg',
     image: '/assets/pigmo-screenshot.png',
   },
   {
-    title: 'Portal - Zeus Agrotech',
-    description:
-      "Zeus Agrotech is a 100% Brazilian company, fully committed to the agricultural sector, using advanced technology to capture and analyze information about farm microclimates. I worked on building the new version of the company's legacy app, the main activities developed were: software architecture, choice of stacks, component refactoring, microservices and a lot of teamwork.",
+    slug: 'zeus-agrotech',
+    title: 'Zeus Agrotech portal',
+    role: 'Architecture and rebuild of a legacy app',
+    period: '2022 — 2023',
+    summary:
+      'Farm-microclimate analytics for the Brazilian agricultural sector. I led the front-end rebuild of the legacy portal: architecture, stack decisions, component refactoring and the split into microservices.',
+    call: 'Cut the legacy component layer instead of patching it, and standardize on a shared component base before adding features.',
+    result: 'New-feature development time down by up to 50%.',
+    stack: ['React', 'Next.js', 'TypeScript', 'Microservices'],
     url: 'https://zeusagro.com',
     icon: '/logos/zeus-logo.svg',
     image: '/assets/zeus-screenshot.svg',
   },
   {
+    slug: 'redux-store',
     title: 'Redux Store',
-    description:
-      'This project is a simple store that uses Redux to manage the state of the application. I had the idea to do it because I really appreciate Flux architecture and it would be a good experience to integrate it into a project, where I could manage data globally, facilitating access and manipulation of data.',
+    role: 'Side project',
+    period: '2022',
+    summary:
+      'A store built to pressure-test Flux architecture on a real flow: global state, cart, filters. Small on purpose — the point was the data layer, not the catalog.',
+    stack: ['React', 'Redux', 'TypeScript'],
     url: 'https://redux-store-oficial.vercel.app',
     icon: '/assets/redux-store-icon.svg',
     image: '/assets/redux-store-screenshot.png',
     screenshotView: 'tablet',
   },
   {
+    slug: 'pepy-the-platypus',
     title: 'Pepy The Platypus',
-    description:
-      'A fully customized landing page for a web3-based project. I used Next.js and TailwindCSS, focusing on the user, delivering performance and the best experience for the user.',
+    role: 'Landing page',
+    period: '2023',
+    summary:
+      'Custom landing page for a web3 project, built for load speed and first-visit clarity over decoration.',
+    stack: ['Next.js', 'Tailwind CSS'],
     url: 'https://development-pepy.vercel.app',
     icon: '/logos/pepy-logo.svg',
     image: '/assets/pepy-screenshot.svg',
     screenshotView: 'tablet',
   },
-  // {
-  //   title: 'Flow.ai - AI Photo Generator',
-  //   description:
-  //     'This project aims to generate AI photos in a friendly and modern interface, where the user can take control of the jobs generated and store his most beautiful works of art. I had the idea to do it because I really appreciate Midjourney and it would be a good experience to integrate an AI into a project, where I can generate and manage my arts in a more intuitive and user friendly.',
-  //   url: 'https://flow-ai-oficial.vercel.app/',
-  //   icon: '/logos/logo.svg',
-  //   image: '/assets/pigmo-screenshot.png',
-  // },
   {
+    slug: 'equals-venue',
     title: 'EqualsVenue',
-    description:
-      "A DApp responsible for providing staking for the equals9 company's cryptocurrency (EQ9). Contributes to the app construction, prototyping and drawing the wireframes, designing the components and pages for an MVP and refactoring the app design for the final version.",
-    url: 'https://flow-ai-oficial.vercel.app/',
+    role: 'Front-end and product design',
+    period: '2021 — 2022',
+    summary:
+      'Staking DApp for the EQ9 token. I prototyped the wireframes, designed the components and pages for the MVP, then reworked the design for the release.',
+    stack: ['React', 'TypeScript', 'Web3'],
     icon: '/logos/EqualsVenue-logo.svg',
     image: '/assets/equalsVenue-screenshot.svg',
     screenshotView: 'tablet',
   },
   {
+    slug: 'equals-sport',
     title: 'EqualsSport',
-    description:
-      "Based on blockchain, the app delivers a tournament system that rewards its players with EQ9 (company's cryptocurrency). As a developer and UI/UX Designer, I worked from the beginning of the project to deliver beautiful, modern screens and also deliver the best experience for the user. Very important to me, as I became an expert in building interfaces and was able to improve my knowledge in responsive design.",
-    url: 'https://flow-ai-oficial.vercel.app/',
+    role: 'Front-end and UI/UX',
+    period: '2021 — 2022',
+    summary:
+      'Blockchain tournament platform that pays players in EQ9. I was on it from day one as developer and UI/UX designer, responsible for the screens and the responsive behaviour.',
+    stack: ['React', 'TypeScript', 'Web3'],
     icon: '/logos/EqualsSport-logo.svg',
     image: '/assets/equalsSport-screenshot.svg',
   },
   {
+    slug: 'equals9',
     title: 'Equals9',
-    description:
-      "This is an investment corporation in Brazil that focuses on managing and controlling the capital of a group of companies, as well as acting as a bridge to integrate traditional businesses with blockchain technology. I built the company's institutional website and my first job as a developer.",
-    url: 'https://flow-ai-oficial.vercel.app/',
+    role: 'Institutional website — first job as a developer',
+    period: '2021',
+    summary:
+      'Investment corporation bridging traditional businesses and blockchain. I built the institutional website; it was my first shipped work as a developer.',
+    stack: ['React', 'JavaScript'],
     icon: '/logos/Equals9-logo.svg',
     image: '/assets/equals9-screenshot.svg',
     screenshotView: 'tablet',
